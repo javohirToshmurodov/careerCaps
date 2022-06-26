@@ -23,13 +23,7 @@ export default function JobsCatalog() {
           <SearchForm />
           <div className="row">
             <div className="col-12 text-white">
-              {jobs.map((e, i) => (
-                <div key={i} className="row">
-                  <div className="col-4">
-                    <img src={e.image} alt="" />
-                  </div>
-                </div>
-              ))}
+              
             </div>
           </div>
         </div>
