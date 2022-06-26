@@ -3,6 +3,7 @@ body {
   font-family: "Montserrat", sans-serif !important;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  background: #f5f5f5 !important;
 }
 
 code {
@@ -125,6 +126,37 @@ ul {
   font-weight: 700 !important;
 }
 
+/* jobsCatalogPage */
+.searchButton {
+  background: linear-gradient(3.17deg, #3000d6 -14.65%, #3dd0f0 114.25%);
+  box-shadow: 0px 10px 20px rgba(50, 61, 198, 0.26);
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 15px 42px;
+  border: none;
+  color: white;
+  line-height: 20px;
+}
+.searchInputBox {
+  background: url(./assets/images/search.png) no-repeat left;
+  background-position: 22px;
+  max-width: 500px;
+  min-width: 82%;
+  /* background: #ffffff; */
+  border: 1px solid #c7c7c7;
+  border-radius: 100px;
+  padding: 7px 10px 7px 50px;
+}
+.searchInputBox .searchInput {
+  border: none;
+  font-size: 16px;
+  line-height: 20px;
+  outline: none !important;
+  width: 90%;
+  background-color: transparent;
+}
+
 @media (min-width: 768px) and (max-width: 990px) {
   .positionImage {
     width: 200px;
@@ -133,6 +165,9 @@ ul {
 }
 
 @media (min-width: 447px) and (max-width: 767.9px) {
+  .searchFormBox {
+    flex-wrap: wrap !important;
+  }
   .mainHome {
     text-align: center;
   }
