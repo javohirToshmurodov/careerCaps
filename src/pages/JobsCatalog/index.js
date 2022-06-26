@@ -1,7 +1,6 @@
 import React from "react";
 import mainPic from "../../assets/images/jobsCatalog.png";
 import SearchForm from "../../components/SearchForm";
-import  jobs  from "../../data/jobs";
 export default function JobsCatalog() {
   return (
     <>
