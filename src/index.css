@@ -32,6 +32,9 @@ ul {
 .navbar-toggler:focus {
   box-shadow: 0 0 1px 2px rgba(rgb(55, 55, 251), blue, rgb(6, 30, 245), 0.1) !important;
 }
+.borderLink {
+  border-bottom: 1.5px solid transparent;
+}
 
 /* webkit scrollbar */
 ::-webkit-scrollbar {
@@ -130,10 +133,10 @@ ul {
 }
 
 @media (min-width: 447px) and (max-width: 767.9px) {
-  .mainHome{
+  .mainHome {
     text-align: center;
   }
-  .mainHome .subtitle{
+  .mainHome .subtitle {
     margin-bottom: 0;
   }
   .positionImage {
@@ -145,17 +148,49 @@ ul {
   p {
     font-size: 18px !important;
   }
-  .cardmaker{
+  .cardmaker {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
   }
-  .cardmaker p{
+  .cardmaker p {
     font-size: 18px !important;
   }
-  .outBtn{
+  .outBtn {
     padding: 8px 25px !important;
+  }
+}
+@media (min-width: 0) and (max-width: 446.9px) {
+  .mainHome {
+    text-align: center;
+  }
+  .mainHome .subtitle {
+    margin-bottom: 0;
+  }
+  .positionImage {
+    display: none;
+  }
+  h1 {
+    font-size: 26px !important;
+  }
+  p {
+    font-size: 16px !important;
+    line-height: 1;
+  }
+  .cardmaker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  .cardmaker p {
+    font-size: 16px !important;
+  }
+  .outBtn {
+    padding: 6px 15px !important;
+    margin-bottom: 20px;
   }
 }

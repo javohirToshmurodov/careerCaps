@@ -10,6 +10,7 @@ import networks from "../../assets/images/networks.png";
 import position from "../../assets/images/positionPic.png";
 import Footer from "../../components/Footer";
 export default function Home() {
+  
   return (
     <>
       <div className="DefaultBg minHeight">
