@@ -195,7 +195,36 @@ ul {
   padding: 8px 18px;
   background: none;
 }
+.jobsListCard {
+  border: 2px solid #ececec;
+  border-radius: 10px;
+}
+.jobsListCard img:first-child {
+  position: relative;
+}
+.jobsListCard img:last-child {
+  position: absolute;
+  left: -17px;
+  top: -17px;
+}
+
+.JobsListTitle {
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: -0.03em;
+  text-transform: capitalize;
+}
+.JobsListdescription {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+}
+
 @media (min-width: 768px) and (max-width: 990px) {
+  .jobsListWrap {
+    flex-wrap: wrap;
+  }
   .positionImage {
     width: 200px;
     height: 200px;
@@ -212,9 +241,25 @@ ul {
   .jobsSalary {
     margin-top: 20px !important;
   }
+  .jobsListWrap {
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .jobsListWrap h3 {
+    margin-top: 20px;
+  }
 }
 
 @media (min-width: 447px) and (max-width: 767.9px) {
+  .jobsListWrap {
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .jobsListWrap h3 {
+    margin-top: 20px;
+  }
   .defaultH1 {
     font-size: 30px !important;
   }
@@ -276,7 +321,18 @@ ul {
   }
 }
 @media (min-width: 0) and (max-width: 446.9px) {
-
+  .jobsListWrap {
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .jobsListWrap h3 {
+    font-size: 23px !important;
+    margin-top: 20px;
+  }
+  .jobsListWrap p {
+    font-size: 14.5px !important;
+  }
   .defaultH1 {
     font-size: 30px !important;
   }
@@ -332,17 +388,16 @@ ul {
     padding: 6px 15px !important;
     margin-bottom: 20px;
   }
-  .jobsButton{
+  .jobsButton {
     justify-content: center;
     margin-bottom: 10px;
   }
-  .offlineButton{
+  .offlineButton {
     padding: 6px 15px !important;
     font-size: 15px;
   }
-  .onlineButton{
+  .onlineButton {
     padding: 6px !important;
-    font-size: 15px ;
-
+    font-size: 15px;
   }
 }

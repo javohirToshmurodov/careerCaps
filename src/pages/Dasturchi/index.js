@@ -6,6 +6,12 @@ import dasturYangilash from "../../assets/images/dastur_yangilash.svg";
 import dasturYaratish from "../../assets/images/dastur_yaratish.svg";
 import xavfsizlik from "../../assets/images/xavfsizlik.svg";
 import xatolik from "../../assets/images/xatolik_tuzatish.svg";
+import JobsList from "../../components/JobsList";
+import check from "../../assets/images/check.svg";
+import muammolar from "../../assets/images/muammolar.svg";
+import kompyuterda from "../../assets/images/kompyuterda.svg";
+import matematik from "../../assets/images/matematik.svg";
+
 export default function Dasturchi() {
   return (
     <>
@@ -61,9 +67,35 @@ export default function Dasturchi() {
       </section>
       <section>
         <div className="container py-5 px-4">
-          <h1 className="bigH1">
+          <h1 className="bigH1 my-5">
             Dasturchi bo'lish uchun nimalarga e'tibor qaratish kerak?
           </h1>
+          <div className="row">
+            <JobsList
+              check={check}
+              img={matematik}
+              title={"Matematik masalalarda donolik"}
+              description={
+                "Dasturlashning asosiy maqsadi har xil turdagi matematik muammolarni hal qilishdir.Dasturlash olamida iloji boricha ko'proq matematik muammolarni hal qila oladigankishi ilgari suradi."
+              }
+            />
+            <JobsList
+              check={check}
+              img={muammolar}
+              title={"Muammolarni hal qilish bo'yicha tezkor bilim"}
+              description={
+                "Bu dasturlash mahorati bo'lib, undan qochib qutula olmaysiz. Muammolarni darhol halqilish uchun ko'p bilimga ega bo'lish kerak."
+              }
+            />
+            <JobsList
+              check={check}
+              img={kompyuterda}
+              title={"Matematik masalalarda donolik"}
+              description={
+                "Dasturlashning asosiy maqsadi har xil turdagi matematik muammolarni hal qilishdir.Dasturlash olamida iloji boricha ko'proq matematik muammolarni hal qila oladigankishi ilgari suradi."
+              }
+            />
+          </div>
         </div>
       </section>
     </>
