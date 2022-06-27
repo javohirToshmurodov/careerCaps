@@ -5,28 +5,32 @@ import { ReactComponent as veterinar } from "../assets/images/veterinar.svg";
 import { ReactComponent as arxitektor } from "../assets/images/arxitektor.svg";
 const jobs = [
   {
-    image: psixolog,
-    jobName: "Psixolog",
-    salary: "39,000$ - 270,00$",
-    workFrom: "Masofadan ishlash",
-  },
-  {
     image: arxitektor,
     jobName: "Arxitektor",
     salary: "45,000$ - 131,00$",
     workFrom: "Masofadan ishlash",
+    route: "arxitektor",
+  },
+  {
+    image: psixolog,
+    jobName: "Psixolog",
+    salary: "39,000$ - 270,00$",
+    workFrom: "Masofadan ishlash",
+    route: "psixolog",
   },
   {
     image: veterinar,
     jobName: "Veterinar",
     salary: "29,000$ - 200,00$",
     workFrom: "Masofadan ishlash",
+    route: "veterinar",
   },
   {
     image: dasturchi,
     jobName: "Dasturchi",
     salary: "60,000$ - 164,00$",
     workFrom: "Masofadan ishlash",
+    route: "dasturchi",
   },
   {
     image: muhandis,

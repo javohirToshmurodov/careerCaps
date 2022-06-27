@@ -64,6 +64,7 @@ ul {
   transition: 0.3s;
   border: 1px solid rgb(251, 246, 246);
   padding: 10px 30px 0 11% !important;
+  background: white !important;
 }
 .cardmaker:hover {
   box-shadow: 0px 4px 65px rgba(0, 0, 0, 0.05);
@@ -77,7 +78,13 @@ ul {
   font-size: 20px !important;
   line-height: 32px;
 }
-
+.bigH1 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 49px;
+  letter-spacing: -0.02em;
+  max-width: 800px;
+}
 .defaultH1 {
   font-size: 35px !important;
   font-weight: 600;
@@ -172,8 +179,8 @@ ul {
   border-radius: 10px;
   /* align-items: flex-end !important; */
 }
-.align-self{
-  align-self:flex-end;
+.align-self {
+  align-self: flex-end;
 }
 .onlineButton {
   background: linear-gradient(89.92deg, #3000d6 0.07%, #3dd0f0 99.93%);
@@ -196,9 +203,34 @@ ul {
   .searchInputBox {
     min-width: 74%;
   }
+  .jobsCard {
+    text-align: center !important;
+  }
+  .jobsButton {
+    gap: 1rem !important;
+  }
+  .jobsSalary {
+    margin-top: 20px !important;
+  }
 }
 
 @media (min-width: 447px) and (max-width: 767.9px) {
+  .defaultH1 {
+    font-size: 30px !important;
+  }
+  .salaryH1 {
+    font-size: 30px !important;
+  }
+  .jobsCard {
+    text-align: center !important;
+  }
+  .jobsButton {
+    gap: 1rem !important;
+    justify-content: center;
+  }
+  .jobsSalary {
+    margin-top: 20px !important;
+  }
   .searchFormBox {
     flex-wrap: wrap !important;
   }
@@ -236,11 +268,24 @@ ul {
   .cardmaker p {
     font-size: 18px !important;
   }
+  .cardmaker h2 {
+    font-size: 30px !important;
+  }
   .outBtn {
     padding: 8px 25px !important;
   }
 }
 @media (min-width: 0) and (max-width: 446.9px) {
+
+  .defaultH1 {
+    font-size: 30px !important;
+  }
+  .salaryH1 {
+    font-size: 25px !important;
+  }
+  .jobsCard {
+    text-align: center !important;
+  }
   .searchFormBox {
     flex-wrap: wrap !important;
   }
@@ -275,12 +320,29 @@ ul {
     align-items: center;
     flex-direction: column;
     text-align: center;
+    /* padding-top: 30px !important; */
   }
   .cardmaker p {
     font-size: 16px !important;
   }
+  .cardmaker h2 {
+    font-size: 30px !important;
+  }
   .outBtn {
     padding: 6px 15px !important;
     margin-bottom: 20px;
+  }
+  .jobsButton{
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .offlineButton{
+    padding: 6px 15px !important;
+    font-size: 15px;
+  }
+  .onlineButton{
+    padding: 6px !important;
+    font-size: 15px ;
+
   }
 }

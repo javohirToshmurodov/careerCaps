@@ -4,7 +4,10 @@ import React from "react";
 import mainPic from "../../assets/images/jobsCatalog.png";
 import SearchForm from "../../components/SearchForm";
 import jobs from "../../data/jobs";
+import Footer from "../../components/Footer";
+import { useNavigate } from "react-router-dom";
 export default function JobsCatalog() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="DefaultBg minHeight">
@@ -29,6 +32,7 @@ export default function JobsCatalog() {
                 <div
                   className="row pt-3 pb-3 align-items-center jobsCard   ps-4 pe-0 mt-4"
                   key={i}
+                  onClick={() => navigate(`/${e.route}`)}
                 >
                   <div className="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
                     <e.image />
@@ -36,14 +40,14 @@ export default function JobsCatalog() {
                   <div className="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
                     <h1 className="defaultH1">{e.jobName}</h1>
                     <p className="mt-4 defaultP">{e.workFrom}</p>
-                    <div className="d-flex gap-5 jobsButton">
+                    <div className="d-flex gap-5  jobsButton">
                       <button className="onlineButton">
                         Online <FontAwesomeIcon icon={faCheckCircle} />{" "}
                       </button>
                       <button className="offlineButton">Offline</button>
                     </div>
                   </div>
-                  <div className="col-12 pb-2 col-xl-5 col-lg-5 col-md-6 col-sm-12 align-self">
+                  <div className="col-12 pb-2 col-xl-5 col-lg-5 col-md-12 jobsSalary col-sm-12 align-self">
                     <p className="defaultP ">Yillik maosh</p>
                     <h1 className="salaryH1">{e.salary}</h1>
                   </div>
@@ -53,6 +57,8 @@ export default function JobsCatalog() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </>
   );
 }
