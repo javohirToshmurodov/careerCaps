@@ -2,11 +2,11 @@ import React from "react";
 
 export default function JobsList(props) {
   return (
-    <div className="col-12 jobsListCard px-4 py-5 mb-4">
+    <div className="col-12 jobsListCard  py-5 mb-4">
       <div className="d-flex jobsListWrap">
         <div className=" justify-content-center d-flex mx-5 w-25">
           <div className="position-relative">
-            <img src={props.img} alt="" />
+            <img className="jobsListImg" src={props.img} alt="" />
             <img
               className="position-absolute positionImg"
               src={props.check}

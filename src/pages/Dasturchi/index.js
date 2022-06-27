@@ -11,6 +11,9 @@ import check from "../../assets/images/check.svg";
 import muammolar from "../../assets/images/muammolar.svg";
 import kompyuterda from "../../assets/images/kompyuterda.svg";
 import matematik from "../../assets/images/matematik.svg";
+import JobLayer from "../../components/JobLayer";
+import dasturchiLayer from "../../assets/images/dasturchiLayer.svg";
+import Manbalar from "../../components/Manbalar";
 
 export default function Dasturchi() {
   return (
@@ -70,7 +73,7 @@ export default function Dasturchi() {
           <h1 className="bigH1 my-5">
             Dasturchi bo'lish uchun nimalarga e'tibor qaratish kerak?
           </h1>
-          <div className="row">
+          <div className="row px-2">
             <JobsList
               check={check}
               img={matematik}
@@ -90,13 +93,22 @@ export default function Dasturchi() {
             <JobsList
               check={check}
               img={kompyuterda}
-              title={"Matematik masalalarda donolik"}
+              title={"Kompyuterda ishlash ko'nikmalari"}
               description={
-                "Dasturlashning asosiy maqsadi har xil turdagi matematik muammolarni hal qilishdir.Dasturlash olamida iloji boricha ko'proq matematik muammolarni hal qila oladigankishi ilgari suradi."
+                "Dasturchining birinchi va asosiy vazifasi kompyuter ustidan o'z nazoratini o'rnatishdir. Kompyuterdagi barcha bilimlar o'z ichida bo'lishi kerak. Asosiy vazifa kompyuterni butunlay sizning nazoratingiz ostiga olishdir."
               }
             />
           </div>
         </div>
+      </section>
+      <section className="py-5">
+        <JobLayer
+          layer={dasturchiLayer}
+          title={"Dasturlashni qayerdan o'rgansa bo'ladi?"}
+        />
+      </section>
+      <section className="py-5">
+        <Manbalar />
       </section>
     </>
   );
