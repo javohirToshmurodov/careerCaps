@@ -1,35 +1,35 @@
-import {  ReactComponent as Psixolog } from "../assets/images/psixolog.png";
-import { ReactComponent as Muhandis } from "../assets/images/muhandis.png";
-import { ReactComponent as Dasturchi } from "../assets/images/dasturchi.png";
-import { ReactComponent as Veterinar } from "../assets/images/veterinar.png";
-import { ReactComponent as Arxitektor } from "../assets/images/arxitektor.png";
+import { ReactComponent as psixolog } from "../assets/images/psixolog.svg";
+import { ReactComponent as muhandis } from "../assets/images/muhandis.svg";
+import { ReactComponent as dasturchi } from "../assets/images/dasturchi.svg";
+import { ReactComponent as veterinar } from "../assets/images/veterinar.svg";
+import { ReactComponent as arxitektor } from "../assets/images/arxitektor.svg";
 const jobs = [
   {
-    image: <Psixolog />,
+    image: psixolog,
     jobName: "Psixolog",
     salary: "39,000$ - 270,00$",
     workFrom: "Masofadan ishlash",
   },
   {
-    image: <Veterinar />,
-    jobName: "Veterinar",
-    salary: "29,000$ - 200,00$",
-    workFrom: "Masofadan ishlash",
-  },
-  {
-    image: <Dasturchi />,
-    jobName: "Dasturchi",
-    salary: "60,000$ - 164,00$",
-    workFrom: "Masofadan ishlash",
-  },
-  {
-    image: <Arxitektor />,
+    image: arxitektor,
     jobName: "Arxitektor",
     salary: "45,000$ - 131,00$",
     workFrom: "Masofadan ishlash",
   },
   {
-    image: <Muhandis />,
+    image: veterinar,
+    jobName: "Veterinar",
+    salary: "29,000$ - 200,00$",
+    workFrom: "Masofadan ishlash",
+  },
+  {
+    image: dasturchi,
+    jobName: "Dasturchi",
+    salary: "60,000$ - 164,00$",
+    workFrom: "Masofadan ishlash",
+  },
+  {
+    image: muhandis,
     jobName: "3D Muhandis",
     salary: "86,000$ - 135,00$",
     workFrom: "Masofadan ishlash",

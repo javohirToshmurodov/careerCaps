@@ -83,6 +83,16 @@ ul {
   font-weight: 600;
   line-height: 42.67px;
 }
+.salaryH1 {
+  font-size: 35px !important;
+  line-height: 43px;
+  font-weight: 500 !important;
+}
+.defaultP {
+  font-weight: 400 !important;
+  font-size: 20px;
+  line-height: 24px;
+}
 .careerCapsBg {
   background: linear-gradient(
       0deg,
@@ -156,17 +166,50 @@ ul {
   width: 90%;
   background-color: transparent;
 }
-
+.jobsCard {
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(190, 190, 190, 0.25);
+  border-radius: 10px;
+  /* align-items: flex-end !important; */
+}
+.align-self{
+  align-self:flex-end;
+}
+.onlineButton {
+  background: linear-gradient(89.92deg, #3000d6 0.07%, #3dd0f0 99.93%);
+  border-radius: 88px;
+  padding: 8px 18px;
+  border: none;
+  color: white;
+}
+.offlineButton {
+  border: 1px solid #000000;
+  border-radius: 88px;
+  padding: 8px 18px;
+  background: none;
+}
 @media (min-width: 768px) and (max-width: 990px) {
   .positionImage {
     width: 200px;
     height: 200px;
+  }
+  .searchInputBox {
+    min-width: 74%;
   }
 }
 
 @media (min-width: 447px) and (max-width: 767.9px) {
   .searchFormBox {
     flex-wrap: wrap !important;
+  }
+  .centered {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .searchInputBox {
+    text-align: center;
+    width: 100%;
   }
   .mainHome {
     text-align: center;
@@ -198,6 +241,18 @@ ul {
   }
 }
 @media (min-width: 0) and (max-width: 446.9px) {
+  .searchFormBox {
+    flex-wrap: wrap !important;
+  }
+  .centered {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .searchInputBox {
+    text-align: center;
+    width: 100%;
+  }
   .mainHome {
     text-align: center;
   }
