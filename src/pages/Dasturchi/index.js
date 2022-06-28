@@ -1,5 +1,6 @@
 import React from "react";
 import { OutlineBtn } from "../../styles";
+import Footer from "../../components/Footer";
 import dasturchii from "../../assets/images/dasturchii.svg";
 import CardMaker from "../../components/CardMaker";
 import dasturYangilash from "../../assets/images/dastur_yangilash.svg";
@@ -23,6 +24,11 @@ import rivojlanish from "../../assets/images/rivojlanish.svg";
 import masofaviy from "../../assets/images/masofaviy.svg";
 import ForYou from "../../components/ForYou";
 import layerDasturchi from "../../assets/images/layerDasturchi.svg";
+import JobsContact from "../../components/JobsContact";
+import dasturchi1 from "../../assets/images/dasturchi1.svg";
+import dasturchi2 from "../../assets/images/dasturchi2.svg";
+import dasturchi3 from "../../assets/images/dasturchi3.svg";
+import FrequentlyQuestions from "../../components/FrequentlyQuestions";
 export default function Dasturchi() {
   return (
     <>
@@ -177,8 +183,31 @@ export default function Dasturchi() {
       <section className="py-5">
         <div className="container px-5">
           <h1 className="bigH1">TOP Dasturchilar</h1>
+          <div className="row justify-content-center">
+            <JobsContact
+              img={dasturchi1}
+              name={"Axrorxo'ja Yodgorov"}
+              title={"EPAM Systems kompaniyasi, Senior Software Engineer"}
+            />
+            <JobsContact
+              img={dasturchi2}
+              name={"Durdona Bahronova"}
+              title={"Super Dispatch kompaniyasi, Frontend Developer "}
+            />
+            <JobsContact
+              img={dasturchi3}
+              name={"Azamat Majidov"}
+              title={"UzKassa kompaniyasi, Senior Android Developer "}
+            />
+          </div>
         </div>
       </section>
+      <section className="py-5">
+        <div className="container px-5">
+          <FrequentlyQuestions/>
+        </div>
+      </section>
+      <Footer/>
     </>
   );
 }

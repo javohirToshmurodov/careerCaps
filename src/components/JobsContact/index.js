@@ -1,7 +1,35 @@
+import {
+  faInstagram,
+  faLinkedin,
+  faTelegram,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { JobsContactWrapper } from "../../styles";
 
-export default function JobsContact() {
-  return <div className="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12">
-    
-  </div>;
+export default function JobsContact(props) {
+  return (
+    <div className="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 soya py-5">
+      <JobsContactWrapper>
+        <div className="circleImage">
+          <img src={props.img} alt="" />
+        </div>
+          <h4 className="mt-3 mx-3 nameH3">{props.name}</h4>
+        <div className="px-4">
+          <p className="titleH3">{props.title}</p>
+          <div className="d-flex justify-content-center gap-3">
+            <div className="circleIcon">
+              <FontAwesomeIcon icon={faTelegram} />
+            </div>
+            <div className="circleIcon">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </div>
+            <div className="circleIcon">
+              <FontAwesomeIcon icon={faInstagram} />
+            </div>
+          </div>
+        </div>
+      </JobsContactWrapper>
+    </div>
+  );
 }

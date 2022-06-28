@@ -253,7 +253,19 @@ ul {
 .heightAuto {
   height: 100% !important;
 }
-
+.nameH3 {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 28px;
+}
+.titleH3 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+}
+.networkIcons{
+  font-size: 20px;
+}
 @media (min-width: 989.9px) and (max-width: 1200px) {
 }
 @media (min-width: 768px) and (max-width: 990px) {

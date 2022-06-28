@@ -1,6 +1,5 @@
 import React from "react";
 import { OutlineBtn } from "../../styles";
-import Dasturchii from "../../assets/images/dasturchii.svg";
 export default function Psixolog() {
   return (
     <div className="DefaultBg minHeight">
@@ -15,7 +14,6 @@ export default function Psixolog() {
             <OutlineBtn className="mt-4 outBtn">Batafsil</OutlineBtn>
           </div>
           <div className="col-lg-6 col-md-6 col-xl-g col-sm-12   col-12">
-            <Dasturchii />
           </div>
         </div>
       </div>

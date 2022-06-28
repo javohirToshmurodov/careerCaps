@@ -98,3 +98,33 @@ export const TestButtonWrapper = styled.button`
     color: white;
   }
 `;
+export const JobsContactWrapper = styled.div`
+  /* margin-top: 20px !important; */
+  display: flex;
+  justify-content: space-between !important ;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  .circleImage {
+    border-radius: 50%;
+    border: 3px solid #3DD0F0;
+    /* width: 220px; */
+    padding: 10px;
+    /* height: 220px; */
+    /* border-image-source: linear-gradient(180deg, #3000d6 0%, #3dd0f0 100%); */
+  }
+  
+  .circleIcon {
+    background-color: #000;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+  }
+`;

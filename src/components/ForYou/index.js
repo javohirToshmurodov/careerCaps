@@ -11,6 +11,8 @@ export default function ForYou(props) {
           style={{
             background: `url(${props.backgroundImage})`,
             backgroundPosition: "center",
+            // backgroundSize:"cover",
+            backgroundRepeat:"no-repeat"
           }} 
         >
           <h1 className="defaultH1 mx-4  text-white">{props.title}</h1>
