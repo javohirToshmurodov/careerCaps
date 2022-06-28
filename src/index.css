@@ -19,6 +19,9 @@ code {
 .minHeightLayer {
   min-height: 290px;
 }
+.minHeightLayerForYou {
+  min-height: 538px;
+}
 a {
   text-decoration: none !important;
 }
@@ -244,14 +247,17 @@ ul {
   background: #ffffff;
   box-shadow: 0px 4px 65px rgba(0, 0, 0, 0.05);
 }
-.paddingInline{
+.paddingInline {
   padding-left: 6.5% !important;
 }
-@media (min-width:989.9px) and (max-width:1200px){
-  
+.heightAuto {
+  height: 100% !important;
+}
+
+@media (min-width: 989.9px) and (max-width: 1200px) {
 }
 @media (min-width: 768px) and (max-width: 990px) {
-  .paddingInline{
+  .paddingInline {
     padding: 0 !important;
   }
   .layerAbsolute {
@@ -292,6 +298,15 @@ ul {
 }
 
 @media (min-width: 447px) and (max-width: 767.9px) {
+  .heightAuto {
+    height: 50% !important;
+    justify-content: center !important;
+    align-items: center;
+  }
+  .heightAuto button {
+    padding: 10px 18px;
+    font-size: 16px;
+  }
   .blackBtnPosition {
     position: static !important;
     margin-top: 30px;
@@ -374,6 +389,16 @@ ul {
   }
 }
 @media (min-width: 0) and (max-width: 446.9px) {
+  .heightAuto {
+    height: 50% !important;
+    justify-content: center !important;
+    align-items: center;
+  }
+  .heightAuto button {
+    /* text-align: center; */
+    padding: 8px 16px;
+    font-size: 16px;
+  }
   .blackBtnPosition {
     position: static !important;
     padding: 10px 18px !important;

@@ -22,7 +22,7 @@ import maydon from "../../assets/images/maydon.svg";
 import rivojlanish from "../../assets/images/rivojlanish.svg";
 import masofaviy from "../../assets/images/masofaviy.svg";
 import ForYou from "../../components/ForYou";
-
+import layerDasturchi from "../../assets/images/layerDasturchi.svg";
 export default function Dasturchi() {
   return (
     <>
@@ -144,7 +144,7 @@ export default function Dasturchi() {
               img={maydon}
               title={"IJODIY MAYDON"}
               description={
-                "Ijodiy maydon va aniq natijalar. Kod yozish qobiliyati cheksiz imkoniyatlar maydonini ochadi. Dasturchilar ilovalar va dasturlar yaratadilar va turli vazifalarni avtomatlashtiradilar. turli vazifalarni avtomatlashtiradilar.turli vazifalarni avtomatlashtiradilar."
+                "Ijodiy maydon va aniq natijalar. Kod yozish qobiliyati cheksiz imkoniyatlar maydonini ochadi. Dasturchilar ilovalar va dasturlar yaratadilar va turli vazifalarni avtomatlashtiradilar. "
               }
             />
             <AdvantagesCard
@@ -165,7 +165,19 @@ export default function Dasturchi() {
         </div>
       </section>
       <section className="py-5">
-        <ForYou backgroundImage />
+        <ForYou
+          title={"Tanlagan kasbingiz siz uchun qanchalik to'g'ri keladi?"}
+          backgroundImage={layerDasturchi}
+          subtitle={"Dasturlash sohasi siz uchunmi?"}
+          description={
+            "Kasbga layoqatlilik testi - 7 ta test savolidan iborat bo'lib, siz tanlagan kasb o'zingiz uchun ruhiy, jisomoniy taraflama to'g'ri yoki noto'g'ri ekanligini aniqlashda yordam beradi."
+          }
+        />
+      </section>
+      <section className="py-5">
+        <div className="container px-5">
+          <h1 className="bigH1">TOP Dasturchilar</h1>
+        </div>
       </section>
     </>
   );

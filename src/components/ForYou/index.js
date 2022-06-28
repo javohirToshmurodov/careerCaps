@@ -4,19 +4,24 @@ import { TestOutlineBtn } from "../TestOutlineBtn";
 
 export default function ForYou(props) {
   return (
-    <div className="row">
-      <div
-        className="col-xl-6 col-lg-6"
-        style={{ backgroundImage: `url(${props.backgroundImage})` }}
-      >
-        <h1 className="defaultH1">{props.title}</h1>
-      </div>
-      <div className="col-xl-6 col-lg-6">
+    <div className="row bg-white ">
+      <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 minHeightLayerForYou">
+        <div
+          className="w-100 h-100 d-flex justify-content-center align-items-center text-center p-5 "
+          style={{
+            background: `url(${props.backgroundImage})`,
+            backgroundPosition: "center",
+          }} 
+        >
+          <h1 className="defaultH1 mx-4  text-white">{props.title}</h1>
+        </div>
+      </div>   
+      <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 bg-white col-12 minHeightLayerForYou">
         <ForYouWrapper>
-          <h1 className="defaultH1">{props.subtitle}</h1>
-          <div className="d-flex justify-content-between align-items-start">
-            <p className="defaultP">{props.description}</p>
-            <TestOutlineBtn />
+          <h1 className="defaultH1 mt-4 ">{props.subtitle}</h1>
+          <div className="d-flex justify-content-between flex-column align-items-start heightAuto">
+            <p className="defaultP mt-5">{props.description}</p>
+            <TestOutlineBtn className="outBtn" />
           </div>
         </ForYouWrapper>
       </div>
