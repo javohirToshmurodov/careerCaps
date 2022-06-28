@@ -14,6 +14,13 @@ import matematik from "../../assets/images/matematik.svg";
 import JobLayer from "../../components/JobLayer";
 import dasturchiLayer from "../../assets/images/dasturchiLayer.svg";
 import Manbalar from "../../components/Manbalar";
+import w3schools from "../../assets/images/w3schools.svg";
+import academy from "../../assets/images/academy.svg";
+import udemy from "../../assets/images/udemy.svg";
+import AdvantagesCard from "../../components/AdvantagesCard";
+import maydon from "../../assets/images/maydon.svg";
+import rivojlanish from "../../assets/images/rivojlanish.svg";
+import masofaviy from "../../assets/images/masofaviy.svg";
 
 export default function Dasturchi() {
   return (
@@ -108,7 +115,53 @@ export default function Dasturchi() {
         />
       </section>
       <section className="py-5">
-        <Manbalar />
+        <Manbalar
+          firstImg={w3schools}
+          firstTitle={"W3Schools"}
+          firstDescription={
+            "HTMLdan Pythongacha bo'lgan hamma narsani qamrab olgan holda, u ishlab chiquvchilar uchun o'z loyihalarini yaratish uchun foydali ma'lumot manbasidir. W3Schools-ning ajoyib tomoni shundaki, veb-saytda o'rnatilgan Google Translate funksiyasi mavjud. Shunday qilib, ingliz tilini bilmaydiganlar o'z ona tillaridan foydalangan holda kodlashni o'rganishlari mumkin."
+          }
+          secondImg={academy}
+          secondTitle={"Khan Academy"}
+          secondDescription={
+            "Khan Academy yangi boshlanuvchilar uchun bepul kodlashni o'rganish uchun ajoyib resurslarni taklif etadi.Mavzular asosan kompyuter dasturlashning asosiytamoyillari, HTML, CSS, JavaScript, jQuery va SQL. KhanAcademy shuningdek, Hour of Code deb nomlanganqisqa va interaktiv dasturga ega."
+          }
+          thirdImg={udemy}
+          thirdTitle={"Udemy"}
+          thirdDescription={
+            "Udemy - 130 000+ onlayn kurslarga ega onlayn ta'lim portali. Ularning aksariyati pullik bo'lsa-da, minglab bepul variantlar ham mavjud."
+          }
+        />
+      </section>
+      <section className="py-5">
+        <div className="container px-5">
+          <h1 className="bigH1">
+            Dasturchi kasbining yaxshi tomonlari qanday?
+          </h1>
+          <div className="row ">
+            <AdvantagesCard
+              img={maydon}
+              title={"IJODIY MAYDON"}
+              description={
+                "Ijodiy maydon va aniq natijalar. Kod yozish qobiliyati cheksiz imkoniyatlar maydonini ochadi. Dasturchilar ilovalar va dasturlar yaratadilar va turli vazifalarni avtomatlashtiradilar."
+              }
+            />
+            <AdvantagesCard
+              img={maydon}
+              title={"IJODIY MAYDON"}
+              description={
+                "Ijodiy maydon va aniq natijalar. Kod yozish qobiliyati cheksiz imkoniyatlar maydonini ochadi. Dasturchilar ilovalar va dasturlar yaratadilar va turli vazifalarni avtomatlashtiradilar."
+              }
+            />
+            <AdvantagesCard
+              img={maydon}
+              title={"IJODIY MAYDON"}
+              description={
+                "Ijodiy maydon va aniq natijalar. Kod yozish qobiliyati cheksiz imkoniyatlar maydonini ochadi. Dasturchilar ilovalar va dasturlar yaratadilar va turli vazifalarni avtomatlashtiradilar."
+              }
+            />
+          </div>
+        </div>
       </section>
     </>
   );
