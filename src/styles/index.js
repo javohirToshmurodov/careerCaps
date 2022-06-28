@@ -61,9 +61,10 @@ export const BlackOutlineBtn = styled.button`
   }
 `;
 export const AdvantagesCardWrapper = styled.div`
-margin-top: 20px;
+  margin-top: 20px;
+  min-height: 410px;
+  align-self: stretch;
   h2 {
-    font-style: normal;
     font-weight: 600;
     font-size: 25px;
     line-height: 30px;
@@ -74,7 +75,15 @@ margin-top: 20px;
     font-size: 16px;
     line-height: 26px;
   }
-  padding: 30px;
+  padding: 25px;
   text-align: center;
   background-color: #fff;
+`;
+export const ForYouWrapper = styled.div``;
+export const TestButtonWrapper = styled.div`
+  border: 2px solid #000000;
+  border-radius: 79px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
 `;

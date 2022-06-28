@@ -21,13 +21,14 @@ import AdvantagesCard from "../../components/AdvantagesCard";
 import maydon from "../../assets/images/maydon.svg";
 import rivojlanish from "../../assets/images/rivojlanish.svg";
 import masofaviy from "../../assets/images/masofaviy.svg";
+import ForYou from "../../components/ForYou";
 
 export default function Dasturchi() {
   return (
     <>
       <div className="DefaultBg minHeight">
         <div className="container py-5 px-5 text-white">
-          <div class="row justify-content-between align-items-center">
+          <div className="row justify-content-between align-items-center">
             <div className="col-lg-6 col-md-6  col-xl-g col-sm-12 col-12 mainHome">
               <h1 className="title">Dasturchi</h1>
               <p className="subtitle">
@@ -143,25 +144,28 @@ export default function Dasturchi() {
               img={maydon}
               title={"IJODIY MAYDON"}
               description={
-                "Ijodiy maydon va aniq natijalar. Kod yozish qobiliyati cheksiz imkoniyatlar maydonini ochadi. Dasturchilar ilovalar va dasturlar yaratadilar va turli vazifalarni avtomatlashtiradilar."
+                "Ijodiy maydon va aniq natijalar. Kod yozish qobiliyati cheksiz imkoniyatlar maydonini ochadi. Dasturchilar ilovalar va dasturlar yaratadilar va turli vazifalarni avtomatlashtiradilar. turli vazifalarni avtomatlashtiradilar.turli vazifalarni avtomatlashtiradilar."
               }
             />
             <AdvantagesCard
-              img={maydon}
-              title={"IJODIY MAYDON"}
+              img={masofaviy}
+              title={"MASOFAVIY ISH"}
               description={
-                "Ijodiy maydon va aniq natijalar. Kod yozish qobiliyati cheksiz imkoniyatlar maydonini ochadi. Dasturchilar ilovalar va dasturlar yaratadilar va turli vazifalarni avtomatlashtiradilar."
+                "Masofaviy ish. Dasturchi ishlashi uchun faqat kompyuter kerak bo'lganligi sababli, bunday mutaxassislar odatda ma'lum bir joyga bog'lanmaydi. "
               }
             />
             <AdvantagesCard
-              img={maydon}
-              title={"IJODIY MAYDON"}
+              img={rivojlanish}
+              title={"DOIMIY RIVOJLANISH"}
               description={
-                "Ijodiy maydon va aniq natijalar. Kod yozish qobiliyati cheksiz imkoniyatlar maydonini ochadi. Dasturchilar ilovalar va dasturlar yaratadilar va turli vazifalarni avtomatlashtiradilar."
+                "Doimiy rivojlanish. Texnologiya tez o'zgarmoqda. IT ham bir joyda turmaydi, masalan, yangi dasturlash tillari paydo bo'ladi.Dasturchilar zamon bilan hamnafas bo'lishlari kerak"
               }
             />
           </div>
         </div>
+      </section>
+      <section className="py-5">
+        <ForYou backgroundImage />
       </section>
     </>
   );
