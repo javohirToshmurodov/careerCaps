@@ -52,11 +52,11 @@ export default function Muhandis() {
           </div>
         </div>
       </div>
-      <section>
-        <div className="container py-5 px-5">
-          <h1 className="bigH1">Dasturchi nima vazifani bajaradi?</h1>
-        </div>
-      </section>
+        <section>
+          <div className="container py-5 px-5">
+            <h1 className="bigH1">Dasturchi nima vazifani bajaradi?</h1>
+          </div>
+        </section>
       <section>
         <div className="w-100">
           <div className="row">
@@ -93,9 +93,9 @@ export default function Muhandis() {
       </section>
       <section>
         <div className="container px-4 py-5">
-          <h1 className="bigH1 my-5">
-            3D Muhandis bo'lish uchun nimalarga e'tibor qaratish kerak?
-          </h1>
+            <h1 className="bigH1 my-5">
+              3D Muhandis bo'lish uchun nimalarga e'tibor qaratish kerak?
+            </h1>
           <div className="row px-2">
             <JobsList
               check={check}
@@ -132,16 +132,16 @@ export default function Muhandis() {
       </section>
       <section className="py-5">
         <Manbalar
-          firstImg={skilline}
-          firstTitle={"Skilline"}
-          firstDescription={
-            "HTMLdan Pythongacha bo'lgan hamma narsani qamrab olgan holda, u ishlab chiquvchilar uchun o'z loyihalarini  yaratish uchun foydali ma'lumot manbasidir. W3Schools-ning ajoyib tomoni shundaki, veb-saytda o'rnatilgan Google Translate funksiyasi mavjud. Shunday qilib, ingliz tilini bilmaydiganlar o'z ona tillaridan foydalangan holda kodlashni o'rganishlari mumkin."
-          }
-          secondImg={school}
-          secondTitle={"XYZ school"}
-          secondDescription={
-            "Khan Academy yangi boshlanuvchilar uchun bepul kodlashni o'rganish uchun ajoyib resurslarni taklif etadi. Mavzular asosan kompyuter dasturlashning asosiy tamoyillari, HTML, CSS, JavaScript, jQuery va SQL. Khan Academy shuningdek, Hour of Code deb nomlangan qisqa va interaktiv dasturga ega."
-          }
+            firstImg={skilline}
+            firstTitle={"Skilline"}
+            firstDescription={
+              "HTMLdan Pythongacha bo'lgan hamma narsani qamrab olgan holda, u ishlab chiquvchilar uchun o'z loyihalarini  yaratish uchun foydali ma'lumot manbasidir. W3Schools-ning ajoyib tomoni shundaki, veb-saytda o'rnatilgan Google Translate funksiyasi mavjud. Shunday qilib, ingliz tilini bilmaydiganlar o'z ona tillaridan foydalangan holda kodlashni o'rganishlari mumkin."
+            }
+            secondImg={school}
+            secondTitle={"XYZ school"}
+            secondDescription={
+              "Khan Academy yangi boshlanuvchilar uchun bepul kodlashni o'rganish uchun ajoyib resurslarni taklif etadi. Mavzular asosan kompyuter dasturlashning asosiy tamoyillari, HTML, CSS, JavaScript, jQuery va SQL. Khan Academy shuningdek, Hour of Code deb nomlangan qisqa va interaktiv dasturga ega."
+            }
           thirdImg={skillbox}
           thirdTitle={"Skillbox"}
           thirdDescription={
@@ -155,13 +155,13 @@ export default function Muhandis() {
             3D muhandis kasbining yaxshi tomonlari qanday?
           </h1>
           <div className="row">
-            <AdvantagesCard
-              img={zamonaviy}
-              title={"ZAMONAVIY KASB"}
-              description={
-                "Ijodiy maydon va aniq natijalar. Kod yozish qobiliyati cheksiz imkoniyatlar maydonini ochadi. Dasturchilar ilovalar va dasturlar yaratadilar va turli vazifalarni avtomatlashtiradilar."
-              }
-            />
+              <AdvantagesCard
+                img={zamonaviy}
+                title={"ZAMONAVIY KASB"}
+                description={
+                  "Ijodiy maydon va aniq natijalar. Kod yozish qobiliyati cheksiz imkoniyatlar maydonini ochadi. Dasturchilar ilovalar va dasturlar yaratadilar va turli vazifalarni avtomatlashtiradilar."
+                }
+              />
             <AdvantagesCard
               img={masofaviy}
               title={"MASOFAVIY ISH"}
