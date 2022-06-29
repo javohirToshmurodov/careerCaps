@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const Container = styled.div`
   padding: 0 15%;
 `;
@@ -108,13 +107,13 @@ export const JobsContactWrapper = styled.div`
   text-align: center;
   .circleImage {
     border-radius: 50%;
-    border: 3px solid #3DD0F0;
+    border: 3px solid #3dd0f0;
     /* width: 220px; */
     padding: 10px;
     /* height: 220px; */
     /* border-image-source: linear-gradient(180deg, #3000d6 0%, #3dd0f0 100%); */
   }
-  
+
   .circleIcon {
     background-color: #000;
     color: white;
@@ -127,4 +126,18 @@ export const JobsContactWrapper = styled.div`
     font-size: 24px;
     cursor: pointer;
   }
+`;
+export const AboutPageWrapper = styled.div`
+  color: white;
+  /* height: auto; */
+  min-height: 500px;
+  width: 100%;
+  position: absolute;
+  background: rgba(48, 2, 214, 0.72);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  /* max-width: 928px; */
 `;

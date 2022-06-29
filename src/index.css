@@ -103,11 +103,20 @@ ul {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #036abe;
 }
+.minHeightAbout {
+  min-height: 500px;
+}
+.maxWidthPAbuot {
+  max-width: 880px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+}
 .maxwidthP {
   max-width: 475px;
   padding-right: 15px;
 }
-.minHeightImg{
+.minHeightImg {
   min-height: 114px !important;
 }
 /* home page */
@@ -151,6 +160,16 @@ ul {
   font-weight: 600;
   font-size: 45px;
   line-height: 55px;
+}
+.aboutH1 {
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 43px;
+}
+.aboutP {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
 }
 .defaultH1 {
   font-size: 35px !important;
@@ -324,6 +343,9 @@ ul {
 @media (min-width: 989.9px) and (max-width: 1200px) {
 }
 @media (min-width: 768px) and (max-width: 990px) {
+  .maxWidthPAbuot {
+    padding: 0 10%;
+  }
   .paddingInline {
     padding: 0 !important;
   }
@@ -365,6 +387,9 @@ ul {
 }
 
 @media (min-width: 447px) and (max-width: 767.9px) {
+  .maxWidthPAbuot {
+    padding: 0 7%;
+  }
   .heightAuto {
     height: 50% !important;
     justify-content: center !important;
@@ -456,6 +481,12 @@ ul {
   }
 }
 @media (min-width: 0) and (max-width: 446.9px) {
+  .maxWidthPAbuot {
+    padding: 0 7%;
+  }
+  .maxWidthPAbuot p {
+    line-height: 1.4 !important;
+  }
   .heightAuto {
     height: 50% !important;
     justify-content: center !important;
