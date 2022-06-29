@@ -159,7 +159,7 @@ export default function Psixolog() {
             />
             <AdvantagesCard
               img={tanishlar}
-              title={"MOSLASHUVCHAN ISH JADVALI"}
+              title={"YANGI TANISHLAR ORTTIRISH"}
               description={
                 "Agar siz odamlar bilan ishlashni va ularning to'liq salohiyatini ro'yobga chiqarishga yordam berishni yoqtirsangiz, psixolog bo'lish juda foydali bo'lishi mumkin.Siz tez-tez qiyinchiliklarga duch kelsangiz ham, mijozlaringiz haqiqiy muvaffaqiyatga erishayotganini va o'z maqsadlari sari harakat qilayotganini ko'rish sizga muvaffaqiyat hissini berishi mumkin."
               }
@@ -187,11 +187,13 @@ export default function Psixolog() {
       <section className="py-5">
         <div className="container px-5">
           <h1 className="bigH1">TOP Dasturchilar</h1>
-          <div className="row justify-content-center">
+          <div className="row mt-4 justify-content-center">
             <JobsContact
               img={psixolog1}
               name={"Kamola Shakarova"}
-              title={"Xalqaro darajadagi professional psixolog. O'zbekiston Psixologlar uyushmasi a'zosi"}
+              title={
+                "Xalqaro darajadagi professional psixolog. O'zbekiston Psixologlar uyushmasi a'zosi"
+              }
             />
             <JobsContact
               img={psixolog2}
@@ -201,12 +203,14 @@ export default function Psixolog() {
             <JobsContact
               img={psixolog3}
               name={"Muhammadjon Rahmatullayev"}
-              title={"Psiholog, Ong Osti bloklari bilan ishlash bo'yicha mutaxasis"}
+              title={
+                "Psiholog, Ong Osti bloklari bilan ishlash bo'yicha mutaxasis"
+              }
             />
           </div>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </>
   );
 }

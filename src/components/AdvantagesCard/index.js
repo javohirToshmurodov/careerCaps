@@ -7,8 +7,8 @@ export default function AdvantagesCard(props) {
       <AdvantagesCardWrapper>
         <div className="pt-5 px-4">
           <h2>{props.title}</h2>
-          <img src={props.img} alt="" />
-          <p className="defaultP">{props.description}</p>
+          <img className="my-2" src={props.img} alt="" />
+          <p className="defaultP mt-3">{props.description}</p>
         </div>
       </AdvantagesCardWrapper>
     </div>

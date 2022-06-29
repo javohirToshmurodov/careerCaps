@@ -42,7 +42,21 @@ ul {
 .borderLink {
   border-bottom: 1.5px solid transparent;
 }
-
+/* .accordion-button::after{
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  background: url(./assets/images/up.svg) !important;
+  background-color: #000; 
+  background-position: center !important;
+  background-size: 40px;
+} */
+.accordion-button:not(.collapsed) {
+  background: white !important;
+}
+.accordion-item {
+  /* background: none !important; */
+}
 /* webkit scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

@@ -50,20 +50,20 @@ export default function Dasturchi() {
         </div>
       </div>
       <section>
-          <div className="container py-5 px-5">
-            <h1 className="bigH1">Dasturchi nima vazifani bajaradi?</h1>
-          </div>
+        <div className="container py-5 px-5">
+          <h1 className="bigH1">Dasturchi nima vazifani bajaradi?</h1>
+        </div>
       </section>
       <section>
         <div className="w-100">
           <div className="row">
-              <CardMaker
-                img={dasturYaratish}
-                title={"Dastur yaratish"}
-                description={
-                  "Yangi dasturlar uchun kod yozish va sinovdan o'tkazish."
-                }
-              />
+            <CardMaker
+              img={dasturYaratish}
+              title={"Dastur yaratish"}
+              description={
+                "Yangi dasturlar uchun kod yozish va sinovdan o'tkazish."
+              }
+            />
             <CardMaker
               title={"Dasturlarni yangilash"}
               img={dasturYangilash}
@@ -181,33 +181,44 @@ export default function Dasturchi() {
         />
       </section>
       <section className="py-5">
-          <div className="container px-5">
-            <h1 className="bigH1">TOP Dasturchilar</h1>
-            <div className="row justify-content-center">
-              <JobsContact
-                img={dasturchi1}
-                name={"Axrorxo'ja Yodgorov"}
-                title={"EPAM Systems kompaniyasi, Senior Software Engineer"}
-              />
-              <JobsContact
-                img={dasturchi2}
-                name={"Durdona Bahronova"}
-                title={"Super Dispatch kompaniyasi, Frontend Developer "}
-              />
-              <JobsContact
-                img={dasturchi3}
-                name={"Azamat Majidov"}
-                title={"UzKassa kompaniyasi, Senior Android Developer "}
-              />
-            </div>
+        <div className="container px-5">
+          <h1 className="bigH1">TOP Dasturchilar</h1>
+          <div className="row mt-4 justify-content-center">
+            <JobsContact
+              img={dasturchi1}
+              name={"Axrorxo'ja Yodgorov"}
+              title={"EPAM Systems kompaniyasi, Senior Software Engineer"}
+            />
+            <JobsContact
+              img={dasturchi2}
+              name={"Durdona Bahronova"}
+              title={"Super Dispatch kompaniyasi, Frontend Developer "}
+            />
+            <JobsContact
+              img={dasturchi3}
+              name={"Azamat Majidov"}
+              title={"UzKassa kompaniyasi, Senior Android Developer "}
+            />
           </div>
+        </div>
       </section>
       <section className="py-5">
         <div className="container px-5">
-          <FrequentlyQuestions/>
+          <FrequentlyQuestions
+            title1={"Dasturchi bo'lish uchun qaysi fanlarni bilish kerak?"}
+            description={
+              "Dasturlash sohasini egallamoqchi bo'lganllar matematika va ingliz tilidan bilimlarni mustahkamlashlari talab etiladi. Matematika - dasturlashda, kodlarda uchraydigan xatoliklar, muammolarni hal qilishda yordam beradi. Ingliz tili - dasturlash sohasidagi bilimlarni asosiy qismi ingliz tilida bo'lganligi uchun , agar ingliz tilini bilsangiz ko'proq mustaqil ishlay olishingiz va ko'proq bilimga ega bo'lishingiz mumkin."
+            }
+            title2={
+              "Dasturchi bo'lib ishga kirish uchun diplom talab etiladimi?"
+            }
+            title3={
+              "Dasturchilarni o'rtacha maoshi qancha?"
+            }
+          />
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </>
   );
 }

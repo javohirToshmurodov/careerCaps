@@ -14,6 +14,21 @@ import simulatsiya from "../../assets/images/muhandis/simulatsiya.svg";
 import JobsList from "../../components/JobsList";
 import JobLayer from "../../components/JobLayer";
 import layerMuhandis from "../../assets/images/muhandis/layerMuhandis.svg";
+import Manbalar from "../../components/Manbalar";
+import skilline from "../../assets/images/muhandis/skilline.svg";
+import skillbox from "../../assets/images/muhandis/skillbox.svg";
+import school from "../../assets/images/muhandis/logoBlack.svg";
+import AdvantagesCard from "../../components/AdvantagesCard";
+import zamonaviy from "../../assets/images/muhandis/zamonaviy.svg";
+import masofaviy from "../../assets/images/muhandis/masofaviy.svg";
+import rivojlanish from "../../assets/images/muhandis/rivojlanish.svg";
+import ForYou from "../../components/ForYou";
+import forLayer from "../../assets/images/muhandis/forlayerMuhandis.svg";
+import JobsContact from "../../components/JobsContact";
+import muhandis1 from "../../assets/images/dasturchi1.svg";
+import muhandis2 from "../../assets/images/dasturchi2.svg";
+import muhandis3 from "../../assets/images/dasturchi3.svg";
+import Footer from "../../components/Footer";
 export default function Muhandis() {
   return (
     <>
@@ -114,6 +129,88 @@ export default function Muhandis() {
           title={"3D muhandislikni qayerdan o'rgansa bo'ladi?"}
         />
       </section>
+      <section className="py-5">
+        <Manbalar
+          firstImg={skilline}
+          firstTitle={"Skilline"}
+          firstDescription={
+            "HTMLdan Pythongacha bo'lgan hamma narsani qamrab olgan holda, u ishlab chiquvchilar uchun o'z loyihalarini  yaratish uchun foydali ma'lumot manbasidir. W3Schools-ning ajoyib tomoni shundaki, veb-saytda o'rnatilgan Google Translate funksiyasi mavjud. Shunday qilib, ingliz tilini bilmaydiganlar o'z ona tillaridan foydalangan holda kodlashni o'rganishlari mumkin."
+          }
+          secondImg={school}
+          secondTitle={"XYZ school"}
+          secondDescription={
+            "Khan Academy yangi boshlanuvchilar uchun bepul kodlashni o'rganish uchun ajoyib resurslarni taklif etadi. Mavzular asosan kompyuter dasturlashning asosiy tamoyillari, HTML, CSS, JavaScript, jQuery va SQL. Khan Academy shuningdek, Hour of Code deb nomlangan qisqa va interaktiv dasturga ega."
+          }
+          thirdImg={skillbox}
+          thirdTitle={"Skillbox"}
+          thirdDescription={
+            "Udemy - 130 000+ onlayn kurslarga ega onlayn ta'lim portali. Ularning aksariyati pullik bo'lsa-da, minglab bepul variantlar ham mavjud."
+          }
+        />
+      </section>
+      <section className="py-5">
+        <div className="container px-5">
+          <h1 className="bigH1">
+            3D muhandis kasbining yaxshi tomonlari qanday?
+          </h1>
+          <div className="row">
+            <AdvantagesCard
+              img={zamonaviy}
+              title={"ZAMONAVIY KASB"}
+              description={
+                "Ijodiy maydon va aniq natijalar. Kod yozish qobiliyati cheksiz imkoniyatlar maydonini ochadi. Dasturchilar ilovalar va dasturlar yaratadilar va turli vazifalarni avtomatlashtiradilar."
+              }
+            />
+            <AdvantagesCard
+              img={masofaviy}
+              title={"MASOFAVIY ISH"}
+              description={
+                "Masofaviy ish. Dasturchi ishlashi uchun faqat kompyuter kerak bo'lganligi sababli, bunday mutaxassislar odatda ma'lum bir joyga bog'lanmaydi. "
+              }
+            />
+            <AdvantagesCard
+              img={rivojlanish}
+              title={"DOIMIY RIVOJLANISH"}
+              description={
+                "Doimiy rivojlanish. Texnologiya tez o'zgarmoqda. IT ham bir joyda turmaydi, masalan, yangi dasturlash tillari paydo bo'ladi.Dasturchilar zamon bilan hamnafas bo'lishlari kerak"
+              }
+            />
+          </div>
+        </div>
+      </section>
+      <section className="py-5">
+        <ForYou
+          title={"Tanlagan kasbi ngiz siz uchun qanchalik to'g'ri keladi?"}
+          backgroundImage={forLayer}
+          subtitle={"3D muhandis sohasi siz uchunmi?"}
+          description={
+            "Kasbga layoqatlilik testi - 7 ta test savolidan iborat bo'lib, siz tanlagan kasb o'zingiz uchun ruhiy, jisomoniy taraflama to'g'ri yoki noto'g'ri ekanligini aniqlashda yordam beradi."
+          }
+        />
+      </section>
+      <section className="py-5">
+        <div className="container px-5">
+          <div className="bigH1">TOP 3D muhandislar</div>
+          <div className="row mt-4 justify-content-center">
+            <JobsContact
+              img={muhandis1}
+              name={"Axrorxo'ja Yodgorov"}
+              title={"EPAM Systems kompaniyasi,Senior Software Engineer "}
+            />
+            <JobsContact
+              img={muhandis2}
+              name={"Durdona Bahronova"}
+              title={"Super Dispatch kompaniyasi, Frontend Developer "}
+            />
+            <JobsContact
+              img={muhandis3}
+              name={"Azamat Majidov"}
+              title={"UzKassa kompaniyasi, Senior Android Developer "}
+            />
+          </div>
+        </div>
+      </section>
+      <Footer />
     </>
   );
 }
