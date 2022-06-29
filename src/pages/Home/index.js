@@ -10,12 +10,11 @@ import networks from "../../assets/images/networks.png";
 import position from "../../assets/images/positionPic.png";
 import Footer from "../../components/Footer";
 export default function Home() {
-  
   return (
     <>
       <div className="DefaultBg minHeight">
         <div className="container py-5 px-5 text-white">
-          <div class="row justify-content-between align-items-center">
+          <div className="row justify-content-between align-items-center">
             <div className="col-lg-6 col-md-6  col-xl-g col-sm-12 col-12 mainHome">
               <h1 className="title">CareerCaps</h1>
               <p className="subtitle">Kelajak kasbingizni biz bilan tanlang</p>
@@ -80,7 +79,11 @@ export default function Home() {
             <h1 className="defaultH1 mt-4 mb-3">Admin bilan aloqa</h1>
             <p className="fw-400">(+998 90) 977-19-60)</p>
           </div>
-          <img src={position} className="positionImage position-absolute end-0 img-fluid " alt="" />
+          <img
+            src={position}
+            className="positionImage position-absolute end-0 img-fluid "
+            alt=""
+          />
         </div>
       </section>
       <Footer />

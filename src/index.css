@@ -51,11 +51,44 @@ ul {
   background-position: center !important;
   background-size: 40px;
 } */
+.accordion-button {
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  line-height: 32px !important;
+  border-top: 1px solid !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  padding-left: 0 !important;
+  background: none !important;
+}
+.accordion-button:focus {
+  border-color: black !important;
+  box-shadow: none !important;
+  border-right-color: transparent !important;
+  border-left-color: transparent !important;
+}
+.accordion-header {
+  background: transparent !important;
+}
+.accordion-body {
+  background: transparent !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 32px !important;
+}
 .accordion-button:not(.collapsed) {
-  background: white !important;
+  color: black !important;
 }
 .accordion-item {
-  /* background: none !important; */
+  background: none !important;
+  border: none !important;
+  /* padding-left: 0 !important; */
+  border-radius: 0 !important;
+}
+.accordion-item:first-of-type .accordion-button {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
 }
 /* webkit scrollbar */
 ::-webkit-scrollbar {

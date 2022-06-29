@@ -28,6 +28,7 @@ import psixolog2 from "../../assets/images/psixolog/psixolog2.svg";
 import psixolog3 from "../../assets/images/psixolog/psixolog3.svg";
 import JobsContact from "../../components/JobsContact";
 import Footer from "../../components/Footer";
+import FrequentlyQuestions from "../../components/FrequentlyQuestions";
 export default function Psixolog() {
   return (
     <>
@@ -208,6 +209,22 @@ export default function Psixolog() {
               }
             />
           </div>
+        </div>
+      </section>
+      <section className="py-5">
+        <div className="container px-5">
+          <FrequentlyQuestions
+            title1={
+              "Psixolog bo'lish uchun qaynday bilim va ko'nikmalar kerak?"
+            }
+            description={
+              "Psixolog bo'lish uchun avvalo o'zingiz bo'lmoqchi bo'lgan psixolog turini tanlab olishingiz kerak. Psixologlarni ham bir qanhca turlari bor.Masalan: klinik psiholog, konsultant psiholog, maktab psixologi."
+            }
+            title2={
+              "Psixolog bo'lib ishga kirish uchun diplom talab etiladimi?"
+            }
+            title3={"Psixologlarni o'rtacha maoshi qancha?"}
+          />
         </div>
       </section>
       <Footer />

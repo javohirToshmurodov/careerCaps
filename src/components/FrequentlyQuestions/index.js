@@ -1,10 +1,11 @@
 import React from "react";
 import up from "../../assets/images/up.svg";
+import juggling from "../../assets/images/juggling.svg";
 export default function FrequentlyQuestions(props) {
   return (
     <div className="row">
       <div className="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
-        <h1>Tez-tez so'raladigan savollarga javoblar</h1>
+        <h1 className="mb-4 bigH1">Tez-tez so'raladigan savollarga javoblar</h1>
         <div className="accordion" id="accordionExample">
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingOne">
@@ -74,7 +75,13 @@ export default function FrequentlyQuestions(props) {
           </div>
         </div>
       </div>
-      <div className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12"></div>
+      <div
+        className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12"
+        style={{
+          background: `url(${juggling})`,
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
     </div>
   );
 }

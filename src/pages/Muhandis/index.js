@@ -29,6 +29,7 @@ import muhandis1 from "../../assets/images/dasturchi1.svg";
 import muhandis2 from "../../assets/images/dasturchi2.svg";
 import muhandis3 from "../../assets/images/dasturchi3.svg";
 import Footer from "../../components/Footer";
+import FrequentlyQuestions from "../../components/FrequentlyQuestions";
 export default function Muhandis() {
   return (
     <>
@@ -208,6 +209,22 @@ export default function Muhandis() {
               title={"UzKassa kompaniyasi, Senior Android Developer "}
             />
           </div>
+        </div>
+      </section>
+      <section className="py-5">
+        <div className="container px-5">
+          <FrequentlyQuestions
+            title1={
+              "3D muhandis bo'lish uchun qaynday bilim va ko'nikmalar kerak?"
+            }
+            description={
+              "3d muhandis bo'lish uchun avvalo o'zingiz bo'lmoqchi bo'lgan psixolog turini tanlab olishingiz kerak. Psixologlarni ham bir qanhca turlari bor.Masalan: klinik psiholog, konsultant psiholog, maktab psixologi."
+            }
+            title2={
+              "3D muhandis bo'lib ishga kirish uchun diplom talab etiladimi?"
+            }
+            title3={"3D muhandislarni o'rtacha maoshi qancha?"}
+          />
         </div>
       </section>
       <Footer />
