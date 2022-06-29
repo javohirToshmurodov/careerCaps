@@ -37,6 +37,7 @@ const jobs = [
     jobName: "3D Muhandis",
     salary: "86,000$ - 135,00$",
     workFrom: "Masofadan ishlash",
+    route:"muhandis"
   },
 ];
 export default jobs;

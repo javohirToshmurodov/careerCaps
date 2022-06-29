@@ -23,6 +23,11 @@ import tanishlar from "../../assets/images/psixolog/tanishlar.svg";
 import AdvantagesCard from "../../components/AdvantagesCard";
 import layerPsixolog from "../../assets/images/psixolog/layerPsixolog.svg";
 import ForYou from "../../components/ForYou";
+import psixolog1 from "../../assets/images/psixolog/psixolog1.svg";
+import psixolog2 from "../../assets/images/psixolog/psixolog2.svg";
+import psixolog3 from "../../assets/images/psixolog/psixolog3.svg";
+import JobsContact from "../../components/JobsContact";
+import Footer from "../../components/Footer";
 export default function Psixolog() {
   return (
     <>
@@ -179,6 +184,29 @@ export default function Psixolog() {
           }
         />
       </section>
+      <section className="py-5">
+        <div className="container px-5">
+          <h1 className="bigH1">TOP Dasturchilar</h1>
+          <div className="row justify-content-center">
+            <JobsContact
+              img={psixolog1}
+              name={"Kamola Shakarova"}
+              title={"Xalqaro darajadagi professional psixolog. O'zbekiston Psixologlar uyushmasi a'zosi"}
+            />
+            <JobsContact
+              img={psixolog2}
+              name={"Dilshoda Shadgarova"}
+              title={"Professional psiholog,Miracle o'quv markazi asoschisi "}
+            />
+            <JobsContact
+              img={psixolog3}
+              name={"Muhammadjon Rahmatullayev"}
+              title={"Psiholog, Ong Osti bloklari bilan ishlash bo'yicha mutaxasis"}
+            />
+          </div>
+        </div>
+      </section>
+      <Footer/>
     </>
   );
 }
