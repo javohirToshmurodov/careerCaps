@@ -107,6 +107,9 @@ ul {
   max-width: 475px;
   padding-right: 15px;
 }
+.minHeightImg{
+  min-height: 114px !important;
+}
 /* home page */
 .title {
   font-size: 45px;
