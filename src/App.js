@@ -27,7 +27,7 @@ export default function App() {
         <Route path="dasturchi" element={<Dasturchi />} />
         <Route path="quiz" element={<Quiz />} />
         <Route path="about" element={<About />} />
-        <Route path="statistics" element={<Statistics />} />
+        <Route path="statistika" element={<Statistics />} />
         <Route path="contact" element={<Contact />} />
       </Routes>
     </>

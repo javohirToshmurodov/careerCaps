@@ -181,10 +181,21 @@ ul {
   line-height: 43px;
   font-weight: 500 !important;
 }
+.colorH1 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 55px;
+  color: #423b51;
+}
 .defaultP {
   font-weight: 400 !important;
   font-size: 20px;
   line-height: 24px;
+}
+.mediumP {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
 }
 .careerCapsBg {
   background: linear-gradient(

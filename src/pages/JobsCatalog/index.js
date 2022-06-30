@@ -17,7 +17,7 @@ export default function JobsCatalog() {
               <h1 className="title">Kasblar ro'yxati</h1>
               <p className="subtitle">Kelajak kasbingizni biz bilan tanlang</p>
             </div>
-            <div className="col-lg-6 col-md-6 col-xl-g col-sm-12   col-12">
+            <div className="col-lg-6 d-flex justify-content-center align-items-center flex-column col-md-6 col-xl-g col-sm-12   col-12">
               <img className="img-fluid" src={mainPic} alt="" />
             </div>
           </div>
@@ -47,7 +47,7 @@ export default function JobsCatalog() {
                       <button className="offlineButton">Offline</button>
                     </div>
                   </div>
-                  <div className="col-12 pb-2 col-xl-5 col-lg-5 col-md-12 jobsSalary col-sm-12 align-self">
+                  <div className="col-12  pb-2 col-xl-5 col-lg-5 col-md-12 jobsSalary col-sm-12 align-self">
                     <p className="defaultP ">Yillik maosh</p>
                     <h1 className="salaryH1">{e.salary}</h1>
                   </div>

@@ -141,3 +141,28 @@ export const AboutPageWrapper = styled.div`
   flex-direction: column;
   /* max-width: 928px; */
 `;
+export const CardMiniWrapper = styled.div`
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(190, 190, 190, 0.25);
+  border-radius: 10px;
+  display: flex;
+  padding: 20px;
+  gap: 26px;
+`;
+export const MainCardWrapper = styled.div`
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(190, 190, 190, 0.25);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 5%;
+  .crownPosition {
+    position: absolute;
+    top: 5%;
+    left: 7%;
+    /* borde */
+  }
+`;

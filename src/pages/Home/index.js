@@ -20,7 +20,7 @@ export default function Home() {
               <p className="subtitle">Kelajak kasbingizni biz bilan tanlang</p>
               <OutlineBtn className="mt-4 outBtn">Test</OutlineBtn>
             </div>
-            <div className="col-lg-6 col-md-6 col-xl-g col-sm-12   col-12">
+            <div className="col-lg-6 col-md-6 d-flex justify-content-center align-items-center flex-column col-xl-g col-sm-12   col-12">
               <img className="img-fluid" src={MainImg} alt="" />
             </div>
           </div>

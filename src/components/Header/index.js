@@ -65,7 +65,7 @@ export default function Header() {
                 style={({ isActive }) => ({
                   borderBottom: isActive ? "1.5px solid white" : "",
                 })}
-                to={"statistics"}
+                to={"statistika"}
                 className="fontSize text-white nav-link  borderLink"
               >
                 Statistika
