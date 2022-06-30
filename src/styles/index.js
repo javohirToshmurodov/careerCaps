@@ -193,8 +193,51 @@ export const ProgressCardWrapper = styled.div`
     text-align: center;
     top: 60%;
     left: 43%;
-    p{
+    p {
       margin: 0;
     }
+  }
+`;
+export const QuizformWrapper = styled.div`
+  p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .formInput {
+    background: #ffffff;
+    border: 1px solid rgba(199, 199, 199, 0.4);
+    border-radius: 5px;
+    outline: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    width: 100%;
+    /* height: 100%; */
+    height: 48px;
+    padding: 12px;
+  }
+  .borderr {
+    background: #ffffff;
+    border: 1px solid rgba(199, 199, 199, 0.4);
+    border-radius: 5px;
+    padding: 12px !important;
+  }
+`;
+export const QuizJobCardWrapper = styled.div`
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(190, 190, 190, 0.25);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  .positionInput {
+    position: absolute;
+    top: 10px;
+    right: 20px;
   }
 `;
