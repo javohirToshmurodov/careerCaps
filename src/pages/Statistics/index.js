@@ -9,6 +9,13 @@ import CardWrapper from "../../components/CardWrapper";
 import psixolog from "../../assets/images/psixolog.svg";
 import dasturchi from "../../assets/images/dasturchi.svg";
 import veterinar from "../../assets/images/veterinar.svg";
+import ProgressCard from "../../components/ProgressCard";
+import jamii from "../../assets/images/statistika/jamii.svg";
+import erkaklar from "../../assets/images/statistika/erkaklar.svg";
+import ayollar from "../../assets/images/statistika/ayollar.svg";
+import thirty from "../../assets/images/statistika/thirty.svg";
+import seventy from "../../assets/images/statistika/seventy.svg";
+import Footer from "../../components/Footer";
 export default function Statistics() {
   return (
     <>
@@ -40,9 +47,32 @@ export default function Statistics() {
           <h1 className="colorH1">Eng ko'p ishlangan testlar</h1>
           <div className="row mt-4">
             <CardWrapper img={psixolog} jobName={"Psixolog"} crown={crown} />
+            <CardWrapper img={dasturchi} jobName={"Dasturchi"} crown={crown} />
+            <CardWrapper img={veterinar} jobName={"Veterinar"} crown={crown} />
           </div>
         </div>
       </section>
+      <section className="py-5">
+        <div className="container px-5">
+          <h1 className="colorH1">Testlar statistikasi</h1>
+          <div className="row mt-4">
+            <ProgressCard img2={""} img={jamii} title={"Jami"} soni={"100"} />
+            <ProgressCard
+              img2={thirty}
+              img={erkaklar}
+              title={"Erkaklar"}
+              soni={"70"}
+            />
+            <ProgressCard
+              img2={seventy}
+              img={ayollar}
+              title={"Ayollar"}
+              soni={"30"}
+            />
+          </div>
+        </div>
+      </section>
+      <Footer/>
     </>
   );
 }

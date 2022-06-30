@@ -163,6 +163,38 @@ export const MainCardWrapper = styled.div`
     position: absolute;
     top: 5%;
     left: 7%;
-    /* borde */
+    background: #fbfbfb;
+    border: 1px solid #ececec;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding-top: 5px;
+  }
+  p {
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    line-height: 22px;
+  }
+`;
+export const ProgressCardWrapper = styled.div`
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(190, 190, 190, 0.25);
+  border-radius: 10px;
+  min-height: 208px;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  .positionTitle {
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 43%;
+    p{
+      margin: 0;
+    }
   }
 `;
