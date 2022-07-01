@@ -11,13 +11,16 @@ export const OutlineBtn = styled.button`
   outline: none;
   background-color: transparent;
   color: white;
+  transition: all 0.3s ease;
+  &:hover {
+    background: #3000d6;
+  }
 `;
 export const ManbalarWrapperFirst = styled.div`
   width: 720px;
   height: 538px;
   display: flex;
   justify-content: center;
-  /* justify-content: center; */
   align-items: center;
   h1 {
     margin: 0;
@@ -52,7 +55,6 @@ export const BlackOutlineBtn = styled.button`
   position: absolute;
   bottom: 14%;
   left: 6%;
-  /* margin-top: 25px; */
   &:hover {
     background-color: #000;
     color: white;
@@ -76,6 +78,11 @@ export const AdvantagesCardWrapper = styled.div`
   }
   text-align: center;
   background-color: #fff;
+  transition: all 0.3s ease;
+  &:hover {
+    box-shadow: 0px 7px 7px 5px rgba(172, 170, 170, 0.25);
+    border-radius: 5px;
+  }
 `;
 export const ForYouWrapper = styled.div`
   padding: 7% 14% 7% 7%;
@@ -104,6 +111,7 @@ export const JobsContactWrapper = styled.div`
   height: 100%;
   align-items: center;
   flex-direction: column;
+  transition: all 0.3s ease;
   text-align: center;
   .circleImage {
     border-radius: 50%;

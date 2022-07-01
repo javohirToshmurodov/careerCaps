@@ -275,6 +275,32 @@ ul {
   box-shadow: 0px 2px 2px rgba(190, 190, 190, 0.25);
   border-radius: 10px;
   /* align-items: flex-end !important; */
+  transition: all 0.3s ease;
+}
+.jobsCard:hover {
+  box-shadow: 0px 7px 7px 5px rgba(172, 170, 170, 0.25);
+}
+.goJob {
+  position: absolute;
+  top: 10%;
+  right: 3%;
+  width: 40px !important;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  font-weight: 900;
+  transition: 0.3s;
+  background: linear-gradient(89.92deg, #3000d6 0.07%, #3dd0f0 99.93%);
+  background-size: 150%;
+  color: white;
+  cursor: pointer;
+}
+.goJob:hover {
+  background-position: right;
 }
 .align-self {
   align-self: flex-end;
@@ -291,10 +317,19 @@ ul {
   border-radius: 88px;
   padding: 8px 18px;
   background: none;
+  transition: 0.3s;
+}
+.offlineButton:hover {
+  background: #000000;
+  color: white;
 }
 .jobsListCard {
   border: 2px solid #ececec;
   border-radius: 10px;
+  transition: all .3s ease;
+}
+.jobsListCard:hover{
+  box-shadow: 0px 7px 7px 5px rgba(172, 170, 170, 0.25);
 }
 .jobsListCard img:first-child {
   position: relative;
@@ -354,6 +389,10 @@ ul {
 @media (min-width: 989.9px) and (max-width: 1200px) {
 }
 @media (min-width: 768px) and (max-width: 990px) {
+  .goJob {
+    top: 5px;
+    right: 5px;
+  }
   .maxWidthPAbuot {
     padding: 0 10%;
   }
@@ -398,6 +437,10 @@ ul {
 }
 
 @media (min-width: 447px) and (max-width: 767.9px) {
+  .goJob {
+    top: 5px;
+    right: 5px;
+  }
   .maxWidthPAbuot {
     padding: 0 7%;
   }
@@ -492,6 +535,10 @@ ul {
   }
 }
 @media (min-width: 0) and (max-width: 446.9px) {
+  .goJob {
+    top: 5px;
+    right: 5px;
+  }
   .maxWidthPAbuot {
     padding: 0 7%;
   }
@@ -537,6 +584,7 @@ ul {
   .jobsCard {
     text-align: center !important;
   }
+
   .searchFormBox {
     flex-wrap: wrap !important;
   }

@@ -1,4 +1,8 @@
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAlignRight,
+  faCheckCircle,
+  faRightLong,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import mainPic from "../../assets/images/jobsCatalog.png";
@@ -30,10 +34,15 @@ export default function JobsCatalog() {
             <div className="col-12 ">
               {jobs.map((e, i) => (
                 <div
-                  className="row pt-3 pb-3 align-items-center jobsCard   ps-4 pe-0 mt-4"
+                  className="row pt-3 pb-3 align-items-center jobsCard ps-4 pe-0 mt-4  position-relative"
                   key={i}
-                  onClick={() => navigate(`/${e.route}`)}
                 >
+                  <div
+                    className="goJob"
+                    onClick={() => navigate(`/${e.route}`)}
+                  >
+                    <FontAwesomeIcon icon={faRightLong} />
+                  </div>
                   <div className="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
                     <e.image />
                   </div>
