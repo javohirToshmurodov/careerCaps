@@ -248,4 +248,8 @@ export const QuizJobCardWrapper = styled.div`
     top: 10px;
     right: 20px;
   }
+  transition: all .3s ease;
+  &:hover{
+    box-shadow: 0px 5px 5px 7px rgba(190, 190, 190, 0.25);
+  }
 `;
