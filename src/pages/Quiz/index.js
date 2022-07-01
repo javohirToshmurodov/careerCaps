@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import QuizForm from "../../components/QuizForm";
 import SearchForm from "../../components/SearchForm";
-import { ReactComponent as Psixolog } from "../../assets/images/psixolog.svg";
-import { ReactComponent as Veterinar } from "../../assets/images/veterinar.svg";
-import { ReactComponent as Arxitektor } from "../../assets/images/arxitektor.svg";
-import { ReactComponent as Muhandis } from "../../assets/images/muhandis.svg";
+import Psixolog from "../../assets/images/psixolog.svg";
+import Veterinar from "../../assets/images/veterinar.svg";
+import Arxitektor from "../../assets/images/arxitektor.svg";
+import Muhandis from "../../assets/images/muhandis.svg";
 import QuizJobCard from "../../components/QuizJobCard";
 export default function Quiz() {
   const [jobs, setJobs] = useState([
@@ -34,7 +34,7 @@ export default function Quiz() {
       jobName: "3D Muhandis",
       salary: "86,000$ - 135,00$",
       workFrom: "Masofadan ishlash",
-      route:"muhandis"
+      route: "muhandis",
     },
   ]);
   return (
@@ -48,7 +48,12 @@ export default function Quiz() {
           <SearchForm />
           <div className="row">
             {jobs.map((item, i) => (
-              <QuizJobCard img={<item.image />} jobName={item.jobName} />
+              <QuizJobCard
+                key={item.id}
+                id={i}
+                img={item.image}
+                jobName={item.jobName}
+              />
             ))}
           </div>
         </div>

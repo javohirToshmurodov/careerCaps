@@ -44,7 +44,7 @@ export default function JobsCatalog() {
                     <FontAwesomeIcon icon={faRightLong} />
                   </div>
                   <div className="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
-                    <e.image />
+                    <img src={e.image} alt="" />
                   </div>
                   <div className="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
                     <h1 className="defaultH1">{e.jobName}</h1>
