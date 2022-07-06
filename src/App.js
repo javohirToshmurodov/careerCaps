@@ -15,6 +15,11 @@ import Dasturchi from "./pages/Dasturchi";
 import Admin from "./pages/Admin";
 import SignUp from "./pages/SignUp";
 import ProtectedRoutes from "./ProtectedRoutes";
+import DasturchiChild from "./pages/Admin/Dasturchi";
+import VeterinarChild from "./pages/Admin/Veterinar";
+import MuhandisChild from "./pages/Admin/Muhandis";
+import ArxitektorChild from "./pages/Admin/Arxitektor";
+import PsixologChild from "./pages/Admin/Psixolog";
 export default function App() {
   return (
     <>
@@ -31,6 +36,11 @@ export default function App() {
         <Route path="quiz" element={<Quiz />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="admin" element={<Admin />}>
+            <Route path="dasturchi" element={<DasturchiChild/>}/>
+            <Route path="veterinar" element={<VeterinarChild/>}/>
+            <Route path="muhandis" element={<MuhandisChild/>}/>
+            <Route path="arxitektor" element={<ArxitektorChild/>}/>
+            <Route path="psixolog" element={<PsixologChild/>}/>
           </Route>
           <Route path="login" element={<SignUp />} />
         </Route>

@@ -7,16 +7,13 @@ import { loadJobs } from "../../redux/actions";
 import { instance } from "../../redux/actions";
 export default function Admin() {
 const dispatch = useDispatch()
-    const jobs = useSelector((state)=>state)
+    const jobs = useSelector((state)=>state.jobsData?.quizzes)
     const navigate  = useNavigate()
 
   useEffect(() => {
       dispatch(loadJobs())
-    //   console.log("jobsss", jobs);
   }, []);
-  const show = ()=>{
-    console.log(jobs);
-  }
+ 
   return (
     <div>
 
@@ -26,12 +23,11 @@ const dispatch = useDispatch()
           <div className="row">
             <div className="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-12">
               <ul className="list-group">
-                {/* {jobs.map((e, i) => (
+                {jobs.map((e, i) => (
                   <li className="list-group-item mb-1 bg-info text-white" key={i}>
                     <NavLink className={"text-white"} to={`${e.name}`}>{e.name}</NavLink>
                   </li>
-                ))} */}
-                <button onClick={show}>jobs</button>
+                ))}
               </ul>
             </div>
             <div className="col-xl-10 col-lg-10 col-md-10 col-sm-6 col-12">
