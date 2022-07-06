@@ -253,3 +253,8 @@ export const QuizJobCardWrapper = styled.div`
     box-shadow: 0px 5px 5px 7px rgba(190, 190, 190, 0.25);
   }
 `;
+export const ImgWrapper = styled.div`
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius: 5px;
+  min-height: 220px;
+`
