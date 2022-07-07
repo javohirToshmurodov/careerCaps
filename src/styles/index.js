@@ -255,6 +255,9 @@ export const QuizJobCardWrapper = styled.div`
 `;
 export const ImgWrapper = styled.div`
   border:1px solid rgba(0,0,0,0.1);
-  border-radius: 5px;
-  min-height: 220px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 8px;
 `

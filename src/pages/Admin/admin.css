@@ -3,4 +3,9 @@
     padding: 20px !important;
     text-align: center;
     font-size: 21px !important;
+    /* text-transform: lowercase; */
+    text-align: justify;
+}
+.menu{
+    height: calc(100vh - 120px);
 }

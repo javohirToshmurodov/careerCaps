@@ -19,13 +19,12 @@ export default function Admin() {
   return (
     <div>
       <div className=" w-100">
-        <div className="container px-2 py-5">
-          <h3 className="text-center">Dashboard</h3>
+        <div className="container px-2 py-1 ">
           <div className="row mt-3">
-            <div className="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-12">
-              <ul className="list-group mb-4 py-4 listItem">
+            <div className="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-12 menu ">
+              <ul className="list-group mb-4 py-4 listItem h-100">
                 {jobs.map((e, i) => (
-                  <li className="mb-3 text-white" key={i}>
+                  <li className="mb-4 text-white" key={i}>
                     <NavLink
                       style={({ isActive }) => ({
                         fontSize: isActive ? "21.5px" : "",
@@ -40,6 +39,7 @@ export default function Admin() {
               </ul>
             </div>
             <div className="col-xl-10 col-lg-10 col-md-10 col-sm-6 col-12 px-4">
+              <div className="text-end"><button className="btn btn-primary mb-3">Add question</button></div>
               <Outlet />
             </div>
           </div>
