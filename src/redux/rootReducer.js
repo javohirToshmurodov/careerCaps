@@ -1,8 +1,9 @@
-import {combineReducers} from "redux";
-import  jobsReducers  from "./reducers"
+import { combineReducers } from "redux";
+import jobsReducers, { questionsReducers } from "./reducers";
 
 const rootReducer = combineReducers({
-    jobsData:jobsReducers,
-})
+  jobsData: jobsReducers,
+  questionsData: questionsReducers,
+});
 
-export default rootReducer
+export default rootReducer;

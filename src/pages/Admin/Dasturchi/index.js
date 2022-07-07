@@ -12,6 +12,8 @@ export default function DasturchiChild() {
   const [pictureId, setPictureId] = useState("");
   const [image, setImage] = useState("");
   const jobs = useSelector((state) => state.jobsData?.quizzes);
+
+  
   const handleFile = (e) => {
     const formData = new FormData();
     formData.append("files", e);
@@ -26,8 +28,7 @@ export default function DasturchiChild() {
       });
   };
   const updateProfile = () => {
-   return setModal(true);
-    
+    return setModal(true);
   };
   const getAttachments = () => {
     instance
@@ -40,7 +41,6 @@ export default function DasturchiChild() {
       .catch((err) => console.log(err));
   };
   useEffect(() => {
-    console.log(jobs[5]);
   }, []);
   return (
     <>
@@ -54,11 +54,7 @@ export default function DasturchiChild() {
             />
           </ImgWrapper>
           <h3>Dasturchi</h3>
-          {/* <input
-          onChange={(e) => handleFile(e.target.files[0])}
-          type="file"
-          className="form-control mt-2"
-        /> */}
+
           <button className="btn btn-info text-white" onClick={updateProfile}>
             <FontAwesomeIcon icon={faPen} />
           </button>

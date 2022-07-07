@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function PsixologChild() {
-  return (
-    <div>PsixologChild</div>
-  )
+  return <div>PsixologChild</div>;
 }

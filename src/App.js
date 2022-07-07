@@ -20,6 +20,7 @@ import VeterinarChild from "./pages/Admin/Veterinar";
 import MuhandisChild from "./pages/Admin/Muhandis";
 import ArxitektorChild from "./pages/Admin/Arxitektor";
 import PsixologChild from "./pages/Admin/Psixolog";
+import RoutesComponent from "./pages/Admin/RoutesComponent";
 export default function App() {
   return (
     <>
@@ -36,11 +37,7 @@ export default function App() {
         <Route path="quiz" element={<Quiz />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="admin" element={<Admin />}>
-            <Route path="dasturchi" element={<DasturchiChild/>}/>
-            <Route path="veterinar" element={<VeterinarChild/>}/>
-            <Route path="muhandis" element={<MuhandisChild/>}/>
-            <Route path="arxitektor" element={<ArxitektorChild/>}/>
-            <Route path="psixolog" element={<PsixologChild/>}/>
+          <Route path=":id" element={<RoutesComponent/>}/>
           </Route>
           <Route path="login" element={<SignUp />} />
         </Route>

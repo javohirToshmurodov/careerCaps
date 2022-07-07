@@ -26,11 +26,15 @@ export default function EditModal(props) {
   };
   const handleEdit = (e) => {
     e.preventDefault();
-    instance.put(`api/v1/quiz/f2fe64a8-d6a3-4337-add7-24c580b09532?attachmentId=${pictureId}`).then((res)=>{
-      console.log(res.data);
-    })
+    instance
+      .put(
+        `api/v1/quiz/f2fe64a8-d6a3-4337-add7-24c580b09532?attachmentId=${pictureId}`
+      )
+      .then((res) => {
+        console.log(res.data);
+      });
     console.log(pictureId);
-    props.setModal(false)
+    props.setModal(false);
   };
   return (
     <div>
@@ -48,19 +52,19 @@ export default function EditModal(props) {
               ></button>
             </div>
             <div className="modal-body">
-                <input
-                  onChange={(e) => handleFile(e.target.files[0])}
-                  type="file"
-                  required
-                  className="form-control mt-2"
-                />
-                <button
-                  type="button"
-                  className="btn btn-dark"
-                  onClick={handleEdit}
-                >
-                  Save changes
-                </button>
+              <input
+                onChange={(e) => handleFile(e.target.files[0])}
+                type="file"
+                required
+                className="form-control mt-2"
+              />
+              <button
+                type="button"
+                className="btn btn-dark"
+                onClick={handleEdit}
+              >
+                Save changes
+              </button>
             </div>
             <div class="modal-footer"></div>
           </div>
