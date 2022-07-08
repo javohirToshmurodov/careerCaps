@@ -21,6 +21,7 @@ import MuhandisChild from "./pages/Admin/Muhandis";
 import ArxitektorChild from "./pages/Admin/Arxitektor";
 import PsixologChild from "./pages/Admin/Psixolog";
 import RoutesComponent from "./pages/Admin/RoutesComponent";
+import Example from "./components/accardion";
 export default function App() {
   return (
     <>
@@ -37,7 +38,7 @@ export default function App() {
         <Route path="quiz" element={<Quiz />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="admin" element={<Admin />}>
-          <Route path=":id" element={<RoutesComponent/>}/>
+            <Route path=":id" element={<RoutesComponent />} />
           </Route>
           <Route path="login" element={<SignUp />} />
         </Route>

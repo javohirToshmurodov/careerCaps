@@ -13,7 +13,7 @@ export default function DasturchiChild() {
   const [image, setImage] = useState("");
   const jobs = useSelector((state) => state.jobsData?.quizzes);
 
-  
+
   const handleFile = (e) => {
     const formData = new FormData();
     formData.append("files", e);
@@ -46,13 +46,13 @@ export default function DasturchiChild() {
     <>
       <div className="row">
         <div className="col-xl-3 col-lg-3 col-md-12 col-sm-6 col-12">
-          <ImgWrapper>
+          {/* <ImgWrapper>
             <img
               className="img-fluid"
               src={`http://ec2-35-158-135-234.eu-central-1.compute.amazonaws.com/api/v1/file/get/07543971-9441-4bb5-92d4-52c1331672ff`}
               alt=""
             />
-          </ImgWrapper>
+          </ImgWrapper> */}
           <h3>Dasturchi</h3>
 
           <button className="btn btn-info text-white" onClick={updateProfile}>

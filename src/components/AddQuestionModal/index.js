@@ -2,17 +2,32 @@ import React from "react";
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { instance } from "../../redux/actions";
+import { instance, postQuestion } from "../../redux/actions";
+import { getQuestion } from "../../redux/actions";
 export default function AddQuestionModal(props) {
   const { id } = useParams();
   const [questionTitle, setQuestionTitle] = useState("");
   const [questions, setQuestions] = useState([]);
+  const dispatch = useDispatch()
   const modalStyle = {
     display: "block",
     backgroundColor: "rgba(0,0,0,0.6)",
   };
-
+  const loadQuestions = (id) => {
+    return function (dispatch) {
+      instance
+        .get(`api/v1/question/${id}`)
+        .then((res) => {
+          console.log(res.data.data);
+          dispatch(getQuestion(res?.data.data));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+  };
   const addInput = () => {
     questions.push({
       answer: "",
@@ -21,10 +36,8 @@ export default function AddQuestionModal(props) {
     setQuestions([...questions]);
   };
   const addVariant = (e, index) => {
-    console.log(e.target.value);
     questions[index].answer = e.target.value;
     setQuestions([...questions]);
-    console.log(questions);
   };
 
   const handleChange = (e, i) => {
@@ -46,11 +59,16 @@ export default function AddQuestionModal(props) {
       })
       .then((res) => {
         console.log(res.data);
+        dispatch(postQuestion(res?.data))
+        dispatch(loadQuestions())
       })
       .catch((err) => console.log(err));
     setQuestionTitle("");
     setQuestions([]);
+    alert("question added successfully!!!")
     props.handleClose(false);
+
+
   };
 
   return (
@@ -79,7 +97,7 @@ export default function AddQuestionModal(props) {
           </div>
           <div>
             {questions.map((e, i) => (
-              <div className="d-flex px-5 gap-2 mt-2">
+              <div className="d-flex px-5 gap-2 mt-2" key={i}>
                 <input
                   type={"text"}
                   onChange={(e) => addVariant(e, i)}

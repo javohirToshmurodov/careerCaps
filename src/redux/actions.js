@@ -9,6 +9,10 @@ export const getQuestion = (questions) => ({
   type: types.GET_QUESTIONS,
   payload: questions,
 });
+export const postQuestion = (questions)=>({
+  type:types.POST_QUESTIONS,
+  payload:questions
+})
 export const accessToken = localStorage.getItem("accesstoken");
 export const instance = axios.create({
   Authorization: `Bearer ${accessToken}`,

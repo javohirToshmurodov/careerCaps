@@ -16,7 +16,6 @@ export default function Admin() {
   //     console.log(res.data);
   //   })
   // }
-
   const dispatch = useDispatch();
   const jobs = useSelector((state) => state.jobsData?.quizzes);
   const navigate = useNavigate();

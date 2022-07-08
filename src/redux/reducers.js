@@ -28,5 +28,16 @@ export const questionsReducers = (state = initialState, action) => {
       return state;
   }
 };
-
+export const postQuestionReducers = (state = initialState, action) => {
+  switch (action.type) {
+    case types.POST_QUESTIONS: {
+      return {
+        ...state,
+        questions: action.payload
+      }
+    }
+    default:
+      return state
+  }
+}
 export default jobsReducers;
