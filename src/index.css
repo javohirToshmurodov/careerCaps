@@ -533,8 +533,18 @@ ul {
   .outBtn {
     padding: 8px 25px !important;
   }
+  .menu{
+    height: 400px !important;
+    text-align: center !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 @media (min-width: 0) and (max-width: 446.9px) {
+  .menu{
+    height: 500px !important;
+  }
   .goJob {
     top: 5px;
     right: 5px;

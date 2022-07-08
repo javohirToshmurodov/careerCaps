@@ -43,7 +43,7 @@ export default function Admin() {
       <div className=" w-100">
         <div className="container px-2 py-1 ">
           <div className="row mt-3">
-            <div className="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-12 menu ">
+            <div className="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 menu ">
               <ul className="list-group mb-4 py-4 listItem h-100">
                 {jobs.map((e, i) => (
                   <li className="mb-4 text-white" key={i}>
@@ -59,12 +59,12 @@ export default function Admin() {
                   </li>
                 ))}
               </ul>
-              <input
-                type="file"
-                onChange={(e) => handleFile(e.target.files[0])}
-              />
+              {/* <input
+                  type="file"
+                  onChange={(e) => handleFile(e.target.files[0])}
+                /> */}
             </div>
-            <div className="col-xl-10 col-lg-10 col-md-10 col-sm-6 col-12 px-4">
+            <div className="col-xl-9 col-lg-9 col-md-9 col-sm-6 col-12 px-4">
               <div className="text-end">
                 <button
                   className="btn btn-primary mb-3"

@@ -75,7 +75,7 @@ export default function AddQuestionModal(props) {
     <div>
       <Modal show={props.show} onHide={() => props.handleClose(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Add question here</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <label htmlFor="text" className="form-label">

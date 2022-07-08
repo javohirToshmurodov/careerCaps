@@ -73,8 +73,8 @@ export default function RoutesComponent() {
     return setModal(true)
   }
   return (
-    <div className="d-flex justify-content-between p-4 ">
-      <div>
+    <div className="row ">
+      <div className="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12">
         <h3>{questions?.name}</h3>
         <ImgWrapper>
           <img
@@ -83,7 +83,7 @@ export default function RoutesComponent() {
           />
         </ImgWrapper>
       </div>
-      <div>
+      <div className="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12">
         {questions.questions?.map((e, i) => (
           <>
 
