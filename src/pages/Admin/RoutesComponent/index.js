@@ -22,6 +22,7 @@ import Collapsible from "react-collapsible";
 import EditModalQuestion from "../../../components/EditQuestionModal";
 export default function RoutesComponent() {
   const { id } = useParams();
+  const [isEdit, setIsEdit] = useState({})
   const [pictureId, setPictureId] = useState("");
   const [image, setImage] = useState("");
   const [modal, setModal] = useState(false)
@@ -32,7 +33,6 @@ export default function RoutesComponent() {
       instance
         .get(`api/v1/question/${id}`)
         .then((res) => {
-          console.log(res.data.data);
           dispatch(getQuestion(res?.data.data));
         })
         .catch((err) => {
@@ -55,7 +55,6 @@ export default function RoutesComponent() {
     try {
       instance.delete(`api/v1/question/delete/${id}`).then((res) => {
         alert("question deleted")
-        console.log(res.data);
         dispatch(loadQuestions())
       });
     } catch (err) {
@@ -63,13 +62,10 @@ export default function RoutesComponent() {
     }
   }
   useEffect(() => {
-    console.log("question", questions);
     dispatch(loadQuestions());
-    console.log(pictureId);
   }, [id]);
-  const putQuestions = () => {
-
-
+  const putQuestions = (e) => {
+    setIsEdit(e)
     return setModal(true)
   }
   return (
@@ -85,14 +81,14 @@ export default function RoutesComponent() {
       </div>
       <div className="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12">
         {questions.questions?.map((e, i) => (
-          <>
+          <div key={i}>
 
             <div className="d-flex">
-              <button className="text-white btn btn-warning p-1 " onClick={() => putQuestions(e.title, e.answer, e.id, setModal)}>
+              <button className="text-white btn btn-warning p-1 " onClick={() => putQuestions(e)}>
                 <FontAwesomeIcon icon={faPen} />
               </button>
               {
-                <EditModalQuestion questions={questions} show={modal} handleClose={setModal} />
+                modal ? <EditModalQuestion isEdit={isEdit} show={modal} handleClose={setModal} /> : ''
               }
               <button className="text-white btn btn-danger p-1" onClick={(event) => deleteQuestions(event, e.id)}>
                 <FontAwesomeIcon icon={faTrash} />
@@ -112,7 +108,7 @@ export default function RoutesComponent() {
                 ))
               }
             </Collapsible>
-          </>
+          </div>
         ))}
       </div>
     </div >

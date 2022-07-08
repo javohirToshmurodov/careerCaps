@@ -24,7 +24,6 @@ export default function Admin() {
     dispatch(loadJobs());
   }, []);
 
-  console.log(id);
   const handleFile = (e) => {
     const formData = new FormData();
     formData.append("files", e);

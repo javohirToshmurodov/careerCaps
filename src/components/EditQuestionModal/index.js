@@ -1,21 +1,53 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { instance, putQuestions } from '../../redux/actions';
 export default function EditModalQuestion(props) {
-   const [questions, setQuestions] = useState([])
+   const [questions, setQuestions] = useState({})
    const [questionTitle, setQuestionTitle] = useState(props.questionTitle)
-   const editQuestion = () => {
-
-   }
+   const dispatch = useDispatch()
+   useEffect(() => {
+      console.log("bu isEdit", props.isEdit);
+      setQuestions({ ...props.isEdit })
+   }, [])
 
    const addInput = () => {
-      props.questions.push({
+      questions.answers.push({
          answer: "",
          isTrue: false,
       });
-      props.setQuestions([...questions]);
+      setQuestions({ ...questions });
    };
+   const editVariant = (event, index) => {
+      questions.answers[index].answer = event.target.value
+      console.log(questions.answers[index].answer);
+      setQuestions({ ...questions })
+   }
+   const handleChange = (e, i) => {
+      questions?.answers.map((item, index) => {
+         if (index === i) {
+            item.isTrue = true;
+         } else {
+            item.isTrue = false;
+         }
+      });
+      setQuestions({ ...questions });
+      console.log(questions);
+   };
+
+   const editQuestion = () => {
+      instance.put(`api/v1/question/edit_question/${questions.id}`, {
+         ...questions
+      }).then((res) => {
+         console.log(res.data);
+         setQuestions({})
+      })
+      props.handleClose(false)
+   }
    return (
       <div>
          <Modal show={props.show} onHide={() => props.handleClose(false)}>
@@ -32,6 +64,7 @@ export default function EditModalQuestion(props) {
                      autoComplete="off"
                      onChange={(e) => setQuestionTitle(e.target.value)}
                      type="text"
+                     defaultValue={questions?.title}
                      placeholder="savol matni"
                      className="form-control"
                      required
@@ -41,18 +74,20 @@ export default function EditModalQuestion(props) {
                   </button>
                </div>
                <div>
-                  {questions.map((e, i) => (
-                     <div className="d-flex px-5 gap-2 mt-2">
+                  {props.isEdit.answers?.map((e, i) => (
+                     <div className="d-flex px-5 gap-2 mt-2" key={i}>
                         <input
                            type={"text"}
-                           onChange={(e) => props.addVariant(e, i)}
+                           onChange={(e) => editVariant(e, i)}
                            className="form-control mb-2"
+                           value={e.answer}
                            placeholder="variant kiriting..."
                         />
                         <input
-                           onChange={(e) => props.handleChange(e, i)}
+                           onChange={(e) => handleChange(e, i)}
                            name={"name"}
                            type="radio"
+                           defaultChecked={e.isTrue}
                         />
                      </div>
                   ))}

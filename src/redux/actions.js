@@ -9,10 +9,15 @@ export const getQuestion = (questions) => ({
   type: types.GET_QUESTIONS,
   payload: questions,
 });
-export const postQuestion = (questions)=>({
-  type:types.POST_QUESTIONS,
-  payload:questions
-})
+export const postQuestion = (questions) => ({
+  type: types.POST_QUESTIONS,
+  payload: questions
+});
+
+// export const putQuestion = (questions) = ({
+//   type: types.PUT_QUESTIONS,
+//   payload: questions
+// })
 export const accessToken = localStorage.getItem("accesstoken");
 export const instance = axios.create({
   Authorization: `Bearer ${accessToken}`,
@@ -26,7 +31,6 @@ export const loadJobs = () => {
     instance
       .get("api/v1/quiz")
       .then((res) => {
-        console.log(res?.data.data);
         dispatch(getJobs(res?.data.data));
       })
       .catch((err) => console.log(err));
