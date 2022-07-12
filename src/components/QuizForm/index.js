@@ -43,15 +43,15 @@ export default function QuizForm() {
             </div>
           </QuizformWrapper>
         </div>
-        <div className="col-xl-4 mt-2 col-lg-4 col-md-4 col-sm-6 col-12">
+        <div className="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
           <h1 className="colorH1">Ismingiz</h1>
-          <QuizformWrapper>
+          <QuizformWrapper className="mt-3">
             <input type="text" className="formInput" placeholder="Ismingiz" />
           </QuizformWrapper>
         </div>
-        <div className="col-xl-4 mt-2 col-lg-4 col-md-4 col-sm-6 col-12">
+        <div className="col-xl-4  col-lg-4 col-md-4 col-sm-6 col-12">
           <h1 className="colorH1">Yoshingiz</h1>
-          <QuizformWrapper>
+          <QuizformWrapper className="mt-3">
             <input type="text" className="formInput" placeholder="Yoshingiz" />
           </QuizformWrapper>
         </div>

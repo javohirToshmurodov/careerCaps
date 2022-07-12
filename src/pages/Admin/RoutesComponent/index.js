@@ -9,7 +9,9 @@ import { ImgWrapper } from "../../../styles";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-
+import { Collapse } from "antd";
+import 'antd/dist/antd.css';
+import { DeleteFilled, EditOutlined } from "@ant-design/icons";
 import {
   Accordion,
   AccordionItem,
@@ -22,6 +24,7 @@ import Collapsible from "react-collapsible";
 import EditModalQuestion from "../../../components/EditQuestionModal";
 export default function RoutesComponent() {
   const { id } = useParams();
+  const { Panel } = Collapse;
   const [isEdit, setIsEdit] = useState({})
   const [pictureId, setPictureId] = useState("");
   const [image, setImage] = useState("");
@@ -68,6 +71,10 @@ export default function RoutesComponent() {
     setIsEdit(e)
     return setModal(true)
   }
+
+  const extraAll = () => {
+    <DeleteFilled />
+  }
   return (
     <div className="row ">
       <div className="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12">
@@ -83,31 +90,39 @@ export default function RoutesComponent() {
         {questions.questions?.map((e, i) => (
           <div key={i}>
 
-            <div className="d-flex">
-              <button className="text-white btn btn-warning p-1 " onClick={() => putQuestions(e)}>
+            <div className="d-flex justify-content-end">
+              <button className="text-dark btn  p-1 " onClick={() => putQuestions(e)}>
                 <FontAwesomeIcon icon={faPen} />
               </button>
               {
                 modal ? <EditModalQuestion isEdit={isEdit} show={modal} handleClose={setModal} /> : ''
               }
-              <button className="text-white btn btn-danger p-1" onClick={(event) => deleteQuestions(event, e.id)}>
+              <button className=" btn p-1" onClick={(event) => deleteQuestions(event, e.id)}>
                 <FontAwesomeIcon icon={faTrash} />
               </button>
             </div>
-            <Collapsible className="mb-2" trigger={e.title}>
-              {
-                e.answers.map((answer, index) => (
-                  <p key={index}>
-                    <input
-                      className="input-form-check me-3"
-                      type="checkbox"
-                      defaultChecked={answer.isTrue}
-                    />
-                    {answer.answer}
-                  </p>
-                ))
-              }
-            </Collapsible>
+            <Collapse className="mb-2" defaultActiveKey={["1"]}>
+              <Panel header={e.title} key={i} extra={<DeleteFilled style={{ "fontSize": "20px", "color": "#111" }} onClick={(event) => deleteQuestions(event, e.id)} />} >
+
+                {
+                  e.answers.map((answer, index) => (
+                    <>
+
+                      <p key={index} className="">
+                        <input
+                          className="input-form-check me-3"
+                          type="checkbox"
+                          defaultChecked={answer.isTrue}
+                        />
+                        {answer.answer}
+                      </p>
+
+                    </>
+
+                  ))
+                }
+              </Panel>
+            </Collapse>
           </div>
         ))}
       </div>

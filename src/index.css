@@ -103,6 +103,7 @@ ul {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #036abe;
 }
+
 .minHeightAbout {
   min-height: 500px;
 }

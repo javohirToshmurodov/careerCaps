@@ -48,11 +48,12 @@ export default function Admin() {
                   <li className="mb-4 text-white" key={i}>
                     <NavLink
                       style={({ isActive }) => ({
-                        fontSize: isActive ? "21.5px" : "",
+                        background: isActive ? "white" : "",
                       })}
-                      className={"text-white"}
                       to={`${e.id}`}
+                      className={"p-2 rounded "}
                     >
+
                       {e.name}
                     </NavLink>
                   </li>

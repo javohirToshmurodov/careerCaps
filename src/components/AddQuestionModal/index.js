@@ -15,19 +15,7 @@ export default function AddQuestionModal(props) {
     display: "block",
     backgroundColor: "rgba(0,0,0,0.6)",
   };
-  const loadQuestions = (id) => {
-    return function (dispatch) {
-      instance
-        .get(`api/v1/question/${id}`)
-        .then((res) => {
-          console.log(res.data.data);
-          dispatch(getQuestion(res?.data.data));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-  };
+
   const addInput = () => {
     questions.push({
       answer: "",
@@ -69,6 +57,19 @@ export default function AddQuestionModal(props) {
     props.handleClose(false);
 
 
+  };
+  const loadQuestions = (id) => {
+    return function (dispatch) {
+      instance
+        .get(`api/v1/question/${id}`)
+        .then((res) => {
+          console.log(res.data.data);
+          dispatch(getQuestion(res?.data.data));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
   };
 
   return (

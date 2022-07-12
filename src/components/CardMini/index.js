@@ -3,7 +3,7 @@ import { CardMiniWrapper } from "../../styles";
 
 export default function CardMini(props) {
   return (
-    <div className="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mt-2">
+    <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mt-2">
       <CardMiniWrapper>
         <div>
           <img src={props.img} alt="" />

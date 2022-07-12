@@ -9,3 +9,7 @@
     height: calc(100vh - 120px);
 }
 
+.active-link{
+    background-color: white;
+    color: black;
+}
