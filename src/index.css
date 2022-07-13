@@ -124,6 +124,7 @@ ul {
 .title {
   font-size: 45px;
   font-weight: 600 !important;
+  color: white;
 }
 .subtitle {
   font-size: 25px;
@@ -166,6 +167,7 @@ ul {
   font-weight: 500;
   font-size: 35px;
   line-height: 43px;
+  color: white;
 }
 .aboutP {
   font-weight: 400;
@@ -175,6 +177,7 @@ ul {
 .defaultH1 {
   font-size: 35px !important;
   font-weight: 600;
+  /* color: white; */
   line-height: 42.67px;
 }
 .salaryH1 {

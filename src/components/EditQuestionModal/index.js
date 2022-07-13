@@ -47,6 +47,7 @@ export default function EditModalQuestion(props) {
          setQuestions({})
       })
       props.handleClose(false)
+      window.location.reload()
    }
    return (
       <div>
