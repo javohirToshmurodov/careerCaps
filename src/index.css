@@ -46,6 +46,9 @@ ul {
   max-width: 80% !important;
   padding: 30px;
 } */
+.modal-content{
+  border: 1px solid transparent !important;
+}
 /* .accordion-button::after{
   border-radius: 50%;
   width: 40px !important;

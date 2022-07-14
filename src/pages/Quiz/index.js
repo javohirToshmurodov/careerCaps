@@ -5,20 +5,14 @@ import QuizJobCard from "../../components/QuizJobCard";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getJobs, instance, loadJobs } from "../../redux/actions";
+import TestWarningModal from "../../components/TestWarningModal";
 export default function Quiz() {
   const dispatch = useDispatch()
   const kasb = useSelector((state) => state.jobsData.quizzes)
-  const [search, setSearch] = useState("")
-  const [name, setName] = useState("")
-  const [surname, setSurname] = useState("")
-  const [age, setAge] = useState("")
-  const [gender, setGender] = useState("")
   const [isChecked, setIsChecked] = useState(false)
   const [kasblar, setKasblar] = useState([])
   const [user, setUser] = useState({ gender: "", name: "", age: "", quizId: "" })
-  const [err, setErr] = useState({})
-
-
+  const [show, setShow] = useState(false)
   const checkRadio = (e) => {
     console.log(e);
   }
@@ -45,7 +39,12 @@ export default function Quiz() {
     setUser({ ...user })
     console.log(user);
   }
-
+  const handleShow = () => {
+    setShow(true)
+  }
+  const handleClose = () => {
+    setShow(false)
+  }
   const valid = ({ name, age, gender, quizId }) => {
     const err = {}
 
@@ -75,7 +74,7 @@ export default function Quiz() {
     const res = valid(user)
     console.log(res);
     if (res.errLength) {
-      return alert("kamchilik bor");
+      return alert("To'ldirilganligiga ishonch hosil qiling");
     }
 
     instance.post("api/v1/platform_user/create_with_quiz", user).then((res) => {
@@ -83,6 +82,7 @@ export default function Quiz() {
     }).catch((err) => {
       console.log(err);
     })
+    handleShow()
   }
   return (
     <>
@@ -113,6 +113,7 @@ export default function Quiz() {
               <button onClick={handleSubmit} className="searchButton">
                 Keyingisi
               </button>
+              {show ? <TestWarningModal show={show} setShow={setShow} handleClose={handleClose} handleShow={handleShow} /> : ""}
             </div>
           </div>
         </div>

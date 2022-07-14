@@ -5,20 +5,15 @@ import Modal from 'react-bootstrap/Modal';
 import 'antd/dist/antd.css';
 import { useState } from 'react';
 import { BlackOutlineBtn, OutlineBtn, TestWarningOutlineBtn } from '../../styles';
-export default function TestWarningModal() {
-   const [show, setShow] = useState(false);
+export default function TestWarningModal(props) {
+   // const [show, setShow] = useState(false);
 
 
-   const handleShow = () => {
-      setShow(true)
-   }
-   const handleClose = () => {
-      setShow(false)
-   }
+
    return (
       <div>
 
-         <Modal aria-labelledby="example-modal-sizes-title-lg" size='lg' show={show} onHide={handleClose}>
+         <Modal aria-labelledby="example-modal-sizes-title-lg" size='lg' show={props.show} onHide={props.handleClose}>
             <Modal.Dialog>
                <Modal.Header id="example-modal-sizes-title-lg" closeButton>
                   <Modal.Title>Test qoidalari bilan tanishing</Modal.Title>
