@@ -12,15 +12,7 @@ import { useState } from "react";
 import { Collapse } from "antd";
 import 'antd/dist/antd.css';
 import { DeleteFilled, EditFilled, EditOutlined } from "@ant-design/icons";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionItemHeading,
-  AccordionItemButton,
-  AccordionItemPanel,
-} from 'react-accessible-accordion';
-import Example from "../../../components/accardion";
-import Collapsible from "react-collapsible";
+
 import EditModalQuestion from "../../../components/EditQuestionModal";
 export default function RoutesComponent() {
   const { id } = useParams();
@@ -53,6 +45,23 @@ export default function RoutesComponent() {
   //     })
   //     .catch((err) => console.log(err));
   // };
+  const handleFile = (e) => {
+    const attachment = {}
+
+    const formData = new FormData();
+    formData.append("files", e);
+    instance
+      .post("api/v1/file/saveAttachments", formData)
+      .then((res) => {
+        console.log("response keldi", res.data.data[0]);
+        setPictureId(res?.data.data);
+        attachment.smth = { ...res.data.data[0] }
+
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const deleteQuestions = (event, id) => {
     try {
@@ -65,6 +74,7 @@ export default function RoutesComponent() {
     }
   }
   useEffect(() => {
+    console.log(questions);
     dispatch(loadQuestions());
   }, [id]);
   const putQuestions = (e) => {
@@ -78,6 +88,7 @@ export default function RoutesComponent() {
   return (
     <div className="row align-items-start">
       <div className="col-xl-2 col-lg-2 col-md-12 col-sm-12  col-12 d-flex justify-content-center flex-column align-items-center">
+        {/* <input type="file" onChange={(e) => handleFile(e.target.files[0])} /> */}
         <ImgWrapper>
           <img
             src={`http://ec2-35-158-135-234.eu-central-1.compute.amazonaws.com/api/v1/file/get/${questions?.attachment}`}
@@ -85,17 +96,18 @@ export default function RoutesComponent() {
           />
         </ImgWrapper>
         <h5 className="mt-2">{questions?.name}</h5>
+
       </div>
       <div className="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12">
         {questions.questions?.map((e, i) => (
           <div key={i}>
 
             <div className="d-flex justify-content-end">
-              <button className="text-danger btn p-1" onClick={(event) => deleteQuestions(event, e.id)}>
-                <FontAwesomeIcon icon={faTrash} />
-              </button>
               <button className="text-danger btn p-1" onClick={() => putQuestions(e)} >
                 <FontAwesomeIcon icon={faEdit} />
+              </button>
+              <button className="text-danger btn p-1" onClick={(event) => deleteQuestions(event, e.id)}>
+                <FontAwesomeIcon icon={faTrash} />
               </button>
               {
                 modal ? <EditModalQuestion isEdit={isEdit} show={modal} handleClose={setModal} /> : ''
@@ -108,7 +120,6 @@ export default function RoutesComponent() {
                 {
                   e.answers.map((answer, index) => (
                     <>
-
                       <p key={index} className="">
                         <input
                           className="input-form-check me-3"

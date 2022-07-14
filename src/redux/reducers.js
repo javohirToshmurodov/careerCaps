@@ -3,6 +3,7 @@ import * as types from "./actionType";
 const initialState = {
   quizzes: [],
   questions: [],
+  files: []
 };
 const jobsReducers = (state = initialState, action) => {
   switch (action.type) {
@@ -49,6 +50,17 @@ export const putQuestionsReducers = (state = initialState, action) => {
       }
     default:
       return state
+  }
+}
+
+export const fileReducers = (state = initialState, action) => {
+  switch (action.type) {
+    case types.POST_FILE: {
+      return {
+        ...state,
+        files: action.payload
+      }
+    }
   }
 }
 export default jobsReducers;

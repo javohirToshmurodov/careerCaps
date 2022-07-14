@@ -22,10 +22,12 @@ import ArxitektorChild from "./pages/Admin/Arxitektor";
 import PsixologChild from "./pages/Admin/Psixolog";
 import RoutesComponent from "./pages/Admin/RoutesComponent";
 import Example from "./components/accardion";
+import TestWarningModal from "./components/TestWarningModal";
 export default function App() {
   return (
     <>
       <Header />
+      <TestWarningModal/>
       <Routes>
         <Route path="*" element={<Navigate to={"/"} replace />} />
         <Route path="/" element={<Home />} />

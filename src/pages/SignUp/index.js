@@ -23,14 +23,13 @@ export default function SignUp() {
       }).then((res) => {
         console.log(res?.data);
         localStorage.setItem("accesstoken", `Bearer ${res?.data.accessToken}`)
+        console.log(user, password);
+        if (user && password) {
+          navigate("/admin")
+        } else {
+          navigate("/login")
+        }
       })
-      if (accessToken) {
-        console.log("accesstoken bor");
-        navigate("/admin")
-        window.location.reload()
-      } else {
-        navigate("/login")
-      }
 
       if (user === "nonUser" && password === "nonUser") {
         setSuccess(true)

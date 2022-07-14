@@ -42,6 +42,10 @@ ul {
 .borderLink {
   border-bottom: 1.5px solid transparent;
 }
+/* .modal-dialog{
+  max-width: 80% !important;
+  padding: 30px;
+} */
 /* .accordion-button::after{
   border-radius: 50%;
   width: 40px !important;

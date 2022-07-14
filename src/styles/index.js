@@ -61,6 +61,18 @@ export const BlackOutlineBtn = styled.button`
     cursor: pointer;
   }
 `;
+export const TestWarningOutlineBtn = styled.button`
+padding: 12px 26px;
+  border-radius: 88px;
+  border: 2px solid #000;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  line-height: 20px;
+  background-color: transparent;
+  color: black;
+  transition: all 0.3s;
+`
 export const AdvantagesCardWrapper = styled.div`
   margin-top: 20px !important;
   height: 100%;

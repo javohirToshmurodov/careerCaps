@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import * as types from "./actionType";
 export const getJobs = (quizzes) => ({
   type: types.GET_JOBS,
@@ -13,6 +12,10 @@ export const postQuestion = (questions) => ({
   type: types.POST_QUESTIONS,
   payload: questions
 });
+// export const postFile = (files) = ({
+//   type: types.POST_FILE,
+//   payload: files
+// })
 
 // export const putQuestion = (questions) = ({
 //   type: types.PUT_QUESTIONS,
@@ -31,6 +34,7 @@ export const loadJobs = () => {
     instance
       .get("api/v1/quiz")
       .then((res) => {
+        console.log(res?.data.data);
         dispatch(getJobs(res?.data.data));
       })
       .catch((err) => console.log(err));
