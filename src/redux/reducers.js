@@ -3,8 +3,25 @@ import * as types from "./actionType";
 const initialState = {
   quizzes: [],
   questions: [],
-  files: []
+  files: [],
+  allData: {}
 };
+
+export const allDataReducers = (state = initialState, action) => {
+  switch (action.type) {
+    case types.GET_ALL_DATA: {
+      console.log("action-----", action.payload);
+      return {
+        ...state,
+        allData: action.payload
+
+      }
+    }
+    default:
+      return state
+  }
+  // console.log();
+}
 const jobsReducers = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_JOBS: {

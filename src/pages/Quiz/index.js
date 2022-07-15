@@ -13,6 +13,8 @@ export default function Quiz() {
   const [kasblar, setKasblar] = useState([])
   const [user, setUser] = useState({ gender: "", name: "", age: "", quizId: "" })
   const [show, setShow] = useState(false)
+  const [userId, setUserId] = useState("")
+  const [quizId, setQuizId] = useState("")
   const checkRadio = (e) => {
     console.log(e);
   }
@@ -78,7 +80,9 @@ export default function Quiz() {
     }
 
     instance.post("api/v1/platform_user/create_with_quiz", user).then((res) => {
-      console.log(res.data);
+      console.log("bu user id", res.data.data);
+      setUserId(res?.data.data.userId)
+      setQuizId(res?.data.data.quizId)
     }).catch((err) => {
       console.log(err);
     })
@@ -113,7 +117,7 @@ export default function Quiz() {
               <button onClick={handleSubmit} className="searchButton">
                 Keyingisi
               </button>
-              {show ? <TestWarningModal show={show} setShow={setShow} handleClose={handleClose} handleShow={handleShow} /> : ""}
+              {show ? <TestWarningModal userId={userId} show={show} setShow={setShow} handleClose={handleClose} handleShow={handleShow} /> : ""}
             </div>
           </div>
         </div>

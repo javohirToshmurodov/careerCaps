@@ -6,8 +6,14 @@ import testwarning from "../../assets/images/testwarning.svg"
 import 'antd/dist/antd.css';
 import { useState } from 'react';
 import { BlackOutlineBtn, OutlineBtn, TestWarningOutlineBtn } from '../../styles';
+import { useNavigate } from 'react-router-dom';
 // import './test.css'
 export default function TestWarningModal(props) {
+   const navigate = useNavigate()
+   const startTest = () => {
+      console.log("starttest ishladi");
+      navigate(`/testing/${props.userId}`)
+   }
    return (
       <div>
 
@@ -39,7 +45,7 @@ export default function TestWarningModal(props) {
                            </TestWarningOutlineBtn>
                         </div>
                         <div>
-                           <button className='searchButton'>
+                           <button onClick={startTest} className='searchButton'>
                               Boshlash
                            </button>
                         </div>

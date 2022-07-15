@@ -23,11 +23,13 @@ import PsixologChild from "./pages/Admin/Psixolog";
 import RoutesComponent from "./pages/Admin/RoutesComponent";
 import Example from "./components/accardion";
 import TestWarningModal from "./components/TestWarningModal";
+import ProgressBar from "./components/ProgressBar";
+import Testing from "./components/Testing";
 export default function App() {
   return (
     <>
       <Header />
-      <TestWarningModal/>
+      <TestWarningModal />
       <Routes>
         <Route path="*" element={<Navigate to={"/"} replace />} />
         <Route path="/" element={<Home />} />
@@ -37,6 +39,7 @@ export default function App() {
         <Route path="muhandis" element={<Muhandis />} />
         <Route path="veterinar" element={<Veterinar />} />
         <Route path="dasturchi" element={<Dasturchi />} />
+        <Route path="testing/:id" element={<Testing />} />
         <Route path="quiz" element={<Quiz />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="admin" element={<Admin />}>

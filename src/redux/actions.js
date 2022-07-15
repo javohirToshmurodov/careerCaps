@@ -20,6 +20,10 @@ export const postJobs = (quizzes) => ({
   type: types.POST_JOBS,
   payload: quizzes
 })
+export const getAllData = (alldatas) => ({
+  type: types.GET_ALL_DATA,
+  payload: alldatas
+})
 // export const putQuestion = (questions) = ({
 //   type: types.PUT_QUESTIONS,
 //   payload: questions
