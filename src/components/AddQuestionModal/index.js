@@ -39,25 +39,6 @@ export default function AddQuestionModal(props) {
     setQuestions([...questions]);
     console.log(questions);
   };
-  const submitQuestion = () => {
-    instance
-      .post(`api/v1/question/add_question_with_answers/${id}`, {
-        title: questionTitle,
-        answers: questions,
-      })
-      .then((res) => {
-        console.log(res.data);
-        dispatch(postQuestion(res?.data))
-        dispatch(loadQuestions())
-      })
-      .catch((err) => console.log(err));
-    setQuestionTitle("");
-    setQuestions([]);
-    alert("question added successfully!!!")
-    props.handleClose(false);
-
-
-  };
   const loadQuestions = (id) => {
     return function (dispatch) {
       instance
@@ -71,6 +52,25 @@ export default function AddQuestionModal(props) {
         });
     };
   };
+  const submitQuestion = () => {
+    instance
+      .post(`api/v1/question/add_question_with_answers/${id}`, {
+        title: questionTitle,
+        answers: questions,
+      })
+      .then((res) => {
+        console.log(res.data);
+        dispatch(postQuestion(res?.data))
+
+      })
+      .catch((err) => console.log(err));
+    setQuestionTitle("");
+    setQuestions([]);
+    alert("question added successfully!!!")
+    props.handleClose(false);
+    dispatch(loadQuestions(id))
+  };
+
 
   return (
     <div>

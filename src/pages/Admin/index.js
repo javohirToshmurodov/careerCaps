@@ -9,8 +9,10 @@ import { instance } from "../../redux/actions";
 import "./admin.css";
 export default function Admin() {
   const [modal, setModal] = useState(false);
+  // const []
   const [pictureId, setPictureId] = useState("");
   let { id } = useParams();
+  const [name, setName] = useState("")
   const dispatch = useDispatch();
   const jobs = useSelector((state) => state.jobsData?.quizzes);
   const navigate = useNavigate();
@@ -32,6 +34,15 @@ export default function Admin() {
         console.log(err);
       });
   };
+
+  const jobSaqlash = (e) => {
+    e.preventDefault()
+    instance.post("api/v1/quiz", {
+      name: `${name}`
+    }).then((res) => {
+      console.log(res.data);
+    })
+  }
   return (
     <div>
       <div className=" w-100">
@@ -54,10 +65,11 @@ export default function Admin() {
                   </li>
                 ))}
               </ul>
-              {/* <input
-                  type="file"
-                  onChange={(e) => handleFile(e.target.files[0])}
-                /> */}
+              {/* <input type="text" onChange={(e) => setName(e.target.value)} placeholder="job kiriting" />
+              <button onClick={jobSaqlash}>
+                jobni saqlash
+              </button> */}
+              {/* <input type="file" onChange={(e) => handleFile(e.target.files[0])} /> */}
             </div>
             <div className="col-xl-10 col-lg-10 col-md-9 col-sm-6 col-12 px-4">
               <div className="text-end">

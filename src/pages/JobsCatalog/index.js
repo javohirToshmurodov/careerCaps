@@ -16,7 +16,7 @@ export default function JobsCatalog() {
     <>
       <div className="DefaultBg minHeight">
         <div className="container py-5 px-5 text-white">
-          <div class="row justify-content-between align-items-center">
+          <div className="row justify-content-between align-items-center">
             <div className="col-lg-6 col-md-6  col-xl-g col-sm-12 col-12 mainHome">
               <h1 className="title">Kasblar ro'yxati</h1>
               <p className="subtitle">Kelajak kasbingizni biz bilan tanlang</p>

@@ -13,6 +13,12 @@ const jobsReducers = (state = initialState, action) => {
         quizzes: action.payload,
       };
     }
+    case types.POST_JOBS: {
+      return {
+        ...state,
+        quizzes: action.payload
+      }
+    }
     default:
       return state;
   }

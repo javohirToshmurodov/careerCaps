@@ -6,7 +6,9 @@ import { Button } from "react-bootstrap";
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { instance, putQuestions } from '../../redux/actions';
+import { getQuestion } from '../../redux/actions';
 export default function EditModalQuestion(props) {
+   const { id } = useParams()
    const [questions, setQuestions] = useState({})
    const [questionTitle, setQuestionTitle] = useState(props.questionTitle)
    const dispatch = useDispatch()
@@ -38,7 +40,19 @@ export default function EditModalQuestion(props) {
       setQuestions({ ...questions });
       console.log(questions);
    };
-
+   const loadQuestions = (id) => {
+      return function (dispatch) {
+         instance
+            .get(`api/v1/question/${id}`)
+            .then((res) => {
+               console.log(res.data.data);
+               dispatch(getQuestion(res?.data.data));
+            })
+            .catch((err) => {
+               console.log(err);
+            });
+      };
+   };
    const editQuestion = () => {
       instance.put(`api/v1/question/edit_question/${questions.id}`, {
          ...questions
@@ -46,7 +60,8 @@ export default function EditModalQuestion(props) {
          console.log(res.data);
          setQuestions({})
          props.handleClose(false)
-         window.location.reload()
+         dispatch(loadQuestions(id))
+         // window.location.reload()
       })
    }
    return (

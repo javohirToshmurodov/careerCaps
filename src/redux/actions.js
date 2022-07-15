@@ -16,7 +16,10 @@ export const postQuestion = (questions) => ({
 //   type: types.POST_FILE,
 //   payload: files
 // })
-
+export const postJobs = (quizzes) => ({
+  type: types.POST_JOBS,
+  payload: quizzes
+})
 // export const putQuestion = (questions) = ({
 //   type: types.PUT_QUESTIONS,
 //   payload: questions

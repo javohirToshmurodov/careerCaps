@@ -49,6 +49,14 @@ ul {
 .modal-content{
   border: 1px solid transparent !important;
 }
+.modal-lg{
+  max-width: 1300px !important;
+}
+.modal-lg .modal-dialog{
+  margin: 1.75rem 50px !important;
+  width: 90% !important;
+  max-width: 100% !important;
+}
 /* .accordion-button::after{
   border-radius: 50%;
   width: 40px !important;
@@ -202,6 +210,11 @@ ul {
   font-weight: 400 !important;
   font-size: 20px;
   line-height: 24px;
+}
+.testP{
+  font-weight: 500;
+font-size: 18px;
+line-height: 28px;
 }
 .mediumP {
   font-weight: 500;
@@ -398,8 +411,14 @@ ul {
   font-size: 20px;
 }
 @media (min-width: 989.9px) and (max-width: 1200px) {
+  .modal-lg{
+    max-width: 1000px !important;
+  }
 }
 @media (min-width: 768px) and (max-width: 990px) {
+  .modal-lg{
+    max-width: 900px !important;
+  }
   .goJob {
     top: 5px;
     right: 5px;
