@@ -25,6 +25,7 @@ import Example from "./components/accardion";
 import TestWarningModal from "./components/TestWarningModal";
 import ProgressBar from "./components/ProgressBar";
 import Testing from "./components/Testing";
+import Reyting from "./pages/Reyting";
 export default function App() {
   return (
     <>
@@ -40,6 +41,7 @@ export default function App() {
         <Route path="veterinar" element={<Veterinar />} />
         <Route path="dasturchi" element={<Dasturchi />} />
         <Route path="testing/:id" element={<Testing />} />
+        <Route path="reyting" element={<Reyting />} />
         <Route path="quiz" element={<Quiz />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="admin" element={<Admin />}>
