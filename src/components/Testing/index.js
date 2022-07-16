@@ -9,6 +9,7 @@ import QuizJobCard from '../QuizJobCard'
 import TestCard from '../TestCard'
 import TestFooter from '../TestFooter'
 import { QuizJobCardWrapper } from '../../styles'
+import Result from '../Result'
 
 export default function Testing() {
    const [allData, setAllData] = useState({})
@@ -22,6 +23,7 @@ export default function Testing() {
    const [loader, setLoader] = useState(false)
    const [check, setCheck] = useState(false)
    const [showResult, setShowResult] = useState(false)
+   const [resultMessage, setResultMessage] = useState("Sizdagi bilimlar qoniqarli emas")
    const getTestQuestions = async () => {
       setCheck(false)
       try {
@@ -66,19 +68,22 @@ export default function Testing() {
    }
    return (
       <>
-         {allQ.allQuestionsCount == allQ.questionNumber + 1 ? (
-            <div>
-               <button onClick={() => setShowResult(!showResult)}>
+         {allQ.question == null ? (
+            <div className='p-5'>
+               <button className='searchButton' onClick={() => setShowResult(!showResult)}>
                   Natijani korish
                </button>
                {showResult && (
                   <div>
                      {allQ.result ? (
-                        <p>
-                           {allQ.result.answersCount} ta savoldan
-                           {allQ.result.trueAnswersCount} tasiga to'g'ri javob berdingiz
-                           Test uchun ketkazgan umumiy vaqtingiz : {allQ.result.time}
-                        </p>
+                        <>
+                           <p>
+                              {allQ.result.answersCount} ta savoldan
+                              {allQ.result.trueAnswersCount} tasiga to'g'ri javob berdingiz
+                              Test uchun ketkazgan umumiy vaqtingiz : {allQ.result.time}
+                           </p>
+                           <Result resultMessage={resultMessage} setResultMessage={setResultMessage} savollarSoni={allQ.result.answersCount} trueAnswerCount={allQ.result.trueAnswersCount} time={allQ.result.time} />
+                        </>
                      ) : (
                         <div>
                            <h1>Nomalum xatolik</h1>
