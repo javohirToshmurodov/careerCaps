@@ -14,6 +14,7 @@ import { Progress } from 'antd'
 import { Spin } from 'antd'
 import Reyting from '../../pages/Reyting'
 import { ClockCircleFilled, ClockCircleOutlined } from '@ant-design/icons'
+import WatchClock from '../WatchClock'
 
 export default function Testing() {
    const [allData, setAllData] = useState({})
@@ -75,6 +76,10 @@ export default function Testing() {
    if (allQ.allQuestionsCount == 0) {
       return <h1>Savollar mavjud emas</h1>
    }
+
+   const watchClock = () => {
+      return <ClockCircleFilled />
+   }
    return (
       <Spin spinning={loader}>
          {allQ.question == null ? (
@@ -119,8 +124,10 @@ export default function Testing() {
          ) : (
             <>
                <section className='py-5'>
-                  <div className='container'>
-                     <Progress format={() => ""} strokeWidth={12} percent={Math.round((100 / allQ.allQuestionsCount) * count)} />
+                  <div className='container '>
+                     <div className="bg-white px-3 py-1 rounded">
+                        <Progress format={() => <WatchClock />} strokeWidth={12} percent={Math.round((100 / allQ.allQuestionsCount) * count)} />
+                     </div>
                      <div className="d-flex">
                         <div>
                         </div>
@@ -130,7 +137,7 @@ export default function Testing() {
                      </div>
 
                      <div className='row'>
-                        <div className='colorH1'>
+                        <div className='colorH1 mt-2'>
                            {allQ.question &&
                               `${allQ?.questionNumber + '' + '. ' + allQ.question?.title}`}
                         </div>
@@ -140,7 +147,7 @@ export default function Testing() {
                            allQ.question?.answers?.map((e, i) => {
                               return (
                                  <label
-                                    key={i}
+                                    key={e.id}
                                     htmlFor={e.id}
                                     className='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mt-3'
                                  >

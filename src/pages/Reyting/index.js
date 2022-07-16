@@ -57,7 +57,7 @@ export default function Reyting(props) {
                            </div>
                            <div>
                               <p>
-                                 {e.questions}-{e.trueAnsweredQuestions} | {e.time.slice(3, 8)} sek
+                                 {e.questions}-{e.trueAnsweredQuestions} | {e.time.slice(3, 8)}
                               </p>
                            </div>
                         </div>
