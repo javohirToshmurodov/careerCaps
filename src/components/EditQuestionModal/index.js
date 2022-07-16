@@ -13,7 +13,6 @@ export default function EditModalQuestion(props) {
    const [questionTitle, setQuestionTitle] = useState(props.questionTitle)
    const dispatch = useDispatch()
    useEffect(() => {
-      console.log("bu isEdit", props.isEdit);
       setQuestions({ ...props.isEdit })
    }, [])
 
@@ -24,9 +23,13 @@ export default function EditModalQuestion(props) {
       });
       setQuestions({ ...questions });
    };
+   const editTitle = (event) => {
+      console.log(event);
+      questions.title = event
+      setQuestions({ ...questions })
+   }
    const editVariant = (event, index) => {
       questions.answers[index].answer = event.target.value
-      console.log(questions.answers[index].answer);
       setQuestions({ ...questions })
    }
    const handleChange = (e, i) => {
@@ -38,7 +41,6 @@ export default function EditModalQuestion(props) {
          }
       });
       setQuestions({ ...questions });
-      console.log(questions);
    };
    const loadQuestions = (id) => {
       return function (dispatch) {
@@ -78,7 +80,7 @@ export default function EditModalQuestion(props) {
                   <input
                      id="text"
                      autoComplete="off"
-                     onChange={(e) => setQuestionTitle(e.target.value)}
+                     onChange={(e) => editTitle(e.target.value)}
                      type="text"
                      defaultValue={questions?.title}
                      placeholder="savol matni"

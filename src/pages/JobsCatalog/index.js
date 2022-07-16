@@ -5,13 +5,32 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useState } from "react";
 import mainPic from "../../assets/images/jobsCatalog.png";
 import SearchForm from "../../components/SearchForm";
 import jobs from "../../data/jobs";
 import Footer from "../../components/Footer";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 export default function JobsCatalog() {
   const navigate = useNavigate();
+  const [kasblar, setKasblar] = useState([])
+
+  const searchJob = (e = '') => {
+    console.log(e)
+    if (e.trim().length === 0) {
+      setKasblar([...jobs])
+      return
+    }
+    const arr = kasblar.filter((item) =>
+      item.jobName.toLowerCase().includes(e.toLowerCase())
+    )
+    setKasblar([...arr])
+  }
+  useEffect(() => {
+    setKasblar([...jobs])
+    console.log(jobs);
+  }, [jobs])
   return (
     <>
       <div className="DefaultBg minHeight">
@@ -29,10 +48,10 @@ export default function JobsCatalog() {
       </div>
       <section>
         <div className="container px-5 py-5">
-          <SearchForm />
+          <SearchForm searchJob={searchJob} />
           <div className="row px-3">
             <div className="col-12 ">
-              {jobs.map((e, i) => (
+              {kasblar.map((e, i) => (
                 <div
                   className="row pt-3 pb-3 align-items-center jobsCard ps-4 pe-0 mt-4  position-relative"
                   key={i}
