@@ -36,6 +36,7 @@ export default function Statistics() {
     })
   }
   useEffect(() => {
+    console.log(statistics);
     getStatistics()
   }, [])
   return (
