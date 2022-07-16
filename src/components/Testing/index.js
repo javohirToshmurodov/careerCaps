@@ -73,7 +73,7 @@ export default function Testing() {
    }
    return (
       <Spin spinning={loader}>
-         <Progress format={() => 'High'} strokeWidth={12} strokeColor={'#000'} percent={(100 / allQ.allQuestionsCount) * count} />
+         <Progress strokeWidth={12} percent={(100 / allQ.allQuestionsCount) * count} />
          {allQ.question == null ? (
             <div className='p-5 '>
 

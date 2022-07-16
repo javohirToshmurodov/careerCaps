@@ -16,7 +16,28 @@ import ayollar from "../../assets/images/statistika/ayollar.svg";
 import thirty from "../../assets/images/statistika/thirty.svg";
 import seventy from "../../assets/images/statistika/seventy.svg";
 import Footer from "../../components/Footer";
+
+import { useState } from "react";
+import { instance } from "../../redux/actions";
+import { useEffect } from "react";
+import { CardMiniWrapper } from "../../styles";
 export default function Statistics() {
+  const [statistics, setStatistics] = useState({})
+
+
+  const getStatistics = () => {
+    instance.get("api/v1/statistics").then((res) => {
+      console.log(res.data.data);
+      setStatistics({ ...res.data.data })
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
+  useEffect(() => {
+    getStatistics()
+    console.log(statistics.topQuizes);
+    console.log(statistics);
+  }, [])
   return (
     <>
       <div className="DefaultBg minHeight">
@@ -36,9 +57,9 @@ export default function Statistics() {
         <div className="container px-5">
           <h1 className="colorH1">Testda qatnashganlar soni</h1>
           <div className="row mt-4">
-            <CardMini kim={"Jami"} img={jami} soni={"100"} />
-            <CardMini kim={"Erkaklar soni"} img={boy} soni={"70"} />
-            <CardMini kim={"Ayollar soni"} img={girl} soni={"30"} />
+            <CardMini kim={"Jami"} img={jami} soni={statistics.allMembers} />
+            <CardMini kim={"Erkaklar soni"} img={boy} soni={statistics.males} />
+            <CardMini kim={"Ayollar soni"} img={girl} soni={statistics.females} />
           </div>
         </div>
       </section>
@@ -46,9 +67,10 @@ export default function Statistics() {
         <div className="container px-5">
           <h1 className="colorH1">Eng ko'p ishlangan testlar</h1>
           <div className="row mt-4">
-            <CardWrapper img={psixolog} jobName={"Psixolog"} crown={crown} />
+            {statistics?.topQuizes?.map((e, i) => <CardWrapper img={e.attachment} jobName={e.name} crown={crown} />)}
+            {/* <CardWrapper img={psixolog} jobName={"Psixolog"} crown={crown} />
             <CardWrapper img={dasturchi} jobName={"Dasturchi"} crown={crown} />
-            <CardWrapper img={veterinar} jobName={"Veterinar"} crown={crown} />
+            <CardWrapper img={veterinar} jobName={"Veterinar"} crown={crown} /> */}
           </div>
         </div>
       </section>
@@ -56,23 +78,23 @@ export default function Statistics() {
         <div className="container px-5">
           <h1 className="colorH1">Testlar statistikasi</h1>
           <div className="row mt-4">
-            <ProgressCard img2={""} img={jamii} title={"Jami"} soni={"100"} />
+            <ProgressCard img2={""} img={jamii} title={"Jami"} soni={statistics.allTests} />
             <ProgressCard
               img2={thirty}
               img={erkaklar}
-              title={"Erkaklar"}
-              soni={"70"}
+              title={"Muvaffaqiyatli"}
+              soni={statistics.successTests}
             />
             <ProgressCard
               img2={seventy}
               img={ayollar}
-              title={"Ayollar"}
-              soni={"30"}
+              title={"Muvaffaqiyatsiz"}
+              soni={statistics.failedCount}
             />
           </div>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </>
   );
 }
