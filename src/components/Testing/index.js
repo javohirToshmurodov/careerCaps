@@ -4,12 +4,15 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { getAllData, instance } from '../../redux/actions'
-import Progress from '../ProgressBar'
+import ProgressCustom from '../ProgressBar'
 import QuizJobCard from '../QuizJobCard'
 import TestCard from '../TestCard'
 import TestFooter from '../TestFooter'
 import { QuizJobCardWrapper } from '../../styles'
 import Result from '../Result'
+import { Progress } from 'antd'
+import { Spin } from 'antd'
+import Reyting from '../../pages/Reyting'
 
 export default function Testing() {
    const [allData, setAllData] = useState({})
@@ -23,7 +26,10 @@ export default function Testing() {
    const [loader, setLoader] = useState(false)
    const [check, setCheck] = useState(false)
    const [showResult, setShowResult] = useState(false)
-   const [resultMessage, setResultMessage] = useState("Sizdagi bilimlar qoniqarli emas")
+   const [count, setCount] = useState(0)
+   const [resultMessage, setResultMessage] = useState(
+      'Sizdagi bilimlar qoniqarli emas'
+   )
    const getTestQuestions = async () => {
       setCheck(false)
       try {
@@ -34,7 +40,6 @@ export default function Testing() {
          setAllQ(res.data.data)
          setDisabled(false)
          setLoader(false)
-         console.log(res.data.data)
       } catch (err) {
          console.log('getQuestions err', err)
       }
@@ -42,14 +47,13 @@ export default function Testing() {
 
    useEffect(() => {
       getTestQuestions()
-      console.log(allQ)
    }, [])
 
    const select = (i) => {
       setCheck(true)
       setDisabled(true)
       const exactAnswer = allQ?.question.answers.filter((item) => item.id === i)
-
+      console.log(allQ);
       if (exactAnswer[0].isTrue) {
          setMessage("Javobingiz to'gri")
          setIstrue(true)
@@ -61,44 +65,58 @@ export default function Testing() {
          userId: `${allQ.userId}`,
          answerId: `${exactAnswer[0].id}`,
       })
+      setCount(allQ.questionNumber)
    }
 
-   if (loader) {
-      return <h1>Loading...</h1>
+   if (allQ.allQuestionsCount == 0) {
+      return <h1>Savollar mavjud emas</h1>
    }
    return (
-      <>
+      <Spin spinning={loader}>
+         <Progress format={() => 'High'} strokeWidth={12} strokeColor={'#000'} percent={(100 / allQ.allQuestionsCount) * count} />
          {allQ.question == null ? (
-            <div className='p-5'>
-               <button className='searchButton' onClick={() => setShowResult(!showResult)}>
-                  Natijani korish
-               </button>
-               {showResult && (
-                  <div>
-                     {allQ.result ? (
-                        <>
-                           <p>
-                              {allQ.result.answersCount} ta savoldan
-                              {allQ.result.trueAnswersCount} tasiga to'g'ri javob berdingiz
-                              Test uchun ketkazgan umumiy vaqtingiz : {allQ.result.time}
-                           </p>
-                           <Result resultMessage={resultMessage} setResultMessage={setResultMessage} savollarSoni={allQ.result.answersCount} trueAnswerCount={allQ.result.trueAnswersCount} time={allQ.result.time} />
-                        </>
-                     ) : (
+            <div className='p-5 '>
+
+               <div>
+                  {allQ.result ? (
+                     <>
                         <div>
-                           <h1>Nomalum xatolik</h1>
-                           <Link to={'/'}>Bosh sahifaga qaytish</Link>
+                           {allQ.result.trueAnsweredQuestions >= 5 ? (
+                              <>
+
+                                 <Reyting h1={"Tabriklaymiz!!!"} p={"O’z kelajagingizni tanlagan sohangiz bilan bog’lash uchun sizda yetarli bilimlar mavjud "} />
+                              </>
+
+                           ) : (
+                              <>
+                                 <Reyting h1={
+                                    "Sizdagi bilimlar qoniqarli emas"
+                                 } p={
+                                    "Siz boshqa kasbda qobiliyatli ekanligingizga ishonamiz!"
+                                 } />
+                              </>
+                           )}
                         </div>
-                     )}
-                  </div>
-               )}
+                        <Result
+                           resultMessage={resultMessage}
+                           setResultMessage={setResultMessage}
+                           savollarSoni={allQ.result.answersCount}
+                           trueAnswerCount={allQ.result.trueAnswersCount}
+                           time={allQ.result.time}
+                        />
+                     </>
+                  ) : (
+                     <div>
+                        <h1>Nomalum xatolik</h1>
+                        <Link to={'/'}>Bosh sahifaga qaytish</Link>
+                     </div>
+                  )}
+               </div>
             </div>
          ) : (
             <>
                <section className='py-5'>
                   <div className='container'>
-                     <Progress now={allQ?.questionNumber} />
-
                      <div className='row'>
                         <div className='colorH1'>
                            {allQ.question &&
@@ -117,7 +135,6 @@ export default function Testing() {
                                     <QuizJobCardWrapper>
                                        <div className='positionInput'>
                                           <input
-                                             defaultChecked={false}
                                              disabled={disabled}
                                              id={e.id}
                                              onChange={() => select(e.id)}
@@ -134,7 +151,7 @@ export default function Testing() {
                               )
                            })
                         ) : (
-                           <h1>Savollar mavjud emas</h1>
+                           <h1>Savollar tugadi</h1>
                         )}
                      </div>
                   </div>
@@ -153,6 +170,6 @@ export default function Testing() {
                )}
             </>
          )}
-      </>
+      </Spin>
    )
 }

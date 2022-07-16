@@ -1,32 +1,36 @@
-import React, { useState } from "react";
-import QuizForm from "../../components/QuizForm";
-import SearchForm from "../../components/SearchForm";
-import QuizJobCard from "../../components/QuizJobCard";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getJobs, instance, loadJobs } from "../../redux/actions";
-import TestWarningModal from "../../components/TestWarningModal";
+import React, { useState } from 'react'
+import QuizForm from '../../components/QuizForm'
+import SearchForm from '../../components/SearchForm'
+import QuizJobCard from '../../components/QuizJobCard'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { instance, loadJobs } from '../../redux/actions'
+import TestWarningModal from '../../components/TestWarningModal'
 export default function Quiz() {
   const dispatch = useDispatch()
   const kasb = useSelector((state) => state.jobsData.quizzes)
   const [isChecked, setIsChecked] = useState(false)
   const [kasblar, setKasblar] = useState([])
-  const [user, setUser] = useState({ gender: "", name: "", age: "", quizId: "" })
+  const [user, setUser] = useState({
+    gender: '',
+    name: '',
+    age: '',
+    quizId: '',
+  })
   const [show, setShow] = useState(false)
-  const [userId, setUserId] = useState("")
-  const [quizId, setQuizId] = useState("")
-  const checkRadio = (e) => {
-    console.log(e);
-  }
-  const searchJob = (e = "") => {
-    console.log(e);
+  const [userId, setUserId] = useState('')
+  const [quizId, setQuizId] = useState('')
+  const checkRadio = (e) => {}
+  const searchJob = (e = '') => {
+    console.log(e)
     if (e.trim().length === 0) {
       setKasblar([...kasb])
       return
     }
-    const arr = kasblar.filter((item) => item.name.toLowerCase().includes(e.toLowerCase()))
+    const arr = kasblar.filter((item) =>
+      item.name.toLowerCase().includes(e.toLowerCase())
+    )
     setKasblar([...arr])
-
   }
   useEffect(() => {
     dispatch(loadJobs())
@@ -39,7 +43,6 @@ export default function Quiz() {
     const { name, value } = e.target
     user[name] = value
     setUser({ ...user })
-    console.log(user);
   }
   const handleShow = () => {
     setShow(true)
@@ -63,7 +66,7 @@ export default function Quiz() {
       err.gender = 'Iltimos jinsingizni tanlang'
     }
     if (!quizId) {
-      err.quizId = "iltimos kasbingizni tanlang"
+      err.quizId = 'iltimos kasbingizni tanlang'
     }
 
     return {
@@ -74,33 +77,38 @@ export default function Quiz() {
   const handleSubmit = (e) => {
     e.preventDefault()
     const res = valid(user)
-    console.log(res);
     if (res.errLength) {
-      return alert("To'ldirilganligiga ishonch hosil qiling");
+      return alert("To'ldirilganligiga ishonch hosil qiling")
     }
 
-    instance.post("api/v1/platform_user/create_with_quiz", user).then((res) => {
-      console.log("bu user id", res.data.data);
-      setUserId(res?.data.data.userId)
-      setQuizId(res?.data.data.quizId)
-    }).catch((err) => {
-      console.log(err);
-    })
+    instance
+      .post('api/v1/platform_user/create_with_quiz', user)
+      .then((res) => {
+        setUserId(res?.data.data.userId)
+        setQuizId(res?.data.data.quizId)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
     handleShow()
   }
   return (
     <>
-      <div className="py-5 container px-5">
-        <QuizForm select={select} isChecked={isChecked} setIsChecked={setIsChecked} />
+      <div className='py-5 container px-5'>
+        <QuizForm
+          select={select}
+          isChecked={isChecked}
+          setIsChecked={setIsChecked}
+        />
       </div>
-      <section className="py-5">
-        <div className="container px-5">
-          <h1 className="colorH1">Kasbni tanlang</h1>
+      <section className='py-5'>
+        <div className='container px-5'>
+          <h1 className='colorH1'>Kasbni tanlang</h1>
           <SearchForm searchJob={searchJob} />
-          <div className="row">
-            {
-              kasblar.length === 0 ? "Bunaqa kasb yo'q" :
-                kasblar.map((item, i) => (
+          <div className='row'>
+            {kasblar.length === 0
+              ? "Bunaqa kasb yo'q"
+              : kasblar.map((item, i) => (
                   <QuizJobCard
                     select={select}
                     isChecked={isChecked}
@@ -111,21 +119,26 @@ export default function Quiz() {
                     img={item.attachment}
                     jobName={item.name}
                   />
-                ))
-            }
-            <div className="text-start mt-4">
-              <button onClick={handleSubmit} className="searchButton">
+                ))}
+            <div className='text-start mt-4'>
+              <button onClick={handleSubmit} className='searchButton'>
                 Keyingisi
               </button>
-              {show ? <TestWarningModal userId={userId} show={show} setShow={setShow} handleClose={handleClose} handleShow={handleShow} /> : ""}
+              {show ? (
+                <TestWarningModal
+                  userId={userId}
+                  show={show}
+                  setShow={setShow}
+                  handleClose={handleClose}
+                  handleShow={handleShow}
+                />
+              ) : (
+                ''
+              )}
             </div>
           </div>
         </div>
       </section>
     </>
-  );
+  )
 }
-
-
-
-
