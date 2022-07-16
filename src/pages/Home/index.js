@@ -62,7 +62,7 @@ export default function Home() {
       </section>
       <section className="d-flex justify-content-center align-items-center flex-column careerCapsBg">
         <div className="container text-white text-center px-5">
-          <h1 className="defaultH1 ">CareerCaps</h1>
+          <h1 className="defaultH1 text-white ">CareerCaps</h1>
           <p className="mt-3">
             Saytda zamonaviy kasblarga alohida e'tibor berilgan bo'lib, siz bu
             saytda ko'rgan istalgan kasbingiz kelajak kasbi ekanligiga biz
