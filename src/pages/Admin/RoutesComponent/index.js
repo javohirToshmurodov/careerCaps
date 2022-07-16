@@ -39,9 +39,7 @@ export default function RoutesComponent() {
   //   instance
   //     .get(`api/v1/file/get/${pictureId}`)
   //     .then((res) => {
-  //       console.log(res.data);
   //       setImage(res.data);
-  //       console.log("image", image);
   //     })
   //     .catch((err) => console.log(err));
   // };
@@ -53,7 +51,6 @@ export default function RoutesComponent() {
     instance
       .post("api/v1/file/saveAttachments", formData)
       .then((res) => {
-        console.log("response keldi", res.data.data[0]);
         setPictureId(res?.data.data);
         attachment.smth = { ...res.data.data[0] }
 
@@ -74,7 +71,6 @@ export default function RoutesComponent() {
     }
   }
   useEffect(() => {
-    console.log(questions);
     dispatch(loadQuestions());
   }, [id]);
   const putQuestions = (e) => {

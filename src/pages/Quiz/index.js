@@ -24,7 +24,6 @@ export default function Quiz() {
   const [quizId, setQuizId] = useState('')
   const checkRadio = (e) => { }
   const searchJob = (e = '') => {
-    console.log(e)
     if (e.trim().length === 0) {
       setKasblar([...kasb])
       return
