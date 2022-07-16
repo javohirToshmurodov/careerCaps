@@ -65,11 +65,11 @@ export default function Admin() {
                   </li>
                 ))}
               </ul>
-              <input type="text" onChange={(e) => setName(e.target.value)} placeholder="job kiriting" />
+              {/* <input type="text" onChange={(e) => setName(e.target.value)} placeholder="job kiriting" />
               <button onClick={jobSaqlash}>
                 jobni saqlash
               </button>
-              {/* <input type="file" onChange={(e) => handleFile(e.target.files[0])} /> */}
+              <input type="file" onChange={(e) => handleFile(e.target.files[0])} /> */}
             </div>
             <div className="col-xl-10 col-lg-10 col-md-9 col-sm-6 col-12 px-4">
               <div className="text-end">
