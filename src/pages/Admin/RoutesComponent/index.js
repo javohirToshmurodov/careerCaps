@@ -90,7 +90,7 @@ export default function RoutesComponent() {
       <div className="col-xl-2 col-lg-2 col-md-12 col-sm-12  col-12 d-flex justify-content-center flex-column align-items-center">
         {/* <input type="file" onChange={(e) => handleFile(e.target.files[0])} /> */}
         <ImgWrapper>
-          <img
+          <img width={100}
             src={`http://ec2-35-158-135-234.eu-central-1.compute.amazonaws.com/api/v1/file/get/${questions?.attachment}`}
             alt=""
           />
