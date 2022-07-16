@@ -29,7 +29,6 @@ export default function Statistics() {
   const getStatistics = () => {
     setLoader(true)
     instance.get("api/v1/statistics").then((res) => {
-      console.log(res.data.data);
       setStatistics({ ...res.data.data })
       setLoader(false)
     }).catch((err) => {
@@ -38,8 +37,6 @@ export default function Statistics() {
   }
   useEffect(() => {
     getStatistics()
-    console.log(statistics.topQuizes);
-    console.log(statistics);
   }, [])
   return (
     <Spin spinning={loader}>

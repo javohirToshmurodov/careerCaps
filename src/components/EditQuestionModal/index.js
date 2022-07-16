@@ -24,7 +24,6 @@ export default function EditModalQuestion(props) {
       setQuestions({ ...questions });
    };
    const editTitle = (event) => {
-      console.log(event);
       questions.title = event
       setQuestions({ ...questions })
    }
@@ -47,7 +46,6 @@ export default function EditModalQuestion(props) {
          instance
             .get(`api/v1/question/${id}`)
             .then((res) => {
-               console.log(res.data.data);
                dispatch(getQuestion(res?.data.data));
             })
             .catch((err) => {
@@ -59,7 +57,6 @@ export default function EditModalQuestion(props) {
       instance.put(`api/v1/question/edit_question/${questions.id}`, {
          ...questions
       }).then((res) => {
-         console.log(res.data);
          setQuestions({})
          props.handleClose(false)
          dispatch(loadQuestions(id))

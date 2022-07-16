@@ -271,10 +271,11 @@ export const ImgWrapper = styled.div`
   height: 100px;
   border-radius: 50%;
   overflow: hidden;
-  padding: 20px;
-  
+  padding: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
-  object-fit: cover;
+  img{
+    vertical-align: middle;
+  }
 `

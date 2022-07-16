@@ -17,7 +17,6 @@ export default function JobsCatalog() {
   const [kasblar, setKasblar] = useState([])
 
   const searchJob = (e = '') => {
-    console.log(e)
     if (e.trim().length === 0) {
       setKasblar([...jobs])
       return
@@ -29,7 +28,6 @@ export default function JobsCatalog() {
   }
   useEffect(() => {
     setKasblar([...jobs])
-    console.log(jobs);
   }, [jobs])
   return (
     <>
