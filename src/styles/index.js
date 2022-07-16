@@ -272,4 +272,10 @@ export const ImgWrapper = styled.div`
   border-radius: 50%;
   overflow: hidden;
   padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img{
+    vertical-align: middle;
+  }
 `
