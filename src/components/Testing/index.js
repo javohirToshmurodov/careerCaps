@@ -12,6 +12,7 @@ import { QuizJobCardWrapper } from '../../styles'
 import Result from '../Result'
 import { Progress } from 'antd'
 import { Spin } from 'antd'
+import Reyting from '../../pages/Reyting'
 
 export default function Testing() {
    const [allData, setAllData] = useState({})
@@ -52,7 +53,7 @@ export default function Testing() {
       setCheck(true)
       setDisabled(true)
       const exactAnswer = allQ?.question.answers.filter((item) => item.id === i)
-
+      console.log(allQ);
       if (exactAnswer[0].isTrue) {
          setMessage("Javobingiz to'gri")
          setIstrue(true)
@@ -72,46 +73,45 @@ export default function Testing() {
    }
    return (
       <Spin spinning={loader}>
-         <Progress percent={(100 / allQ.allQuestionsCount) * count} />
+         <Progress format={() => 'High'} strokeWidth={12} strokeColor={'#000'} percent={(100 / allQ.allQuestionsCount) * count} />
          {allQ.question == null ? (
-            <div className='p-5'>
-               <button
-                  className='searchButton'
-                  onClick={() => setShowResult(!showResult)}
-               >
-                  Natijani korish
-               </button>
-               {showResult && (
-                  <div>
-                     {allQ.result ? (
-                        <>
-                           <div>
-                              {allQ.result.questionCount} ta savoldan
-                              {allQ.result.trueAnsweredQuestions} tasiga to'g'ri javob
-                              berdingiz Test uchun ketkazgan umumiy vaqtingiz :
-                              {allQ.result.time}
-                              {allQ.result.trueAnswerCount >= 5 ? (
-                                 <h1>Juda zo'r</h1>
-                              ) : (
-                                 <h1>Bilimlaringizni takrorlang</h1>
-                              )}
-                           </div>
-                           <Result
-                              resultMessage={resultMessage}
-                              setResultMessage={setResultMessage}
-                              savollarSoni={allQ.result.answersCount}
-                              trueAnswerCount={allQ.result.trueAnswersCount}
-                              time={allQ.result.time}
-                           />
-                        </>
-                     ) : (
+            <div className='p-5 '>
+
+               <div>
+                  {allQ.result ? (
+                     <>
                         <div>
-                           <h1>Nomalum xatolik</h1>
-                           <Link to={'/'}>Bosh sahifaga qaytish</Link>
+                           {allQ.result.trueAnsweredQuestions >= 5 ? (
+                              <>
+
+                                 <Reyting h1={"Tabriklaymiz!!!"} p={"O’z kelajagingizni tanlagan sohangiz bilan bog’lash uchun sizda yetarli bilimlar mavjud "} />
+                              </>
+
+                           ) : (
+                              <>
+                                 <Reyting h1={
+                                    "Sizdagi bilimlar qoniqarli emas"
+                                 } p={
+                                    "Siz boshqa kasbda qobiliyatli ekanligingizga ishonamiz!"
+                                 } />
+                              </>
+                           )}
                         </div>
-                     )}
-                  </div>
-               )}
+                        <Result
+                           resultMessage={resultMessage}
+                           setResultMessage={setResultMessage}
+                           savollarSoni={allQ.result.answersCount}
+                           trueAnswerCount={allQ.result.trueAnswersCount}
+                           time={allQ.result.time}
+                        />
+                     </>
+                  ) : (
+                     <div>
+                        <h1>Nomalum xatolik</h1>
+                        <Link to={'/'}>Bosh sahifaga qaytish</Link>
+                     </div>
+                  )}
+               </div>
             </div>
          ) : (
             <>

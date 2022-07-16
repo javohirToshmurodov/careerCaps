@@ -57,6 +57,18 @@ ul {
   width: 90% !important;
   max-width: 100% !important;
 }
+.reytingButton{
+  padding: 12px 26px;
+  border-radius: 88px;
+  border: 2px solid #000;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  line-height: 20px;
+  background-color: transparent;
+  color: black;
+  transition: all 0.3s;
+}
 /* .accordion-button::after{
   border-radius: 50%;
   width: 40px !important;
@@ -118,7 +130,9 @@ ul {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #036abe;
 }
-
+.hr1{
+  margin: 10px 0;
+}
 .minHeightAbout {
   min-height: 500px;
 }
