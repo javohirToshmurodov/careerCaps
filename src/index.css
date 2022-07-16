@@ -19,6 +19,9 @@ code {
 .minHeightLayer {
   min-height: 290px;
 }
+.ant-spin-container{
+  min-height: calc(100vh - 100px);
+}
 .minHeightLayerForYou {
   min-height: 538px;
 }

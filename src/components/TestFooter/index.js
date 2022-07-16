@@ -8,7 +8,7 @@ export default function TestFooter(props) {
    return (
       <footer className='py-4 bg-white text-center minHeightFooter mt-5 position-absolute bottom-0 w-100'>
          <div className="row justify-content-center align-items-center">
-            <div className="col-xl-2 col-lg-3 col-md-3 col-sm-6 col-12">
+            <div className="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-12">
                <div className='d-flex gap-3 align-items-center'>
                   <div className='d-flex justify-content-center align-items-center'>
                      {
@@ -22,7 +22,7 @@ export default function TestFooter(props) {
                </div>
 
             </div>
-            <div className="col-xl-2 col-lg-3 col-md-3 col-sm-6 col-12">
+            <div className="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-12">
                <button onClick={() => props.getTestQuestions()} className='searchButton'>
                   Keyingisi
                </button>

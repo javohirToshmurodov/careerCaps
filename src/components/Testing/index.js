@@ -13,6 +13,7 @@ import Result from '../Result'
 import { Progress } from 'antd'
 import { Spin } from 'antd'
 import Reyting from '../../pages/Reyting'
+import { ClockCircleFilled, ClockCircleOutlined } from '@ant-design/icons'
 
 export default function Testing() {
    const [allData, setAllData] = useState({})
@@ -31,6 +32,7 @@ export default function Testing() {
       'Sizdagi bilimlar qoniqarli emas'
    )
    const getTestQuestions = async () => {
+      console.log(check);
       setCheck(false)
       try {
          setLoader(true)
@@ -64,6 +66,8 @@ export default function Testing() {
       instance.post('api/v1/platform_user/save_user_answer', {
          userId: `${allQ.userId}`,
          answerId: `${exactAnswer[0].id}`,
+      }).then((res) => {
+         console.log(res.data);
       })
       setCount(allQ.questionNumber)
    }
@@ -73,7 +77,6 @@ export default function Testing() {
    }
    return (
       <Spin spinning={loader}>
-         <Progress strokeWidth={12} percent={(100 / allQ.allQuestionsCount) * count} />
          {allQ.question == null ? (
             <div className='p-5 '>
 
@@ -107,8 +110,8 @@ export default function Testing() {
                      </>
                   ) : (
                      <div>
-                        <h1>Nomalum xatolik</h1>
-                        <Link to={'/'}>Bosh sahifaga qaytish</Link>
+                        <h1></h1>
+                        <Link to={'/'}></Link>
                      </div>
                   )}
                </div>
@@ -117,10 +120,19 @@ export default function Testing() {
             <>
                <section className='py-5'>
                   <div className='container'>
+                     <Progress format={() => ""} strokeWidth={12} percent={Math.round((100 / allQ.allQuestionsCount) * count)} />
+                     <div className="d-flex">
+                        <div>
+                        </div>
+                        <div>
+                           {/* <ClockCircleOutlined /> */}
+                        </div>
+                     </div>
+
                      <div className='row'>
                         <div className='colorH1'>
                            {allQ.question &&
-                              `${allQ?.questionNumber + '' + '.' + allQ.question?.title}`}
+                              `${allQ?.questionNumber + '' + '. ' + allQ.question?.title}`}
                         </div>
                      </div>
                      <div className='row justify-content-center'>
@@ -159,6 +171,8 @@ export default function Testing() {
 
                {check ? (
                   <TestFooter
+                     check={check}
+                     setCheck={setCheck}
                      getTestQuestions={getTestQuestions}
                      isTrue={isTrue}
                      message={message}
