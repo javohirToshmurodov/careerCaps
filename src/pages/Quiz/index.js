@@ -6,11 +6,13 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { instance, loadJobs } from '../../redux/actions'
 import TestWarningModal from '../../components/TestWarningModal'
+import { Spin } from 'antd'
 export default function Quiz() {
   const dispatch = useDispatch()
   const kasb = useSelector((state) => state.jobsData.quizzes)
   const [isChecked, setIsChecked] = useState(false)
   const [kasblar, setKasblar] = useState([])
+  const [loader, setLoader] = useState(false)
   const [user, setUser] = useState({
     gender: '',
     name: '',
@@ -20,7 +22,7 @@ export default function Quiz() {
   const [show, setShow] = useState(false)
   const [userId, setUserId] = useState('')
   const [quizId, setQuizId] = useState('')
-  const checkRadio = (e) => {}
+  const checkRadio = (e) => { }
   const searchJob = (e = '') => {
     console.log(e)
     if (e.trim().length === 0) {
@@ -75,17 +77,19 @@ export default function Quiz() {
     }
   }
   const handleSubmit = (e) => {
+
     e.preventDefault()
     const res = valid(user)
     if (res.errLength) {
       return alert("To'ldirilganligiga ishonch hosil qiling")
     }
-
+    setLoader(true)
     instance
       .post('api/v1/platform_user/create_with_quiz', user)
       .then((res) => {
         setUserId(res?.data.data.userId)
         setQuizId(res?.data.data.quizId)
+        setLoader(false)
       })
       .catch((err) => {
         console.log(err)
@@ -93,7 +97,7 @@ export default function Quiz() {
     handleShow()
   }
   return (
-    <>
+    <Spin spinning={loader}>
       <div className='py-5 container px-5'>
         <QuizForm
           select={select}
@@ -109,17 +113,17 @@ export default function Quiz() {
             {kasblar.length === 0
               ? "Bunaqa kasb yo'q"
               : kasblar.map((item, i) => (
-                  <QuizJobCard
-                    select={select}
-                    isChecked={isChecked}
-                    setIsChecked={setIsChecked}
-                    checkRadio={checkRadio}
-                    key={i}
-                    id={item.id}
-                    img={item.attachment}
-                    jobName={item.name}
-                  />
-                ))}
+                <QuizJobCard
+                  select={select}
+                  isChecked={isChecked}
+                  setIsChecked={setIsChecked}
+                  checkRadio={checkRadio}
+                  key={i}
+                  id={item.id}
+                  img={item.attachment}
+                  jobName={item.name}
+                />
+              ))}
             <div className='text-start mt-4'>
               <button onClick={handleSubmit} className='searchButton'>
                 Keyingisi
@@ -139,6 +143,6 @@ export default function Quiz() {
           </div>
         </div>
       </section>
-    </>
+    </Spin>
   )
 }

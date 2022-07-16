@@ -21,14 +21,17 @@ import { useState } from "react";
 import { instance } from "../../redux/actions";
 import { useEffect } from "react";
 import { CardMiniWrapper } from "../../styles";
+import { Spin } from "antd";
 export default function Statistics() {
   const [statistics, setStatistics] = useState({})
-
+  const [loader, setLoader] = useState(false)
 
   const getStatistics = () => {
+    setLoader(true)
     instance.get("api/v1/statistics").then((res) => {
       console.log(res.data.data);
       setStatistics({ ...res.data.data })
+      setLoader(false)
     }).catch((err) => {
       console.log(err);
     })
@@ -39,7 +42,7 @@ export default function Statistics() {
     console.log(statistics);
   }, [])
   return (
-    <>
+    <Spin spinning={loader}>
       <div className="DefaultBg minHeight">
         <div className="container py-5 px-5 text-white">
           <div className="row justify-content-between align-items-center">
@@ -95,6 +98,6 @@ export default function Statistics() {
         </div>
       </section>
       <Footer />
-    </>
+    </Spin>
   );
 }
