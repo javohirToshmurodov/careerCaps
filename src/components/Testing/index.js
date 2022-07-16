@@ -125,7 +125,7 @@ export default function Testing() {
             <>
                <section className='py-5'>
                   <div className='container '>
-                     <div className="bg-white px-3 py-1 rounded">
+                     <div className="bg-white px-2 py-1 rounded">
                         <Progress format={() => <WatchClock />} strokeWidth={12} percent={Math.round((100 / allQ.allQuestionsCount) * count)} />
                      </div>
                      <div className="d-flex">
