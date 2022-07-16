@@ -10,6 +10,8 @@ import TestCard from '../TestCard'
 import TestFooter from '../TestFooter'
 import { QuizJobCardWrapper } from '../../styles'
 import Result from '../Result'
+import Spinner from 'react-bootstrap/Spinner';
+import Reyting from '../../pages/Reyting'
 
 export default function Testing() {
    const [allData, setAllData] = useState({})
@@ -64,7 +66,7 @@ export default function Testing() {
    }
 
    if (loader) {
-      return <h1>Loading...</h1>
+      return <Spinner animation="grow" />
    }
    return (
       <>
@@ -77,12 +79,13 @@ export default function Testing() {
                   <div>
                      {allQ.result ? (
                         <>
-                           <p>
+                           <p className='defaultP'>
                               {allQ.result.answersCount} ta savoldan
                               {allQ.result.trueAnswersCount} tasiga to'g'ri javob berdingiz
                               Test uchun ketkazgan umumiy vaqtingiz : {allQ.result.time}
                            </p>
                            <Result resultMessage={resultMessage} setResultMessage={setResultMessage} savollarSoni={allQ.result.answersCount} trueAnswerCount={allQ.result.trueAnswersCount} time={allQ.result.time} />
+                           <Reyting />
                         </>
                      ) : (
                         <div>
