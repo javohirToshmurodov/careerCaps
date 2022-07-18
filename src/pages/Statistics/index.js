@@ -4,11 +4,7 @@ import CardMini from "../../components/CardMini";
 import jami from "../../assets/images/statistika/jami.svg";
 import boy from "../../assets/images/statistika/boy.svg";
 import girl from "../../assets/images/statistika/girl.svg";
-import crown from "../../assets/images/statistika/crown.svg";
 import CardWrapper from "../../components/CardWrapper";
-import psixolog from "../../assets/images/psixolog.svg";
-import dasturchi from "../../assets/images/dasturchi.svg";
-import veterinar from "../../assets/images/veterinar.svg";
 import ProgressCard from "../../components/ProgressCard";
 import jamii from "../../assets/images/statistika/jamii.svg";
 import erkaklar from "../../assets/images/statistika/erkaklar.svg";
@@ -16,20 +12,23 @@ import ayollar from "../../assets/images/statistika/ayollar.svg";
 import thirty from "../../assets/images/statistika/thirty.svg";
 import seventy from "../../assets/images/statistika/seventy.svg";
 import Footer from "../../components/Footer";
-
+import { images } from "../../assets/images";
 import { useState } from "react";
 import { instance } from "../../redux/actions";
 import { useEffect } from "react";
-import { CardMiniWrapper } from "../../styles";
 import { Spin } from "antd";
 export default function Statistics() {
   const [statistics, setStatistics] = useState({})
   const [loader, setLoader] = useState(false)
-
+  const { One, Two, Three } = images
   const getStatistics = () => {
     setLoader(true)
     instance.get("api/v1/statistics").then((res) => {
+      console.log(res.data.data);
       setStatistics({ ...res.data.data })
+      let rows = res.data.data.topQuizes[0].image = One
+      rows = res.data.data.topQuizes[1].image = Two
+      rows = res.data.data.topQuizes[2].image = Three
       setLoader(false)
     }).catch((err) => {
       console.log(err);
@@ -68,10 +67,8 @@ export default function Statistics() {
         <div className="container px-5">
           <h1 className="colorH1">Eng ko'p ishlangan testlar</h1>
           <div className="row mt-4">
-            {statistics?.topQuizes?.map((e, i) => <CardWrapper img={e.attachment} jobName={e.name} crown={crown} />)}
-            {/* <CardWrapper img={psixolog} jobName={"Psixolog"} crown={crown} />
-            <CardWrapper img={dasturchi} jobName={"Dasturchi"} crown={crown} />
-            <CardWrapper img={veterinar} jobName={"Veterinar"} crown={crown} /> */}
+            {statistics?.topQuizes?.map((e, i) => <CardWrapper img={e.attachment} jobName={e.name} crown={e.image} />)}
+
           </div>
         </div>
       </section>
