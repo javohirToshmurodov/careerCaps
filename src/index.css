@@ -39,8 +39,9 @@ ul {
   transition: .3s;
   text-align: center !important;
   margin-bottom: 5px;
+  font-size: 10px !important;
   transform: scale(1.3);
-  animation: animatedClock 1.5s ease infinite !important;
+  animation: animatedClock 1s ease infinite !important;
 }
 @keyframes animatedClock{
   0%, 100%{

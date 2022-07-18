@@ -5,8 +5,9 @@ import { CloseCircleOutlined, CheckOutlined } from '@ant-design/icons'
 import { useParams } from 'react-router-dom'
 export default function TestFooter(props) {
    const { id } = useParams()
+   console.log(props);
    return (
-      <footer className='py-4 bg-white text-center minHeightFooter mt-5 position-absolute bottom-0 w-100'>
+      <footer className='py-4 bg-white text-center minHeightFooter mt-5  w-100'>
          <div className="row justify-content-center align-items-center">
             <div className="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-12">
                <div className='d-flex gap-3 align-items-center'>

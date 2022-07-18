@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { getAllData, instance } from '../../redux/actions'
+import { getAllData, getQuestion, instance } from '../../redux/actions'
 import ProgressCustom from '../ProgressBar'
 import QuizJobCard from '../QuizJobCard'
 import TestCard from '../TestCard'
@@ -23,17 +23,20 @@ export default function Testing() {
    const { id } = useParams()
    const [disabled, setDisabled] = useState(false)
    const [isTrue, setIstrue] = useState('')
-   const [message, setMessage] = useState('Kutilmoqda')
+   const [message, setMessage] = useState('Belgilanmadi')
    const [allQ, setAllQ] = useState({})
    const [loader, setLoader] = useState(false)
    const [check, setCheck] = useState(false)
    const [showResult, setShowResult] = useState(false)
    const [count, setCount] = useState(0)
+   const [timeLeft, setTimeLeft] = useState(0);
+   const [r, setR] = useState(false)
+   const [iTrue, setITrue] = useState(false)
+   const [radioValue, setRadioValue] = useState(undefined)
    const [resultMessage, setResultMessage] = useState(
       'Sizdagi bilimlar qoniqarli emas'
    )
    const getTestQuestions = async () => {
-      console.log(check);
       setCheck(false)
       try {
          setLoader(true)
@@ -41,8 +44,10 @@ export default function Testing() {
             `api/v1/platform_user/get_user_question/${id}`
          )
          setAllQ(res.data.data)
+
          setDisabled(false)
          setLoader(false)
+         setTimeLeft(3)
       } catch (err) {
          console.log('getQuestions err', err)
       }
@@ -50,19 +55,95 @@ export default function Testing() {
 
    useEffect(() => {
       getTestQuestions()
+      // console.log(arr);
    }, [])
-
-   const select = (i) => {
+   function funDisebled(timeLeftProp) {
       setCheck(true)
+      setTimeLeft(0)
       setDisabled(true)
-      const exactAnswer = allQ?.question.answers.filter((item) => item.id === i)
-      console.log(allQ);
+      const exactAnswer = allQ?.question.answers.filter((item) => {
+         if (item.isTrue) {
+            setRadioValue(item.id)
+            return item.isTrue
+
+         }
+         return {}
+      })
+      const notTrue = allQ?.question.answers.filter((item) => {
+         return !item.isTrue
+      })
       if (exactAnswer[0].isTrue) {
          setMessage("Javobingiz to'gri")
-         setIstrue(true)
+         setITrue(true)
       } else {
          setMessage('Javobingiz xato')
-         setIstrue(false)
+         setITrue(false)
+      }
+      instance.post('api/v1/platform_user/save_user_answer', {
+         userId: `${allQ.userId}`,
+         answerId: `${notTrue[0].id}`,
+      }).then((res) => {
+         console.log(res.data);
+      })
+      setCount(allQ.questionNumber)
+   }
+   useEffect(() => {
+      if (timeLeft === 0) {
+         // console.log("TIME LEFT IS 0");
+         setTimeLeft(0)
+
+         allQ.question?.answers?.filter((e, i) => {
+
+            if (e.isTrue) {
+
+               // const exact = i
+               // exact && setR(true)
+               // setCheck(true)
+               // setDisabled(true)
+               // instance.post('api/v1/platform_user/save_user_answer', {
+               //    userId: `${allQ.userId}`,
+               //    answerId: `${e.id}`,
+               // }).then((res) => {
+               //    console.log(res.data);
+               // })
+               // setCount(allQ.questionNumber)
+               // console.log(i);
+            }
+         })
+
+
+      }
+      var interValid;
+      if (!timeLeft) return;
+      interValid = setInterval(() => {
+         // console.log(timeLeft)
+         if (timeLeft === 1) {
+            // console.log("salom")
+            funDisebled(timeLeft)
+         }
+         setTimeLeft(timeLeft - 1);
+      }, 1000);
+      return () => clearInterval(interValid);
+
+   }, [timeLeft])
+   const handleSelect = (event) => {
+      setR(event);
+   }
+
+
+   const select = (event, i) => {
+      setRadioValue(i)
+      setCheck(true)
+      setTimeLeft(0)
+      setDisabled(true)
+      const exactAnswer = allQ?.question.answers.filter((item) => item.id === i)
+
+      if (exactAnswer[0].isTrue) {
+         setMessage("Javobingiz to'gri")
+         setITrue(true)
+      } else {
+         setMessage('Javobingiz xato')
+         setITrue(false)
       }
       instance.post('api/v1/platform_user/save_user_answer', {
          userId: `${allQ.userId}`,
@@ -126,7 +207,7 @@ export default function Testing() {
                <section className='py-5'>
                   <div className='container '>
                      <div className="bg-white px-2 py-1 rounded">
-                        <Progress format={() => <WatchClock />} strokeWidth={12} percent={Math.round((100 / allQ.allQuestionsCount) * count)} />
+                        <Progress format={() => `00:${timeLeft}`} strokeWidth={12} percent={Math.round((100 / allQ.allQuestionsCount) * count)} />
                      </div>
                      <div className="d-flex">
                         <div>
@@ -156,9 +237,11 @@ export default function Testing() {
                                           <input
                                              disabled={disabled}
                                              id={e.id}
-                                             onChange={() => select(e.id)}
+                                             onClick={(event) => select(event, e.id)}
                                              name='quizId'
                                              type='radio'
+                                             checked={e.id === radioValue}
+                                             onChange={(e) => handleSelect(e.target.checked)}
                                              className='form-check-input'
                                           />
                                        </div>
@@ -178,10 +261,11 @@ export default function Testing() {
 
                {check ? (
                   <TestFooter
+                     setTimeLeft={setTimeLeft}
                      check={check}
                      setCheck={setCheck}
                      getTestQuestions={getTestQuestions}
-                     isTrue={isTrue}
+                     isTrue={iTrue}
                      message={message}
                      allCount={allQ.allQuestionsCount}
                      count={allQ.questionNumber}

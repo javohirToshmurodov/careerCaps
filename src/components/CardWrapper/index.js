@@ -7,7 +7,7 @@ export default function CardWrapper(props) {
         <div className="crownPosition d-flex justify-content-center align-items-center">
           <img className="img-fluid" src={props.crown} alt="" />
         </div>
-        <img src={props.img} alt="" />
+        <img src={`http://ec2-35-158-135-234.eu-central-1.compute.amazonaws.com/api/v1/file/get/${props.img}`} alt="" />
         <p className="defaultP">{props.jobName}</p>
       </MainCardWrapper>
     </div>
