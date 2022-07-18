@@ -275,6 +275,7 @@ export const ImgWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   img{
     vertical-align: middle;
   }

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import * as types from './actionType'
+import {BASE_URL} from "../utils/constans";
 export const getJobs = (quizzes) => ({
   type: types.GET_JOBS,
   payload: quizzes,
@@ -31,7 +32,7 @@ export const getAllData = (alldatas) => ({
 export const accessToken = localStorage.getItem('accesstoken')
 export const instance = axios.create({
   Authorization: `Bearer ${accessToken}`,
-  baseURL: 'http://ec2-35-158-135-234.eu-central-1.compute.amazonaws.com/',
+  baseURL: BASE_URL,
   accept: '*/*',
   'Content-Type': 'application/json',
 })
