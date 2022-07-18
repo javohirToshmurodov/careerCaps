@@ -252,6 +252,7 @@ export const QuizJobCardWrapper = styled.div`
   padding: 20px;
   display: flex;
   justify-content: center;
+  min-height: 235px;
   align-items: center;
   flex-direction: column;
   text-align: center;

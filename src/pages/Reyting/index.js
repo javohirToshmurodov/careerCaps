@@ -2,10 +2,11 @@ import { Spin } from 'antd'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { images } from '../../assets/images'
 import reyting from "../../assets/images/reyting.svg"
 import { instance } from '../../redux/actions'
-import { BlackOutlineBtn, OutlineBtn, TestWarningOutlineBtn } from '../../styles'
 export default function Reyting(props) {
+   const { One, Two, Three } = images
    const navigate = useNavigate()
    const [loader, setLoader] = useState(false)
    const [topUsers, setTopUsers] = useState([])
@@ -13,6 +14,9 @@ export default function Reyting(props) {
       setLoader(true)
       instance.get("api/v1/platform_user/top_users?top=10").then((res) => {
          console.log(res.data.data);
+         let rows = res.data.data[0].image = One
+         rows = res.data.data[1].image = Two
+         rows = res.data.data[2].image = Three
          setTopUsers(res.data.data)
          setLoader(false)
       }).catch((err) => {
@@ -52,7 +56,7 @@ export default function Reyting(props) {
                         <div className="d-flex justify-content-between">
                            <div>
                               <p className='m-0' style={{ "fontSize": "14px", "lineHeight": "28px", "fontWeight": "500" }}>
-                                 {i + 1}.    {e.name}
+                                 {i + 1 > 3 ? i + 1 : <img src={e.image} alt="" />}   {e.name}
                               </p>
                            </div>
                            <div>
