@@ -14,12 +14,13 @@ import store from "./redux/store"
 
 
 const options = {
+
     // you can also just use 'bottom center'
-    position: positions.TOP_RIGHT,
+    position: positions.BOTTOM_LEFT,
     timeout: 3000,
     offset: '3px',
     // you can also just use 'scale'
-    transition: transitions.FADE
+    transition: transitions.FADE,
 }
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

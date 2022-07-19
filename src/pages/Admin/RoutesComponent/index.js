@@ -17,6 +17,9 @@ import {Spin} from 'antd';
 
 import EditModalQuestion from "../../../components/EditQuestionModal";
 import {BASE_URL} from "../../../utils/constans";
+import {LazyLoadImage} from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import axios from "axios";
 
 export default function RoutesComponent() {
     const {id} = useParams();
@@ -26,6 +29,7 @@ export default function RoutesComponent() {
     const [image, setImage] = useState("");
     const [modal, setModal] = useState(false)
     const [imgLoading, setImgLoading] = useState(false)
+    const [questionLoading, setQuestionLoading] = useState(false)
     const dispatch = useDispatch();
     const questions = useSelector((state) => state.questionsData?.questions);
     const alert = useAlert()
@@ -35,13 +39,16 @@ export default function RoutesComponent() {
     const antIcon = <LoadingOutlined style={{fontSize: 24}} spin/>;
 
     const loadQuestions = () => {
+        setQuestionLoading(true)
         return function (dispatch) {
             instance
                 .get(`api/v1/question/${id}`)
                 .then((res) => {
+                    setQuestionLoading(false)
                     dispatch(getQuestion(res?.data.data));
                 })
                 .catch((err) => {
+                    setQuestionLoading(false)
                     console.log(err);
                 });
         };
@@ -103,47 +110,57 @@ export default function RoutesComponent() {
     const extraAll = () => {
         <DeleteFilled/>
     }
-    return (
-        <div className="row align-items-start">
-            <div
-                className="col-xl-2 col-lg-2 col-md-12 col-sm-12  col-12 d-flex justify-content-center flex-column align-items-center">
+    return (<Spin spinning={questionLoading}>
+            <div className="row align-items-start">
+                <div
+                    className="col-xl-2 col-lg-2 col-md-12 col-sm-12  col-12 d-flex justify-content-center flex-column align-items-center">
 
-                <label htmlFor="fileee">
-                    <input type="file" hidden id={"fileee"} onChange={(e) => handleFile(e.target.files[0])}/>
-                    <ImgWrapper>
-                        {imgLoading ? <Spin indicator={antIcon}/> :
-                            <img width={100}
-                                 src={BASE_URL + `api/v1/file/get/${questions?.attachment}`}
-                                 alt=""
-                            />
-                        }
-                    </ImgWrapper>
-                </label>
-                <h5 className="mt-2">{questions?.name}</h5>
+                    <label htmlFor="fileee">
+                        <input
+                            type="file"
+                            hidden
+                            id={"fileee"}
+                            onChange={(e) => handleFile(e.target.files[0])}
+                            accept="image/*"
+                        />
+                        <ImgWrapper>
+                            {imgLoading ? <Spin indicator={antIcon}/> : // <img width={100}
+                                //      src={BASE_URL + `api/v1/file/get/${questions?.attachment}`}
+                                //      alt=""
+                                // />
 
-            </div>
-            <div className="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12">
-                {questions.questions?.map((e, i) => (
-                    <div key={i}>
+                                <LazyLoadImage
+                                    alt={"an error expected loading image"}
+                                    src={BASE_URL + `api/v1/file/get/${questions?.attachment}`} // use normal <img> attributes as props
+                                    effect="blur"
+                                    className={"img-fluid"}
+                                />
 
-                        <div className="d-flex justify-content-end">
-                            <button className="text-danger btn p-1" onClick={() => putQuestions(e)}>
-                                <FontAwesomeIcon icon={faEdit}/>
-                            </button>
-                            <button className="text-danger btn p-1" onClick={(event) => deleteQuestions(event, e.id)}>
-                                <FontAwesomeIcon icon={faTrash}/>
-                            </button>
-                            {
-                                modal ? <EditModalQuestion isEdit={isEdit} show={modal} handleClose={setModal}/> : ''
                             }
+                        </ImgWrapper>
+                    </label>
+                    <h5 className="mt-2">{questions?.name}</h5>
 
-                        </div>
-                        <Collapse className="mb-2" defaultActiveKey={["1"]}>
-                            <Panel header={e.title} key={i} style={{"fontSize": "20px", "color": "#111"}}>
+                </div>
+                <div className="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12">
+                    {questions.questions?.map((e, i) => (<div key={i}>
 
-                                {
-                                    e.answers.map((answer, index) => (
-                                        <>
+                            <div className="d-flex justify-content-end">
+                                <button className="text-danger btn p-1" onClick={() => putQuestions(e)}>
+                                    <FontAwesomeIcon icon={faEdit}/>
+                                </button>
+                                <button className="text-danger btn p-1"
+                                        onClick={(event) => deleteQuestions(event, e.id)}>
+                                    <FontAwesomeIcon icon={faTrash}/>
+                                </button>
+                                {modal ? <EditModalQuestion isEdit={isEdit}
+                                                            show={modal} handleClose={setModal}/> : ''}
+
+                            </div>
+                            <Collapse className="mb-2" defaultActiveKey={["1"]}>
+                                <Panel header={e.title} key={i} style={{"fontSize": "20px", "color": "#111"}}>
+
+                                    {e.answers.map((answer, index) => (<>
                                             <p key={index} className="">
                                                 <input
                                                     className="input-form-check me-3"
@@ -155,13 +172,11 @@ export default function RoutesComponent() {
 
                                         </>
 
-                                    ))
-                                }
-                            </Panel>
-                        </Collapse>
-                    </div>
-                ))}
+                                    ))}
+                                </Panel>
+                            </Collapse>
+                        </div>))}
+                </div>
             </div>
-        </div>
-    );
+        </Spin>);
 }
