@@ -8,7 +8,7 @@ import ProgressCustom from '../ProgressBar'
 import QuizJobCard from '../QuizJobCard'
 import TestCard from '../TestCard'
 import TestFooter from '../TestFooter'
-import { QuizJobCardWrapper } from '../../styles'
+import { CardMiniWrapper, QuizJobCardWrapper, VariantCardWrapper } from '../../styles'
 import Result from '../Result'
 import { Progress } from 'antd'
 import { Spin } from 'antd'
@@ -47,7 +47,7 @@ export default function Testing() {
 
          setDisabled(false)
          setLoader(false)
-         setTimeLeft(3)
+         setTimeLeft(15)
       } catch (err) {
          console.log('getQuestions err', err)
       }
@@ -55,7 +55,6 @@ export default function Testing() {
 
    useEffect(() => {
       getTestQuestions()
-      // console.log(arr);
    }, [])
    function funDisebled(timeLeftProp) {
       setCheck(true)
@@ -72,12 +71,17 @@ export default function Testing() {
       const notTrue = allQ?.question.answers.filter((item) => {
          return !item.isTrue
       })
-      if (exactAnswer[0].isTrue) {
-         setMessage("Javobingiz to'gri")
-         setITrue(true)
-      } else {
-         setMessage('Javobingiz xato')
-         setITrue(false)
+      // if (exactAnswer[0].isTrue) {
+      //    setMessage("Javobingiz to'gri")
+      //    setITrue(true)
+      // } else {
+      //    setMessage('Javobingiz xato')
+      //    setITrue(false)
+      // }xs
+      if (!notTrue) {
+         setIstrue(false)
+         setMessage("Javob berilmadi")
+
       }
       instance.post('api/v1/platform_user/save_user_answer', {
          userId: `${allQ.userId}`,
@@ -89,36 +93,12 @@ export default function Testing() {
    }
    useEffect(() => {
       if (timeLeft === 0) {
-         // console.log("TIME LEFT IS 0");
          setTimeLeft(0)
-
-         allQ.question?.answers?.filter((e, i) => {
-
-            if (e.isTrue) {
-
-               // const exact = i
-               // exact && setR(true)
-               // setCheck(true)
-               // setDisabled(true)
-               // instance.post('api/v1/platform_user/save_user_answer', {
-               //    userId: `${allQ.userId}`,
-               //    answerId: `${e.id}`,
-               // }).then((res) => {
-               //    console.log(res.data);
-               // })
-               // setCount(allQ.questionNumber)
-               // console.log(i);
-            }
-         })
-
-
       }
       var interValid;
       if (!timeLeft) return;
       interValid = setInterval(() => {
-         // console.log(timeLeft)
          if (timeLeft === 1) {
-            // console.log("salom")
             funDisebled(timeLeft)
          }
          setTimeLeft(timeLeft - 1);
@@ -232,7 +212,7 @@ export default function Testing() {
                                     htmlFor={e.id}
                                     className='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mt-3'
                                  >
-                                    <QuizJobCardWrapper>
+                                    <VariantCardWrapper>
                                        <div className='positionInput'>
                                           <input
                                              disabled={disabled}
@@ -248,7 +228,7 @@ export default function Testing() {
                                        <div>
                                           <p>{e.answer}</p>
                                        </div>
-                                    </QuizJobCardWrapper>
+                                    </VariantCardWrapper>
                                  </label>
                               )
                            })

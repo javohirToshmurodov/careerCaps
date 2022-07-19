@@ -281,3 +281,27 @@ export const ImgWrapper = styled.div`
     vertical-align: middle;
   }
 `
+
+export const VariantCardWrapper = styled.div`
+position: relative;
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(190, 190, 190, 0.25);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  min-height: 150px;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  .positionInput {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+  transition: all .3s ease;
+  &:hover{
+    box-shadow: 0px 5px 5px 7px rgba(190, 190, 190, 0.25);
+  }
+
+`

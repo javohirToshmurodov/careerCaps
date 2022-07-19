@@ -15,15 +15,8 @@ import Dasturchi from "./pages/Dasturchi";
 import Admin from "./pages/Admin";
 import SignUp from "./pages/SignUp";
 import ProtectedRoutes from "./ProtectedRoutes";
-import DasturchiChild from "./pages/Admin/Dasturchi";
-import VeterinarChild from "./pages/Admin/Veterinar";
-import MuhandisChild from "./pages/Admin/Muhandis";
-import ArxitektorChild from "./pages/Admin/Arxitektor";
-import PsixologChild from "./pages/Admin/Psixolog";
 import RoutesComponent from "./pages/Admin/RoutesComponent";
-import Example from "./components/accardion";
 import TestWarningModal from "./components/TestWarningModal";
-import ProgressBar from "./components/ProgressBar";
 import Testing from "./components/Testing";
 import Reyting from "./pages/Reyting";
 export default function App() {
