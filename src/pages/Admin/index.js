@@ -2,7 +2,7 @@ import React from "react";
 import {useState} from "react";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {NavLink, Outlet, useNavigate, useParams} from "react-router-dom";
+import {Link, NavLink, Outlet, useNavigate, useParams} from "react-router-dom";
 import AddQuestionModal from "../../components/AddQuestionModal";
 import {accessToken, loadJobs} from "../../redux/actions";
 import {instance} from "../../redux/actions";
@@ -74,6 +74,14 @@ export default function Admin() {
                         </div>
                         <div className="col-xl-10 col-lg-10 col-md-9 col-sm-6 col-12 px-4">
                             <div className="text-end">
+                               <Link to={"/details/"+ id}>
+                                   <button
+                                       className="btn btn-primary mb-3"
+                                       style={{marginRight: "5px"}}
+                                   >
+                                       Details
+                                   </button>
+                               </Link>
                                 <button
                                     className="btn btn-primary mb-3"
                                     onClick={() => setModal(true)}
