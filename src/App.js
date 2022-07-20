@@ -16,6 +16,7 @@ import Admin from "./pages/Admin";
 import SignUp from "./pages/SignUp";
 import ProtectedRoutes from "./ProtectedRoutes";
 import RoutesComponent from "./pages/Admin/RoutesComponent";
+import QuizDetails from "./pages/Admin/QuizDetails";
 import TestWarningModal from "./components/TestWarningModal";
 import Testing from "./components/Testing";
 import Reyting from "./pages/Reyting";
@@ -37,6 +38,7 @@ export default function App() {
         <Route path="reyting" element={<Reyting />} />
         <Route path="quiz" element={<Quiz />} />
         <Route element={<ProtectedRoutes />}>
+          <Route path="details/:quiz_id" element={<QuizDetails />} />
           <Route path="admin" element={<Admin />}>
             <Route path=":id" element={<RoutesComponent />} />
           </Route>
