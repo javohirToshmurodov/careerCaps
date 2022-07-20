@@ -7,7 +7,7 @@ export default function TestFooter(props) {
    const { id } = useParams()
    console.log(props);
    return (
-      <footer className='py-4 bg-white text-center minHeightFooter mt-5  w-100'>
+      <div className='py-4 bg-white text-center minHeightFooter mt-2  w-100'>
          <div className="row justify-content-center align-items-center">
             <div className="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-12">
                <div className='d-flex gap-3 align-items-center'>
@@ -29,6 +29,6 @@ export default function TestFooter(props) {
                </button>
             </div>
          </div>
-      </footer>
+      </div>
    )
 }
