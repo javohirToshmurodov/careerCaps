@@ -13,7 +13,43 @@ export const OutlineBtn = styled.button`
   color: white;
   transition: all 0.3s ease;
   &:hover {
-    background: #3000d6;
+    background: #ffffff;
+    color: #3000d6;
+  }
+`;
+
+export const ImgEditor = styled.div`
+  padding: 10px 20px;
+  transition: background 0.2s ease;
+  background: transparent;
+  border: none;
+  display: block;
+  border-radius: 3px;
+  position: relative;
+  &:hover {
+    cursor: pointer;
+    background: rgba(220, 220, 220, 0.4);
+  }
+`;
+
+export const DeleteButton = styled.button`
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 1px solid;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 50%;
+  right: 52px;
+  top: 30px;
+  transition: all 150ms linear;
+  background: #ffffff;
+
+  &:hover {
+    cursor: pointer;
+    background: #ee0c0c;
+    color: #ffffff;
   }
 `;
 export const ManbalarWrapperFirst = styled.div`
