@@ -27,7 +27,7 @@ export const ImgEditor = styled.div`
   border-radius: 3px;
   position: relative;
   &:hover {
-    cursor: pointer;
+    cursor: pointer!important;
     background: rgba(220, 220, 220, 0.4);
   }
 `;
@@ -45,6 +45,7 @@ export const DeleteButton = styled.button`
   top: 30px;
   transition: all 150ms linear;
   background: #ffffff;
+  z-index: 5;
 
   &:hover {
     cursor: pointer;
@@ -77,7 +78,7 @@ export const ManbalarWrapper = styled.div`
     color: #000000;
   }
 `;
-export const BlackOutlineBtn = styled.button`
+export const BlackOutlineBtn = styled.a`
   padding: 12px 26px;
   border-radius: 88px;
   border: 2px solid #000;
@@ -89,7 +90,7 @@ export const BlackOutlineBtn = styled.button`
   color: black;
   transition: all 0.3s;
   position: absolute;
-  bottom: 14%;
+  bottom: 11%;
   left: 6%;
   &:hover {
     background-color: #000;
