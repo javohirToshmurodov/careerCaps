@@ -3,6 +3,7 @@
     padding: 10px !important;
     font-size: 21px !important;
     text-align: justify;
+    overflow: scroll;
     
 }
 .menu{

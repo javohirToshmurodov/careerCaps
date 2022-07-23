@@ -1,60 +1,116 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {
+    AdvantagesCardWrapper,
     BlackOutlineBtn,
     DeleteButton,
+    ForYouWrapper,
     ImgEditor,
+    JobsContactWrapper,
     ManbalarWrapper,
     ManbalarWrapperFirst,
     OutlineBtn
 } from "../../../styles";
 import arxitektor from "../../../assets/images/arxitektor/arxiektor.svg";
-import CardMaker from "../../../components/CardMaker";
 import bino from "../../../assets/images/arxitektor/bino.svg";
 import chizmachilik from "../../../assets/images/arxitektor/chizmachilik.svg";
-import detallar from "../../../assets/images/arxitektor/detallar.svg";
-import discover from "../../../assets/images/arxitektor/discover.svg";
 import edx from "../../../assets/images/arxitektor/edx.svg";
 import innovatsiya from "../../../assets/images/arxitektor/innovatsiya.svg";
 import layerVeterinar from "../../../assets/images/arxitektor/layerVeterinar.svg";
-import muammolar from "../../../assets/images/arxitektor/muammolar.svg";
-import qurilish from "../../../assets/images/arxitektor/qurilish.svg";
-import rivojlanish from "../../../assets/images/arxitektor/rivojlanish.svg";
-import sayohat from "../../../assets/images/arxitektor/sayohat.svg";
-import skillshare from "../../../assets/images/arxitektor/skillshare.svg";
 import veterinarLayer from "../../../assets/images/arxitektor/veterinarLayer.svg";
-import xatolik from "../../../assets/images/arxitektor/xatolik.svg";
-import xavfsizlik from "../../../assets/images/arxitektor/xavfsizlik.svg";
-import JobsList from "../../../components/JobsList";
 import check from "../../../assets/images/check.svg";
-import JobLayer from "../../../components/JobLayer";
-import Manbalar from "../../../components/Manbalar";
-import AdvantagesCard from "../../../components/AdvantagesCard";
-import ForYou from "../../../components/ForYou";
-import JobsContact from "../../../components/JobsContact";
 import dasturchi1 from "../../../assets/images/dasturchi1.svg";
-import dasturchi2 from "../../../assets/images/dasturchi2.svg";
-import dasturchi3 from "../../../assets/images/dasturchi3.svg";
-import FrequentlyQuestions from "../../../components/FrequentlyQuestions";
 import {EditText, EditTextarea} from 'react-edit-text';
 import 'react-edit-text/dist/index.css';
+import './main.css';
 import Footer from "../../../components/Footer";
-import {Button, Spin} from "antd";
+import {Button, Input, Modal, Spin} from "antd";
 import {instance} from "../../../redux/actions";
 import {BASE_URL} from "../../../utils/constans";
 import {DeleteOutlined, LoadingOutlined} from '@ant-design/icons';
 import {v4 as uuid} from 'uuid';
-import {Link} from "react-router-dom";
+import {TestOutlineBtn} from "../../../components/TestOutlineBtn";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faInstagram, faLinkedin, faTelegram} from "@fortawesome/free-brands-svg-icons";
+import juggling from "../../../assets/images/juggling.svg";
+import {useParams} from "react-router-dom";
+import {useAlert} from "react-alert";
 
 export default function QuizDetails() {
 
+
+    const {quiz_id} = useParams();
+
     const [state, setState] = useState({
-        tasks: [],
-        wantTobes: [],
-        sourcesToLearn: []
+        name: "Enter a job name",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae deleniti facere facilis",
+        attachment: "36345861-f07b-4a7a-ba65-377d4c629026",
+        yearlySalary: "",
+        taskTitle: "Arxitektor nima vazifani bajaradi?",
+        tasks: [{
+            id: uuid(),
+            attachment: "83a52962-34b0-414c-a5d8-988a7e9c86cc",
+            title: "Bino qurilishini nazorati",
+            description: "Binoni loihaga binoan qurilayotganini nazorat ostiga oladi"
+        }],
+        wantTobeTitle: "Arxitektor bo'lish uchun nimalarga e'tibor qaratish kerak?",
+        wantTobes: [{
+            id: uuid(),
+            attachment: "83a52962-34b0-414c-a5d8-988a7e9c86cc",
+            title: "Chizmachilik Mahorati",
+            description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi."
+        }],
+        whereCanStudyTitle: "Arxitektorlikni qayerdan o'rgansa bo'ladi aaaa",
+        whereCanStudyAttachment: "16b8506e-38c4-43bf-8cbe-029e4de2384d",
+        sourcesToLearn: [{
+            id: uuid(),
+            attachment: "cece6685-147f-4645-aa6d-fb916ecae4ef",
+            title: "edx",
+            description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi.",
+            link: ""
+        }],
+        successSidesTitle: "Arxitektor kasbining yaxshi tomonlari qanday?",
+        successSides: [{
+            id: uuid(),
+            attachment: "ad41e66c-139a-4e64-a770-ab086f85c8c3",
+            title: "INNOVATSIYA VA IJOD",
+            description: "Arxitektor turar-joyning uyini, ofis minorasi yoki jamoat kutubxonasini yaratadimi, u yangiliklarga sabab bo'ladi. Ushbu soha o'z-o'zini innovatsiyalarga yo'naltiradi, chunki hech bir loyiha bir xil emas."
+        }],
+        successPersonsTitle: "Top arxitektorlar",
+        jobMatchingAttachment: "d787ad9e-9c38-4e38-8052-c3688cff6e44",
+        jobMatchingTitle:"Arxitektor sohasi siz uchunmi?",
+        successPeople: [{
+            id: uuid(),
+            attachment: "2ec686f0-79e7-4774-9cfe-b214556a9e28",
+            name: "Axrorxo'ja Yodgorov",
+            description: "EPAM Systems kompaniyasi, Senior Software Engineer",
+            telegram: "",
+            linkedIn: "",
+            instagram: ""
+        }],
+        faqs: [{
+            id: uuid(),
+            question: "5*5 ==?",
+            answer: "67"
+        }]
     });
     const [job, setJob] = useState(false);
     const [attachments, setAttachments] = useState({});
     const [loadings, setLoadings] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const alert = useAlert()
+
+
+    useEffect(() => {
+        setLoading(true)
+        instance.get("api/v1/quiz/" + quiz_id).then(function (res) {
+            if (res.data.success) {
+                setState(res.data.data)
+                alert.info("Quiz data received")
+                setLoading(false)
+            }
+        })
+    }, [quiz_id])
 
 
     //antd icons
@@ -79,6 +135,7 @@ export default function QuizDetails() {
     }
 
     const saveAttachment = (file, name) => {
+        console.log(file)
         setLoadings({...loadings, [name + "Loading"]: true})
         let formData = new FormData()
         formData.append("files", file)
@@ -180,11 +237,70 @@ export default function QuizDetails() {
         })
     }
 
+
+    const saveSuccessPersonAttachment = (file, name, id) => {
+        setLoadings({...loadings, [name + "Loading"]: true})
+        let formData = new FormData()
+        formData.append("files", file)
+        instance.post(
+            "api/v1/file/saveAttachments",
+            formData
+        ).then(function (res) {
+            setAttachments({
+                ...attachments,
+                [name + "FromServer"]: res?.data?.data[0]
+            })
+            setLoadings({...loadings, [name + "Loading"]: false})
+            let successPeople = state.successPeople;
+
+
+            for (let i in successPeople) {
+                if (successPeople[i].id == id) {
+                    successPeople[i].attachment = res.data?.data[0];
+                    break;
+                }
+                setState({...state, successPeople})
+            }
+
+
+        })
+    }
+
+
+    const saveSuccessSidesAttachment = (file, name, id) => {
+        setLoadings({...loadings, [name + "Loading"]: true})
+        let formData = new FormData()
+        formData.append("files", file)
+        instance.post(
+            "api/v1/file/saveAttachments",
+            formData
+        ).then(function (res) {
+            setAttachments({
+                ...attachments,
+                [name + "FromServer"]: res?.data?.data[0]
+            })
+            setLoadings({...loadings, [name + "Loading"]: false})
+            let successSides = state.successSides;
+
+
+            for (let i in successSides) {
+                if (successSides[i].id == id) {
+                    successSides[i].attachment = res.data?.data[0];
+                    break;
+                }
+                setState({...state, successSides})
+            }
+
+
+        })
+    }
+
     const addTasks = () => {
         let stateForUpdate = state
         let id = uuid();
         stateForUpdate.tasks.push({
             id,
+            attachment: "83a52962-34b0-414c-a5d8-988a7e9c86cc",
             title: "Binolarni loyihalash",
             description: "Kompyuter dasturlari yordamida loyhaning dastlabki dizaynini va eskizini modellashtiradi"
         });
@@ -197,6 +313,7 @@ export default function QuizDetails() {
         let id = uuid();
         stateForUpdate.wantTobes.push({
             id,
+            attachment: "83a52962-34b0-414c-a5d8-988a7e9c86cc",
             title: "Chizmachilik Mahorati",
             description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi."
         });
@@ -209,8 +326,53 @@ export default function QuizDetails() {
         let id = uuid();
         stateForUpdate.sourcesToLearn.push({
             id,
+            attachment: "cece6685-147f-4645-aa6d-fb916ecae4ef",
             title: "edx",
-            description: "Har bir inson o'z hayotida, jamiyatida yoki dunyosida o'zgarishlar yaratish imkoniyatiga ega. Ta'limning o'zgartiruvchi kuchi bu potentsialni ochadi. Shunga qaramay, yuqori sifatli ta'lim olish kam sonlilarning imtiyozi bo'lib kelgan. 2012 yilda biz o'rganishda seysmik siljish vaqti ekanligini angladik. Sinab ko'rilgan va to'g'ridan-to'g'ri etakchigacha. Ba'zilar uchun dan 'hamma uchun' ga."
+            description: "Har bir inson o'z hayotida, jamiyatida yoki dunyosida o'zgarishlar yaratish imkoniyatiga ega. Ta'limning o'zgartiruvchi kuchi bu potentsialni ochadi. Shunga qaramay, yuqori sifatli ta'lim olish kam sonlilarning imtiyozi bo'lib kelgan. 2012 yilda biz o'rganishda seysmik siljish vaqti ekanligini angladik. Sinab ko'rilgan va to'g'ridan-to'g'ri etakchigacha. Ba'zilar uchun dan 'hamma uchun' ga.",
+            link: ""
+        });
+        setState(stateForUpdate)
+        setJob(!job) //kerak emas, state ni refresh qilib olish uchun ishlatildi
+    }
+
+    const addSuccessPerson = () => {
+        let stateForUpdate = state
+        let id = uuid();
+        stateForUpdate.successPeople.push({
+            id,
+            name: "Axrorxo'ja Yodgorov",
+            attachment: "2ec686f0-79e7-4774-9cfe-b214556a9e28",
+            description: "EPAM Systems kompaniyasi, Senior Software Engineer",
+            telegram: "",
+            linkedIn: "",
+            instagram: ""
+
+        });
+        setState(stateForUpdate)
+        setJob(!job) //kerak emas, state ni refresh qilib olish uchun ishlatildi
+    }
+
+    const addFaqs = () => {
+        let stateForUpdate = state
+        let id = uuid();
+        stateForUpdate.faqs.push({
+            id,
+            question: "Axrorxo'ja Yodgorov kim?",
+            answer: "EPAM Systems kompaniyasi, Senior Software Engineer",
+
+        });
+        setState(stateForUpdate)
+        setJob(!job) //kerak emas, state ni refresh qilib olish uchun ishlatildi
+    }
+
+    const addSuccessSide = () => {
+        let stateForUpdate = state
+        let id = uuid();
+        stateForUpdate.successSides.push({
+            id,
+            attachment: "ad41e66c-139a-4e64-a770-ab086f85c8c3",
+            title: "INNOVATSIYA VA IJOD",
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dicta dolorem dolores eaque eius et, fugit ipsa iusto nulla perspiciatis porro quam quos, saepe veniam voluptas. Commodi expedita nobis odio!"
         });
         setState(stateForUpdate)
         setJob(!job) //kerak emas, state ni refresh qilib olish uchun ishlatildi
@@ -219,36 +381,25 @@ export default function QuizDetails() {
     console.log(state, "state")
     console.log(attachments, "attachments")
 
-    function deleteTask(id) {
+
+    function deleteElementFromList(id, fromWhere) {
         let updatedSate = state
-        let tasks = updatedSate.tasks;
-        let index = tasks.map(x => {
+        let listOfState = updatedSate[fromWhere];
+        let index = listOfState.map(x => {
             return x.id
         }).indexOf(id)
 
-        tasks.splice(index, 1);
+        listOfState.splice(index, 1);
         setState(updatedSate)
         setJob(!job) //state ni refresh qilish uchun ishlatildi
     }
 
-    function deleteWantTobe(id) {
-        let updatedSate = state
-        let tasks = updatedSate.wantTobes;
-        let index = tasks.map(x => {
-            return x.id
-        }).indexOf(id)
-
-        tasks.splice(index, 1);
-        setState(updatedSate)
-        setJob(!job) //state ni refresh qilish uchun ishlatildi
-    }
-
-    function editTask(e, item) {
+    function editListItem(e, item,fromWhere) {
         let updatedState = state;
-        let tasks = updatedState.tasks
-        for (let i in tasks) {
-            if (tasks[i].id == item.id) {
-                tasks[i][e.name] = e.value;
+        let listOfState = updatedState[fromWhere]
+        for (let i in listOfState) {
+            if (listOfState[i].id == item.id) {
+                listOfState[i][e.name] = e.value;
                 break;
             }
         }
@@ -256,34 +407,47 @@ export default function QuizDetails() {
         setJob(!job)
     }
 
-    function editWantTobe(e, item) {
-        let updatedState = state;
-        let tasks = updatedState.wantTobes
-        for (let i in tasks) {
-            if (tasks[i].id == item.id) {
-                tasks[i][e.name] = e.value;
-                break;
-            }
-        }
-        setState(updatedState)
-        setJob(!job)
-    }
 
-    function editSourcesToLearn(e, item) {
-        let updatedState = state;
-        let sourcesToLearn = updatedState.sourcesToLearn
-        for (let i in sourcesToLearn) {
-            if (sourcesToLearn[i].id == item.id) {
-                sourcesToLearn[i][e.name] = e.value;
-                break;
-            }
+    const openModal = () => {
+        setShowModal(!showModal);
+    };
+
+    const saveQuiz = () => {
+        console.log(state)
+        setLoading(true)
+        instance.put(
+            "api/v1/quiz", {...state, quizId: quiz_id})
+            .then(function (res) {
+                if (res.data.success) {
+                    alert.success("Congrats.")
+                    setShowModal(false)
+                    setLoading(false)
+                }
+            })
+    };
+
+
+    document.onkeypress = function (e) {
+        e = e || window.event;
+        if (e.shiftKey && e.keyCode === 81) {
+            setShowModal(true)
         }
-        setState(updatedState)
-        setJob(!job)
-    }
+    };
+
+    window.onbeforeunload = function (e) {
+        e = e || window.event;
+
+        // For IE and Firefox prior to version 4
+        if (e) {
+            e.returnValue = 'Any string';
+        }
+
+        // For Safari
+        return 'Any string';
+    };
 
     return (
-        <>
+        <Spin indicator={antIcon} spinning={loading}>
             <div className="DefaultBg minHeight">
                 <div className="container py-5 px-5 text-white">
                     <div className="row justify-content-between align-items-center">
@@ -310,7 +474,7 @@ export default function QuizDetails() {
                             >
                                 <ImgEditor>
                                     <img
-                                        src={attachments.attachmentFromServer ? BASE_URL + "api/v1/file/get/" + state.attachment : attachments.attachment ? attachments.attachment : state.attachment ? state.attachment : arxitektor}
+                                        src={attachments.attachmentFromServer ? BASE_URL + "api/v1/file/get/" + state.attachment : attachments.attachment ? attachments.attachment : state.attachment ? BASE_URL + "api/v1/file/get/" + state.attachment : arxitektor}
                                         className="img-fluid" alt=""/>
                                 </ImgEditor>
                                 {attachments.attachmentFromServer ? "" : attachments.attachment ?
@@ -350,7 +514,7 @@ export default function QuizDetails() {
                                 <div
                                     key={item.id}
                                     className="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-12 cardmaker pt-5 pe-5 pb-4 position-relative">
-                                    <DeleteButton onClick={() => deleteTask(item.id)}
+                                    <DeleteButton onClick={() => deleteElementFromList(item.id,"tasks")}
                                                   className={"deleteButton"}><DeleteOutlined/></DeleteButton>
                                     <label htmlFor={item.id}>
                                         <ImgEditor>
@@ -358,7 +522,7 @@ export default function QuizDetails() {
                                             <img
                                                 style={{opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1'}}
                                                 className="mb-3 img-fluid minHeightImg"
-                                                src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? item.attachment : bino}
+                                                src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? BASE_URL + "api/v1/file/get/" + item.attachment : bino}
                                                 alt=""/>
                                             {loadings[item.id + "AttachmentLoading"] ?
                                                 <div className={"iconLoadingWrapper"}>
@@ -373,13 +537,13 @@ export default function QuizDetails() {
                                             <input onChange={(e) => previewImage(e, item.id + "Attachment")} type="file"
                                                    id={item.id} hidden/>
                                         </ImgEditor></label>
-                                    <h2><EditText onSave={(e) => editTask(e, item)} name={"title"}
+                                    <h2><EditText onSave={(e) => editListItem(e, item,"tasks")} name={"title"}
                                                   defaultValue={item.title}/></h2>
                                     <p className="maxwidthP">
                                         <EditTextarea
                                             rows={4}
                                             defaultValue={item.description}
-                                            onSave={(e) => editTask(e, item)}
+                                            onSave={(e) => editListItem(e, item,"tasks")}
                                             name={"description"}
                                         />
                                     </p>
@@ -402,7 +566,7 @@ export default function QuizDetails() {
                             <div className="row px-2">
 
                                 <div className="col-12 jobsListCard  py-5 mb-4 position-relative">
-                                    <DeleteButton onClick={() => deleteWantTobe(item.id)}
+                                    <DeleteButton onClick={() => deleteElementFromList(item.id,"wantTobes")}
                                                   className={"deleteButton"}><DeleteOutlined/> </DeleteButton>
                                     <div className="d-flex jobsListWrap">
                                         <div className=" justify-content-center d-flex mx-5 w-25">
@@ -420,7 +584,7 @@ export default function QuizDetails() {
                                                         <img
                                                             style={{opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1'}}
                                                             className="jobsListImg"
-                                                            src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? item.attachment : chizmachilik}
+                                                            src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? BASE_URL + "api/v1/file/get/" + item.attachment : chizmachilik}
                                                             alt=""/>
                                                         {loadings[item.id + "AttachmentLoading"] ?
                                                             <div className={"iconLoadingWrapper"}>
@@ -441,10 +605,10 @@ export default function QuizDetails() {
                                         <div className="w-75">
                                             <h3 className="JobsListTitle"><EditText
                                                 defaultValue={item.title ? item.title : "Diqqat!"}
-                                                onSave={(e) => editWantTobe(e, item)} name={"title"}/></h3>
+                                                onSave={(e) => editListItem(e, item,"wantTobes")} name={"title"}/></h3>
                                             <p className="JobsListdescription"><EditTextarea
                                                 defaultValue={item.description ? item.description : "E'tibor qaratishing kerak bo'lgan narsa ))"}
-                                                onSave={(e) => editWantTobe(e, item)} name={"description"}/></p>
+                                                onSave={(e) => editListItem(e, item,"wantTobes")} name={"description"}/></p>
                                         </div>
                                     </div>
                                 </div>
@@ -470,12 +634,12 @@ export default function QuizDetails() {
                                 <input hidden id={"whereCanStudyAttachment"} type="file"
                                        onChange={(e) => previewImage(e, "whereCanStudyAttachment")}/>
 
-                                <ImgEditor style={{height:"100%"}} >
+                                <ImgEditor style={{height: "100%"}}>
                                     <label htmlFor="whereCanStudyAttachment">
                                         <img
                                             style={{opacity: loadings["whereCanStudy" + "AttachmentLoading"] ? '.2' : '1'}}
                                             className="img-fluid layerAbsolute"
-                                            src={attachments["whereCanStudy" + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments["whereCanStudy" + "AttachmentFromServer"] : attachments["whereCanStudy" + "Attachment"] ? attachments["whereCanStudy" + "Attachment"] : state.whereCanStudyAttachment ? state.whereCanStudyAttachment : veterinarLayer}
+                                            src={attachments["whereCanStudy" + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments["whereCanStudy" + "AttachmentFromServer"] : attachments["whereCanStudy" + "Attachment"] ? attachments["whereCanStudy" + "Attachment"] : state.whereCanStudyAttachment ? BASE_URL + "api/v1/file/get/" + state.whereCanStudyAttachment : veterinarLayer}
                                             alt=""/>
                                     </label>
                                     {loadings["whereCanStudy" + "AttachmentLoading"] ?
@@ -498,7 +662,8 @@ export default function QuizDetails() {
             </section>
             <section className="py-5">
 
-                <Button className={"mb-3"} onClick={addSourcesToLearn}>Mustaqil o'rganmiz, qaysi manba'lardan? 🤔</Button>
+                <Button className={"mb-3"} onClick={addSourcesToLearn}>Mustaqil o'rganmiz, qaysi manba'lardan?
+                    🤔</Button>
 
 
                 <div className="container-fluid">
@@ -510,36 +675,57 @@ export default function QuizDetails() {
                         </div>
                         {state.sourcesToLearn?.map((item) => {
                             return (
-                                <div className="d-flex col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 soya textCenter" key={item.id}>
+                                <div
+                                    className="d-flex col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 soya textCenter position-relative"
+                                    key={item.id}>
+                                    <DeleteButton onClick={() => deleteElementFromList(item.id,"sourcesToLearn")}
+                                                  style={{
+                                                      border: "none",
+                                                      zIndex: 6
+                                                  }}>
+                                        <DeleteOutlined/>
+                                    </DeleteButton>
                                     <ManbalarWrapper>
                                         <input hidden id={item.id} type="file"
                                                onChange={(e) => previewImage(e, item.id + "Attachment")}/>
                                         <label htmlFor={item.id}>
-                                        <ImgEditor>
+                                            <ImgEditor>
 
                                                 <img
                                                     style={{opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1'}}
-                                                    className=""
-                                                    src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? item.attachment : edx}
+                                                    className="img-fluid"
+                                                    src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? BASE_URL + "api/v1/file/get/" + item.attachment : edx}
                                                     alt=""/>
 
-                                            {loadings[item.id + "AttachmentLoading"] ?
-                                                <div className={"iconLoadingWrapper"}>
-                                                    <div className={"icon_loading"}>
-                                                        <Spin indicator={antIcon}/>
-                                                    </div>
-                                                </div> : ""}
-                                            {attachments[item.id + "AttachmentFromServer"] ? "" : attachments[item.id + "Attachment"] ?
-                                                <Button
-                                                    onClick={() => saveSourcesToLearnAttachment(attachments[item.id + "AttachmentFile"], item.id + "Attachment",item.id)}
-                                                    className={"ant-btn-block d-block mt-2"}>Upload</Button> : ""}
-                                        </ImgEditor>
+                                                {loadings[item.id + "AttachmentLoading"] ?
+                                                    <div className={"iconLoadingWrapper"}>
+                                                        <div className={"icon_loading"}>
+                                                            <Spin indicator={antIcon}/>
+                                                        </div>
+                                                    </div> : ""}
+                                                {attachments[item.id + "AttachmentFromServer"] ? "" : attachments[item.id + "Attachment"] ?
+                                                    <Button
+                                                        onClick={() => saveSourcesToLearnAttachment(attachments[item.id + "AttachmentFile"], item.id + "Attachment", item.id)}
+                                                        className={"ant-btn-block d-block mt-2"}>Upload</Button> : ""}
+                                            </ImgEditor>
                                         </label>
 
-                                        <h1 className="defaultH1 my-4"><EditText name={"title"} onSave={(e)=>editSourcesToLearn(e,item)} defaultValue={item.title ? item.title : "edx"}/></h1>
-                                        <p className="defaultP"><EditTextarea name={"description"} onSave={(e)=>editSourcesToLearn(e,item)} defaultValue={item.description ? item.description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dicta dolorem dolores eaque eius et, fugit ipsa iusto nulla perspiciatis porro quam quos, saepe veniam voluptas. Commodi expedita nobis odio!"}/></p>
-                                        <EditText name={"link"} onSave={(e)=>editSourcesToLearn(e,item)} defaultValue={item.link ? item.link : "https://t.me/abduroshyd"}/>
-                                        <BlackOutlineBtn href={item.link ? item.link : "https://t.me/abduroshyd"} className="blackBtnPosition mb-1">
+                                        <h1 className="defaultH1 my-4"><EditText inline name={"title"}
+                                                                                 onSave={(e) => editListItem(e, item,"sourcesToLearn")}
+                                                                                 defaultValue={item.title ? item.title : "edx"}/>
+                                        </h1>
+                                        <p className="defaultP"><EditTextarea name={"description"}
+                                                                              onSave={(e) => editListItem(e, item,"sourcesToLearn")}
+                                                                              defaultValue={item.description ? item.description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dicta dolorem dolores eaque eius et, fugit ipsa iusto nulla perspiciatis porro quam quos, saepe veniam voluptas. Commodi expedita nobis odio!"}/>
+                                        </p>
+                                        <EditText inline
+                                                  name={"link"}
+                                                  onSave={(e) => editListItem(e, item,"sourcesToLearn")}
+                                                  defaultValue={item.link ? item.link : ""}
+                                                  placeholder={"Platformaga o'tish uchun link"}
+                                        />
+                                        <BlackOutlineBtn href={item.link ? item.link : "https://t.me/abduroshyd"}
+                                                         className="blackBtnPosition mb-1">
                                             Platformaga o'tish
                                         </BlackOutlineBtn>
                                     </ManbalarWrapper>
@@ -554,82 +740,298 @@ export default function QuizDetails() {
             <section className="py-5">
                 <div className="container px-5">
                     <h1 className="bigH1">
-                        Arxitektor kasbining yaxshi tomonlari qanday?
+                        <EditText name={"successSidesTitle"} onSave={collectJobData}
+                                  defaultValue={state.successSidesTitle ? state.successSidesTitle : "Arxitektor kasbining yaxshi tomonlari qanday?"}/>
                     </h1>
+
+
+                    <Button onClick={addSuccessSide}> Bu kasbning qanday yaxshi taraflari bor ekana? </Button>
+
                     <div className="row">
-                        <AdvantagesCard
-                            img={innovatsiya}
-                            title={"INNOVATSIYA VA IJOD"}
-                            description={
-                                "Arxitektor turar-joyning uyini, ofis minorasi yoki jamoat kutubxonasini yaratadimi, u yangiliklarga sabab bo'ladi. Ushbu soha o'z-o'zini innovatsiyalarga yo'naltiradi, chunki hech bir loyiha bir xil emas. "
-                            }
-                        />
-                        <AdvantagesCard
-                            img={sayohat}
-                            title={"SAYOHAT"}
-                            description={
-                                "Masofaviy ish. Dasturchi ishlashi uchun faqat kompyuter kerak bo'lganligi sababli, bunday mutaxassislar odatda ma'lum bir joyga bog'lanmaydi.  "
-                            }
-                        />
-                        <AdvantagesCard
-                            img={rivojlanish}
-                            title={"DOIMIY RIVOJLANISH"}
-                            description={
-                                "Doimiy rivojlanish. Texnologiya tez o'zgarmoqda. IT ham bir joyda turmaydi, masalan, yangi dasturlash tillari paydo bo'ladi.Dasturchilar zamon bilan hamnafas bo'lishlari kerak "
-                            }
-                        />
+                        {state.successSides?.map(item => {
+                            return (
+                                <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mt-3 position-relative"
+                                     key={item.id}>
+                                    <AdvantagesCardWrapper>
+
+                                        <DeleteButton onClick={() => deleteElementFromList(item.id,"successSides")}
+                                                      style={{
+                                                          border: "none",
+                                                          right: "-6px",
+                                                          top: 0,
+                                                      }}>
+                                            <DeleteOutlined/>
+                                        </DeleteButton>
+
+                                        <div className="pt-5 px-4">
+                                            <h2><EditText
+                                                onSave={(e) => editListItem(e, item,"successSides")}
+                                                defaultValue={item.title ? item.title : "INNOVATSIYA VA IJOD"}/></h2>
+
+                                            <input hidden id={item.id} type="file"
+                                                   onChange={(e) => previewImage(e, item.id + "Attachment")}/>
+                                            <label htmlFor={item.id}>
+                                                <ImgEditor>
+
+                                                    <img
+                                                        style={{opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1'}}
+                                                        className="my-2 img-fluid"
+                                                        src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? BASE_URL + "api/v1/file/get/" + item.attachment : innovatsiya}
+                                                        alt=""/>
+
+                                                    {loadings[item.id + "AttachmentLoading"] ?
+                                                        <div className={"iconLoadingWrapper"}>
+                                                            <div className={"icon_loading"}>
+                                                                <Spin indicator={antIcon}/>
+                                                            </div>
+                                                        </div> : ""}
+                                                    {attachments[item.id + "AttachmentFromServer"] ? "" : attachments[item.id + "Attachment"] ?
+                                                        <Button
+                                                            onClick={() => saveSuccessSidesAttachment(attachments[item.id + "AttachmentFile"], item.id + "Attachment", item.id)}
+                                                            className={"ant-btn-block d-block mt-2"}>Upload</Button> : ""}
+                                                </ImgEditor>
+                                            </label>
+
+                                            <p className="defaultP mt-3">
+                                                <EditTextarea inline
+                                                              rows={8}
+                                                              onSave={(e) => editListItem(e, item,"successSides")}
+                                                              defaultValue={item.description ? item.description : "Arxitektor turar-joyning uyini, ofis minorasi yoki jamoat kutubxonasini yaratadimi, u yangiliklarga sabab bo'ladi. Ushbu soha o'z-o'zini innovatsiyalarga yo'naltiradi, chunki hech bir loyiha bir xil emas."}/>
+                                            </p>
+                                        </div>
+                                    </AdvantagesCardWrapper>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </section>
             <section className="py-5">
-                <ForYou
-                    title={"Tanlagan kasbingiz siz uchun qanchalik to'g'ri keladi?"}
-                    backgroundImage={layerVeterinar}
-                    subtitle={"Arxitektor sohasi siz uchunmi?"}
-                    description={
-                        "Kasbga layoqatlilik testi - 7 ta test savolidan iborat bo'lib, siz tanlagan kasb o'zingiz uchun ruhiy, jisomoniy taraflama to'g'ri yoki noto'g'ri ekanligini aniqlashda yordam beradi."
-                    }
-                />
+
+                <div className="row bg-white ">
+                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 minHeightLayerForYou">
+                        <ImgEditor
+                            style={{height: "100%"}}
+                        >
+                            <label
+                                style={{height: "100%"}}
+                                htmlFor="jobMatchingAttachment">
+                                <div
+                                    className="w-100 h-100 d-flex justify-content-center align-items-center text-center p-5 img-fluid"
+                                    style={{
+                                        background: `url(${
+                                            attachments["jobMatching" + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments["jobMatching" + "AttachmentFromServer"] : attachments["jobMatching" + "Attachment"] ? attachments["jobMatching" + "Attachment"] : state.jobMatchingAttachment ? BASE_URL + "api/v1/file/get/" + state.jobMatchingAttachment : layerVeterinar
+                                        })`,
+                                        backgroundPosition: "center",
+                                        backgroundRepeat: "no-repeat",
+                                        backgroundSize: "cover",
+                                        maxWidth: "100%",
+                                        height: "auto",
+                                        opacity: loadings["jobMatching" + "AttachmentLoading"] ? '.2' : '1'
+                                    }}
+                                >
+
+                                    <h1 className="defaultH1 mx-4  text-white">{"Tanlagan kasbingiz siz uchun qanchalik to'g'ri keladi?"}</h1>
+                                </div>
+                            </label>
+
+                            {loadings["jobMatching" + "AttachmentLoading"] ?
+                                <div className={"iconLoadingWrapper"}>
+                                    <div className={"icon_loading"}>
+                                        <Spin indicator={antIcon}/>
+                                    </div>
+                                </div> : ""}
+
+
+                            {attachments["jobMatching" + "AttachmentFromServer"] ? "" : attachments["jobMatching" + "Attachment"] ?
+                                <Button
+                                    onClick={() => saveAttachment(attachments["jobMatching" + "AttachmentFile"], "jobMatching" + "Attachment")}
+                                    className={"ant-btn-block d-block mt-2"}>Upload</Button> : ""}
+
+
+                            <input hidden id={"jobMatchingAttachment"} type="file"
+                                   onChange={(e) => previewImage(e, "jobMatching" + "Attachment")}/>
+                        </ImgEditor>
+
+
+                    </div>
+                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 bg-white col-12 minHeightLayerForYou">
+                        <ForYouWrapper>
+                            <h1 className="defaultH1 mt-4 "><EditText name={"jobMatchingTitle"} onSave={collectJobData} defaultValue={state.jobMatchingTitle}/></h1>
+                            <div className="d-flex justify-content-between flex-column align-items-start heightAuto">
+                                <p className="defaultP mt-5">{"Kasbga layoqatlilik testi - 7 ta test savolidan iborat bo'lib, siz tanlagan kasb o'zingiz uchun ruhiy, jisomoniy taraflama to'g'ri yoki noto'g'ri ekanligini aniqlashda yordam beradi."}</p>
+                                <TestOutlineBtn className="outBtn"/>
+                            </div>
+                        </ForYouWrapper>
+                    </div>
+                </div>
+
+
             </section>
             <section className="py-5">
                 <div className="container px-5">
-                    <h1 className="bigH1">TOP Arxitektorlar</h1>
+
+                    <h1 className="bigH1">
+                        <EditText
+                            onSave={collectJobData}
+                            defaultValue={state.successPersonsTitle ? state.successPersonsTitle : "Top Arxitektorlar"}/>
+                        <Button onClick={addSuccessPerson}>Shu sohada muvoffaqqiyatga erishgan qanday insonlarni
+                            bilasiz?</Button></h1>
                     <div className="row mt-4 justify-content-center">
-                        <JobsContact
-                            img={dasturchi1}
-                            name={"Axrorxo'ja Yodgorov"}
-                            title={"EPAM Systems kompaniyasi, Senior Software Engineer"}
-                        />
-                        <JobsContact
-                            img={dasturchi2}
-                            name={"Durdona Bahronova"}
-                            title={"Super Dispatch kompaniyasi, Frontend Developer "}
-                        />
-                        <JobsContact
-                            img={dasturchi3}
-                            name={"Azamat Majidov"}
-                            title={"UzKassa kompaniyasi, Senior Android Developer "}
-                        />
+
+                        {state.successPeople?.map(item => {
+                            return (
+                                <div key={item.id}
+                                     className="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 soya py-5 mb-3 position-relative">
+                                    <DeleteButton onClick={() => deleteElementFromList(item.id,"successPeople")}
+                                                  className={"deleteButton"}
+                                                  style={{
+                                                      zIndex: "5"
+                                                  }}
+                                    ><DeleteOutlined/></DeleteButton>
+                                    <JobsContactWrapper>
+                                        <div className="circleImage">
+                                            <input hidden id={item.id} type="file"
+                                                   onChange={(e) => previewImage(e, item.id + "Attachment")}/>
+                                            <label htmlFor={item.id}>
+                                                <ImgEditor className={"p-0"}>
+
+                                                    <img
+                                                        style={{opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1'}}
+                                                        className={"img-fluid"}
+                                                        src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? BASE_URL + "api/v1/file/get/" + item.attachment : dasturchi1}
+                                                        alt=""/>
+
+                                                    {loadings[item.id + "AttachmentLoading"] ?
+                                                        <div className={"iconLoadingWrapper"}>
+                                                            <div className={"icon_loading"}>
+                                                                <Spin indicator={antIcon}/>
+                                                            </div>
+                                                        </div> : ""}
+                                                    {attachments[item.id + "AttachmentFromServer"] ? "" : attachments[item.id + "Attachment"] ?
+                                                        <Button
+                                                            onClick={() => saveSuccessPersonAttachment(attachments[item.id + "AttachmentFile"], item.id + "Attachment", item.id)}
+                                                            className={"ant-btn-block d-block mt-2"}>Upload</Button> : ""}
+                                                </ImgEditor>
+                                            </label>
+                                        </div>
+                                        <h4 className="mt-3 mx-3 nameH3"><EditText name={"name"}
+                                                                                   defaultValue={item.name ? item.name : "Abdurashid Jumanov"}
+                                                                                   onSave={(e) => editListItem(e, item,"successPeople")}/>
+                                        </h4>
+                                        <div className="px-4">
+                                            <p className="titleH3"><EditTextarea name={"description"}
+                                                                                 onSave={(e) => editListItem(e, item,"successPeople")}
+                                                                                 defaultValue={item.description ? item.description : "EPAM Systems kompaniyasi, Senior Software Engineer"}/>
+                                            </p>
+                                            <EditText name={"telegram"} defaultValue={item.telegram}
+                                                      onSave={(e) => editListItem(e, item,"successPeople")}
+                                                      placeholder={"telegram"}/>
+                                            <EditText name={"linkedIn"} defaultValue={item.linkedIn}
+                                                      onSave={(e) => editListItem(e, item,"successPeople")}
+                                                      placeholder={"linkedIn"}/>
+                                            <EditText name={"instagram"} defaultValue={item.instagram}
+                                                      onSave={(e) => editListItem(e, item,"successPeople")}
+                                                      placeholder={"instagram"}/>
+                                            <div className="d-flex justify-content-center gap-3">
+                                                <div className="circleIcon">
+                                                    <FontAwesomeIcon icon={faTelegram}/>
+                                                </div>
+                                                <div className="circleIcon">
+                                                    <FontAwesomeIcon icon={faLinkedin}/>
+                                                </div>
+                                                <div className="circleIcon">
+                                                    <FontAwesomeIcon icon={faInstagram}/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </JobsContactWrapper>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </section>
             <section className="py-5">
                 <div className="container px-5">
-                    <FrequentlyQuestions
-                        title1={"Arxitektor bo'lish uchun qaysi fanlarni bilish kerak?"}
-                        description={
-                            "Arxitektor sohasini egallamoqchi bo'lganllar matematika va ingliz tilidan bilimlarni mustahkamlashlari talab etiladi. Matematika - dasturlashda, kodlarda uchraydigan xatoliklar, muammolarni hal qilishda yordam beradi. Ingliz tili - dasturlash sohasidagi bilimlarni asosiy qismi ingliz tilida bo'lganligi uchun , agar ingliz tilini bilsangiz ko'proq mustaqil ishlay olishingiz va ko'proq bilimga ega bo'lishingiz mumkin."
-                        }
-                        title2={
-                            "Arxitektor bo'lib ishga kirish uchun diplom talab etiladimi?"
-                        }
-                        title3={"Arxitektorni o'rtacha maoshi qancha?"}
-                    />
+
+                    <div className="row">
+                        <div className="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                            <h1 className="mb-4 bigH1">Tez-tez so'raladigan savollarga javoblar</h1>
+                            <Button onClick={addFaqs} className={"mb-3"}>Tez-tez so'raladigan savollar qo'shishingiz
+                                mumkin</Button>
+                            <div className="accordion" id="accordionExample">
+                                {state.faqs?.map(item => {
+                                    return (
+                                        <div className="accordion-item position-relative" key={item.id}>
+                                            <DeleteButton onClick={() => deleteElementFromList(item.id,"faqs")}
+                                                          className={"deleteButton"}
+                                                          style={{
+                                                              zIndex: 5,
+                                                              top: "26px",
+                                                              width: "35px",
+                                                              height: "35px"
+                                                          }}
+                                            ><DeleteOutlined/></DeleteButton>
+                                            <h2 className="accordion-header" id={"acc" + item.id}>
+                                                <button
+                                                    className="accordion-button"
+                                                    type="button"
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target={"#collapse" + item.id}
+                                                    aria-expanded="true"
+                                                    aria-controls={"collapse" + item.id}
+                                                >
+                                                    <EditText name={"question"}
+                                                              defaultValue={item.question ? item.question : "Arxitektor bo'lish uchun qaysi fanlarni bilish kerak?"}
+                                                              onSave={(e)=>editListItem(e,item,"faqs")}
+                                                    />
+                                                </button>
+                                            </h2>
+                                            <div
+                                                id={"collapse" + item.id}
+                                                className="accordion-collapse collapse show"
+                                                aria-labelledby={"acc" + item.id}
+                                                data-bs-parent="#accordionExample"
+                                            >
+                                                <div className="accordion-body">
+                                                    <EditTextarea name={"answer"}
+                                                                  onSave={(e)=>editListItem(e,item,"faqs")}
+                                                                  defaultValue={item.answer ? item.answer : "Arxitektor sohasini egallamoqchi bo'lganllar matematika va ingliz tilidan bilimlarni mustahkamlashlari talab etiladi. Matematika - dasturlashda, kodlarda uchraydigan xatoliklar, muammolarni hal qilishda yordam beradi. Ingliz tili - dasturlash sohasidagi bilimlarni asosiy qismi ingliz tilida bo'lganligi uchun , agar ingliz tilini bilsangiz ko'proq mustaqil ishlay olishingiz va ko'proq bilimga ega bo'lishingiz mumkin."}/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                        <div
+                            className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12"
+                            style={{
+                                background: `url(${juggling})`,
+                                backgroundRepeat: "no-repeat",
+                            }}
+                        />
+                    </div>
+
+
                 </div>
             </section>
             <Footer/>
+            {/*    modal*/}
 
-            <button type={"submit"}>saqlash</button>
-        </>
+            <>
+                <Modal title="Kasbni saqlaymizmi?" visible={showModal} onOk={saveQuiz} confirmLoading={loading}
+                       onCancel={!loading ? openModal : ""}>
+                    <label htmlFor="inputofsalary">Yillik maosh ko'pchilikni qiziqtirsa kerak...</label>
+                    <Input id={"inputofsalary"}
+                           onChange={(e) => collectJobData({name: "yearlySalary", value: e.target.value})}
+                           defaultValue={state.yearlySalary && state.yearlySalary}
+                           placeholder="masalan -> 112.000$ - 130.000$" required/>
+                </Modal>
+            </>
+
+
+        </Spin>
     );
 }

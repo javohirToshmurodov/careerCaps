@@ -12,6 +12,7 @@ import Arxitektor from "./pages/Arxitektor";
 import Muhandis from "./pages/Muhandis";
 import Veterinar from "./pages/Veterinar";
 import Dasturchi from "./pages/Dasturchi";
+import DynomicJob from "./pages/DynomicJob";
 import Admin from "./pages/Admin";
 import SignUp from "./pages/SignUp";
 import ProtectedRoutes from "./ProtectedRoutes";
@@ -47,6 +48,7 @@ export default function App() {
         <Route path="about" element={<About />} />
         <Route path="statistika" element={<Statistics />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="job/:job_id" element={<DynomicJob />} />
       </Routes>
     </>
   );

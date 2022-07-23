@@ -45,12 +45,11 @@ export const DeleteButton = styled.button`
   top: 30px;
   transition: all 150ms linear;
   background: #ffffff;
-  z-index: 5;
 
   &:hover {
-    cursor: pointer;
-    background: #ee0c0c;
-    color: #ffffff;
+    cursor: pointer!important;
+    background: #ee0c0c!important;
+    color: #ffffff!important;
   }
 `;
 export const ManbalarWrapperFirst = styled.div`
@@ -92,10 +91,16 @@ export const BlackOutlineBtn = styled.a`
   position: absolute;
   bottom: 11%;
   left: 6%;
+  a{
+    color: black;
+  }
   &:hover {
     background-color: #000;
     color: white;
     cursor: pointer;
+    a{
+      color: white;
+    }
   }
 `;
 export const TestWarningOutlineBtn = styled.button`

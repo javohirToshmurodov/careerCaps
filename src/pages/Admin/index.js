@@ -7,6 +7,10 @@ import AddQuestionModal from "../../components/AddQuestionModal";
 import {accessToken, loadJobs} from "../../redux/actions";
 import {instance} from "../../redux/actions";
 import "./admin.css";
+import {Button, Input, Modal} from "antd";
+import {DeleteButton} from "../../styles";
+import {DeleteOutlined} from "@ant-design/icons";
+import {useAlert} from "react-alert";
 
 export default function Admin() {
     const [modal, setModal] = useState(false);
@@ -14,45 +18,62 @@ export default function Admin() {
     const [pictureId, setPictureId] = useState("");
     let {id} = useParams();
     const [name, setName] = useState("")
+    const [showModal, setShowModal] = useState(false)
     const dispatch = useDispatch();
     const jobs = useSelector((state) => state.jobsData?.quizzes);
-    const navigate = useNavigate();
-    const setActive = ({isActive}) => (isActive ? "active-link" : "");
+    const alert = useAlert()
     useEffect(() => {
         dispatch(loadJobs());
     }, []);
 
-    const handleFile = (e) => {
-        const formData = new FormData();
-        formData.append("files", e);
-        instance
-            .post("api/v1/file/saveAttachments", formData)
-            .then((res) => {
-                console.log(res.data.data);
-                setPictureId(res?.data.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
-
     const jobSaqlash = (e) => {
-        e.preventDefault()
         instance.post("api/v1/quiz", {
             name: `${name}`
         }).then((res) => {
-            console.log(res.data);
+            dispatch(loadJobs());
+            setShowModal(false)
         })
     }
+
+    document.onkeypress = function (e) {
+        e = e || window.event;
+        if (e.shiftKey && e.keyCode === 81) {
+            setShowModal(true)
+        }
+    };
+
+    function deleteJob(id) {
+        if (window.confirm("Are you sure to delete?")){
+            instance.delete("api/v1/quiz/delete/"+id).then(function (res){
+                alert.info("Kasb o'chirildi")
+                dispatch(loadJobs());
+            })
+        }
+    }
+
     return (
         <div>
             <div className=" w-100">
                 <div className="container px-2 py-1 ">
+
                     <div className="row mt-3">
                         <div className="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-12 menu ">
                             <ul className="list-group mb-4 py-4 listItem h-100">
                                 {jobs.map((e, i) => (
-                                    <li className="text-white li mb-2" key={i}>
+                                    <li className="text-white li mb-2 position-relative" key={i}>
+                                        <DeleteButton
+                                            onClick={()=>deleteJob(e.id)}
+                                            style={{
+                                                top: "25%",
+                                                right: "8px",
+                                                width: "20px",
+                                                height: "20px",
+                                                border: 0,
+                                                background: "transparent"
+                                            }}
+                                        >
+
+                                        </DeleteButton>
                                         <NavLink
                                             style={({isActive}) => ({
                                                 background: isActive ? "white" : "",
@@ -66,22 +87,17 @@ export default function Admin() {
                                     </li>
                                 ))}
                             </ul>
-                            <input type="text" onChange={(e) => setName(e.target.value)} placeholder="job kiriting"/>
-                            <button onClick={jobSaqlash}>
-                                jobni saqlash
-                            </button>
-                            <input type="file" onChange={(e) => handleFile(e.target.files[0])}/>
                         </div>
                         <div className="col-xl-10 col-lg-10 col-md-9 col-sm-6 col-12 px-4">
                             <div className="text-end">
-                               <Link to={"/details/"+ id}>
-                                   <button
-                                       className="btn btn-primary mb-3"
-                                       style={{marginRight: "5px"}}
-                                   >
-                                       Details
-                                   </button>
-                               </Link>
+                                <Link to={"/details/" + id}>
+                                    <button
+                                        className="btn btn-primary mb-3"
+                                        style={{marginRight: "5px"}}
+                                    >
+                                        Details
+                                    </button>
+                                </Link>
                                 <button
                                     className="btn btn-primary mb-3"
                                     onClick={() => setModal(true)}
@@ -95,6 +111,16 @@ export default function Admin() {
                     </div>
                 </div>
             </div>
+
+            <>
+                <Modal title="Kasbni saqlaymizmi?" visible={showModal} onOk={jobSaqlash}
+                       onCancel={() => setShowModal(false)}>
+                    <label htmlFor="nmaeOfJob">Kasb nomini kiriting</label>
+                    <Input
+                        id={"nmaeOfJob"}
+                        onChange={(e) => setName(e.target.value)} placeholder="masalan -> Dasturchi" required/>
+                </Modal>
+            </>
         </div>
     );
 }

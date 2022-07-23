@@ -436,6 +436,7 @@ ul {
 
 .goJob:hover {
     background-position: right;
+    color: white;
 }
 
 .align-self {
@@ -569,6 +570,10 @@ ul {
         position: absolute;
         right: 10%;
         top: -40px;
+    }
+
+    ._4GdcU{
+        white-space: normal!important;
     }
 
     .layerH1 {
@@ -753,6 +758,7 @@ ul {
     .goJob {
         top: 5px;
         right: 5px;
+
     }
 
     .maxWidthPAbuot {
