@@ -9,7 +9,7 @@ import {ImgWrapper} from "../../../styles";
 import {faEdit, faPen} from "@fortawesome/free-solid-svg-icons";
 import {faTrash} from "@fortawesome/free-solid-svg-icons";
 import {useState} from "react";
-import {Collapse} from "antd";
+import {Collapse, Input, Modal} from "antd";
 import 'antd/dist/antd.css';
 import {useAlert} from 'react-alert'
 import {DeleteFilled, EditFilled, EditOutlined, LoadingOutlined} from "@ant-design/icons";
@@ -61,28 +61,30 @@ export default function RoutesComponent() {
     //     })
     //     .catch((err) => console.log(err));
     // };
-    const handleFile = (e) => {
-        const attachment = {}
 
-        const formData = new FormData();
-        formData.append("files", e);
-        setImgLoading(true)
-        instance
-            .post("api/v1/file/saveAttachments", formData)
-            .then((res) => {
-                instance.put("api/v1/quiz/" + id + "?attachmentId=" + res?.data.data).then(r => {
-                    dispatch(loadQuestions())
-                    alert.success("Rasm saqlandi")
-                    setImgLoading(false)
 
-                })
-                attachment.smth = {...res.data.data[0]}
-
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
+    // const handleFile = (e) => {
+    //         const attachment = {}
+    //
+    //         const formData = new FormData();
+    //         formData.append("files", e);
+    //         setImgLoading(true)
+    //         instance
+    //             .post("api/v1/file/saveAttachments", formData)
+    //             .then((res) => {
+    //                 instance.put("api/v1/quiz/" + id + "?attachmentId=" + res?.data.data).then(r => {
+    //                     dispatch(loadQuestions())
+    //                     alert.success("Rasm saqlandi")
+    //                     setImgLoading(false)
+    //
+    //                 })
+    //                 attachment.smth = {...res.data.data[0]}
+    //
+    //             })
+    //             .catch((err) => {
+    //                 console.log(err);
+    //             });
+    // };
 
     const deleteQuestions = (event, id) => {
         try {
@@ -112,37 +114,37 @@ export default function RoutesComponent() {
     }
     return (<Spin spinning={questionLoading}>
             <div className="row align-items-start">
-                <div
-                    className="col-xl-2 col-lg-2 col-md-12 col-sm-12  col-12 d-flex justify-content-center flex-column align-items-center">
+                {/*<div*/}
+                {/*    className="col-xl-2 col-lg-2 col-md-12 col-sm-12  col-12 d-flex justify-content-center flex-column align-items-center">*/}
 
-                    <label htmlFor="fileee">
-                        <input
-                            type="file"
-                            hidden
-                            id={"fileee"}
-                            onChange={(e) => handleFile(e.target.files[0])}
-                            accept="image/*"
-                        />
-                        <ImgWrapper>
-                            {imgLoading ? <Spin indicator={antIcon}/> : // <img width={100}
-                                //      src={BASE_URL + `api/v1/file/get/${questions?.attachment}`}
-                                //      alt=""
-                                // />
+                {/*    /!*<label htmlFor="fileee">*!/*/}
+                {/*    /!*    <input*!/*/}
+                {/*    /!*        type="file"*!/*/}
+                {/*    /!*        hidden*!/*/}
+                {/*    /!*        id={"fileee"}*!/*/}
+                {/*    /!*        onChange={(e) => handleFile(e.target.files[0])}*!/*/}
+                {/*    /!*        accept="image/*"*!/*/}
+                {/*    /!*    />*!/*/}
+                {/*    /!*    <ImgWrapper>*!/*/}
+                {/*    /!*        {imgLoading ? <Spin indicator={antIcon}/> : // <img width={100}*!/*/}
+                {/*    /!*            //      src={BASE_URL + `api/v1/file/get/${questions?.attachment}`}*!/*/}
+                {/*    /!*            //      alt=""*!/*/}
+                {/*    /!*            // />*!/*/}
 
-                                <LazyLoadImage
-                                    alt={"an error expected loading image"}
-                                    src={BASE_URL + `api/v1/file/get/${questions?.attachment}`} // use normal <img> attributes as props
-                                    effect="blur"
-                                    className={"img-fluid"}
-                                />
+                {/*    /!*            <LazyLoadImage*!/*/}
+                {/*    /!*                alt={"an error expected loading image"}*!/*/}
+                {/*    /!*                src={BASE_URL + `api/v1/file/get/${questions?.attachment}`} // use normal <img> attributes as props*!/*/}
+                {/*    /!*                effect="blur"*!/*/}
+                {/*    /!*                className={"img-fluid"}*!/*/}
+                {/*    /!*            />*!/*/}
 
-                            }
-                        </ImgWrapper>
-                    </label>
-                    <h5 className="mt-2">{questions?.name}</h5>
+                {/*    /!*        }*!/*/}
+                {/*    /!*    </ImgWrapper>*!/*/}
+                {/*    /!*</label>*!/*/}
+                {/*    /!*<h5 className="mt-2">{questions?.name}</h5>*!/*/}
 
-                </div>
-                <div className="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12">
+                {/*</div>*/}
+                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     {questions.questions?.map((e, i) => (<div key={i}>
 
                             <div className="d-flex justify-content-end">
@@ -178,5 +180,6 @@ export default function RoutesComponent() {
                         </div>))}
                 </div>
             </div>
+
         </Spin>);
 }

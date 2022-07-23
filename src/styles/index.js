@@ -27,7 +27,7 @@ export const ImgEditor = styled.div`
   border-radius: 3px;
   position: relative;
   &:hover {
-    cursor: pointer;
+    cursor: pointer!important;
     background: rgba(220, 220, 220, 0.4);
   }
 `;
@@ -47,9 +47,9 @@ export const DeleteButton = styled.button`
   background: #ffffff;
 
   &:hover {
-    cursor: pointer;
-    background: #ee0c0c;
-    color: #ffffff;
+    cursor: pointer!important;
+    background: #ee0c0c!important;
+    color: #ffffff!important;
   }
 `;
 export const ManbalarWrapperFirst = styled.div`
@@ -77,7 +77,7 @@ export const ManbalarWrapper = styled.div`
     color: #000000;
   }
 `;
-export const BlackOutlineBtn = styled.button`
+export const BlackOutlineBtn = styled.a`
   padding: 12px 26px;
   border-radius: 88px;
   border: 2px solid #000;
@@ -89,12 +89,18 @@ export const BlackOutlineBtn = styled.button`
   color: black;
   transition: all 0.3s;
   position: absolute;
-  bottom: 14%;
+  bottom: 11%;
   left: 6%;
+  a{
+    color: black;
+  }
   &:hover {
     background-color: #000;
     color: white;
     cursor: pointer;
+    a{
+      color: white;
+    }
   }
 `;
 export const TestWarningOutlineBtn = styled.button`

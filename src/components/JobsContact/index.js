@@ -19,13 +19,19 @@ export default function JobsContact(props) {
           <p className="titleH3">{props.title}</p>
           <div className="d-flex justify-content-center gap-3">
             <div className="circleIcon">
-              <FontAwesomeIcon icon={faTelegram} />
+              <a href={props.telegram}>
+                <FontAwesomeIcon icon={faTelegram} />
+              </a>
             </div>
             <div className="circleIcon">
-              <FontAwesomeIcon icon={faLinkedin} />
+              <a href={props.linkedIn}>
+                <FontAwesomeIcon icon={faLinkedin} />
+              </a>
             </div>
             <div className="circleIcon">
-              <FontAwesomeIcon icon={faInstagram} />
+              <a href={props.instagram}>
+                <FontAwesomeIcon icon={faInstagram} />
+              </a>
             </div>
           </div>
         </div>
