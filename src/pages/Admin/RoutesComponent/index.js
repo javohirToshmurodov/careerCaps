@@ -1,29 +1,29 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {useParams} from "react-router-dom";
-import {getQuestion, instance, loadQuestions} from "../../../redux/actions";
-import {id} from "../../../redux/actions";
-import {ImgWrapper} from "../../../styles";
-import {faEdit, faPen} from "@fortawesome/free-solid-svg-icons";
-import {faTrash} from "@fortawesome/free-solid-svg-icons";
-import {useState} from "react";
-import {Collapse, Input, Modal} from "antd";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getQuestion, instance, loadQuestions } from "../../../redux/actions";
+import { id } from "../../../redux/actions";
+import { ImgWrapper } from "../../../styles";
+import { faEdit, faPen } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import { Collapse, Input, Modal } from "antd";
 import 'antd/dist/antd.css';
-import {useAlert} from 'react-alert'
-import {DeleteFilled, EditFilled, EditOutlined, LoadingOutlined} from "@ant-design/icons";
-import {Spin} from 'antd';
+import { useAlert } from 'react-alert'
+import { DeleteFilled, EditFilled, EditOutlined, LoadingOutlined } from "@ant-design/icons";
+import { Spin } from 'antd';
 
 import EditModalQuestion from "../../../components/EditQuestionModal";
-import {BASE_URL} from "../../../utils/constans";
-import {LazyLoadImage} from 'react-lazy-load-image-component';
+import { BASE_URL } from "../../../utils/constans";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import axios from "axios";
 
 export default function RoutesComponent() {
-    const {id} = useParams();
-    const {Panel} = Collapse;
+    const { id } = useParams();
+    const { Panel } = Collapse;
     const [isEdit, setIsEdit] = useState({})
     const [pictureId, setPictureId] = useState("");
     const [image, setImage] = useState("");
@@ -37,7 +37,7 @@ export default function RoutesComponent() {
 
 
     // antd
-    const antIcon = <LoadingOutlined style={{fontSize: 24}} spin/>;
+    const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
     const loadQuestions = () => {
         setQuestionLoading(true)
@@ -114,7 +114,7 @@ export default function RoutesComponent() {
     }
 
     const extraAll = () => {
-        <DeleteFilled/>
+        <DeleteFilled />
     }
     return (<Spin spinning={questionLoading}>
         <div className="row align-items-start">
@@ -150,24 +150,23 @@ export default function RoutesComponent() {
             {/*</div>*/}
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 {questions.questions?.map((e, i) => {
-                    console.log(e,777)
-                    return(
+                    return (
                         <div key={i}>
 
                             <div className="d-flex justify-content-end">
                                 <button className="text-danger btn p-1" onClick={() => putQuestions(e)}>
-                                    <FontAwesomeIcon icon={faEdit}/>
+                                    <FontAwesomeIcon icon={faEdit} />
                                 </button>
                                 <button className="text-danger btn p-1"
-                                        onClick={(event) => deleteQuestions(event, e.id)}>
-                                    <FontAwesomeIcon icon={faTrash}/>
+                                    onClick={(event) => deleteQuestions(event, e.id)}>
+                                    <FontAwesomeIcon icon={faTrash} />
                                 </button>
                                 {modal ? <EditModalQuestion isEdit={isEdit}
-                                                            show={modal} handleClose={openModal}/> : ''}
+                                    show={modal} handleClose={openModal} /> : ''}
 
                             </div>
                             <Collapse className="mb-2" defaultActiveKey={["1"]}>
-                                <Panel header={e.title} key={i} style={{"fontSize": "20px", "color": "#111"}}>
+                                <Panel header={e.title} key={i} style={{ "fontSize": "20px", "color": "#111" }}>
 
                                     {e.answers.map((answer, index) => {
                                         return (
