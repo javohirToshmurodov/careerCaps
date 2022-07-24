@@ -87,19 +87,16 @@ export default function RoutesComponent() {
     // };
 
     const deleteQuestions = (event, id) => {
-        try {
-            instance.delete(`api/v1/question/delete/${id}`).then((res) => {
-                if (res.data.success) {
-                    alert("question deleted")
-                    dispatch(loadQuestions())
-                } else {
-                    alert.show(res.data.message)
-                }
+        instance.delete(`api/v1/question/delete/${id}`).then((res) => {
+            console.log(res)
+            if (res.data.success) {
+                alert("question deleted")
+                dispatch(loadQuestions())
+            } else {
+                alert.show(res.data.message)
+            }
 
-            });
-        } catch (err) {
-            console.log(err, 444);
-        }
+        })
     }
     useEffect(() => {
         dispatch(loadQuestions());
@@ -113,73 +110,73 @@ export default function RoutesComponent() {
         <DeleteFilled/>
     }
     return (<Spin spinning={questionLoading}>
-            <div className="row align-items-start">
-                {/*<div*/}
-                {/*    className="col-xl-2 col-lg-2 col-md-12 col-sm-12  col-12 d-flex justify-content-center flex-column align-items-center">*/}
+        <div className="row align-items-start">
+            {/*<div*/}
+            {/*    className="col-xl-2 col-lg-2 col-md-12 col-sm-12  col-12 d-flex justify-content-center flex-column align-items-center">*/}
 
-                {/*    /!*<label htmlFor="fileee">*!/*/}
-                {/*    /!*    <input*!/*/}
-                {/*    /!*        type="file"*!/*/}
-                {/*    /!*        hidden*!/*/}
-                {/*    /!*        id={"fileee"}*!/*/}
-                {/*    /!*        onChange={(e) => handleFile(e.target.files[0])}*!/*/}
-                {/*    /!*        accept="image/*"*!/*/}
-                {/*    /!*    />*!/*/}
-                {/*    /!*    <ImgWrapper>*!/*/}
-                {/*    /!*        {imgLoading ? <Spin indicator={antIcon}/> : // <img width={100}*!/*/}
-                {/*    /!*            //      src={BASE_URL + `api/v1/file/get/${questions?.attachment}`}*!/*/}
-                {/*    /!*            //      alt=""*!/*/}
-                {/*    /!*            // />*!/*/}
+            {/*    /!*<label htmlFor="fileee">*!/*/}
+            {/*    /!*    <input*!/*/}
+            {/*    /!*        type="file"*!/*/}
+            {/*    /!*        hidden*!/*/}
+            {/*    /!*        id={"fileee"}*!/*/}
+            {/*    /!*        onChange={(e) => handleFile(e.target.files[0])}*!/*/}
+            {/*    /!*        accept="image/*"*!/*/}
+            {/*    /!*    />*!/*/}
+            {/*    /!*    <ImgWrapper>*!/*/}
+            {/*    /!*        {imgLoading ? <Spin indicator={antIcon}/> : // <img width={100}*!/*/}
+            {/*    /!*            //      src={BASE_URL + `api/v1/file/get/${questions?.attachment}`}*!/*/}
+            {/*    /!*            //      alt=""*!/*/}
+            {/*    /!*            // />*!/*/}
 
-                {/*    /!*            <LazyLoadImage*!/*/}
-                {/*    /!*                alt={"an error expected loading image"}*!/*/}
-                {/*    /!*                src={BASE_URL + `api/v1/file/get/${questions?.attachment}`} // use normal <img> attributes as props*!/*/}
-                {/*    /!*                effect="blur"*!/*/}
-                {/*    /!*                className={"img-fluid"}*!/*/}
-                {/*    /!*            />*!/*/}
+            {/*    /!*            <LazyLoadImage*!/*/}
+            {/*    /!*                alt={"an error expected loading image"}*!/*/}
+            {/*    /!*                src={BASE_URL + `api/v1/file/get/${questions?.attachment}`} // use normal <img> attributes as props*!/*/}
+            {/*    /!*                effect="blur"*!/*/}
+            {/*    /!*                className={"img-fluid"}*!/*/}
+            {/*    /!*            />*!/*/}
 
-                {/*    /!*        }*!/*/}
-                {/*    /!*    </ImgWrapper>*!/*/}
-                {/*    /!*</label>*!/*/}
-                {/*    /!*<h5 className="mt-2">{questions?.name}</h5>*!/*/}
+            {/*    /!*        }*!/*/}
+            {/*    /!*    </ImgWrapper>*!/*/}
+            {/*    /!*</label>*!/*/}
+            {/*    /!*<h5 className="mt-2">{questions?.name}</h5>*!/*/}
 
-                {/*</div>*/}
-                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    {questions.questions?.map((e, i) => (<div key={i}>
+            {/*</div>*/}
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                {questions.questions?.map((e, i) => (<div key={i}>
 
-                            <div className="d-flex justify-content-end">
-                                <button className="text-danger btn p-1" onClick={() => putQuestions(e)}>
-                                    <FontAwesomeIcon icon={faEdit}/>
-                                </button>
-                                <button className="text-danger btn p-1"
-                                        onClick={(event) => deleteQuestions(event, e.id)}>
-                                    <FontAwesomeIcon icon={faTrash}/>
-                                </button>
-                                {modal ? <EditModalQuestion isEdit={isEdit}
-                                                            show={modal} handleClose={setModal}/> : ''}
+                    <div className="d-flex justify-content-end">
+                        <button className="text-danger btn p-1" onClick={() => putQuestions(e)}>
+                            <FontAwesomeIcon icon={faEdit}/>
+                        </button>
+                        <button className="text-danger btn p-1"
+                                onClick={(event) => deleteQuestions(event, e.id)}>
+                            <FontAwesomeIcon icon={faTrash}/>
+                        </button>
+                        {modal ? <EditModalQuestion isEdit={isEdit}
+                                                    show={modal} handleClose={setModal}/> : ''}
 
-                            </div>
-                            <Collapse className="mb-2" defaultActiveKey={["1"]}>
-                                <Panel header={e.title} key={i} style={{"fontSize": "20px", "color": "#111"}}>
+                    </div>
+                    <Collapse className="mb-2" defaultActiveKey={["1"]}>
+                        <Panel header={e.title} key={i} style={{"fontSize": "20px", "color": "#111"}}>
 
-                                    {e.answers.map((answer, index) => (<>
-                                            <p key={index} className="">
-                                                <input
-                                                    className="input-form-check me-3"
-                                                    type="checkbox"
-                                                    defaultChecked={answer.isTrue}
-                                                />
-                                                {answer.answer}
-                                            </p>
+                            {e.answers.map((answer, index) => (<>
+                                    <p key={index} className="">
+                                        <input
+                                            className="input-form-check me-3"
+                                            type="checkbox"
+                                            defaultChecked={answer.isTrue}
+                                        />
+                                        {answer.answer}
+                                    </p>
 
-                                        </>
+                                </>
 
-                                    ))}
-                                </Panel>
-                            </Collapse>
-                        </div>))}
-                </div>
+                            ))}
+                        </Panel>
+                    </Collapse>
+                </div>))}
             </div>
+        </div>
 
-        </Spin>);
+    </Spin>);
 }

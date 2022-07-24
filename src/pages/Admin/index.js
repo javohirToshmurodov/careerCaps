@@ -45,8 +45,12 @@ export default function Admin() {
     function deleteJob(id) {
         if (window.confirm("Are you sure to delete?")){
             instance.delete("api/v1/quiz/delete/"+id).then(function (res){
-                alert.info("Kasb o'chirildi")
-                dispatch(loadJobs());
+               if (res.data.success){
+                   alert.info("Kasb o'chirildi")
+                   dispatch(loadJobs());
+               } else {
+                   alert.info(res.data.message)
+               }
             })
         }
     }
