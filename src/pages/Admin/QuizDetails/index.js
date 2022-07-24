@@ -874,6 +874,7 @@ export default function QuizDetails() {
                     <h1 className="bigH1">
                         <EditText
                             onSave={collectJobData}
+                            name={"successPersonsTitle"}
                             defaultValue={state.successPersonsTitle ? state.successPersonsTitle : "Top Arxitektorlar"}/>
                         <Button onClick={addSuccessPerson}>Shu sohada muvoffaqqiyatga erishgan qanday insonlarni
                             bilasiz?</Button></h1>
