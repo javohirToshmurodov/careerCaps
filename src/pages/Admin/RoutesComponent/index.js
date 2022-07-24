@@ -31,6 +31,7 @@ export default function RoutesComponent() {
     const [imgLoading, setImgLoading] = useState(false)
     const [questionLoading, setQuestionLoading] = useState(false)
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(false)
     const questions = useSelector((state) => state.questionsData?.questions);
     const alert = useAlert()
 
@@ -106,6 +107,12 @@ export default function RoutesComponent() {
         return setModal(true)
     }
 
+    function openModal(bool) {
+        setModal(bool)
+        setLoading(!loading)
+
+    }
+
     const extraAll = () => {
         <DeleteFilled/>
     }
@@ -156,7 +163,7 @@ export default function RoutesComponent() {
                                     <FontAwesomeIcon icon={faTrash}/>
                                 </button>
                                 {modal ? <EditModalQuestion isEdit={isEdit}
-                                                            show={modal} handleClose={setModal}/> : ''}
+                                                            show={modal} handleClose={openModal}/> : ''}
 
                             </div>
                             <Collapse className="mb-2" defaultActiveKey={["1"]}>
