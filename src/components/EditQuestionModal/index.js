@@ -47,6 +47,8 @@ export default function EditModalQuestion(props) {
             .get(`api/v1/question/${id}`)
             .then((res) => {
                dispatch(getQuestion(res?.data.data));
+               console.log(res.data.data)
+               setQuestions({...res?.data.data})
             })
             .catch((err) => {
                console.log(err);
@@ -102,7 +104,7 @@ export default function EditModalQuestion(props) {
                            onChange={(e) => handleChange(e, i)}
                            name={"name"}
                            type="radio"
-                           defaultChecked={e.isTrue}
+                           checked={e.isTrue}
                         />
                      </div>
                   ))}

@@ -142,39 +142,47 @@ export default function RoutesComponent() {
 
             {/*</div>*/}
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                {questions.questions?.map((e, i) => (<div key={i}>
+                {questions.questions?.map((e, i) => {
+                    console.log(e,777)
+                    return(
+                        <div key={i}>
 
-                    <div className="d-flex justify-content-end">
-                        <button className="text-danger btn p-1" onClick={() => putQuestions(e)}>
-                            <FontAwesomeIcon icon={faEdit}/>
-                        </button>
-                        <button className="text-danger btn p-1"
-                                onClick={(event) => deleteQuestions(event, e.id)}>
-                            <FontAwesomeIcon icon={faTrash}/>
-                        </button>
-                        {modal ? <EditModalQuestion isEdit={isEdit}
-                                                    show={modal} handleClose={setModal}/> : ''}
+                            <div className="d-flex justify-content-end">
+                                <button className="text-danger btn p-1" onClick={() => putQuestions(e)}>
+                                    <FontAwesomeIcon icon={faEdit}/>
+                                </button>
+                                <button className="text-danger btn p-1"
+                                        onClick={(event) => deleteQuestions(event, e.id)}>
+                                    <FontAwesomeIcon icon={faTrash}/>
+                                </button>
+                                {modal ? <EditModalQuestion isEdit={isEdit}
+                                                            show={modal} handleClose={setModal}/> : ''}
 
-                    </div>
-                    <Collapse className="mb-2" defaultActiveKey={["1"]}>
-                        <Panel header={e.title} key={i} style={{"fontSize": "20px", "color": "#111"}}>
+                            </div>
+                            <Collapse className="mb-2" defaultActiveKey={["1"]}>
+                                <Panel header={e.title} key={i} style={{"fontSize": "20px", "color": "#111"}}>
 
-                            {e.answers.map((answer, index) => (<>
-                                    <p key={index} className="">
-                                        <input
-                                            className="input-form-check me-3"
-                                            type="checkbox"
-                                            defaultChecked={answer.isTrue}
-                                        />
-                                        {answer.answer}
-                                    </p>
+                                    {e.answers.map((answer, index) => {
+                                        return (
 
-                                </>
+                                            <>
+                                                <p key={index} className="">
+                                                    <input
+                                                        className="input-form-check me-3"
+                                                        type="radio"
+                                                        checked={answer.isTrue}
+                                                    />
+                                                    {answer.answer}
+                                                </p>
 
-                            ))}
-                        </Panel>
-                    </Collapse>
-                </div>))}
+                                            </>
+                                        )
+                                    })}
+                                </Panel>
+                            </Collapse>
+                        </div>
+                    )
+                })}
             </div>
         </div>
 
