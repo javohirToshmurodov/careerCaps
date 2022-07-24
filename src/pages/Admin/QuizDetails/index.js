@@ -42,28 +42,28 @@ export default function QuizDetails() {
 
     const [state, setState] = useState({
         name: "Enter a job name",
-        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae deleniti facere facilis",
-        attachment: "36345861-f07b-4a7a-ba65-377d4c629026",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae deleniti facere facilis aaaa",
+        attachment: "1659478f-496e-45e7-962e-ca7a5c2592a9",
         yearlySalary: "",
         taskTitle: "Arxitektor nima vazifani bajaradi?",
         tasks: [{
             id: uuid(),
-            attachment: "83a52962-34b0-414c-a5d8-988a7e9c86cc",
+            attachment: "bb2af52d-6bbb-442a-bb4c-a29eab54773e",
             title: "Bino qurilishini nazorati",
             description: "Binoni loihaga binoan qurilayotganini nazorat ostiga oladi"
         }],
         wantTobeTitle: "Arxitektor bo'lish uchun nimalarga e'tibor qaratish kerak?",
         wantTobes: [{
             id: uuid(),
-            attachment: "83a52962-34b0-414c-a5d8-988a7e9c86cc",
+            attachment: "bb2af52d-6bbb-442a-bb4c-a29eab54773e",
             title: "Chizmachilik Mahorati",
             description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi."
         }],
         whereCanStudyTitle: "Arxitektorlikni qayerdan o'rgansa bo'ladi aaaa",
-        whereCanStudyAttachment: "16b8506e-38c4-43bf-8cbe-029e4de2384d",
+        whereCanStudyAttachment: "2e98a27f-875d-474a-94d2-56ddc124b9bc",
         sourcesToLearn: [{
             id: uuid(),
-            attachment: "cece6685-147f-4645-aa6d-fb916ecae4ef",
+            attachment: "fe250b58-c79a-4546-80b4-c7611b82ccd5",
             title: "edx",
             description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi.",
             link: ""
@@ -71,16 +71,16 @@ export default function QuizDetails() {
         successSidesTitle: "Arxitektor kasbining yaxshi tomonlari qanday?",
         successSides: [{
             id: uuid(),
-            attachment: "ad41e66c-139a-4e64-a770-ab086f85c8c3",
+            attachment: "27c241b5-9df5-4f69-a3a6-1c972ca1d22e",
             title: "INNOVATSIYA VA IJOD",
             description: "Arxitektor turar-joyning uyini, ofis minorasi yoki jamoat kutubxonasini yaratadimi, u yangiliklarga sabab bo'ladi. Ushbu soha o'z-o'zini innovatsiyalarga yo'naltiradi, chunki hech bir loyiha bir xil emas."
         }],
         successPersonsTitle: "Top arxitektorlar",
-        jobMatchingAttachment: "d787ad9e-9c38-4e38-8052-c3688cff6e44",
-        jobMatchingTitle:"Arxitektor sohasi siz uchunmi?",
+        jobMatchingAttachment: "09ac8594-e80f-4389-b18b-723f226671b9",
+        jobMatchingTitle: "Arxitektor sohasi siz uchunmi?",
         successPeople: [{
             id: uuid(),
-            attachment: "2ec686f0-79e7-4774-9cfe-b214556a9e28",
+            attachment: "e071466a-a2dd-4b34-b647-ed704fb1c7a6",
             name: "Axrorxo'ja Yodgorov",
             description: "EPAM Systems kompaniyasi, Senior Software Engineer",
             telegram: "",
@@ -101,11 +101,30 @@ export default function QuizDetails() {
     const alert = useAlert()
 
 
-    useEffect(() => {
+    useEffect((callbackfn, thisArg) => {
         setLoading(true)
         instance.get("api/v1/quiz/" + quiz_id).then(function (res) {
             if (res.data.success) {
-                setState(res.data.data)
+                Object.keys(res.data.data).map((fieldName) => {
+                    if (res.data.data[fieldName] != null) {
+                        if (typeof res.data.data[fieldName] == "string") {
+                            if (res.data.data[fieldName]) {
+                                let updatedState = state;
+                                state[fieldName] = res.data.data[fieldName]
+                                setState(updatedState)
+                                setJob(!job)
+                            }
+                        } else if (typeof res.data.data[fieldName] == "object") {
+                            if (res.data.data[fieldName].length != 0) {
+                                console.log(fieldName, res.data.data[fieldName], typeof res.data.data[fieldName])
+                                let updatedState = state;
+                                state[fieldName] = res.data.data[fieldName]
+                                setState(updatedState)
+                                setJob(!job)
+                            }
+                        }
+                    }
+                })
                 alert.info("Quiz data received")
                 setLoading(false)
             }
@@ -300,7 +319,7 @@ export default function QuizDetails() {
         let id = uuid();
         stateForUpdate.tasks.push({
             id,
-            attachment: "83a52962-34b0-414c-a5d8-988a7e9c86cc",
+            attachment: "bb2af52d-6bbb-442a-bb4c-a29eab54773e",
             title: "Binolarni loyihalash",
             description: "Kompyuter dasturlari yordamida loyhaning dastlabki dizaynini va eskizini modellashtiradi"
         });
@@ -313,7 +332,7 @@ export default function QuizDetails() {
         let id = uuid();
         stateForUpdate.wantTobes.push({
             id,
-            attachment: "83a52962-34b0-414c-a5d8-988a7e9c86cc",
+            attachment: "bb2af52d-6bbb-442a-bb4c-a29eab54773e",
             title: "Chizmachilik Mahorati",
             description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi."
         });
@@ -326,7 +345,7 @@ export default function QuizDetails() {
         let id = uuid();
         stateForUpdate.sourcesToLearn.push({
             id,
-            attachment: "cece6685-147f-4645-aa6d-fb916ecae4ef",
+            attachment: "fe250b58-c79a-4546-80b4-c7611b82ccd5",
             title: "edx",
             description: "Har bir inson o'z hayotida, jamiyatida yoki dunyosida o'zgarishlar yaratish imkoniyatiga ega. Ta'limning o'zgartiruvchi kuchi bu potentsialni ochadi. Shunga qaramay, yuqori sifatli ta'lim olish kam sonlilarning imtiyozi bo'lib kelgan. 2012 yilda biz o'rganishda seysmik siljish vaqti ekanligini angladik. Sinab ko'rilgan va to'g'ridan-to'g'ri etakchigacha. Ba'zilar uchun dan 'hamma uchun' ga.",
             link: ""
@@ -341,7 +360,7 @@ export default function QuizDetails() {
         stateForUpdate.successPeople.push({
             id,
             name: "Axrorxo'ja Yodgorov",
-            attachment: "2ec686f0-79e7-4774-9cfe-b214556a9e28",
+            attachment: "e071466a-a2dd-4b34-b647-ed704fb1c7a6",
             description: "EPAM Systems kompaniyasi, Senior Software Engineer",
             telegram: "",
             linkedIn: "",
@@ -370,7 +389,7 @@ export default function QuizDetails() {
         let id = uuid();
         stateForUpdate.successSides.push({
             id,
-            attachment: "ad41e66c-139a-4e64-a770-ab086f85c8c3",
+            attachment: "27c241b5-9df5-4f69-a3a6-1c972ca1d22e",
             title: "INNOVATSIYA VA IJOD",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dicta dolorem dolores eaque eius et, fugit ipsa iusto nulla perspiciatis porro quam quos, saepe veniam voluptas. Commodi expedita nobis odio!"
         });
@@ -394,7 +413,7 @@ export default function QuizDetails() {
         setJob(!job) //state ni refresh qilish uchun ishlatildi
     }
 
-    function editListItem(e, item,fromWhere) {
+    function editListItem(e, item, fromWhere) {
         let updatedState = state;
         let listOfState = updatedState[fromWhere]
         for (let i in listOfState) {
@@ -514,7 +533,7 @@ export default function QuizDetails() {
                                 <div
                                     key={item.id}
                                     className="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-12 cardmaker pt-5 pe-5 pb-4 position-relative">
-                                    <DeleteButton onClick={() => deleteElementFromList(item.id,"tasks")}
+                                    <DeleteButton onClick={() => deleteElementFromList(item.id, "tasks")}
                                                   className={"deleteButton"}><DeleteOutlined/></DeleteButton>
                                     <label htmlFor={item.id}>
                                         <ImgEditor>
@@ -537,13 +556,13 @@ export default function QuizDetails() {
                                             <input onChange={(e) => previewImage(e, item.id + "Attachment")} type="file"
                                                    id={item.id} hidden/>
                                         </ImgEditor></label>
-                                    <h2><EditText onSave={(e) => editListItem(e, item,"tasks")} name={"title"}
+                                    <h2><EditText onSave={(e) => editListItem(e, item, "tasks")} name={"title"}
                                                   defaultValue={item.title}/></h2>
                                     <p className="maxwidthP">
                                         <EditTextarea
                                             rows={4}
                                             defaultValue={item.description}
-                                            onSave={(e) => editListItem(e, item,"tasks")}
+                                            onSave={(e) => editListItem(e, item, "tasks")}
                                             name={"description"}
                                         />
                                     </p>
@@ -566,7 +585,7 @@ export default function QuizDetails() {
                             <div className="row px-2">
 
                                 <div className="col-12 jobsListCard  py-5 mb-4 position-relative">
-                                    <DeleteButton onClick={() => deleteElementFromList(item.id,"wantTobes")}
+                                    <DeleteButton onClick={() => deleteElementFromList(item.id, "wantTobes")}
                                                   className={"deleteButton"}><DeleteOutlined/> </DeleteButton>
                                     <div className="d-flex jobsListWrap">
                                         <div className=" justify-content-center d-flex mx-5 w-25">
@@ -605,10 +624,11 @@ export default function QuizDetails() {
                                         <div className="w-75">
                                             <h3 className="JobsListTitle"><EditText
                                                 defaultValue={item.title ? item.title : "Diqqat!"}
-                                                onSave={(e) => editListItem(e, item,"wantTobes")} name={"title"}/></h3>
+                                                onSave={(e) => editListItem(e, item, "wantTobes")} name={"title"}/></h3>
                                             <p className="JobsListdescription"><EditTextarea
                                                 defaultValue={item.description ? item.description : "E'tibor qaratishing kerak bo'lgan narsa ))"}
-                                                onSave={(e) => editListItem(e, item,"wantTobes")} name={"description"}/></p>
+                                                onSave={(e) => editListItem(e, item, "wantTobes")}
+                                                name={"description"}/></p>
                                         </div>
                                     </div>
                                 </div>
@@ -678,7 +698,7 @@ export default function QuizDetails() {
                                 <div
                                     className="d-flex col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 soya textCenter position-relative"
                                     key={item.id}>
-                                    <DeleteButton onClick={() => deleteElementFromList(item.id,"sourcesToLearn")}
+                                    <DeleteButton onClick={() => deleteElementFromList(item.id, "sourcesToLearn")}
                                                   style={{
                                                       border: "none",
                                                       zIndex: 6
@@ -711,16 +731,16 @@ export default function QuizDetails() {
                                         </label>
 
                                         <h1 className="defaultH1 my-4"><EditText inline name={"title"}
-                                                                                 onSave={(e) => editListItem(e, item,"sourcesToLearn")}
+                                                                                 onSave={(e) => editListItem(e, item, "sourcesToLearn")}
                                                                                  defaultValue={item.title ? item.title : "edx"}/>
                                         </h1>
                                         <p className="defaultP"><EditTextarea name={"description"}
-                                                                              onSave={(e) => editListItem(e, item,"sourcesToLearn")}
+                                                                              onSave={(e) => editListItem(e, item, "sourcesToLearn")}
                                                                               defaultValue={item.description ? item.description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dicta dolorem dolores eaque eius et, fugit ipsa iusto nulla perspiciatis porro quam quos, saepe veniam voluptas. Commodi expedita nobis odio!"}/>
                                         </p>
                                         <EditText inline
                                                   name={"link"}
-                                                  onSave={(e) => editListItem(e, item,"sourcesToLearn")}
+                                                  onSave={(e) => editListItem(e, item, "sourcesToLearn")}
                                                   defaultValue={item.link ? item.link : ""}
                                                   placeholder={"Platformaga o'tish uchun link"}
                                         />
@@ -754,7 +774,7 @@ export default function QuizDetails() {
                                      key={item.id}>
                                     <AdvantagesCardWrapper>
 
-                                        <DeleteButton onClick={() => deleteElementFromList(item.id,"successSides")}
+                                        <DeleteButton onClick={() => deleteElementFromList(item.id, "successSides")}
                                                       style={{
                                                           border: "none",
                                                           right: "-6px",
@@ -765,7 +785,7 @@ export default function QuizDetails() {
 
                                         <div className="pt-5 px-4">
                                             <h2><EditText
-                                                onSave={(e) => editListItem(e, item,"successSides")}
+                                                onSave={(e) => editListItem(e, item, "successSides")}
                                                 defaultValue={item.title ? item.title : "INNOVATSIYA VA IJOD"}/></h2>
 
                                             <input hidden id={item.id} type="file"
@@ -795,7 +815,7 @@ export default function QuizDetails() {
                                             <p className="defaultP mt-3">
                                                 <EditTextarea inline
                                                               rows={8}
-                                                              onSave={(e) => editListItem(e, item,"successSides")}
+                                                              onSave={(e) => editListItem(e, item, "successSides")}
                                                               defaultValue={item.description ? item.description : "Arxitektor turar-joyning uyini, ofis minorasi yoki jamoat kutubxonasini yaratadimi, u yangiliklarga sabab bo'ladi. Ushbu soha o'z-o'zini innovatsiyalarga yo'naltiradi, chunki hech bir loyiha bir xil emas."}/>
                                             </p>
                                         </div>
@@ -857,7 +877,8 @@ export default function QuizDetails() {
                     </div>
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 bg-white col-12 minHeightLayerForYou">
                         <ForYouWrapper>
-                            <h1 className="defaultH1 mt-4 "><EditText name={"jobMatchingTitle"} onSave={collectJobData} defaultValue={state.jobMatchingTitle}/></h1>
+                            <h1 className="defaultH1 mt-4 "><EditText name={"jobMatchingTitle"} onSave={collectJobData}
+                                                                      defaultValue={state.jobMatchingTitle}/></h1>
                             <div className="d-flex justify-content-between flex-column align-items-start heightAuto">
                                 <p className="defaultP mt-5">{"Kasbga layoqatlilik testi - 7 ta test savolidan iborat bo'lib, siz tanlagan kasb o'zingiz uchun ruhiy, jisomoniy taraflama to'g'ri yoki noto'g'ri ekanligini aniqlashda yordam beradi."}</p>
                                 <TestOutlineBtn className="outBtn"/>
@@ -884,7 +905,7 @@ export default function QuizDetails() {
                             return (
                                 <div key={item.id}
                                      className="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 soya py-5 mb-3 position-relative">
-                                    <DeleteButton onClick={() => deleteElementFromList(item.id,"successPeople")}
+                                    <DeleteButton onClick={() => deleteElementFromList(item.id, "successPeople")}
                                                   className={"deleteButton"}
                                                   style={{
                                                       zIndex: "5"
@@ -918,21 +939,21 @@ export default function QuizDetails() {
                                         </div>
                                         <h4 className="mt-3 mx-3 nameH3"><EditText name={"name"}
                                                                                    defaultValue={item.name ? item.name : "Abdurashid Jumanov"}
-                                                                                   onSave={(e) => editListItem(e, item,"successPeople")}/>
+                                                                                   onSave={(e) => editListItem(e, item, "successPeople")}/>
                                         </h4>
                                         <div className="px-4">
                                             <p className="titleH3"><EditTextarea name={"description"}
-                                                                                 onSave={(e) => editListItem(e, item,"successPeople")}
+                                                                                 onSave={(e) => editListItem(e, item, "successPeople")}
                                                                                  defaultValue={item.description ? item.description : "EPAM Systems kompaniyasi, Senior Software Engineer"}/>
                                             </p>
                                             <EditText name={"telegram"} defaultValue={item.telegram}
-                                                      onSave={(e) => editListItem(e, item,"successPeople")}
+                                                      onSave={(e) => editListItem(e, item, "successPeople")}
                                                       placeholder={"telegram"}/>
                                             <EditText name={"linkedIn"} defaultValue={item.linkedIn}
-                                                      onSave={(e) => editListItem(e, item,"successPeople")}
+                                                      onSave={(e) => editListItem(e, item, "successPeople")}
                                                       placeholder={"linkedIn"}/>
                                             <EditText name={"instagram"} defaultValue={item.instagram}
-                                                      onSave={(e) => editListItem(e, item,"successPeople")}
+                                                      onSave={(e) => editListItem(e, item, "successPeople")}
                                                       placeholder={"instagram"}/>
                                             <div className="d-flex justify-content-center gap-3">
                                                 <div className="circleIcon">
@@ -965,7 +986,7 @@ export default function QuizDetails() {
                                 {state.faqs?.map(item => {
                                     return (
                                         <div className="accordion-item position-relative" key={item.id}>
-                                            <DeleteButton onClick={() => deleteElementFromList(item.id,"faqs")}
+                                            <DeleteButton onClick={() => deleteElementFromList(item.id, "faqs")}
                                                           className={"deleteButton"}
                                                           style={{
                                                               zIndex: 5,
@@ -985,7 +1006,7 @@ export default function QuizDetails() {
                                                 >
                                                     <EditText name={"question"}
                                                               defaultValue={item.question ? item.question : "Arxitektor bo'lish uchun qaysi fanlarni bilish kerak?"}
-                                                              onSave={(e)=>editListItem(e,item,"faqs")}
+                                                              onSave={(e) => editListItem(e, item, "faqs")}
                                                     />
                                                 </button>
                                             </h2>
@@ -997,7 +1018,7 @@ export default function QuizDetails() {
                                             >
                                                 <div className="accordion-body">
                                                     <EditTextarea name={"answer"}
-                                                                  onSave={(e)=>editListItem(e,item,"faqs")}
+                                                                  onSave={(e) => editListItem(e, item, "faqs")}
                                                                   defaultValue={item.answer ? item.answer : "Arxitektor sohasini egallamoqchi bo'lganllar matematika va ingliz tilidan bilimlarni mustahkamlashlari talab etiladi. Matematika - dasturlashda, kodlarda uchraydigan xatoliklar, muammolarni hal qilishda yordam beradi. Ingliz tili - dasturlash sohasidagi bilimlarni asosiy qismi ingliz tilida bo'lganligi uchun , agar ingliz tilini bilsangiz ko'proq mustaqil ishlay olishingiz va ko'proq bilimga ega bo'lishingiz mumkin."}/>
                                                 </div>
                                             </div>
