@@ -217,6 +217,11 @@ export const MainCardWrapper = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  max-height: 250px;
+  .mainImg{
+    object-fit: cover;
+    max-height: 200px !important;
+  }
   justify-content: center;
   align-items: center;
   position: relative;
@@ -306,6 +311,10 @@ export const QuizJobCardWrapper = styled.div`
   transition: all .3s ease;
   &:hover{
     box-shadow: 0px 5px 5px 7px rgba(190, 190, 190, 0.25);
+  }
+  img{
+    max-height: 200px;
+    min-height: 200px;
   }
 `;
 export const ImgWrapper = styled.div`
