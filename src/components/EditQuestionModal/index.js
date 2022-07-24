@@ -16,6 +16,18 @@ export default function EditModalQuestion(props) {
       setQuestions({ ...props.isEdit })
    }, [])
 
+   const loadQuestions = (id) => {
+      return function (dispatch) {
+         instance
+            .get(`api/v1/question/${id}`)
+            .then((res) => {
+               dispatch(getQuestion(res?.data.data));
+            })
+            .catch((err) => {
+               console.log(err);
+            });
+      };
+   };
    const addInput = () => {
       questions.answers.push({
          answer: "",
@@ -41,29 +53,14 @@ export default function EditModalQuestion(props) {
       });
       setQuestions({ ...questions });
    };
-   const loadQuestions = (id) => {
-      return function (dispatch) {
-         instance
-            .get(`api/v1/question/${id}`)
-            .then((res) => {
-               dispatch(getQuestion(res?.data.data));
-               console.log(res.data.data)
-               setQuestions({...res?.data.data})
-            })
-            .catch((err) => {
-               console.log(err);
-            });
-      };
-   };
    const editQuestion = () => {
       instance.put(`api/v1/question/edit_question/${questions.id}`, {
          ...questions
       }).then((res) => {
          setQuestions({})
          props.handleClose(false)
-         dispatch(loadQuestions(id))
-         // window.location.reload()
       })
+      dispatch(loadQuestions(id))
    }
    return (
       <div>
@@ -104,7 +101,7 @@ export default function EditModalQuestion(props) {
                            onChange={(e) => handleChange(e, i)}
                            name={"name"}
                            type="radio"
-                           checked={e.isTrue}
+                           defaultChecked={e.isTrue}
                         />
                      </div>
                   ))}
