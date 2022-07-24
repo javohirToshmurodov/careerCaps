@@ -1,5 +1,6 @@
 import React from 'react'
 import { QuizJobCardWrapper } from '../../styles'
+import {BASE_URL} from "../../utils/constans";
 
 export default function QuizJobCard(props) {
   return (
@@ -21,7 +22,7 @@ export default function QuizJobCard(props) {
         <div>
           <img
             className='img-fluid'
-            src={`http://ec2-35-158-135-234.eu-central-1.compute.amazonaws.com/api/v1/file/get/${props.img}`}
+            src={BASE_URL`api/v1/file/get/${props.img}`}
             alt=''
           />
           <h3>{props.jobName}</h3>
