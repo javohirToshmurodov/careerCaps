@@ -15,10 +15,13 @@ import { useEffect } from "react";
 import { instance } from "../../redux/actions";
 import { BASE_URL } from "../../utils/constans";
 import {useSelector} from "react-redux";
+import {Spin} from "antd";
 
 export default function JobsCatalog() {
     const navigate = useNavigate();
     const [kasblar, setKasblar] = useState([])
+    const [search, setSearch] = useState('')
+    const [searchLoader, setSearchLoader] = useState(false)
     const kasb = useSelector((state) => state.jobsData.quizzes)
 
     useEffect(() => {
@@ -36,10 +39,13 @@ export default function JobsCatalog() {
         })
     }
 
-    const searchJob = (e = '') => {
-
-        instance.get("api/v1/quiz?search="+ e.toLowerCase()).then(function (res) {
+    const searchJob = () => {
+        setSearchLoader(true)
+        instance.get("api/v1/quiz?search="+ search).then(function (res) {
             setKasblar(res.data.data)
+            setSearchLoader(false)
+        }).catch(function (err) {
+            setSearchLoader(false)
         })
     }
 
@@ -61,42 +67,44 @@ export default function JobsCatalog() {
             </div>
             <section>
                 <div className="container px-5 py-5">
-                    <SearchForm searchJob={searchJob} />
-                    <div className="row px-3">
-                        <div className="col-12 ">
-                            {kasblar.map((e) => (
-                                <div
-                                    className="row pt-3 pb-3 align-items-center jobsCard ps-4 pe-0 mt-4  position-relative"
-                                    key={e.id}
-                                >
-                                    <Link to={"/job/" + e.id}
-                                        className="goJob"
+                    <SearchForm searchJob={(e)=> setSearch(e)} searchData={searchJob}  />
+                    <Spin spinning={searchLoader}>
+                        <div className="row px-3">
+                            <div className="col-12 ">
+                                {kasblar.map((e) => (
+                                    <div
+                                        className="row pt-3 pb-3 align-items-center jobsCard ps-4 pe-0 mt-4  position-relative"
+                                        key={e.id}
                                     >
-                                        <FontAwesomeIcon icon={faRightLong} />
-                                    </Link>
-                                    <div className="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
-                                        <img className={"img-fluid"} src={BASE_URL + "api/v1/file/get/" + e.attachment}
-                                            alt="" />
-                                    </div>
-                                    <div className="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
-                                        <h1 className="defaultH1">{e.name}</h1>
-                                        <p className="mt-4 defaultP">Masofadan ishlash</p>
-                                        <div className="d-flex gap-5  jobsButton">
-                                            <button className="onlineButton">
-                                                Online <FontAwesomeIcon icon={faCheckCircle} />{" "}
-                                            </button>
-                                            <button className="offlineButton">Offline</button>
+                                        <Link to={"/job/" + e.id}
+                                              className="goJob"
+                                        >
+                                            <FontAwesomeIcon icon={faRightLong} />
+                                        </Link>
+                                        <div className="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
+                                            <img className={"img-fluid"} src={BASE_URL + "api/v1/file/get/" + e.attachment}
+                                                 alt="" />
+                                        </div>
+                                        <div className="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
+                                            <h1 className="defaultH1">{e.name}</h1>
+                                            <p className="mt-4 defaultP">Masofadan ishlash</p>
+                                            <div className="d-flex gap-5  jobsButton">
+                                                <button className="onlineButton">
+                                                    Online <FontAwesomeIcon icon={faCheckCircle} />{" "}
+                                                </button>
+                                                <button className="offlineButton">Offline</button>
+                                            </div>
+                                        </div>
+                                        <div
+                                            className="col-12  pb-2 col-xl-5 col-lg-5 col-md-12 jobsSalary col-sm-12 align-self">
+                                            <p className="defaultP ">Yillik maosh</p>
+                                            <h1 className="salaryH1">{e.yearlySalary}</h1>
                                         </div>
                                     </div>
-                                    <div
-                                        className="col-12  pb-2 col-xl-5 col-lg-5 col-md-12 jobsSalary col-sm-12 align-self">
-                                        <p className="defaultP ">Yillik maosh</p>
-                                        <h1 className="salaryH1">{e.yearlySalary}</h1>
-                                    </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    </Spin>
                 </div>
             </section>
 
