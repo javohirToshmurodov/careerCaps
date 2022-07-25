@@ -13,12 +13,8 @@ export default function Header() {
 
     if (window.innerWidth <= 991) {
         const navLinks = document.querySelectorAll('.nav-item')
-        console.log(navLinks)
         navLinks.forEach((l) => {
             l.addEventListener('click', () => {
-                // let a = document.getElementById("birbalo")
-                // a.removeAttribute('disabled')
-                // a.click()
                 document.getElementById('navbarSupportedContent').classList.remove("show")
             })
         })
