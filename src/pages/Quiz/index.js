@@ -20,18 +20,19 @@ export default function Quiz() {
     quizId: '',
   })
   const [show, setShow] = useState(false)
+  const [search, setSearch] = useState('')
+  const [searchLoader, setSearchLoader] = useState(false)
   const [userId, setUserId] = useState('')
   const [quizId, setQuizId] = useState('')
   const checkRadio = (e) => { }
-  const searchJob = (e = '') => {
-    if (e.trim().length === 0) {
-      setKasblar([...kasb])
-      return
-    }
-    const arr = kasblar.filter((item) =>
-      item.name.toLowerCase().includes(e.toLowerCase())
-    )
-    setKasblar([...arr])
+  const searchJob = () => {
+    setSearchLoader(true)
+    instance.get("api/v1/quiz?search="+ search).then(function (res){
+      setKasblar(res.data.data)
+      setSearchLoader(false)
+    }).catch(function (err) {
+      setSearchLoader(false)
+    })
   }
   useEffect(() => {
     dispatch(loadJobs())
@@ -111,39 +112,41 @@ export default function Quiz() {
       <section className='py-5'>
         <div className='container px-5'>
           <h1 className='colorH1'>Kasbni tanlang</h1>
-          <SearchForm searchJob={searchJob} />
-          <div className='row'>
-            {kasblar.length === 0
-              ? "Bunaqa kasb yo'q"
-              : kasblar.map((item, i) => (
-                <QuizJobCard
-                  select={select}
-                  isChecked={isChecked}
-                  setIsChecked={setIsChecked}
-                  checkRadio={checkRadio}
-                  key={i}
-                  id={item.id}
-                  img={item.attachment}
-                  jobName={item.name}
-                />
-              ))}
-            <div className='text-start mt-4'>
-              <button onClick={handleSubmit} className='searchButton'>
-                Keyingisi
-              </button>
-              {show ? (
-                <TestWarningModal
-                  userId={userId}
-                  show={show}
-                  setShow={setShow}
-                  handleClose={handleClose}
-                  handleShow={handleShow}
-                />
-              ) : (
-                ''
-              )}
-            </div>
-          </div>
+          <SearchForm  searchData={searchJob} searchJob={(e)=>setSearch(e)} />
+          <Spin spinning={searchLoader}>
+              <div className='row'>
+                  {kasblar.length === 0
+                      ? "Bunaqa kasb yo'q"
+                      : kasblar.map((item, i) => (
+                          <QuizJobCard
+                              select={select}
+                              isChecked={isChecked}
+                              setIsChecked={setIsChecked}
+                              checkRadio={checkRadio}
+                              key={i}
+                              id={item.id}
+                              img={item.attachment}
+                              jobName={item.name}
+                          />
+                      ))}
+                  <div className='text-start mt-4'>
+                      <button onClick={handleSubmit} className='searchButton'>
+                          Keyingisi
+                      </button>
+                      {show ? (
+                          <TestWarningModal
+                              userId={userId}
+                              show={show}
+                              setShow={setShow}
+                              handleClose={handleClose}
+                              handleShow={handleShow}
+                          />
+                      ) : (
+                          ''
+                      )}
+                  </div>
+              </div>
+          </Spin>
         </div>
       </section>
     </Spin>
