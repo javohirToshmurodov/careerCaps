@@ -97,6 +97,8 @@ export default function Quiz() {
       })
     handleShow()
   }
+
+
   return (
     <Spin spinning={loader}>
       <div className='py-5 container px-5'>
