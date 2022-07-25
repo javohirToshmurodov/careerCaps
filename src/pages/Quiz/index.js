@@ -92,11 +92,12 @@ export default function Quiz() {
         setUserId(res?.data.data.userId)
         setQuizId(res?.data.data.quizId)
         setLoader(false)
+        handleShow()
       })
       .catch((err) => {
         console.log(err)
       })
-    handleShow()
+
   }
 
 
@@ -131,7 +132,7 @@ export default function Quiz() {
                       ))}
                   <div className='text-start mt-4'>
                       <button onClick={handleSubmit} className='searchButton'>
-                          Keyingisi
+                        {loader ? <Spin/> : "Keyingisi"}
                       </button>
                       {show ? (
                           <TestWarningModal
