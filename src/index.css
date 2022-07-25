@@ -413,6 +413,7 @@ ul {
     outline: none !important;
     width: 90%;
     background-color: transparent;
+    padding: 9px 0 9px 0;
 }
 
 .jobsCard {

@@ -13,7 +13,7 @@ export default function Contact() {
               <p className="subtitle">Kelajak kasbingizni biz bilan tanlang</p>
             </div>
             <div className="col-lg-6 col-md-6 col-xl-g col-sm-12   col-12">
-              <img className="img-fluid" src={about} alt="" />
+              <img className="img-fluid mt-4" src={about} alt="" />
             </div>
           </div>
         </div>
@@ -27,7 +27,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </>
   );
 }

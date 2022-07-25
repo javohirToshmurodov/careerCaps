@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { OutlineBtn } from "../../styles";
-import MainImg from "../../assets/images/main.png";
+import MainImg from "../../assets/images/m.svg";
 import CardMaker from "../../components/CardMaker";
 import first from "../../assets/images/1.png";
 import second from "../../assets/images/2.png";
