@@ -46,6 +46,7 @@ export default function RoutesComponent() {
                 .get(`api/v1/question/${id}`)
                 .then((res) => {
                     setQuestionLoading(false)
+                    console.log(res.data.data);
                     dispatch(getQuestion(res?.data.data));
                 })
                 .catch((err) => {
@@ -89,13 +90,13 @@ export default function RoutesComponent() {
 
     const deleteQuestions = (event, id) => {
         instance.delete(`api/v1/question/delete/${id}`).then((res) => {
-            console.log(res)
+            console.log(res.data);
             if (res.data.success) {
                 alert("question deleted")
-                dispatch(loadQuestions())
             } else {
                 alert.show(res.data.message)
             }
+            dispatch(loadQuestions(id))
 
         })
     }

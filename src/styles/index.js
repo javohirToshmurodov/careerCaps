@@ -2,9 +2,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   padding: 0 15%;
 `;
-export const OutlineBtn = styled.button`
+export const OutlineBtn = styled.a`
   padding: 13px 35px;
   border-radius: 88px;
+  display: inline-block;
   border: 2px solid #fff;
   font-size: 20px;
   font-weight: 500;
@@ -217,6 +218,11 @@ export const MainCardWrapper = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  min-height: 250px;
+  .mainImg{
+    object-fit: cover;
+    max-height: 200px !important;
+  }
   justify-content: center;
   align-items: center;
   position: relative;
@@ -306,6 +312,10 @@ export const QuizJobCardWrapper = styled.div`
   transition: all .3s ease;
   &:hover{
     box-shadow: 0px 5px 5px 7px rgba(190, 190, 190, 0.25);
+  }
+  img{
+    max-height: 200px;
+    min-height: 200px;
   }
 `;
 export const ImgWrapper = styled.div`

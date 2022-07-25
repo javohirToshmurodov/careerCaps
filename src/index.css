@@ -418,8 +418,8 @@ ul {
     position: absolute;
     top: 10%;
     right: 3%;
-    width: 40px !important;
-    height: 40px;
+    width: 45px !important;
+    height: 45px;
     border-radius: 50%;
     font-size: 22px;
     display: flex;
@@ -554,8 +554,8 @@ ul {
     }
 
     .goJob {
-        top: 5px;
-        right: 5px;
+        top: 10px;
+        right: 10px;
     }
 
     .maxWidthPAbuot {
@@ -618,8 +618,8 @@ ul {
 
 @media (min-width: 447px) and (max-width: 767.9px) {
     .goJob {
-        top: 5px;
-        right: 5px;
+        top: 10px;
+        right: 10px;
     }
 
     .maxWidthPAbuot {

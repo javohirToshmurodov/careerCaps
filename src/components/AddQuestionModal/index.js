@@ -53,22 +53,27 @@ export default function AddQuestionModal(props) {
     };
   };
   const submitQuestion = () => {
-    instance
-      .post(`api/v1/question/add_question_with_answers/${id}`, {
-        title: questionTitle,
-        answers: questions,
-      })
-      .then((res) => {
-        console.log(res.data);
-        dispatch(postQuestion(res?.data))
+    if (questionTitle === "") {
+      alert("question title kiritilmagan")
+    } else {
 
-      })
-      .catch((err) => console.log(err));
-    setQuestionTitle("");
-    setQuestions([]);
-    alert("question added successfully!!!")
-    props.handleClose(false);
-    dispatch(loadQuestions(id))
+      instance
+        .post(`api/v1/question/add_question_with_answers/${id}`, {
+          title: questionTitle,
+          answers: questions,
+        })
+        .then((res) => {
+          console.log(res.data);
+          dispatch(postQuestion(res?.data))
+
+        })
+        .catch((err) => console.log(err));
+      setQuestionTitle("");
+      setQuestions([]);
+      alert("question added successfully!!!")
+      props.handleClose(false);
+      dispatch(loadQuestions(id))
+    }
   };
 
 

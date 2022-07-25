@@ -62,7 +62,7 @@ export default function QuizForm(props) {
         <div className="col-xl-4  col-lg-4 col-md-4 col-sm-6 col-12">
           <h1 className="colorH1">Yoshingiz</h1>
           <QuizformWrapper className="mt-3">
-            <input type="number" className="formInput" name="age" onChange={(e) => props.select(e)} placeholder="Yoshingiz" />
+            <input type="number" className="formInput" min="1" max="150" name="age" onChange={(e) => props.select(e)} placeholder="Yoshingiz" />
           </QuizformWrapper>
         </div>
       </div>
