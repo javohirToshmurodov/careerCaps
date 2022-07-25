@@ -10,7 +10,7 @@ export default function TestFooter(props) {
       <div className='py-4 bg-white text-center minHeightFooter mt-2  w-100'>
          <div className="row justify-content-center align-items-center">
             <div className="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-12">
-               <div className='d-flex gap-3 align-items-center'>
+               <div className='d-flex gap-3 justify-content-center align-items-center'>
                   <div className='d-flex justify-content-center align-items-center'>
                      {
                         props.isTrue ? <CheckOutlined style={{ "fontSize": "35px", "color": "green" }} /> : <CloseCircleOutlined style={{ "fontSize": "35px", "color": "red" }} />

@@ -6,6 +6,13 @@ import { QuizformWrapper } from "../../styles";
 
 export default function QuizForm(props) {
   // const [isChecked, setIsChecked] = useState(false)
+  // const [title, setTitle] = useState(0)
+  // const onMinus = (e) => {
+  //   setTitle(e)
+  //   if (title < 0) {
+  //     setTitle("")
+  //   }
+  // }
   return (
     <>
       <div className="row">
@@ -45,6 +52,7 @@ export default function QuizForm(props) {
                       value={"FEMALE"}
                       onChange={(e) => props.select(e)}
                       name="gender"
+
                       className="form-check-input"
                     />
                   </div>
@@ -62,7 +70,7 @@ export default function QuizForm(props) {
         <div className="col-xl-4  col-lg-4 col-md-4 col-sm-6 col-12">
           <h1 className="colorH1">Yoshingiz</h1>
           <QuizformWrapper className="mt-3">
-            <input type="number" className="formInput" min="1" max="150" name="age" onChange={(e) => props.select(e)} placeholder="Yoshingiz" />
+            <input id="myAge" type="number" className="formInput" min="0" max="200" name="age" onChange={(e) => props.select(e)} placeholder="Yoshingiz" />
           </QuizformWrapper>
         </div>
       </div>
