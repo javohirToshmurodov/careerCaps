@@ -78,7 +78,7 @@ export default function Testing() {
       //    setMessage('Javobingiz xato')
       //    setITrue(false)
       // }xs
-      if (!notTrue) {
+      if (notTrue) {
          setIstrue(false)
          setMessage("Javob berilmadi")
 
@@ -92,6 +92,7 @@ export default function Testing() {
       setCount(allQ.questionNumber)
    }
    useEffect(() => {
+      // console.log(timeLeft)
       if (timeLeft === 0) {
          setTimeLeft(0)
       }
@@ -99,6 +100,7 @@ export default function Testing() {
       if (!timeLeft) return;
       interValid = setInterval(() => {
          if (timeLeft === 1) {
+            // alert("1 s qoldi")
             funDisebled(timeLeft)
          }
          setTimeLeft(timeLeft - 1);

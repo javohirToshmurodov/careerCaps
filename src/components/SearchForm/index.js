@@ -3,6 +3,7 @@ import Line from "../../assets/images/line.png";
 import Filter from "../../assets/images/filter.png";
 import jobs from "../../data/jobs";
 import { useEffect } from "react";
+import {Button} from "antd";
 
 export default function SearchForm(props) {
   return (
@@ -25,7 +26,7 @@ export default function SearchForm(props) {
         </div>
       </div>
       <div className="centered">
-        <button disabled className="searchButton">Izlash</button>
+        <button type={"button"} onClick={props.searchData} className="searchButton">Izlash</button>
       </div>
     </form>
   );
