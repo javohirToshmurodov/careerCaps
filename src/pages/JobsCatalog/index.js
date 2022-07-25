@@ -37,14 +37,10 @@ export default function JobsCatalog() {
     }
 
     const searchJob = (e = '') => {
-        if (e.trim().length === 0) {
-            setKasblar([...kasb])
-            return
-        }
-        const arr = kasblar.filter((item) =>
-            item.name.toLowerCase().includes(e.toLowerCase())
-        )
-        setKasblar([...arr])
+
+        instance.get("api/v1/quiz?search="+ e.toLowerCase()).then(function (res) {
+            setKasblar(res.data.data)
+        })
     }
 
     return (
