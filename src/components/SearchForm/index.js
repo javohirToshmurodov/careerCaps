@@ -26,7 +26,7 @@ export default function SearchForm(props) {
         </div>
       </div>
       <div className="centered">
-        <Button onClick={props.searchData} className="searchButton">Izlash</Button>
+        <button type={"button"} onClick={props.searchData} className="searchButton">Izlash</button>
       </div>
     </form>
   );
