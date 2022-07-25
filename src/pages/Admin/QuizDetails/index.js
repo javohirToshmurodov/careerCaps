@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import {
     AdvantagesCardWrapper,
     BlackOutlineBtn,
@@ -19,26 +19,26 @@ import layerVeterinar from "../../../assets/images/arxitektor/layerVeterinar.svg
 import veterinarLayer from "../../../assets/images/arxitektor/veterinarLayer.svg";
 import check from "../../../assets/images/check.svg";
 import dasturchi1 from "../../../assets/images/dasturchi1.svg";
-import {EditText, EditTextarea} from 'react-edit-text';
+import { EditText, EditTextarea } from 'react-edit-text';
 import 'react-edit-text/dist/index.css';
 import './main.css';
 import Footer from "../../../components/Footer";
-import {Button, Input, Modal, Spin} from "antd";
-import {instance} from "../../../redux/actions";
-import {BASE_URL} from "../../../utils/constans";
-import {DeleteOutlined, LoadingOutlined} from '@ant-design/icons';
-import {v4 as uuid} from 'uuid';
-import {TestOutlineBtn} from "../../../components/TestOutlineBtn";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faInstagram, faLinkedin, faTelegram} from "@fortawesome/free-brands-svg-icons";
+import { Button, Input, Modal, Spin } from "antd";
+import { instance } from "../../../redux/actions";
+import { BASE_URL } from "../../../utils/constans";
+import { DeleteOutlined, LoadingOutlined } from '@ant-design/icons';
+import { v4 as uuid } from 'uuid';
+import { TestOutlineBtn } from "../../../components/TestOutlineBtn";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faLinkedin, faTelegram } from "@fortawesome/free-brands-svg-icons";
 import juggling from "../../../assets/images/juggling.svg";
-import {useParams} from "react-router-dom";
-import {useAlert} from "react-alert";
+import { useParams } from "react-router-dom";
+import { useAlert } from "react-alert";
 
 export default function QuizDetails() {
 
 
-    const {quiz_id} = useParams();
+    const { quiz_id } = useParams();
 
     const [state, setState] = useState({
         name: "Enter a job name",
@@ -133,11 +133,11 @@ export default function QuizDetails() {
 
 
     //antd icons
-    const antIcon = <LoadingOutlined style={{fontSize: 24, color: "yellowgreen"}} spin/>;
+    const antIcon = <LoadingOutlined style={{ fontSize: 24, color: "yellowgreen" }} spin />;
     //antd icons
 
     const collectJobData = (e) => {
-        let a = {...state, [e.name]: e.value}
+        let a = { ...state, [e.name]: e.value }
         setState(a)
     }
 
@@ -155,7 +155,7 @@ export default function QuizDetails() {
 
     const saveAttachment = (file, name) => {
         console.log(file)
-        setLoadings({...loadings, [name + "Loading"]: true})
+        setLoadings({ ...loadings, [name + "Loading"]: true })
         let formData = new FormData()
         formData.append("files", file)
         instance.post(
@@ -166,13 +166,13 @@ export default function QuizDetails() {
                 ...attachments,
                 [name + "FromServer"]: res?.data?.data[0]
             })
-            setLoadings({...loadings, [name + "Loading"]: false})
-            setState({...state, [name]: res?.data?.data[0]})
+            setLoadings({ ...loadings, [name + "Loading"]: false })
+            setState({ ...state, [name]: res?.data?.data[0] })
         })
     }
 
     const saveTasksAttachment = (file, name, id) => {
-        setLoadings({...loadings, [name + "Loading"]: true})
+        setLoadings({ ...loadings, [name + "Loading"]: true })
         let formData = new FormData()
         formData.append("files", file)
         instance.post(
@@ -183,7 +183,7 @@ export default function QuizDetails() {
                 ...attachments,
                 [name + "FromServer"]: res?.data?.data[0]
             })
-            setLoadings({...loadings, [name + "Loading"]: false})
+            setLoadings({ ...loadings, [name + "Loading"]: false })
             let tasks = state.tasks;
 
 
@@ -192,7 +192,7 @@ export default function QuizDetails() {
                     tasks[i].attachment = res.data?.data[0];
                     break;
                 }
-                setState({...state, tasks})
+                setState({ ...state, tasks })
             }
 
 
@@ -200,7 +200,7 @@ export default function QuizDetails() {
     }
 
     const saveWantTobesAttachment = (file, name, id) => {
-        setLoadings({...loadings, [name + "Loading"]: true})
+        setLoadings({ ...loadings, [name + "Loading"]: true })
         let formData = new FormData()
         formData.append("files", file)
         instance.post(
@@ -211,7 +211,7 @@ export default function QuizDetails() {
                 ...attachments,
                 [name + "FromServer"]: res?.data?.data[0]
             })
-            setLoadings({...loadings, [name + "Loading"]: false})
+            setLoadings({ ...loadings, [name + "Loading"]: false })
             let wantTobes = state.wantTobes;
 
 
@@ -220,7 +220,7 @@ export default function QuizDetails() {
                     wantTobes[i].attachment = res.data?.data[0];
                     break;
                 }
-                setState({...state, wantTobes})
+                setState({ ...state, wantTobes })
             }
 
 
@@ -229,7 +229,7 @@ export default function QuizDetails() {
 
 
     const saveSourcesToLearnAttachment = (file, name, id) => {
-        setLoadings({...loadings, [name + "Loading"]: true})
+        setLoadings({ ...loadings, [name + "Loading"]: true })
         let formData = new FormData()
         formData.append("files", file)
         instance.post(
@@ -240,7 +240,7 @@ export default function QuizDetails() {
                 ...attachments,
                 [name + "FromServer"]: res?.data?.data[0]
             })
-            setLoadings({...loadings, [name + "Loading"]: false})
+            setLoadings({ ...loadings, [name + "Loading"]: false })
             let sourcesToLearn = state.sourcesToLearn;
 
 
@@ -249,7 +249,7 @@ export default function QuizDetails() {
                     sourcesToLearn[i].attachment = res.data?.data[0];
                     break;
                 }
-                setState({...state, sourcesToLearn})
+                setState({ ...state, sourcesToLearn })
             }
 
 
@@ -258,7 +258,7 @@ export default function QuizDetails() {
 
 
     const saveSuccessPersonAttachment = (file, name, id) => {
-        setLoadings({...loadings, [name + "Loading"]: true})
+        setLoadings({ ...loadings, [name + "Loading"]: true })
         let formData = new FormData()
         formData.append("files", file)
         instance.post(
@@ -269,7 +269,7 @@ export default function QuizDetails() {
                 ...attachments,
                 [name + "FromServer"]: res?.data?.data[0]
             })
-            setLoadings({...loadings, [name + "Loading"]: false})
+            setLoadings({ ...loadings, [name + "Loading"]: false })
             let successPeople = state.successPeople;
 
 
@@ -278,7 +278,7 @@ export default function QuizDetails() {
                     successPeople[i].attachment = res.data?.data[0];
                     break;
                 }
-                setState({...state, successPeople})
+                setState({ ...state, successPeople })
             }
 
 
@@ -287,7 +287,7 @@ export default function QuizDetails() {
 
 
     const saveSuccessSidesAttachment = (file, name, id) => {
-        setLoadings({...loadings, [name + "Loading"]: true})
+        setLoadings({ ...loadings, [name + "Loading"]: true })
         let formData = new FormData()
         formData.append("files", file)
         instance.post(
@@ -298,7 +298,7 @@ export default function QuizDetails() {
                 ...attachments,
                 [name + "FromServer"]: res?.data?.data[0]
             })
-            setLoadings({...loadings, [name + "Loading"]: false})
+            setLoadings({ ...loadings, [name + "Loading"]: false })
             let successSides = state.successSides;
 
 
@@ -307,7 +307,7 @@ export default function QuizDetails() {
                     successSides[i].attachment = res.data?.data[0];
                     break;
                 }
-                setState({...state, successSides})
+                setState({ ...state, successSides })
             }
 
 
@@ -435,7 +435,7 @@ export default function QuizDetails() {
         console.log(state)
         setLoading(true)
         instance.put(
-            "api/v1/quiz", {...state, quizId: quiz_id})
+            "api/v1/quiz", { ...state, quizId: quiz_id })
             .then(function (res) {
                 if (res.data.success) {
                     alert.success("Congrats.")
@@ -473,20 +473,20 @@ export default function QuizDetails() {
                         <div className="col-lg-6 col-md-6  col-xl-g col-sm-12 col-12 mainHome">
                             <h1 className="title">
                                 <EditText defaultValue={state.name ? state.name : "Enter job name"}
-                                          onSave={(e) => collectJobData(e)} name={"name"}
-                                          inputClassName={"text-dark"}/>
+                                    onSave={(e) => collectJobData(e)} name={"name"}
+                                    inputClassName={"text-dark"} />
                             </h1>
                             <p className="subtitle">
                                 <EditTextarea rows={5}
-                                              defaultValue={state.description ? state.description : "Job description lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci alias"}
-                                              onSave={(e) => collectJobData(e)}
-                                              name={"description"}
-                                              inputClassName={"text-dark"}/>
+                                    defaultValue={state.description ? state.description : "Job description lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci alias"}
+                                    onSave={(e) => collectJobData(e)}
+                                    name={"description"}
+                                    inputClassName={"text-dark"} />
                             </p>
                             <OutlineBtn className="mt-4 outBtn">Batafsil</OutlineBtn>
                         </div>
                         <label htmlFor={"select_main_image"}
-                               className={"col-lg-6 col-md-6 col-xl-g col-sm-12 ps-5 col-12"}>
+                            className={"col-lg-6 col-md-6 col-xl-g col-sm-12 ps-5 col-12"}>
                             <Spin
                                 spinning={loadings.attachmentLoading ? loadings.attachmentLoading : false}
                                 indicator={antIcon}
@@ -494,7 +494,7 @@ export default function QuizDetails() {
                                 <ImgEditor>
                                     <img
                                         src={attachments.attachmentFromServer ? BASE_URL + "api/v1/file/get/" + state.attachment : attachments.attachment ? attachments.attachment : state.attachment ? BASE_URL + "api/v1/file/get/" + state.attachment : arxitektor}
-                                        className="img-fluid" alt=""/>
+                                        className="img-fluid" alt="" />
                                 </ImgEditor>
                                 {attachments.attachmentFromServer ? "" : attachments.attachment ?
                                     <Button
@@ -520,7 +520,7 @@ export default function QuizDetails() {
                         <EditText
                             defaultValue={state.taskTitle ? state.taskTitle : "Arxitektor nima vazifani bajaradi?"}
                             onSave={(e) => collectJobData(e)} name={"taskTitle"}
-                            inputClassName={"text-dark"}/>
+                            inputClassName={"text-dark"} />
                     </h1>
                     <Button onClick={addTasks}>Vazifalar qo'shish</Button>
                 </div>
@@ -534,19 +534,19 @@ export default function QuizDetails() {
                                     key={item.id}
                                     className="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-12 cardmaker pt-5 pe-5 pb-4 position-relative">
                                     <DeleteButton onClick={() => deleteElementFromList(item.id, "tasks")}
-                                                  className={"deleteButton"}><DeleteOutlined/></DeleteButton>
+                                        className={"deleteButton"}><DeleteOutlined /></DeleteButton>
                                     <label htmlFor={item.id}>
                                         <ImgEditor>
                                             {/*    antd design loading stylni buzib qo'yganligi uchun loading qo'lda yasaldi*/}
                                             <img
-                                                style={{opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1'}}
+                                                style={{ opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1' }}
                                                 className="mb-3 img-fluid minHeightImg"
                                                 src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? BASE_URL + "api/v1/file/get/" + item.attachment : bino}
-                                                alt=""/>
+                                                alt="" />
                                             {loadings[item.id + "AttachmentLoading"] ?
                                                 <div className={"iconLoadingWrapper"}>
                                                     <div className={"icon_loading"}>
-                                                        <Spin indicator={antIcon}/>
+                                                        <Spin indicator={antIcon} />
                                                     </div>
                                                 </div> : ""}
                                             {attachments[item.id + "AttachmentFromServer"] ? "" : attachments[item.id + "Attachment"] ?
@@ -554,10 +554,10 @@ export default function QuizDetails() {
                                                     onClick={() => saveTasksAttachment(attachments[item.id + "AttachmentFile"], item.id + "Attachment", item.id)}
                                                     className={"ant-btn-block d-block"}>Upload</Button> : ""}
                                             <input onChange={(e) => previewImage(e, item.id + "Attachment")} type="file"
-                                                   id={item.id} hidden/>
+                                                id={item.id} hidden />
                                         </ImgEditor></label>
                                     <h2><EditText onSave={(e) => editListItem(e, item, "tasks")} name={"title"}
-                                                  defaultValue={item.title}/></h2>
+                                        defaultValue={item.title} /></h2>
                                     <p className="maxwidthP">
                                         <EditTextarea
                                             rows={4}
@@ -576,7 +576,7 @@ export default function QuizDetails() {
                 <div className="container py-5 px-4">
                     <h1 className="bigH1 my-5">
                         <EditText onSave={(e) => collectJobData(e)} name={"wantTobeTitle"}
-                                  defaultValue={state.wantTobeTitle ? state.wantTobeTitle : "Arxitektor bo'lish uchun nimalarga e'tibor qaratish kerak?"}/>
+                            defaultValue={state.wantTobeTitle ? state.wantTobeTitle : "Arxitektor bo'lish uchun nimalarga e'tibor qaratish kerak?"} />
                     </h1>
                     <Button onClick={addWantTobes} className={"ant-btn-dark mb-3"}>Nimalarga e'tibor qaratamiz
                         🙂</Button>
@@ -586,7 +586,7 @@ export default function QuizDetails() {
 
                                 <div className="col-12 jobsListCard  py-5 mb-4 position-relative">
                                     <DeleteButton onClick={() => deleteElementFromList(item.id, "wantTobes")}
-                                                  className={"deleteButton"}><DeleteOutlined/> </DeleteButton>
+                                        className={"deleteButton"}><DeleteOutlined /> </DeleteButton>
                                     <div className="d-flex jobsListWrap">
                                         <div className=" justify-content-center d-flex mx-5 w-25">
 
@@ -601,14 +601,14 @@ export default function QuizDetails() {
                                                             alt=""
                                                         />
                                                         <img
-                                                            style={{opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1'}}
+                                                            style={{ opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1' }}
                                                             className="jobsListImg"
                                                             src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? BASE_URL + "api/v1/file/get/" + item.attachment : chizmachilik}
-                                                            alt=""/>
+                                                            alt="" />
                                                         {loadings[item.id + "AttachmentLoading"] ?
                                                             <div className={"iconLoadingWrapper"}>
                                                                 <div className={"icon_loading"}>
-                                                                    <Spin indicator={antIcon}/>
+                                                                    <Spin indicator={antIcon} />
                                                                 </div>
                                                             </div> : ""}
                                                         {attachments[item.id + "AttachmentFromServer"] ? "" : attachments[item.id + "Attachment"] ?
@@ -616,19 +616,19 @@ export default function QuizDetails() {
                                                                 onClick={() => saveWantTobesAttachment(attachments[item.id + "AttachmentFile"], item.id + "Attachment", item.id)}
                                                                 className={"ant-btn-block d-block"}>Upload</Button> : ""}
                                                         <input onChange={(e) => previewImage(e, item.id + "Attachment")}
-                                                               type="file"
-                                                               id={item.id} hidden/>
+                                                            type="file"
+                                                            id={item.id} hidden />
                                                     </ImgEditor></label>
                                             </div>
                                         </div>
                                         <div className="w-75">
                                             <h3 className="JobsListTitle"><EditText
                                                 defaultValue={item.title ? item.title : "Diqqat!"}
-                                                onSave={(e) => editListItem(e, item, "wantTobes")} name={"title"}/></h3>
+                                                onSave={(e) => editListItem(e, item, "wantTobes")} name={"title"} /></h3>
                                             <p className="JobsListdescription"><EditTextarea
                                                 defaultValue={item.description ? item.description : "E'tibor qaratishing kerak bo'lgan narsa ))"}
                                                 onSave={(e) => editListItem(e, item, "wantTobes")}
-                                                name={"description"}/></p>
+                                                name={"description"} /></p>
                                         </div>
                                     </div>
                                 </div>
@@ -644,28 +644,28 @@ export default function QuizDetails() {
                             <div className="col-lg-6 col-md-6  col-xl-g col-sm-12 col-12 d-flex align-items-center">
                                 <h1 className="title layerH1 px-4 text-white">
                                     <EditTextarea rows={7} inputClassName={"text-dark"} onSave={collectJobData}
-                                                  defaultValue={state.whereCanStudyTitle ? state.whereCanStudyTitle : "Arxitektorlikni qayerdan o'rgansa bo'ladi"}
-                                                  name={"whereCanStudyTitle"}/>
+                                        defaultValue={state.whereCanStudyTitle ? state.whereCanStudyTitle : "Arxitektorlikni qayerdan o'rgansa bo'ladi"}
+                                        name={"whereCanStudyTitle"} />
                                 </h1>
                             </div>
                             <div
                                 className="col-lg-6 col-md-6 col-xl-g col-sm-12 layerRelative col-12 position-relative">
 
                                 <input hidden id={"whereCanStudyAttachment"} type="file"
-                                       onChange={(e) => previewImage(e, "whereCanStudyAttachment")}/>
+                                    onChange={(e) => previewImage(e, "whereCanStudyAttachment")} />
 
-                                <ImgEditor style={{height: "100%"}}>
+                                <ImgEditor style={{ height: "100%" }}>
                                     <label htmlFor="whereCanStudyAttachment">
                                         <img
-                                            style={{opacity: loadings["whereCanStudy" + "AttachmentLoading"] ? '.2' : '1'}}
+                                            style={{ opacity: loadings["whereCanStudy" + "AttachmentLoading"] ? '.2' : '1' }}
                                             className="img-fluid layerAbsolute"
                                             src={attachments["whereCanStudy" + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments["whereCanStudy" + "AttachmentFromServer"] : attachments["whereCanStudy" + "Attachment"] ? attachments["whereCanStudy" + "Attachment"] : state.whereCanStudyAttachment ? BASE_URL + "api/v1/file/get/" + state.whereCanStudyAttachment : veterinarLayer}
-                                            alt=""/>
+                                            alt="" />
                                     </label>
                                     {loadings["whereCanStudy" + "AttachmentLoading"] ?
                                         <div className={"iconLoadingWrapper"}>
                                             <div className={"icon_loading"}>
-                                                <Spin indicator={antIcon}/>
+                                                <Spin indicator={antIcon} />
                                             </div>
                                         </div> : ""}
                                 </ImgEditor>
@@ -699,28 +699,28 @@ export default function QuizDetails() {
                                     className="d-flex col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 soya textCenter position-relative"
                                     key={item.id}>
                                     <DeleteButton onClick={() => deleteElementFromList(item.id, "sourcesToLearn")}
-                                                  style={{
-                                                      border: "none",
-                                                      zIndex: 6
-                                                  }}>
-                                        <DeleteOutlined/>
+                                        style={{
+                                            border: "none",
+                                            zIndex: 6
+                                        }}>
+                                        <DeleteOutlined />
                                     </DeleteButton>
                                     <ManbalarWrapper>
                                         <input hidden id={item.id} type="file"
-                                               onChange={(e) => previewImage(e, item.id + "Attachment")}/>
+                                            onChange={(e) => previewImage(e, item.id + "Attachment")} />
                                         <label htmlFor={item.id}>
                                             <ImgEditor>
 
                                                 <img
-                                                    style={{opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1'}}
+                                                    style={{ opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1' }}
                                                     className="img-fluid"
                                                     src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? BASE_URL + "api/v1/file/get/" + item.attachment : edx}
-                                                    alt=""/>
+                                                    alt="" />
 
                                                 {loadings[item.id + "AttachmentLoading"] ?
                                                     <div className={"iconLoadingWrapper"}>
                                                         <div className={"icon_loading"}>
-                                                            <Spin indicator={antIcon}/>
+                                                            <Spin indicator={antIcon} />
                                                         </div>
                                                     </div> : ""}
                                                 {attachments[item.id + "AttachmentFromServer"] ? "" : attachments[item.id + "Attachment"] ?
@@ -731,21 +731,21 @@ export default function QuizDetails() {
                                         </label>
 
                                         <h1 className="defaultH1 my-4"><EditText inline name={"title"}
-                                                                                 onSave={(e) => editListItem(e, item, "sourcesToLearn")}
-                                                                                 defaultValue={item.title ? item.title : "edx"}/>
+                                            onSave={(e) => editListItem(e, item, "sourcesToLearn")}
+                                            defaultValue={item.title ? item.title : "edx"} />
                                         </h1>
                                         <p className="defaultP"><EditTextarea name={"description"}
-                                                                              onSave={(e) => editListItem(e, item, "sourcesToLearn")}
-                                                                              defaultValue={item.description ? item.description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dicta dolorem dolores eaque eius et, fugit ipsa iusto nulla perspiciatis porro quam quos, saepe veniam voluptas. Commodi expedita nobis odio!"}/>
+                                            onSave={(e) => editListItem(e, item, "sourcesToLearn")}
+                                            defaultValue={item.description ? item.description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dicta dolorem dolores eaque eius et, fugit ipsa iusto nulla perspiciatis porro quam quos, saepe veniam voluptas. Commodi expedita nobis odio!"} />
                                         </p>
                                         <EditText inline
-                                                  name={"link"}
-                                                  onSave={(e) => editListItem(e, item, "sourcesToLearn")}
-                                                  defaultValue={item.link ? item.link : ""}
-                                                  placeholder={"Platformaga o'tish uchun link"}
+                                            name={"link"}
+                                            onSave={(e) => editListItem(e, item, "sourcesToLearn")}
+                                            defaultValue={item.link ? item.link : ""}
+                                            placeholder={"Platformaga o'tish uchun link"}
                                         />
                                         <BlackOutlineBtn href={item.link ? item.link : "https://t.me/abduroshyd"}
-                                                         className="blackBtnPosition mb-1">
+                                            className="blackBtnPosition mb-1">
                                             Platformaga o'tish
                                         </BlackOutlineBtn>
                                     </ManbalarWrapper>
@@ -761,7 +761,7 @@ export default function QuizDetails() {
                 <div className="container px-5">
                     <h1 className="bigH1">
                         <EditText name={"successSidesTitle"} onSave={collectJobData}
-                                  defaultValue={state.successSidesTitle ? state.successSidesTitle : "Arxitektor kasbining yaxshi tomonlari qanday?"}/>
+                            defaultValue={state.successSidesTitle ? state.successSidesTitle : "Arxitektor kasbining yaxshi tomonlari qanday?"} />
                     </h1>
 
 
@@ -771,38 +771,38 @@ export default function QuizDetails() {
                         {state.successSides?.map(item => {
                             return (
                                 <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mt-3 position-relative"
-                                     key={item.id}>
+                                    key={item.id}>
                                     <AdvantagesCardWrapper>
 
                                         <DeleteButton onClick={() => deleteElementFromList(item.id, "successSides")}
-                                                      style={{
-                                                          border: "none",
-                                                          right: "-6px",
-                                                          top: 0,
-                                                      }}>
-                                            <DeleteOutlined/>
+                                            style={{
+                                                border: "none",
+                                                right: "-6px",
+                                                top: 0,
+                                            }}>
+                                            <DeleteOutlined />
                                         </DeleteButton>
 
                                         <div className="pt-5 px-4">
                                             <h2><EditText
                                                 onSave={(e) => editListItem(e, item, "successSides")}
-                                                defaultValue={item.title ? item.title : "INNOVATSIYA VA IJOD"}/></h2>
+                                                defaultValue={item.title ? item.title : "INNOVATSIYA VA IJOD"} /></h2>
 
                                             <input hidden id={item.id} type="file"
-                                                   onChange={(e) => previewImage(e, item.id + "Attachment")}/>
+                                                onChange={(e) => previewImage(e, item.id + "Attachment")} />
                                             <label htmlFor={item.id}>
                                                 <ImgEditor>
 
                                                     <img
-                                                        style={{opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1'}}
+                                                        style={{ opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1' }}
                                                         className="my-2 img-fluid"
                                                         src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? BASE_URL + "api/v1/file/get/" + item.attachment : innovatsiya}
-                                                        alt=""/>
+                                                        alt="" />
 
                                                     {loadings[item.id + "AttachmentLoading"] ?
                                                         <div className={"iconLoadingWrapper"}>
                                                             <div className={"icon_loading"}>
-                                                                <Spin indicator={antIcon}/>
+                                                                <Spin indicator={antIcon} />
                                                             </div>
                                                         </div> : ""}
                                                     {attachments[item.id + "AttachmentFromServer"] ? "" : attachments[item.id + "Attachment"] ?
@@ -814,9 +814,9 @@ export default function QuizDetails() {
 
                                             <p className="defaultP mt-3">
                                                 <EditTextarea inline
-                                                              rows={8}
-                                                              onSave={(e) => editListItem(e, item, "successSides")}
-                                                              defaultValue={item.description ? item.description : "Arxitektor turar-joyning uyini, ofis minorasi yoki jamoat kutubxonasini yaratadimi, u yangiliklarga sabab bo'ladi. Ushbu soha o'z-o'zini innovatsiyalarga yo'naltiradi, chunki hech bir loyiha bir xil emas."}/>
+                                                    rows={8}
+                                                    onSave={(e) => editListItem(e, item, "successSides")}
+                                                    defaultValue={item.description ? item.description : "Arxitektor turar-joyning uyini, ofis minorasi yoki jamoat kutubxonasini yaratadimi, u yangiliklarga sabab bo'ladi. Ushbu soha o'z-o'zini innovatsiyalarga yo'naltiradi, chunki hech bir loyiha bir xil emas."} />
                                             </p>
                                         </div>
                                     </AdvantagesCardWrapper>
@@ -831,34 +831,32 @@ export default function QuizDetails() {
                 <div className="row bg-white ">
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 minHeightLayerForYou">
                         <ImgEditor
-                            style={{height: "100%"}}
+                            style={{ height: "100%" }}
                         >
                             <label
-                                style={{height: "100%"}}
-                                htmlFor="jobMatchingAttachment">
+                                style={{ height: "100%" }}
+                                htmlFor="jobMatchingAttachment"
+                            >
+
                                 <div
-                                    className="w-100 h-100 d-flex justify-content-center align-items-center text-center p-5 img-fluid"
+                                    className="w-100 h-100 d-flex justify-content-center align-items-center imgLayerBackground text-center img-fluid position-relative"
                                     style={{
-                                        background: `url(${
-                                            attachments["jobMatching" + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments["jobMatching" + "AttachmentFromServer"] : attachments["jobMatching" + "Attachment"] ? attachments["jobMatching" + "Attachment"] : state.jobMatchingAttachment ? BASE_URL + "api/v1/file/get/" + state.jobMatchingAttachment : layerVeterinar
-                                        })`,
-                                        backgroundPosition: "center",
-                                        backgroundRepeat: "no-repeat",
-                                        backgroundSize: "cover",
-                                        maxWidth: "100%",
-                                        height: "auto",
+                                        background: `url(${attachments["jobMatching" + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments["jobMatching" + "AttachmentFromServer"] : attachments["jobMatching" + "Attachment"] ? attachments["jobMatching" + "Attachment"] : state.jobMatchingAttachment ? BASE_URL + "api/v1/file/get/" + state.jobMatchingAttachment : layerVeterinar
+                                            })`,
+
                                         opacity: loadings["jobMatching" + "AttachmentLoading"] ? '.2' : '1'
                                     }}
                                 >
-
-                                    <h1 className="defaultH1 mx-4  text-white">{"Tanlagan kasbingiz siz uchun qanchalik to'g'ri keladi?"}</h1>
+                                    <div className="imgLayerForYou">
+                                        <h1 className="defaultH1 mx-4  text-white">{"Tanlagan kasbingiz siz uchun qanchalik to'g'ri keladi?"}</h1>
+                                    </div>
                                 </div>
                             </label>
 
                             {loadings["jobMatching" + "AttachmentLoading"] ?
                                 <div className={"iconLoadingWrapper"}>
                                     <div className={"icon_loading"}>
-                                        <Spin indicator={antIcon}/>
+                                        <Spin indicator={antIcon} />
                                     </div>
                                 </div> : ""}
 
@@ -870,7 +868,7 @@ export default function QuizDetails() {
 
 
                             <input hidden id={"jobMatchingAttachment"} type="file"
-                                   onChange={(e) => previewImage(e, "jobMatching" + "Attachment")}/>
+                                onChange={(e) => previewImage(e, "jobMatching" + "Attachment")} />
                         </ImgEditor>
 
 
@@ -878,10 +876,10 @@ export default function QuizDetails() {
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 bg-white col-12 minHeightLayerForYou">
                         <ForYouWrapper>
                             <h1 className="defaultH1 mt-4 "><EditText name={"jobMatchingTitle"} onSave={collectJobData}
-                                                                      defaultValue={state.jobMatchingTitle}/></h1>
+                                defaultValue={state.jobMatchingTitle} /></h1>
                             <div className="d-flex justify-content-between flex-column align-items-start heightAuto">
                                 <p className="defaultP mt-5">{"Kasbga layoqatlilik testi - 7 ta test savolidan iborat bo'lib, siz tanlagan kasb o'zingiz uchun ruhiy, jisomoniy taraflama to'g'ri yoki noto'g'ri ekanligini aniqlashda yordam beradi."}</p>
-                                <TestOutlineBtn className="outBtn"/>
+                                <TestOutlineBtn className="outBtn" />
                             </div>
                         </ForYouWrapper>
                     </div>
@@ -896,7 +894,7 @@ export default function QuizDetails() {
                         <EditText
                             onSave={collectJobData}
                             name={"successPersonsTitle"}
-                            defaultValue={state.successPersonsTitle ? state.successPersonsTitle : "Top Arxitektorlar"}/>
+                            defaultValue={state.successPersonsTitle ? state.successPersonsTitle : "Top Arxitektorlar"} />
                         <Button onClick={addSuccessPerson}>Shu sohada muvoffaqqiyatga erishgan qanday insonlarni
                             bilasiz?</Button></h1>
                     <div className="row mt-4 justify-content-center">
@@ -904,30 +902,30 @@ export default function QuizDetails() {
                         {state.successPeople?.map(item => {
                             return (
                                 <div key={item.id}
-                                     className="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 soya py-5 mb-3 position-relative">
+                                    className="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 soya py-5 mb-3 position-relative">
                                     <DeleteButton onClick={() => deleteElementFromList(item.id, "successPeople")}
-                                                  className={"deleteButton"}
-                                                  style={{
-                                                      zIndex: "5"
-                                                  }}
-                                    ><DeleteOutlined/></DeleteButton>
+                                        className={"deleteButton"}
+                                        style={{
+                                            zIndex: "5"
+                                        }}
+                                    ><DeleteOutlined /></DeleteButton>
                                     <JobsContactWrapper>
                                         <div className="circleImage">
                                             <input hidden id={item.id} type="file"
-                                                   onChange={(e) => previewImage(e, item.id + "Attachment")}/>
+                                                onChange={(e) => previewImage(e, item.id + "Attachment")} />
                                             <label htmlFor={item.id}>
                                                 <ImgEditor className={"p-0"}>
 
                                                     <img
-                                                        style={{opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1'}}
+                                                        style={{ opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1' }}
                                                         className={"img-fluid"}
                                                         src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? BASE_URL + "api/v1/file/get/" + item.attachment : dasturchi1}
-                                                        alt=""/>
+                                                        alt="" />
 
                                                     {loadings[item.id + "AttachmentLoading"] ?
                                                         <div className={"iconLoadingWrapper"}>
                                                             <div className={"icon_loading"}>
-                                                                <Spin indicator={antIcon}/>
+                                                                <Spin indicator={antIcon} />
                                                             </div>
                                                         </div> : ""}
                                                     {attachments[item.id + "AttachmentFromServer"] ? "" : attachments[item.id + "Attachment"] ?
@@ -938,32 +936,32 @@ export default function QuizDetails() {
                                             </label>
                                         </div>
                                         <h4 className="mt-3 mx-3 nameH3"><EditText name={"name"}
-                                                                                   defaultValue={item.name ? item.name : "Abdurashid Jumanov"}
-                                                                                   onSave={(e) => editListItem(e, item, "successPeople")}/>
+                                            defaultValue={item.name ? item.name : "Abdurashid Jumanov"}
+                                            onSave={(e) => editListItem(e, item, "successPeople")} />
                                         </h4>
                                         <div className="px-4">
                                             <p className="titleH3"><EditTextarea name={"description"}
-                                                                                 onSave={(e) => editListItem(e, item, "successPeople")}
-                                                                                 defaultValue={item.description ? item.description : "EPAM Systems kompaniyasi, Senior Software Engineer"}/>
+                                                onSave={(e) => editListItem(e, item, "successPeople")}
+                                                defaultValue={item.description ? item.description : "EPAM Systems kompaniyasi, Senior Software Engineer"} />
                                             </p>
                                             <EditText name={"telegram"} defaultValue={item.telegram}
-                                                      onSave={(e) => editListItem(e, item, "successPeople")}
-                                                      placeholder={"telegram"}/>
+                                                onSave={(e) => editListItem(e, item, "successPeople")}
+                                                placeholder={"telegram"} />
                                             <EditText name={"linkedIn"} defaultValue={item.linkedIn}
-                                                      onSave={(e) => editListItem(e, item, "successPeople")}
-                                                      placeholder={"linkedIn"}/>
+                                                onSave={(e) => editListItem(e, item, "successPeople")}
+                                                placeholder={"linkedIn"} />
                                             <EditText name={"instagram"} defaultValue={item.instagram}
-                                                      onSave={(e) => editListItem(e, item, "successPeople")}
-                                                      placeholder={"instagram"}/>
+                                                onSave={(e) => editListItem(e, item, "successPeople")}
+                                                placeholder={"instagram"} />
                                             <div className="d-flex justify-content-center gap-3">
                                                 <div className="circleIcon">
-                                                    <FontAwesomeIcon icon={faTelegram}/>
+                                                    <FontAwesomeIcon icon={faTelegram} />
                                                 </div>
                                                 <div className="circleIcon">
-                                                    <FontAwesomeIcon icon={faLinkedin}/>
+                                                    <FontAwesomeIcon icon={faLinkedin} />
                                                 </div>
                                                 <div className="circleIcon">
-                                                    <FontAwesomeIcon icon={faInstagram}/>
+                                                    <FontAwesomeIcon icon={faInstagram} />
                                                 </div>
                                             </div>
                                         </div>
@@ -987,14 +985,14 @@ export default function QuizDetails() {
                                     return (
                                         <div className="accordion-item position-relative" key={item.id}>
                                             <DeleteButton onClick={() => deleteElementFromList(item.id, "faqs")}
-                                                          className={"deleteButton"}
-                                                          style={{
-                                                              zIndex: 5,
-                                                              top: "26px",
-                                                              width: "35px",
-                                                              height: "35px"
-                                                          }}
-                                            ><DeleteOutlined/></DeleteButton>
+                                                className={"deleteButton"}
+                                                style={{
+                                                    zIndex: 5,
+                                                    top: "26px",
+                                                    width: "35px",
+                                                    height: "35px"
+                                                }}
+                                            ><DeleteOutlined /></DeleteButton>
                                             <h2 className="accordion-header" id={"acc" + item.id}>
                                                 <button
                                                     className="accordion-button"
@@ -1005,8 +1003,8 @@ export default function QuizDetails() {
                                                     aria-controls={"collapse" + item.id}
                                                 >
                                                     <EditText name={"question"}
-                                                              defaultValue={item.question ? item.question : "Arxitektor bo'lish uchun qaysi fanlarni bilish kerak?"}
-                                                              onSave={(e) => editListItem(e, item, "faqs")}
+                                                        defaultValue={item.question ? item.question : "Arxitektor bo'lish uchun qaysi fanlarni bilish kerak?"}
+                                                        onSave={(e) => editListItem(e, item, "faqs")}
                                                     />
                                                 </button>
                                             </h2>
@@ -1018,8 +1016,8 @@ export default function QuizDetails() {
                                             >
                                                 <div className="accordion-body">
                                                     <EditTextarea name={"answer"}
-                                                                  onSave={(e) => editListItem(e, item, "faqs")}
-                                                                  defaultValue={item.answer ? item.answer : "Arxitektor sohasini egallamoqchi bo'lganllar matematika va ingliz tilidan bilimlarni mustahkamlashlari talab etiladi. Matematika - dasturlashda, kodlarda uchraydigan xatoliklar, muammolarni hal qilishda yordam beradi. Ingliz tili - dasturlash sohasidagi bilimlarni asosiy qismi ingliz tilida bo'lganligi uchun , agar ingliz tilini bilsangiz ko'proq mustaqil ishlay olishingiz va ko'proq bilimga ega bo'lishingiz mumkin."}/>
+                                                        onSave={(e) => editListItem(e, item, "faqs")}
+                                                        defaultValue={item.answer ? item.answer : "Arxitektor sohasini egallamoqchi bo'lganllar matematika va ingliz tilidan bilimlarni mustahkamlashlari talab etiladi. Matematika - dasturlashda, kodlarda uchraydigan xatoliklar, muammolarni hal qilishda yordam beradi. Ingliz tili - dasturlash sohasidagi bilimlarni asosiy qismi ingliz tilida bo'lganligi uchun , agar ingliz tilini bilsangiz ko'proq mustaqil ishlay olishingiz va ko'proq bilimga ega bo'lishingiz mumkin."} />
                                                 </div>
                                             </div>
                                         </div>
@@ -1039,17 +1037,17 @@ export default function QuizDetails() {
 
                 </div>
             </section>
-            <Footer/>
+            <Footer />
             {/*    modal*/}
 
             <>
                 <Modal title="Kasbni saqlaymizmi?" visible={showModal} onOk={saveQuiz} confirmLoading={loading}
-                       onCancel={!loading ? openModal : ""}>
+                    onCancel={!loading ? openModal : ""}>
                     <label htmlFor="inputofsalary">Yillik maosh ko'pchilikni qiziqtirsa kerak...</label>
                     <Input id={"inputofsalary"}
-                           onChange={(e) => collectJobData({name: "yearlySalary", value: e.target.value})}
-                           defaultValue={state.yearlySalary && state.yearlySalary}
-                           placeholder="masalan -> 112.000$ - 130.000$" required/>
+                        onChange={(e) => collectJobData({ name: "yearlySalary", value: e.target.value })}
+                        defaultValue={state.yearlySalary && state.yearlySalary}
+                        placeholder="masalan -> 112.000$ - 130.000$" required />
                 </Modal>
             </>
 

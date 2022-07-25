@@ -73,7 +73,7 @@ export default function JobsCatalog() {
                             <div className="col-12 ">
                                 {kasblar.map((e) => (
                                     <div
-                                        className="row pt-3 pb-3 align-items-center jobsCard ps-4 pe-0 mt-4  position-relative"
+                                        className="row pt-3 pb-3 align-items-center jobsCard  pe-0 mt-4  position-relative"
                                         key={e.id}
                                     >
                                         <Link to={"/job/" + e.id}
@@ -82,7 +82,7 @@ export default function JobsCatalog() {
                                             <FontAwesomeIcon icon={faRightLong} />
                                         </Link>
                                         <div className="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
-                                            <img className={"img-fluid"} src={BASE_URL + "api/v1/file/get/" + e.attachment}
+                                            <img className={"img-fluid defaultImgWidthCatalog"} src={BASE_URL + "api/v1/file/get/" + e.attachment}
                                                 alt="" />
                                         </div>
                                         <div className="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
@@ -96,7 +96,7 @@ export default function JobsCatalog() {
                                             </div>
                                         </div>
                                         <div
-                                            className="col-12  pb-2 col-xl-5 col-lg-5 col-md-12 jobsSalary col-sm-12 align-self">
+                                            className="col-12  pb-2 col-xl-5 col-lg-5 col-md-12 jobsSalary col-sm-12 align-self marginTopSalary">
                                             <p className="defaultP ">Yillik maosh</p>
                                             <h1 className="salaryH1">{e.yearlySalary}</h1>
                                         </div>
