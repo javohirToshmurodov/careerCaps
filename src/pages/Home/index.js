@@ -18,16 +18,16 @@ export default function Home() {
             <div className="col-lg-6 col-md-6  col-xl-g col-sm-12 col-12 mainHome">
               <h1 className="title">CareerCaps</h1>
               <p className="subtitle">Kelajak kasbingizni biz bilan tanlang</p>
-              <OutlineBtn className="mt-4 outBtn">Test</OutlineBtn>
+              <OutlineBtn className="mt-4 outBtn" href="#linkTo">Test</OutlineBtn>
             </div>
             <div className="col-lg-6 col-md-6 d-flex justify-content-center align-items-center flex-column col-xl-g col-sm-12   col-12">
-              <img className="img-fluid" src={MainImg} alt="" />
+              <img className="img-fluid mt-4" src={MainImg} alt="" />
             </div>
           </div>
         </div>
       </div>
       <section>
-        <div className="w-100">
+        <div className="w-100" id="linkTo">
           <div className="row">
             <CardMaker
               img={first}

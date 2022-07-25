@@ -62,6 +62,8 @@ export default function Quiz() {
 
     if (!age) {
       err.age = 'Iltimos username kiriting'
+    } else if (age <= 0) {
+      err.age = "Yoshingiz 0 dan yuqori bo'lishi kerak"
     }
     if (!gender) {
       err.gender = 'Iltimos jinsingizni tanlang'

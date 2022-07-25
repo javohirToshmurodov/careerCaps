@@ -32,6 +32,17 @@ export default function Header() {
                 style={({ isActive }) => ({
                   borderBottom: isActive ? "1.5px solid white" : "",
                 })}
+                to="/"
+                className="fontSize text-white nav-link  borderLink"
+              >
+                Bosh sahifa
+              </NavLink>
+            </li>
+            <li className="nav-item text-white">
+              <NavLink
+                style={({ isActive }) => ({
+                  borderBottom: isActive ? "1.5px solid white" : "",
+                })}
                 to="jobsCatalog"
                 className="fontSize text-white nav-link  borderLink"
               >

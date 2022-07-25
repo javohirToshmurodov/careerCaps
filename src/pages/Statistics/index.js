@@ -35,11 +35,10 @@ export default function Statistics() {
     })
   }
   useEffect(() => {
-    console.log(statistics);
     getStatistics()
   }, [])
   return (
-    <Spin spinning={loader}>
+    <Spin spinning={loader} delay={100}>
       <div className="DefaultBg minHeight">
         <div className="container py-5 px-5 text-white">
           <div className="row justify-content-between align-items-center">

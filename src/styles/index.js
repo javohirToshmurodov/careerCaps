@@ -2,9 +2,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   padding: 0 15%;
 `;
-export const OutlineBtn = styled.button`
+export const OutlineBtn = styled.a`
   padding: 13px 35px;
   border-radius: 88px;
+  display: inline-block;
   border: 2px solid #fff;
   font-size: 20px;
   font-weight: 500;
@@ -217,7 +218,7 @@ export const MainCardWrapper = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  max-height: 250px;
+  min-height: 250px;
   .mainImg{
     object-fit: cover;
     max-height: 200px !important;

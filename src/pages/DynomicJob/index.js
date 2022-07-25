@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {BlackOutlineBtn, ManbalarWrapper, ManbalarWrapperFirst, OutlineBtn} from "../../styles";
+import React, { useEffect, useState } from "react";
+import { BlackOutlineBtn, ManbalarWrapper, ManbalarWrapperFirst, OutlineBtn } from "../../styles";
 import Footer from "../../components/Footer";
 import dasturchii from "../../assets/images/dasturchii.svg";
 import CardMaker from "../../components/CardMaker";
@@ -29,14 +29,14 @@ import dasturchi1 from "../../assets/images/dasturchi1.svg";
 import dasturchi2 from "../../assets/images/dasturchi2.svg";
 import dasturchi3 from "../../assets/images/dasturchi3.svg";
 import FrequentlyQuestions from "../../components/FrequentlyQuestions";
-import {instance} from "../../redux/actions";
-import {Link, useParams} from "react-router-dom";
-import {BASE_URL} from "../../utils/constans";
+import { instance } from "../../redux/actions";
+import { Link, useParams } from "react-router-dom";
+import { BASE_URL } from "../../utils/constans";
 import juggling from "../../assets/images/juggling.svg";
 
 export default function Dasturchi() {
 
-    const {job_id} = useParams();
+    const { job_id } = useParams();
     const [job, setJob] = useState({})
 
     useEffect(() => {
@@ -57,21 +57,21 @@ export default function Dasturchi() {
                             <p className="subtitle">
                                 {job.description}
                             </p>
-                            <OutlineBtn className="mt-4 outBtn">Batafsil</OutlineBtn>
+                            <OutlineBtn className="mt-4 outBtn" href="#linkTo">Batafsil</OutlineBtn>
                         </div>
                         <div className="col-lg-6 col-md-6 col-xl-g col-sm-12 d-flex ps-5 col-12">
-                            <img src={BASE_URL + "api/v1/file/get/" + job.attachment} className="img-fluid" alt=""/>
+                            <img src={BASE_URL + "api/v1/file/get/" + job.attachment} className="img-fluid mt-5" alt="" />
                         </div>
                     </div>
                 </div>
             </div>
             <section>
-                <div className="container py-5 px-5">
+                <div className="container py-5 px-5" id="linkTo">
                     <h1 className="bigH1">{job.taskTitle}</h1>
                 </div>
             </section>
             <section>
-                <div className="w-100">
+                <div className="w-100" >
                     <div className="row">
                         {job.tasks?.map(item => {
                             return (
@@ -126,7 +126,7 @@ export default function Dasturchi() {
                                     key={item.id}
                                     className="d-flex col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 soya textCenter">
                                     <ManbalarWrapper>
-                                        <img src={BASE_URL + "api/v1/file/get/" + item.attachment} alt=""/>
+                                        <img src={BASE_URL + "api/v1/file/get/" + item.attachment} alt="" />
                                         <h1 className="defaultH1 my-4">{item.title}</h1>
                                         <p className="defaultP">{item.description}</p>
                                         <BlackOutlineBtn className="blackBtnPosition">
@@ -203,15 +203,15 @@ export default function Dasturchi() {
                                                     className="accordion-button"
                                                     type="button"
                                                     data-bs-toggle="collapse"
-                                                    data-bs-target={"#collapse"+item.id}
+                                                    data-bs-target={"#collapse" + item.id}
                                                     aria-expanded="true"
-                                                    aria-controls={"collapse"+item.id}
+                                                    aria-controls={"collapse" + item.id}
                                                 >
                                                     {item.question}
                                                 </button>
                                             </h2>
                                             <div
-                                                id={"collapse"+item.id}
+                                                id={"collapse" + item.id}
                                                 className="accordion-collapse collapse"
                                                 aria-labelledby={"heading" + item.id}
                                                 data-bs-parent="#accordionExample"
@@ -233,7 +233,7 @@ export default function Dasturchi() {
                     </div>
                 </div>
             </section>
-            <Footer/>
+            <Footer />
         </>
     );
 }
