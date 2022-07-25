@@ -47,7 +47,7 @@ export default function Statistics() {
               <p className="subtitle">Kelajak kasbingizni biz bilan tanlang</p>
             </div>
             <div className="col-lg-6 col-md-6 d-flex justify-content-center align-items-center flex-column col-xl-g col-sm-12   col-12">
-              <img className="img-fluid" src={statistic} alt="" />
+              <img className="img-fluid mt-4" src={statistic} alt="" />
             </div>
           </div>
         </div>
