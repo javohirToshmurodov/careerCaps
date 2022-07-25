@@ -31,6 +31,15 @@ code {
     min-height: 538px;
 }
 
+.imgLayerForYou{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+}
+
 a {
     text-decoration: none !important;
 }

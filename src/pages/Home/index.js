@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {OutlineBtn} from "../../styles";
+import React, { useEffect, useState } from "react";
+import { OutlineBtn } from "../../styles";
 import MainImg from "../../assets/images/main.png";
 import CardMaker from "../../components/CardMaker";
 import first from "../../assets/images/1.png";
@@ -9,19 +9,20 @@ import fourth from "../../assets/images/4.png";
 import networks from "../../assets/images/networks.png";
 import position from "../../assets/images/positionPic.png";
 import Footer from "../../components/Footer";
-import {instance} from "../../redux/actions";
+import { instance } from "../../redux/actions";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-
+    const navigate = useNavigate()
     const [data, setData] = useState({
         job: 10,
         test: 70,
-        info : 90
+        info: 90
     })
 
     useEffect(() => {
         instance.get("api/v1/statistics/home").then(function (res) {
-            setData({job: res.data.data.job, test: res.data.data.test,info : res.data.data.job*8})
+            setData({ job: res.data.data.job, test: res.data.data.test, info: res.data.data.job * 8 })
         })
     }, [])
 
@@ -34,11 +35,11 @@ export default function Home() {
                         <div className="col-lg-6 col-md-6  col-xl-g col-sm-12 col-12 mainHome">
                             <h1 className="title">CareerCaps</h1>
                             <p className="subtitle">Kelajak kasbingizni biz bilan tanlang</p>
-                            <OutlineBtn className="mt-4 outBtn" href="#linkTo">Test</OutlineBtn>
+                            <OutlineBtn className="mt-4 outBtn" onClick={() => navigate("quiz")}>Test</OutlineBtn>
                         </div>
                         <div
                             className="col-lg-6 col-md-6 d-flex justify-content-center align-items-center flex-column col-xl-g col-sm-12   col-12">
-                            <img className="img-fluid mt-4" src={MainImg} alt=""/>
+                            <img className="img-fluid mt-4" src={MainImg} alt="" />
                         </div>
                     </div>
                 </div>
@@ -48,21 +49,21 @@ export default function Home() {
                     <div className="row">
                         <CardMaker
                             img={first}
-                            title={data?.job +"+ Kasblar"}
+                            title={data?.job + "+ Kasblar"}
                             description={
                                 "Zamon talabiga javob beruvchi, yaqin yillar orasida ommalashgan va zamonaviy kasblar haqida ma'lumot."
                             }
                         />
                         <CardMaker
                             img={second}
-                            title={data?.info +"+ ma'lumotlar"}
+                            title={data?.info + "+ ma'lumotlar"}
                             description={
                                 "Kasblar haqidagi foydali ma'lumot , maqola va faktlar jamlanmasi"
                             }
                         />
                         <CardMaker
                             img={third}
-                            title={data?.test +"+ foydalanuvchilar "}
+                            title={data?.test + "+ foydalanuvchilar "}
                             description={
                                 "Hozirgi kunga qadar saytga tashrif buyurganlar soni"
                             }
@@ -86,14 +87,14 @@ export default function Home() {
                         taqdim etgan ma'lumotlar orqali bilib olishingiz va o'z
                         kelajagingizni shu kasb bilan davom ettirishingiz mumkin!
                     </p>
-                    <OutlineBtn className="mt-4 outBtn">Kasblar Katalogi</OutlineBtn>
+                    <OutlineBtn className="mt-4 outBtn" onClick={() => navigate("jobsCatalog")}>Kasblar Katalogi</OutlineBtn>
                 </div>
             </section>
             <section className="networksSection">
                 <div
                     className="container px-5 py-5 d-flex justify-content-center align-items-center flex-column text-center">
                     <div>
-                        <img src={networks} alt="networks"/>
+                        <img src={networks} alt="networks" />
                         <h1 className="defaultH1 mt-4 mb-3">Admin bilan aloqa</h1>
                         <p className="fw-400">(+998 90) 977-19-60)</p>
                     </div>
@@ -104,7 +105,7 @@ export default function Home() {
                     />
                 </div>
             </section>
-            <Footer/>
+            <Footer />
         </>
     );
 }
