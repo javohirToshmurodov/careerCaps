@@ -23,13 +23,15 @@ export default function Statistics() {
   const { One, Two, Three } = images
   const getStatistics = () => {
     setLoader(true)
+    setTimeout(() => {
+      setLoader(false)
+    }, 1000)
     instance.get("api/v1/statistics").then((res) => {
       console.log(res.data.data);
       setStatistics({ ...res.data.data })
       let rows = res.data.data.topQuizes[0].image = One
       rows = res.data.data.topQuizes[1].image = Two
       rows = res.data.data.topQuizes[2].image = Three
-      setLoader(false)
     }).catch((err) => {
       console.log(err);
     })
