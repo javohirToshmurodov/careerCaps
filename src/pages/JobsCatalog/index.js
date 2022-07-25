@@ -14,10 +14,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { instance } from "../../redux/actions";
 import { BASE_URL } from "../../utils/constans";
+import {useSelector} from "react-redux";
 
 export default function JobsCatalog() {
     const navigate = useNavigate();
     const [kasblar, setKasblar] = useState([])
+    const kasb = useSelector((state) => state.jobsData.quizzes)
 
     useEffect(() => {
         getJobs()
@@ -31,6 +33,13 @@ export default function JobsCatalog() {
             } else {
                 setKasblar(jobs)
             }
+        })
+    }
+
+    const searchJob = (e = '') => {
+
+        instance.get("api/v1/quiz?search="+ e.toLowerCase()).then(function (res) {
+            setKasblar(res.data.data)
         })
     }
 
@@ -52,7 +61,7 @@ export default function JobsCatalog() {
             </div>
             <section>
                 <div className="container px-5 py-5">
-                    <SearchForm />
+                    <SearchForm searchJob={searchJob} />
                     <div className="row px-3">
                         <div className="col-12 ">
                             {kasblar.map((e) => (
