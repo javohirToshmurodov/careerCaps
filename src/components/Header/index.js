@@ -1,13 +1,13 @@
-import {faBars} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import React, {useEffect, useState} from "react";
-import {NavLink, useNavigate} from "react-router-dom";
-import Logo from "../../assets/images/Brand.png";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import Logo from "../../assets/images/logoCareer.svg";
 import './main.css'
 
 export default function Header() {
     const navigate = useNavigate();
-    const setActive = ({isActive}) => (isActive ? "active-link" : "");
+    const setActive = ({ isActive }) => (isActive ? "active-link" : "");
     const [mobileView, setMobileView] = useState(false);
 
 
@@ -22,7 +22,7 @@ export default function Header() {
 
     return (<nav className="navbar navbar-expand-lg  DefaultBg">
         <div className="container py-3  px-5">
-            <img onClick={() => navigate("/")} src={Logo} alt=""/>
+            <img onClick={() => navigate("/")} src={Logo} alt="" />
             <button
                 id={"birbalo"}
                 className="navbar-toggler"
@@ -33,7 +33,7 @@ export default function Header() {
                 aria-expanded="false"
                 aria-label="Toggle navigation"
             >
-                <FontAwesomeIcon className="text-white" icon={faBars}/>
+                <FontAwesomeIcon className="text-white" icon={faBars} />
             </button>
             <div
                 className="collapse justify-content-end navbar-collapse"
@@ -42,7 +42,7 @@ export default function Header() {
                 <ul className="navbar-nav gap-2 align-items-center">
                     <li className="nav-item text-white">
                         <NavLink
-                            style={({isActive}) => ({
+                            style={({ isActive }) => ({
                                 borderBottom: isActive ? "1.5px solid white" : "",
                             })}
                             to="/"
@@ -53,7 +53,7 @@ export default function Header() {
                     </li>
                     <li className="nav-item text-white">
                         <NavLink
-                            style={({isActive}) => ({
+                            style={({ isActive }) => ({
                                 borderBottom: isActive ? "1.5px solid white" : "",
                             })}
                             to="jobsCatalog"
@@ -64,7 +64,7 @@ export default function Header() {
                     </li>
                     <li className="nav-item text-white">
                         <NavLink
-                            style={({isActive}) => ({
+                            style={({ isActive }) => ({
                                 borderBottom: isActive ? "1.5px solid white" : "",
                             })}
                             to="quiz"
@@ -75,7 +75,7 @@ export default function Header() {
                     </li>
                     <li className="nav-item ">
                         <NavLink
-                            style={({isActive}) => ({
+                            style={({ isActive }) => ({
                                 borderBottom: isActive ? "1.5px solid white" : "",
                             })}
                             to={"about"}
@@ -86,7 +86,7 @@ export default function Header() {
                     </li>
                     <li className="nav-item text-white">
                         <NavLink
-                            style={({isActive}) => ({
+                            style={({ isActive }) => ({
                                 borderBottom: isActive ? "1.5px solid white" : "",
                             })}
                             to={"statistika"}
@@ -97,7 +97,7 @@ export default function Header() {
                     </li>
                     <li className="nav-item text-white">
                         <NavLink
-                            style={({isActive}) => ({
+                            style={({ isActive }) => ({
                                 borderBottom: isActive ? "1.5px solid white" : "",
                             })}
                             className="fontSize text-white nav-link borderLink"

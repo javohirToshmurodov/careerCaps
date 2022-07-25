@@ -211,6 +211,7 @@ export const CardMiniWrapper = styled.div`
   display: flex;
   padding: 20px;
   gap: 26px;
+  margin-top: 10px;
 `;
 export const MainCardWrapper = styled.div`
   background: #ffffff;
@@ -219,6 +220,7 @@ export const MainCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 250px;
+  margin-top: 15px;
   .mainImg{
     object-fit: cover;
     max-height: 200px !important;
@@ -256,6 +258,7 @@ export const ProgressCardWrapper = styled.div`
   align-items: center;
   position: relative;
   flex-direction: column;
+  margin-top: 20px;
   .positionTitle {
     position: absolute;
     text-align: center;

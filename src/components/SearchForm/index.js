@@ -3,7 +3,7 @@ import Line from "../../assets/images/line.png";
 import Filter from "../../assets/images/filter.png";
 import jobs from "../../data/jobs";
 import { useEffect } from "react";
-import {Button} from "antd";
+import { Button } from "antd";
 
 export default function SearchForm(props) {
   return (
@@ -17,13 +17,7 @@ export default function SearchForm(props) {
           type="text"
           placeholder="Katalogdan kasbni qidiring"
         />
-        <div className="d-flex gap-2 align-items-center ms-auto me-3">
-          <img src={Line} alt="" />
-          <img src={Filter} alt="" />
-          <p className="m-0" style={{ color: "#747474" }}>
-            Filtr
-          </p>
-        </div>
+
       </div>
       <div className="centered">
         <button type={"button"} onClick={props.searchData} className="searchButton">Izlash</button>

@@ -25,7 +25,7 @@ export default function TestWarningModal(props) {
 
 
                <div className="row align-items-center w-100">
-                  <div className="col-6">
+                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                      <div className="mt-5">
                         <h1 className='colorH1'>Test qoidalari bilan tanishing</h1>
                      </div>
@@ -38,22 +38,23 @@ export default function TestWarningModal(props) {
                         <hr />
                         <p className="testP">4. Tog'ri va noto'g'ri javoblar hisoblab boriladi, natija e'lon qilinadi.</p>
                      </div>
-                     <div className="d-flex gap-2 mt-5 mb-3">
-                        <div>
-                           <TestWarningOutlineBtn onClick={props.handleClose}>
-                              Chiqish
-                           </TestWarningOutlineBtn>
-                        </div>
-                        <div>
-                           <button onClick={startTest} className='searchButton'>
-                              Boshlash
-                           </button>
-                        </div>
-                     </div>
+
                   </div>
-                  <div className="col-6">
+                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 d-flex justify-content-center align-items-center ">
                      <div className='imgFluid'>
                         <img className='img-fluid' src={testwarning} alt="" />
+                     </div>
+                  </div>
+                  <div className="d-flex gap-2 mt-5 mb-3">
+                     <div>
+                        <TestWarningOutlineBtn onClick={props.handleClose}>
+                           Chiqish
+                        </TestWarningOutlineBtn>
+                     </div>
+                     <div>
+                        <button onClick={startTest} className='searchButton'>
+                           Boshlash
+                        </button>
                      </div>
                   </div>
                </div>

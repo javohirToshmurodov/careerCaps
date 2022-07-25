@@ -5,19 +5,20 @@ import { TestOutlineBtn } from "../TestOutlineBtn";
 export default function ForYou(props) {
   return (
     <div className="row bg-white ">
-      <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 minHeightLayerForYou">
+      <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 position-relative minHeightLayerForYou">
         <div
-          className="w-100 h-100 d-flex justify-content-center align-items-center text-center p-5 "
+          className="w-100 h-100 d-flex justify-content-center align-items-center text-center p-5 imgLayerForYou"
           style={{
             background: `url(${props.backgroundImage})`,
             backgroundPosition: "center",
-            // backgroundSize:"cover",
-            backgroundRepeat:"no-repeat"
-          }} 
+            backgroundRepeat: "no-repeat"
+          }}
         >
-          <h1 className="defaultH1 mx-4  text-white">{props.title}</h1>
+          <div className="">
+            <h1 className="defaultH1 mx-4 text-white">{props.title}</h1>
+          </div>
         </div>
-      </div>   
+      </div>
       <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 bg-white col-12 minHeightLayerForYou">
         <ForYouWrapper>
           <h1 className="defaultH1 mt-4 ">{props.subtitle}</h1>

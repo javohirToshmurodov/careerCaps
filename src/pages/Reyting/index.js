@@ -52,7 +52,7 @@ export default function Reyting(props) {
                   </div>
                   <h1 className="colorH1 mt-5">Top 10 reyting</h1>
                   {
-                     topUsers.map((e, i) => <div className=''>
+                     topUsers.map((e, i) => <div className='mt-3'>
                         <div className="d-flex justify-content-between">
                            <div>
                               <p className='m-0' style={{ "fontSize": "14px", "lineHeight": "28px", "fontWeight": "500" }}>
