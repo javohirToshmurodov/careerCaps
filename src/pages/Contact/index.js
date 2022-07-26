@@ -23,7 +23,7 @@ export default function Contact() {
           <div>
             <img src={networks} alt="networks" />
             <h1 className="defaultH1 mt-4 mb-3">Admin bilan aloqa</h1>
-            <p className="fw-400">(+998 90) 977-19-60)</p>
+            <p className="fw-400">(+998 90) 977-19-60</p>
           </div>
         </div>
       </section>
