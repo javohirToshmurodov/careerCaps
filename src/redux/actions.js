@@ -33,9 +33,9 @@ export const accessToken = localStorage.getItem('accesstoken')
 export const instance = axios.create({
   Authorization: `Bearer ${accessToken}`,
   baseURL: BASE_URL,
-  // accept: '*/*',
-  // 'Content-Type': 'application/json',
-  // 'Access-Control-Allow-Origin': '*'
+  accept: '*/*',
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*'
 
 })
 
