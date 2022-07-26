@@ -1,33 +1,23 @@
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { getAllData, getQuestion, instance } from '../../redux/actions'
-import ProgressCustom from '../ProgressBar'
-import QuizJobCard from '../QuizJobCard'
-import TestCard from '../TestCard'
+import {instance } from '../../redux/actions'
 import TestFooter from '../TestFooter'
-import { CardMiniWrapper, QuizJobCardWrapper, VariantCardWrapper } from '../../styles'
+import { VariantCardWrapper } from '../../styles'
 import Result from '../Result'
 import { Progress } from 'antd'
 import { Spin } from 'antd'
 import Reyting from '../../pages/Reyting'
-import { ClockCircleFilled, ClockCircleOutlined } from '@ant-design/icons'
-import WatchClock from '../WatchClock'
+import { ClockCircleFilled } from '@ant-design/icons'
 
 export default function Testing() {
-   const [allData, setAllData] = useState({})
-   const allQuestions = useSelector((state) => state.allDatas?.allData)
-   const dispatch = useDispatch()
    const { id } = useParams()
    const [disabled, setDisabled] = useState(false)
-   const [isTrue, setIstrue] = useState('')
    const [message, setMessage] = useState('Belgilanmadi')
    const [allQ, setAllQ] = useState({})
    const [loader, setLoader] = useState(false)
    const [check, setCheck] = useState(false)
-   const [showResult, setShowResult] = useState(false)
    const [count, setCount] = useState(0)
    const [timeLeft, setTimeLeft] = useState(0);
    const [r, setR] = useState(false)
@@ -79,7 +69,6 @@ export default function Testing() {
       //    setITrue(false)
       // }xs
       if (notTrue) {
-         setIstrue(false)
          setMessage("Javob berilmadi")
 
       }

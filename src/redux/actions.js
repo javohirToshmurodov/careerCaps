@@ -33,8 +33,10 @@ export const accessToken = localStorage.getItem('accesstoken')
 export const instance = axios.create({
   Authorization: `Bearer ${accessToken}`,
   baseURL: BASE_URL,
-  accept: '*/*',
-  'Content-Type': 'application/json',
+  // accept: '*/*',
+  // 'Content-Type': 'application/json',
+  // 'Access-Control-Allow-Origin': '*'
+
 })
 
 export const loadJobs = () => {
