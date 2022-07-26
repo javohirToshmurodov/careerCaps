@@ -35,6 +35,8 @@ export const instance = axios.create({
   baseURL: BASE_URL,
   accept: '*/*',
   'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*'
+
 })
 
 export const loadJobs = () => {
