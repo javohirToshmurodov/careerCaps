@@ -1,6 +1,6 @@
 import axios from 'axios'
 import * as types from './actionType'
-import {BASE_URL} from "../utils/constans";
+import { BASE_URL } from "../utils/constans";
 export const getJobs = (quizzes) => ({
   type: types.GET_JOBS,
   payload: quizzes,
