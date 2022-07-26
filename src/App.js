@@ -20,7 +20,7 @@ import RoutesComponent from "./pages/Admin/RoutesComponent";
 import QuizDetails from "./pages/Admin/QuizDetails";
 import TestWarningModal from "./components/TestWarningModal";
 import Testing from "./components/Testing";
-import Reyting from "./pages/Reyting";
+import BirBalo from "./pages/Reyting";
 export default function App() {
   return (
     <>
@@ -36,7 +36,7 @@ export default function App() {
         <Route path="veterinar" element={<Veterinar />} />
         <Route path="dasturchi" element={<Dasturchi />} />
         <Route path="testing/:id" element={<Testing />} />
-        <Route path="reyting" element={<Reyting />} />
+        <Route path="reyting" element={<BirBalo />} />
         <Route path="quiz" element={<Quiz />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="details/:quiz_id" element={<QuizDetails />} />
