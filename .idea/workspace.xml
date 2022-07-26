@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9421eb4-6ba4-479f-8238-792eceae990d" name="Changes" comment="2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/constans.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constans.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +162,7 @@
       <workItem from="1658720551456" duration="4147000" />
       <workItem from="1658736735548" duration="16138000" />
       <workItem from="1658824820753" duration="5691000" />
-      <workItem from="1658858583678" duration="1338000" />
+      <workItem from="1658858583678" duration="1847000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <created>1658389917492</created>
@@ -220,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658829426127</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="2">
+      <created>1658859944468</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1658859944468</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
