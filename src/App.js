@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import JobsCatalog from "./pages/JobsCatalog";
 import Quiz from "./pages/Quiz";
 import Statistics from "./pages/Statistics";
@@ -21,6 +21,7 @@ import QuizDetails from "./pages/Admin/QuizDetails";
 import TestWarningModal from "./components/TestWarningModal";
 import Testing from "./components/Testing";
 import BirBalo from "./pages/Reyting";
+
 export default function App() {
   return (
     <>

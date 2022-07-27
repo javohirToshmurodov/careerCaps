@@ -6,12 +6,17 @@ import { images } from '../../assets/images'
 import yananima from "../../assets/images/reyting.svg"
 import { instance } from '../../redux/actions'
 export default function BirBalo(props) {
+   const { One, Two, Three } = images
    const navigate = useNavigate()
    const [loader, setLoader] = useState(false)
    const [topUsers, setTopUsers] = useState([])
    const getTopUsers = () => {
       setLoader(true)
       instance.get("api/v1/platform_user/top_users?top=10").then((res) => {
+         console.log(res.data.data);
+         let rows = res.data.data[0].image = One
+         rows = res.data.data[1].image = Two
+         rows = res.data.data[2].image = Three
          setTopUsers(res.data.data)
          setLoader(false)
       }).catch((err) => {

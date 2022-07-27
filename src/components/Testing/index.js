@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import {Link, Route, useParams} from 'react-router-dom'
 import {instance } from '../../redux/actions'
 import TestFooter from '../TestFooter'
 import { VariantCardWrapper } from '../../styles'
