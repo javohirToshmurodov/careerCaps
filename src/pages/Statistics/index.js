@@ -17,6 +17,8 @@ import { useState } from "react";
 import { instance } from "../../redux/actions";
 import { useEffect } from "react";
 import { Spin } from "antd";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 export default function Statistics() {
   const [statistics, setStatistics] = useState({})
   const [loader, setLoader] = useState(false)
@@ -49,7 +51,7 @@ export default function Statistics() {
               <p className="subtitle">Kelajak kasbingizni biz bilan tanlang</p>
             </div>
             <div className="col-lg-6 col-md-6 d-flex justify-content-center align-items-center flex-column col-xl-g col-sm-12   col-12">
-              <img className="img-fluid mt-4" src={statistic} alt="" />
+              <LazyLoadImage effect={"blur"} className="img-fluid mt-4" src={statistic} alt="" />
             </div>
           </div>
         </div>

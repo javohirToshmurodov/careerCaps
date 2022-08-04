@@ -3,9 +3,11 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { images } from '../../assets/images'
-import reyting from "../../assets/images/reyting.svg"
+import yananima from "../../assets/images/reyting.svg"
 import { instance } from '../../redux/actions'
-export default function Reyting(props) {
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+export default function BirBalo(props) {
    const { One, Two, Three } = images
    const navigate = useNavigate()
    const [loader, setLoader] = useState(false)
@@ -52,8 +54,8 @@ export default function Reyting(props) {
                   </div>
                   <h1 className="colorH1 mt-5">Top 10 reyting</h1>
                   {
-                     topUsers.map((e, i) => <div className='mt-3'>
-                        <div className="d-flex justify-content-between">
+                     topUsers.map((e, i) => <div className='mt-3' key={i}>
+                        <div className="d-flex justify-content-between" key={i}>
                            <div>
                               <p className='m-0' style={{ "fontSize": "14px", "lineHeight": "28px", "fontWeight": "500" }}>
                                  {i + 1 > 3 ? i + 1 : <img src={e.image} alt="" />}   {e.name}
@@ -71,7 +73,7 @@ export default function Reyting(props) {
                </div>
                <div className="d-flex justify-content-center align-items-center col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                   <div className='p-4'>
-                     <img className='img-fluid' src={reyting} alt="" />
+                     <LazyLoadImage effect={"blur"} className='img-fluid' src={yananima} alt="" />
                   </div>
                </div>
             </div>

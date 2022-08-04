@@ -8,8 +8,7 @@ import { VariantCardWrapper } from '../../styles'
 import Result from '../Result'
 import { Progress } from 'antd'
 import { Spin } from 'antd'
-import Reyting from '../../pages/Reyting'
-import { ClockCircleFilled } from '@ant-design/icons'
+import BirBalo from '../../pages/Reyting'
 
 export default function Testing() {
    const { id } = useParams()
@@ -50,7 +49,7 @@ export default function Testing() {
       setCheck(true)
       setTimeLeft(0)
       setDisabled(true)
-      const exactAnswer = allQ?.question.answers.filter((item) => {
+      const exactAnswer = allQ?.question?.answers?.filter((item) => {
          if (item.isTrue) {
             setRadioValue(item.id)
             return item.isTrue
@@ -58,7 +57,7 @@ export default function Testing() {
          }
          return {}
       })
-      const notTrue = allQ?.question.answers.filter((item) => {
+      const notTrue = allQ?.question?.answers?.filter((item) => {
          return !item.isTrue
       })
       // if (exactAnswer[0].isTrue) {
@@ -154,12 +153,12 @@ export default function Testing() {
                            {allQ.result.trueAnsweredQuestions >= 5 ? (
                               <>
 
-                                 <Reyting h1={"Tabriklaymiz!!!"} p={"O’z kelajagingizni tanlagan sohangiz bilan bog’lash uchun sizda yetarli bilimlar mavjud "} />
+                                 <BirBalo h1={"Tabriklaymiz!!!"} p={"O’z kelajagingizni tanlagan sohangiz bilan bog’lash uchun sizda yetarli bilimlar mavjud "} />
                               </>
 
                            ) : (
                               <>
-                                 <Reyting h1={
+                                 <BirBalo h1={
                                     "Sizdagi bilimlar qoniqarli emas"
                                  } p={
                                     "Siz boshqa kasbda qobiliyatli ekanligingizga ishonamiz!"

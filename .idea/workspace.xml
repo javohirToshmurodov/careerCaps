@@ -4,8 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9421eb4-6ba4-479f-8238-792eceae990d" name="Changes" comment="2">
-      <change beforePath="$PROJECT_DIR$/src/utils/constans.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constans.js" afterDir="false" />
+    <list default="true" id="b9421eb4-6ba4-479f-8238-792eceae990d" name="Changes" comment="cleaning">
+      <change afterPath="$PROJECT_DIR$/src/components/ProgressCard/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdvantagesCard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdvantagesCard/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CardMaker/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardMaker/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ForYou/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ForYou/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/JobsContact/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/JobsContact/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/QuizDetails/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/QuizDetails/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/QuizDetails/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/QuizDetails/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/JobsCatalog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/JobsCatalog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -38,7 +49,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/components/CardWrapper/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/pages/Arxitektor/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/pages/Admin/QuizDetails/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/pages/Admin/RoutesComponent/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
@@ -63,7 +73,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -78,6 +88,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/images" />
       <recent name="$PROJECT_DIR$/src/pages" />
     </key>
   </component>
@@ -128,10 +139,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
-        <item itemvalue="npm.test" />
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.eject" />
+        <item itemvalue="npm.test" />
         <item itemvalue="Node.js.jobs.js" />
       </list>
     </recent_temporary>
@@ -162,7 +173,9 @@
       <workItem from="1658720551456" duration="4147000" />
       <workItem from="1658736735548" duration="16138000" />
       <workItem from="1658824820753" duration="5691000" />
-      <workItem from="1658858583678" duration="1847000" />
+      <workItem from="1658858583678" duration="25136000" />
+      <workItem from="1658985415931" duration="1844000" />
+      <workItem from="1659599528105" duration="9614000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <created>1658389917492</created>
@@ -227,7 +240,35 @@
       <option name="project" value="LOCAL" />
       <updated>1658859944468</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="2">
+      <created>1658860439662</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1658860439662</updated>
+    </task>
+    <task id="LOCAL-00011" summary="2">
+      <created>1658866906435</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1658866906435</updated>
+    </task>
+    <task id="LOCAL-00012" summary="3">
+      <created>1658928010606</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1658928010606</updated>
+    </task>
+    <task id="LOCAL-00013" summary="cleaning">
+      <created>1659599560355</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1659599560355</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +288,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
     <MESSAGE value="2" />
-    <option name="LAST_COMMIT_MESSAGE" value="2" />
+    <MESSAGE value="3" />
+    <MESSAGE value="cleaning" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaning" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

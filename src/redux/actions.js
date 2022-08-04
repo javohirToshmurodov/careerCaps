@@ -34,7 +34,7 @@ export const instance = axios.create({
   Authorization: `Bearer ${accessToken}`,
   baseURL: BASE_URL,
   accept: '*/*',
-  'Content-Type': 'application/json',
+  'Content-Type': 'application/javascript',
   'Access-Control-Allow-Origin': '*'
 
 })

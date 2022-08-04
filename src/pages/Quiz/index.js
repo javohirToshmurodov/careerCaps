@@ -117,7 +117,7 @@ export default function Quiz() {
           <Spin spinning={searchLoader}>
               <div className='row'>
                   {kasblar.length === 0
-                      ? "Bunaqa kasb yo'q"
+                      ? "Kasblar topilmadi!"
                       : kasblar.map((item, i) => (
                           <QuizJobCard
                               select={select}

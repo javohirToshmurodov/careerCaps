@@ -7,16 +7,16 @@ export default function ForYou(props) {
     <div className="row bg-white ">
       <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 position-relative minHeightLayerForYou">
         <div
-          className="w-100 h-100 d-flex justify-content-center align-items-center text-center p-5 imgLayerForYou"
+          className="w-100 h-100 d-flex justify-content-center align-items-center imgLayerBackground text-center img-fluid position-relative"
           style={{
             background: `url(${props.backgroundImage})`,
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat"
           }}
         >
-          <div className="">
-            <h1 className="defaultH1 mx-4 text-white">{props.title}</h1>
-          </div>
+            <div className="imgLayerForYou">
+                <h1 className="defaultH1 mx-4  text-white">{props.title}</h1>
+            </div>
         </div>
       </div>
       <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 bg-white col-12 minHeightLayerForYou">

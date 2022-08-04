@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react";
 import { OutlineBtn } from "../../styles";
 import MainImg from "../../assets/images/m.svg";
 import CardMaker from "../../components/CardMaker";
-import first from "../../assets/images/1.png";
-import second from "../../assets/images/2.png";
-import third from "../../assets/images/3.png";
-import fourth from "../../assets/images/4.png";
-import networks from "../../assets/images/networks.png";
-import position from "../../assets/images/positionPic.png";
+import first from "../../assets/images/1.svg";
+import second from "../../assets/images/2.svg";
+import third from "../../assets/images/3.svg";
+import fourth from "../../assets/images/4.svg";
+import networks from "../../assets/images/networks.svg";
+import position from "../../assets/images/positionPic.svg";
 import Footer from "../../components/Footer";
 import { instance } from "../../redux/actions";
 import { useNavigate } from "react-router-dom";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function Home() {
     const navigate = useNavigate()
@@ -35,11 +37,11 @@ export default function Home() {
                         <div className="col-lg-6 col-md-6  col-xl-g col-sm-12 col-12 mainHome">
                             <h1 className="title">CareerCaps</h1>
                             <p className="subtitle">Kelajak kasbingizni biz bilan tanlang</p>
-                            <OutlineBtn className="mt-4 outBtn" onClick={() => navigate("quiz")}>Test</OutlineBtn>
+                            <OutlineBtn className="mt-4 outBtn" onClick={() => navigate("/quiz")}>Test</OutlineBtn>
                         </div>
                         <div
                             className="col-lg-6 col-md-6 d-flex justify-content-center align-items-center flex-column col-xl-g col-sm-12   col-12">
-                            <img className="img-fluid mt-4" src={MainImg} alt="" />
+                            <LazyLoadImage className="img-fluid mt-4" src={MainImg} effect={"blur"}/>
                         </div>
                     </div>
                 </div>

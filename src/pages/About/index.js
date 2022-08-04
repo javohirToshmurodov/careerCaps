@@ -1,8 +1,8 @@
 import React from "react";
 import { AboutPageWrapper } from "../../styles";
 import bg from "../../assets/images/backgroundAbout.svg";
-import position from "../../assets/images/positionPic.png";
-import networks from "../../assets/images/networks.png";
+import position from "../../assets/images/positionPic.svg";
+import networks from "../../assets/images/networks.svg";
 import Footer from "../../components/Footer";
 export default function About() {
   return (

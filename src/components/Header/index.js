@@ -5,6 +5,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/logoCareer.svg";
 import './main.css'
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 export default function Header() {
     const navigate = useNavigate();
     const setActive = ({ isActive }) => (isActive ? "active-link" : "");
@@ -22,7 +25,7 @@ export default function Header() {
 
     return (<nav className="navbar navbar-expand-lg  DefaultBg">
         <div className="container py-3  px-5">
-            <img onClick={() => navigate("/")} src={Logo} alt="" />
+            <LazyLoadImage effect={"blur"} onClick={() => navigate("/")} src={Logo} alt="" />
             <button
                 id={"birbalo"}
                 className="navbar-toggler"
