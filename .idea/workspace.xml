@@ -4,19 +4,134 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9421eb4-6ba4-479f-8238-792eceae990d" name="Changes" comment="2">
-      <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.firebaserc" beforeDir="false" />
+    <list default="true" id="b9421eb4-6ba4-479f-8238-792eceae990d" name="Changes" comment="3">
+      <change afterPath="$PROJECT_DIR$/src/assets/images/1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/4.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/networks.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/positionPic.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebase.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Testing/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Testing/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebasе.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/DynomicJob/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DynomicJob/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/Brand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/academy.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/arxitektor/detallar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/arxitektor/discover.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/arxitektor/muammolar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/arxitektor/rivojlanish.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/arxitektor/sayohat.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/arxitektor/skillshare.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/arxitektor/xavfsizlik.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/arxitektorr.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/clock.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/dastur_yangilash.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/dastur_yaratish.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/dasturchi2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/dasturchi3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/dasturchiLayer.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/dasturchii.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/filter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/jobsCatalog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/kompyuterda.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/layerDasturchi.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/line.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/main.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/masofaviy.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/matematik.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/maydon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muammolar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/3dmodel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/chizmachilik.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/forlayerMuhandis.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/layerMuhandis.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/logoBlack.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/masofaviy.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/model.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/muhandisLayer.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/muhandisss.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/optimallashtirish.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/rivojlanish.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/simulatsiya.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/skillbox.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/skilline.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/texnologiya.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/yangiliklar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandis/zamonaviy.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/muhandiss.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/networks.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/one.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/positionPic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/amaliyyordam.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/biznes.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/empatiya.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/free.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/ijobiytest.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/layerPsixolog.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/psixolog1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/psixolog2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/psixolog3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/psixologLayer.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/pychology.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/ruhiyyordam.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/shaxslararo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/tanishlar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/tanqidiy.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/timetable.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/treninglar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixolog/tutorial.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/psixologg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/jobsCatalog.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/rivojlanish.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/three.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/two.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/udemy.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/up.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/cursera.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/davolash.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/ecornel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/emlash.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/konikma.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/layerVeterinar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/muloqot.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/olimxavf.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/shaxsiy.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/talab.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/tekshiruvlar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/texnologiya.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/veterinar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/veterinar1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/veterinar2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/veterinar3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/veterinarLayer.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinar/xavfsizlik.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/veterinarr.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/w3schools.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/xatolik_tuzatish.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/xavfsizlik.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CardMaker/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardMaker/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CardMini/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardMini/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FrequentlyQuestions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FrequentlyQuestions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/QuizJobCard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QuizJobCard/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TestOutlineBtn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TestOutlineBtn/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WatchClock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WatchClock/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/About/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/About/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Arxitektor/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Contact/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Contact/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Dasturchi/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/JobsCatalog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/JobsCatalog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Muhandis/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Psixolog/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Quiz/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Quiz/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Reyting/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Reyting/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Statistics/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Statistics/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Veterinar/index.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +164,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/components/CardWrapper/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/pages/Arxitektor/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/pages/Admin/QuizDetails/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/pages/Admin/RoutesComponent/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
@@ -74,7 +188,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -89,6 +203,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/images" />
       <recent name="$PROJECT_DIR$/src/pages" />
     </key>
   </component>
@@ -173,7 +288,8 @@
       <workItem from="1658720551456" duration="4147000" />
       <workItem from="1658736735548" duration="16138000" />
       <workItem from="1658824820753" duration="5691000" />
-      <workItem from="1658858583678" duration="16666000" />
+      <workItem from="1658858583678" duration="25136000" />
+      <workItem from="1658985415931" duration="1844000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <created>1658389917492</created>
@@ -252,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658866906435</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="3">
+      <created>1658928010606</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1658928010606</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +395,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
     <MESSAGE value="2" />
-    <option name="LAST_COMMIT_MESSAGE" value="2" />
+    <MESSAGE value="3" />
+    <option name="LAST_COMMIT_MESSAGE" value="3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

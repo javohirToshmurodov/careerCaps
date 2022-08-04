@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import { images } from '../../assets/images'
 import yananima from "../../assets/images/reyting.svg"
 import { instance } from '../../redux/actions'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 export default function BirBalo(props) {
    const { One, Two, Three } = images
    const navigate = useNavigate()
@@ -71,7 +73,7 @@ export default function BirBalo(props) {
                </div>
                <div className="d-flex justify-content-center align-items-center col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                   <div className='p-4'>
-                     <img className='img-fluid' src={yananima} alt="" />
+                     <LazyLoadImage effect={"blur"} className='img-fluid' src={yananima} alt="" />
                   </div>
                </div>
             </div>

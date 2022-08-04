@@ -7,11 +7,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Header from "./components/Header";
-import Psixolog from "./pages/Psixolog";
-import Arxitektor from "./pages/Arxitektor";
-import Muhandis from "./pages/Muhandis";
-import Veterinar from "./pages/Veterinar";
-import Dasturchi from "./pages/Dasturchi";
 import DynomicJob from "./pages/DynomicJob";
 import Admin from "./pages/Admin";
 import SignUp from "./pages/SignUp";
@@ -31,11 +26,6 @@ export default function App() {
         <Route path="*" element={<Navigate to={"/"} replace />} />
         <Route path="/" element={<Home />} />
         <Route path="jobsCatalog" element={<JobsCatalog />} />
-        <Route path="psixolog" element={<Psixolog />} />
-        <Route path="arxitektor" element={<Arxitektor />} />
-        <Route path="muhandis" element={<Muhandis />} />
-        <Route path="veterinar" element={<Veterinar />} />
-        <Route path="dasturchi" element={<Dasturchi />} />
         <Route path="testing/:id" element={<Testing />} />
         <Route path="reyting" element={<BirBalo />} />
         <Route path="quiz" element={<Quiz />} />

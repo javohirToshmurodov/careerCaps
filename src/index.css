@@ -138,15 +138,6 @@ ul {
     transition: all 0.3s;
 }
 
-/* .accordion-button::after{
-  border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
-  background: url(./assets/images/up.svg) !important;
-  background-color: #000; 
-  background-position: center !important;
-  background-size: 40px;
-} */
 .accordion-button {
     font-weight: 600 !important;
     font-size: 20px !important;

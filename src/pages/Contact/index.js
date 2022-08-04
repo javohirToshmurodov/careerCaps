@@ -2,6 +2,8 @@ import React from "react";
 import about from "../../assets/images/contact/about.svg";
 import networks from "../../assets/images/contact/networks.svg";
 import Footer from "../../components/Footer";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 export default function Contact() {
   return (
     <>
@@ -13,7 +15,7 @@ export default function Contact() {
               <p className="subtitle">Kelajak kasbingizni biz bilan tanlang</p>
             </div>
             <div className="col-lg-6 col-md-6 col-xl-g col-sm-12   col-12">
-              <img className="img-fluid mt-4" src={about} alt="" />
+              <LazyLoadImage className="img-fluid mt-4" src={about} alt="" effect={"blur"}/>
             </div>
           </div>
         </div>

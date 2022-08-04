@@ -6,7 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useState } from "react";
-import mainPic from "../../assets/images/jobsCatalog.png";
+import mainPic from "../../assets/images/jobsCatalog.svg";
 import SearchForm from "../../components/SearchForm";
 import jobs from "../../data/jobs";
 import Footer from "../../components/Footer";
@@ -16,6 +16,9 @@ import { instance } from "../../redux/actions";
 import { BASE_URL } from "../../utils/constans";
 import { useSelector } from "react-redux";
 import { Spin } from "antd";
+
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function JobsCatalog() {
     const navigate = useNavigate();
@@ -60,7 +63,8 @@ export default function JobsCatalog() {
                         </div>
                         <div
                             className="col-lg-6 d-flex justify-content-center align-items-center flex-column col-md-6 col-xl-g col-sm-12   col-12">
-                            <img className="img-fluid mt-4" src={mainPic} alt="" />
+                            {/*<img className="img-fluid mt-4" src={mainPic} alt="" />*/}
+                            <LazyLoadImage className="img-fluid mt-4" src={mainPic} alt="" effect={"blur"}/>
                         </div>
                     </div>
                 </div>
@@ -82,7 +86,7 @@ export default function JobsCatalog() {
                                             <FontAwesomeIcon icon={faRightLong} />
                                         </Link>
                                         <div className="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
-                                            <img className={"img-fluid defaultImgWidthCatalog"} src={BASE_URL + "api/v1/file/get/" + e.attachment}
+                                            <LazyLoadImage effect={"blur"} className={"img-fluid defaultImgWidthCatalog"} src={BASE_URL + "api/v1/file/get/" + e.attachment}
                                                 alt="" />
                                         </div>
                                         <div className="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 ">

@@ -1,6 +1,8 @@
 import React from 'react'
 import { QuizJobCardWrapper } from '../../styles'
 import { BASE_URL } from "../../utils/constans";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function QuizJobCard(props) {
   return (
@@ -20,10 +22,11 @@ export default function QuizJobCard(props) {
           />
         </div>
         <div>
-          <img
+          <LazyLoadImage
             className='img-fluid'
             src={`${BASE_URL}api/v1/file/get/${props.img}`}
             alt=''
+            effect={"blur"}
           />
           <h3>{props.jobName}</h3>
         </div>
