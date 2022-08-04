@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import {instance } from '../../redux/actions'
+import { instance } from '../../redux/actions'
 import TestFooter from '../TestFooter'
 import { VariantCardWrapper } from '../../styles'
 import Result from '../Result'
@@ -34,7 +34,7 @@ export default function Testing() {
             `api/v1/platform_user/get_user_question/${id}`
          )
          setAllQ(res.data.data)
-
+         console.log(res.data.data);
          setDisabled(false)
          setLoader(false)
          setTimeLeft(15)
@@ -100,7 +100,11 @@ export default function Testing() {
    const handleSelect = (event) => {
       setR(event);
    }
-
+   useEffect(() => {
+      setTimeout(() => {
+         setAttr()
+      }, 200);
+   }, [allQ?.questionNumber])
 
    const select = (event, i) => {
       setRadioValue(i)
@@ -131,6 +135,12 @@ export default function Testing() {
 
    const watchClock = () => {
       return <ClockCircleFilled />
+   }
+
+   const setAttr = () => {
+      const bg = document.querySelector(".ant-progress-bg")
+      bg.setAttribute("data-content-bg", `${allQ?.questionNumber}`)
+      console.log(bg);
    }
    return (
       <Spin spinning={loader}>
@@ -178,7 +188,9 @@ export default function Testing() {
                <section className='py-5'>
                   <div className='container '>
                      <div className="px-2 py-1 rounded">
-                        <Progress format={() => `00:${timeLeft}`} strokeWidth={12} percent={Math.round((100 / allQ.allQuestionsCount) * count)} />
+                        <Progress gapDegree={100} trailColor='#F0F0F0' strokeColor={"black"} format={() => `00:${timeLeft}`} strokeWidth={9} percent={Math.round((100 / allQ.allQuestionsCount) * count)} >
+                           {/* <div className="ant-progress-bg" data-question-content={allQ?.questionNumber}></div> */}
+                        </Progress>
                      </div>
                      <div className="d-flex">
                         <div>
