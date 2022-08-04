@@ -9,7 +9,7 @@ import Result from '../Result'
 import { Progress } from 'antd'
 import { Spin } from 'antd'
 import BirBalo from '../../pages/Reyting'
-
+import { ClockCircleFilled } from '@ant-design/icons'
 export default function Testing() {
    const { id } = useParams()
    const [disabled, setDisabled] = useState(false)
