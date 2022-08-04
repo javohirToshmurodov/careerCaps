@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Line from "../../assets/images/line.png";
-import Filter from "../../assets/images/filter.png";
 import jobs from "../../data/jobs";
 import { useEffect } from "react";
 import { Button } from "antd";

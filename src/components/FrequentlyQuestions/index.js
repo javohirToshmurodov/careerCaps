@@ -1,5 +1,4 @@
 import React from "react";
-import up from "../../assets/images/up.svg";
 import juggling from "../../assets/images/juggling.svg";
 export default function FrequentlyQuestions(props) {
   return (

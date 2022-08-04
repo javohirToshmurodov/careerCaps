@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 body {
     margin: 0;
     font-family: "Montserrat", sans-serif !important;
@@ -42,7 +44,7 @@ code {
 }
 .imgLayerBackground{
     background-repeat: no-repeat !important;
-    background-position: center;
+    background-position: center!important;
     background-size: cover !important;
 }
 .imgLayerForYou{
@@ -138,15 +140,6 @@ ul {
     transition: all 0.3s;
 }
 
-/* .accordion-button::after{
-  border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
-  background: url(./assets/images/up.svg) !important;
-  background-color: #000; 
-  background-position: center !important;
-  background-size: 40px;
-} */
 .accordion-button {
     font-weight: 600 !important;
     font-size: 20px !important;
@@ -327,7 +320,30 @@ ul {
 .salaryH1 {
     font-size: 35px !important;
     line-height: 43px;
-    font-weight: 500 !important;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.progress__own{
+    position: relative;
+    margin: 4px;
+    float:left;
+    text-align: center;
+}
+.barOverflow__own{ /* Wraps the rotating .bar */
+    position: relative;
+    overflow: hidden; /* Comment this line to understand the trick */
+    width: 90px; height: 45px; /* Half circle (overflow) */
+    margin-bottom: -14px; /* bring the numbers up */
+}
+.bar__own{
+    position: absolute;
+    top: 0; left: 0;
+    width: 90px; height: 90px; /* full circle! */
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 5px solid #eee;     /* half gray, */
+    border-bottom-color: #0bf;  /* half azure */
+    border-right-color: #0bf;
 }
 
 .colorH1 {
@@ -482,15 +498,16 @@ ul {
 .onlineButton {
     background: linear-gradient(89.92deg, #3000d6 0.07%, #3dd0f0 99.93%);
     border-radius: 88px;
-    padding: 8px 18px;
+    padding: 5px 24px;
+    padding-right: 55px;
     border: none;
     color: white;
 }
 
 .offlineButton {
-    border: 1px solid #000000;
+    border: 2px solid #000000;
     border-radius: 88px;
-    padding: 8px 18px;
+    padding: 5px 26px;
     background: none;
     transition: 0.3s;
 }

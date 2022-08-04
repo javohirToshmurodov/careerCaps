@@ -1,6 +1,5 @@
 import { ClockCircleOutlined } from '@ant-design/icons'
 import React from 'react'
-import watch from "../../assets/images/clock.mp4"
 export default function WatchClock() {
    return (
       <>
