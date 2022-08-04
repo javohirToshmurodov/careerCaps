@@ -93,8 +93,19 @@ export default function JobsCatalog() {
                                             <h1 className="defaultH1">{e.name}</h1>
                                             <p className="mt-4 defaultP">Masofadan ishlash</p>
                                             <div className="d-flex gap-5  jobsButton">
-                                                <button className="onlineButton">
-                                                    Online <FontAwesomeIcon icon={faCheckCircle} />{" "}
+                                                <button
+                                                    style={{
+                                                        position:"relative"
+                                                    }}
+                                                    className="onlineButton">
+                                                    <span>Online</span>
+                                                 <FontAwesomeIcon
+                                                     style={{
+                                                         position: "absolute",
+                                                         right: "16px",
+                                                         top: "11px",
+                                                     }}
+                                                     icon={faCheckCircle} />
                                                 </button>
                                                 <button className="offlineButton">Offline</button>
                                             </div>
