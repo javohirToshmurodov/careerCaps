@@ -7,10 +7,10 @@ export default function ProgressCard(props) {
     <div className="col-xl-4 col-lg-4 col-md-4 col-col-sm-6 col-12 ">
       <ProgressCardWrapper className="pt-3">
         <div className="d-flex gap-2">
-          <Progress format={() => ''} strokeWidth={13} strokeLinecap="butt" type="dashboard" percent={props.soni} />
+          <Progress trailColor="#f1f1f1" format={() => ''} strokeWidth={13} strokeLinecap="butt" type="dashboard" percent={props.soni} />
         </div>
-        <div className="text-center">
-          <p className="m-0">{props.title}</p>
+        <div className="text-center position-absolute top-50 my-4">
+          <p className="mb-2">{props.title}</p>
           <h3 style={{ "fontWeight": "700" }}>{props.soni} ta</h3>
         </div>
       </ProgressCardWrapper>
