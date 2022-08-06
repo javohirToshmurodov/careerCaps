@@ -91,7 +91,8 @@ export default function QuizDetails() {
             id: uuid(),
             question: "5*5 ==?",
             answer: "67"
-        }]
+        }],
+        faqAttachment: "04d58435-8913-4b4d-ba0b-8113376ad6ba"
     });
     const [job, setJob] = useState(false);
     const [attachments, setAttachments] = useState({});
@@ -284,6 +285,7 @@ export default function QuizDetails() {
 
         })
     }
+
 
 
     const saveSuccessSidesAttachment = (file, name, id) => {
@@ -1030,7 +1032,32 @@ export default function QuizDetails() {
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-                            <img className="img-fluid" src={juggling} alt=""/>
+
+
+                            <input hidden id={"faqAttachment"} type="file"
+                                   onChange={(e) => previewImage(e, "faq" + "Attachment")}/>
+                            <label htmlFor={"faqAttachment"}>
+                                <ImgEditor className={"p-0"}>
+
+                                    <img
+                                        style={{opacity: loadings["faq" + "AttachmentLoading"] ? '.2' : '1'}}
+                                        className={"img-fluid"}
+                                        src={attachments["faq" + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments["faq" + "AttachmentFromServer"] : attachments["faq" + "Attachment"] ? attachments["faq"+ "Attachment"] : state.faqAttachment ? BASE_URL + "api/v1/file/get/" + state.faqAttachment : juggling}
+                                        alt=""/>
+
+                                    {loadings["faq" + "AttachmentLoading"] ?
+                                        <div className={"iconLoadingWrapper"}>
+                                            <div className={"icon_loading"}>
+                                                <Spin indicator={antIcon}/>
+                                            </div>
+                                        </div> : ""}
+                                    {attachments["faq" + "AttachmentFromServer"] ? "" : attachments["faq" + "Attachment"] ?
+                                        <Button
+                                            onClick={() => saveAttachment(attachments["faq" + "AttachmentFile"], "faq" + "Attachment")}
+                                            className={"ant-btn-block d-block mt-2"}>Upload</Button> : ""}
+                                </ImgEditor>
+                            </label>
+
                         </div>
                     </div>
 

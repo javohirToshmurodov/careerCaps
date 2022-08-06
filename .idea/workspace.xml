@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9421eb4-6ba4-479f-8238-792eceae990d" name="Changes" comment="cleaning">
-      <change afterPath="$PROJECT_DIR$/src/components/ProgressCard/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdvantagesCard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdvantagesCard/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardMaker/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardMaker/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ForYou/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ForYou/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/JobsContact/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/JobsContact/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Admin/QuizDetails/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/QuizDetails/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/QuizDetails/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/QuizDetails/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/JobsCatalog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/JobsCatalog/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/DynomicJob/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DynomicJob/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

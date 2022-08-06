@@ -206,7 +206,7 @@ export default function Dasturchi() {
                             className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12"
 
                         >
-                            <img className="img-fluid" src={juggling} alt="" />
+                            <img className="img-fluid" src={BASE_URL + "api/v1/file/get/"+job.faqAttachment} alt="" />
                         </div>
                     </div>
                 </div>
