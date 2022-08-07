@@ -247,6 +247,7 @@ export const MainCardWrapper = styled.div`
   }
 `;
 export const ProgressCardWrapper = styled.div`
+overflow: hidden;
   background: #ffffff;
   box-shadow: 0px 2px 2px rgba(190, 190, 190, 0.25);
   border-radius: 10px;

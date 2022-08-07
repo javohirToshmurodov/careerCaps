@@ -79,15 +79,13 @@ export default function Statistics() {
         <div className="container px-5">
           <h1 className="colorH1">Testlar statistikasi</h1>
           <div className="row mt-4">
-            <ProgressCard img2={""} img={jamii} title={"Jami"} soni={statistics.allTests} />
+            <ProgressCard img={jamii} title={"Jami"} soni={statistics.allTests} />
             <ProgressCard
-              img2={thirty}
               img={erkaklar}
               title={"Muvaffaqiyatli"}
               soni={statistics.successTests}
             />
             <ProgressCard
-              img2={seventy}
               img={ayollar}
               title={"Muvaffaqiyatsiz"}
               soni={statistics.failedCount}
