@@ -7,7 +7,11 @@ export default function ProgressCard(props) {
     <div className="col-xl-4 col-lg-4 col-md-6 col-col-sm-6 col-12 ">
       <ProgressCardWrapper className="pt-3">
         <div className="d-flex gap-2">
-          <Progress gapDegree={140} trailColor="#f1f1f1" format={() => ''} strokeWidth={11} type="dashboard" percent={props.soni} />
+          <Progress strokeColor={{
+            // "direction": "89.92deg",
+            "0.07%": "#3000D6",
+            "99.93%": "#3DD0F0"
+          }} strokeLinecap="round" gapPosition="bottom" gapDegree={140} trailColor="#f1f1f1" format={() => ''} strokeWidth={9} type="dashboard" percent={props.soni} />
         </div>
         <div className="text-center position-absolute top-50 my-4">
           <p className="mb-2">{props.title}</p>
