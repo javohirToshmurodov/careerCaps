@@ -136,16 +136,15 @@ top: 0;
 right: 0;
 }
 .ant-progress-circle{
-    width: 270px;
+    width: 230px;
     margin-bottom: 40px !important;
 }
 .ant-progress-circle .ant-progress-circle-path{
-    transform: rotate(180deg) !important;
-    stroke-dasharray: 137, 273.319 !important;
+    /* transform: rotate(180deg) !important; */
+    /* stroke-dasharray: 137, 273.319 !important; */
 }
 .ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path{
     stroke:  #5930ee !important;
-    /* border-radius: 20.1368px;; */
 }
 
 .navbar-toggler:focus {
