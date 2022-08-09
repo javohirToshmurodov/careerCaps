@@ -23,7 +23,7 @@ import {EditText, EditTextarea} from 'react-edit-text';
 import 'react-edit-text/dist/index.css';
 import './main.css';
 import Footer from "../../../components/Footer";
-import {Button, Input, Modal, Spin} from "antd";
+import {Avatar, Button, Checkbox, Input, Modal, Spin} from "antd";
 import {instance} from "../../../redux/actions";
 import {BASE_URL} from "../../../utils/constans";
 import {DeleteOutlined, LoadingOutlined} from '@ant-design/icons';
@@ -40,30 +40,93 @@ export default function QuizDetails() {
 
     const {quiz_id} = useParams();
 
+    //production version
+
+    // const [state, setState] = useState({
+    //     name: "Enter a job name",
+    //     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae deleniti facere facilis aaaa",
+    //     attachment: "1659478f-496e-45e7-962e-ca7a5c2592a9",
+    //     yearlySalary: "",
+    //     taskTitle: "Arxitektor nima vazifani bajaradi?",
+    //     tasks: [{
+    //         id: uuid(),
+    //         attachment: "bb2af52d-6bbb-442a-bb4c-a29eab54773e",
+    //         title: "Bino qurilishini nazorati",
+    //         description: "Binoni loihaga binoan qurilayotganini nazorat ostiga oladi"
+    //     }],
+    //     wantTobeTitle: "Arxitektor bo'lish uchun nimalarga e'tibor qaratish kerak?",
+    //     wantTobes: [{
+    //         id: uuid(),
+    //         attachment: "bb2af52d-6bbb-442a-bb4c-a29eab54773e",
+    //         title: "Chizmachilik Mahorati",
+    //         description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi."
+    //     }],
+    //     whereCanStudyTitle: "Arxitektorlikni qayerdan o'rgansa bo'ladi aaaa",
+    //     whereCanStudyAttachment: "2e98a27f-875d-474a-94d2-56ddc124b9bc",
+    //     sourcesToLearn: [{
+    //         id: uuid(),
+    //         attachment: "fe250b58-c79a-4546-80b4-c7611b82ccd5",
+    //         title: "edx",
+    //         description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi.",
+    //         link: ""
+    //     }],
+    //     successSidesTitle: "Arxitektor kasbining yaxshi tomonlari qanday?",
+    //     successSides: [{
+    //         id: uuid(),
+    //         attachment: "27c241b5-9df5-4f69-a3a6-1c972ca1d22e",
+    //         title: "INNOVATSIYA VA IJOD",
+    //         description: "Arxitektor turar-joyning uyini, ofis minorasi yoki jamoat kutubxonasini yaratadimi, u yangiliklarga sabab bo'ladi. Ushbu soha o'z-o'zini innovatsiyalarga yo'naltiradi, chunki hech bir loyiha bir xil emas."
+    //     }],
+    //     successPersonsTitle: "Top arxitektorlar",
+    //     jobMatchingAttachment: "09ac8594-e80f-4389-b18b-723f226671b9",
+    //     jobMatchingTitle: "Arxitektor sohasi siz uchunmi?",
+    //     successPeople: [{
+    //         id: uuid(),
+    //         attachment: "e071466a-a2dd-4b34-b647-ed704fb1c7a6",
+    //         name: "Axrorxo'ja Yodgorov",
+    //         description: "EPAM Systems kompaniyasi, Senior Software Engineer",
+    //         telegram: "",
+    //         linkedIn: "",
+    //         instagram: "",
+    //         telegramAttachment: "e071466a-a2dd-4b34-b647-ed704fb1c7a6",
+    //         linkedInAttachment: "e071466a-a2dd-4b34-b647-ed704fb1c7a6",
+    //         instagramAttachment: "e071466a-a2dd-4b34-b647-ed704fb1c7a6"
+    //     }],
+    //     faqs: [{
+    //         id: uuid(),
+    //         question: "5*5 ==?",
+    //         answer: "67"
+    //     }],
+    //     faqAttachment: "04d58435-8913-4b4d-ba0b-8113376ad6ba",
+    //     online : false
+    // });
+
+    //production end
+
     const [state, setState] = useState({
         name: "Enter a job name",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae deleniti facere facilis aaaa",
-        attachment: "1659478f-496e-45e7-962e-ca7a5c2592a9",
+        attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
         yearlySalary: "",
         taskTitle: "Arxitektor nima vazifani bajaradi?",
         tasks: [{
             id: uuid(),
-            attachment: "bb2af52d-6bbb-442a-bb4c-a29eab54773e",
+            attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
             title: "Bino qurilishini nazorati",
             description: "Binoni loihaga binoan qurilayotganini nazorat ostiga oladi"
         }],
         wantTobeTitle: "Arxitektor bo'lish uchun nimalarga e'tibor qaratish kerak?",
         wantTobes: [{
             id: uuid(),
-            attachment: "bb2af52d-6bbb-442a-bb4c-a29eab54773e",
+            attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
             title: "Chizmachilik Mahorati",
             description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi."
         }],
         whereCanStudyTitle: "Arxitektorlikni qayerdan o'rgansa bo'ladi aaaa",
-        whereCanStudyAttachment: "2e98a27f-875d-474a-94d2-56ddc124b9bc",
+        whereCanStudyAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
         sourcesToLearn: [{
             id: uuid(),
-            attachment: "fe250b58-c79a-4546-80b4-c7611b82ccd5",
+            attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
             title: "edx",
             description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi.",
             link: ""
@@ -71,28 +134,32 @@ export default function QuizDetails() {
         successSidesTitle: "Arxitektor kasbining yaxshi tomonlari qanday?",
         successSides: [{
             id: uuid(),
-            attachment: "27c241b5-9df5-4f69-a3a6-1c972ca1d22e",
+            attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
             title: "INNOVATSIYA VA IJOD",
             description: "Arxitektor turar-joyning uyini, ofis minorasi yoki jamoat kutubxonasini yaratadimi, u yangiliklarga sabab bo'ladi. Ushbu soha o'z-o'zini innovatsiyalarga yo'naltiradi, chunki hech bir loyiha bir xil emas."
         }],
         successPersonsTitle: "Top arxitektorlar",
-        jobMatchingAttachment: "09ac8594-e80f-4389-b18b-723f226671b9",
+        jobMatchingAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
         jobMatchingTitle: "Arxitektor sohasi siz uchunmi?",
         successPeople: [{
             id: uuid(),
-            attachment: "e071466a-a2dd-4b34-b647-ed704fb1c7a6",
+            attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
             name: "Axrorxo'ja Yodgorov",
             description: "EPAM Systems kompaniyasi, Senior Software Engineer",
             telegram: "",
             linkedIn: "",
-            instagram: ""
+            instagram: "",
+            telegramAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+            linkedInAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+            instagramAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a"
         }],
         faqs: [{
             id: uuid(),
             question: "5*5 ==?",
             answer: "67"
         }],
-        faqAttachment: "04d58435-8913-4b4d-ba0b-8113376ad6ba"
+        faqAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+        online: false
     });
     const [job, setJob] = useState(false);
     const [attachments, setAttachments] = useState({});
@@ -106,9 +173,10 @@ export default function QuizDetails() {
         setLoading(true)
         instance.get("api/v1/quiz/" + quiz_id).then(function (res) {
             if (res.data.success) {
+                //bu yerda umumiy tushuncha sifatida shuni aytamanki: backendda null qimatli har qanday ma'lumot kelsa state dagi default ma'lumot bilan alishtirib qo'yiladi
                 Object.keys(res.data.data).map((fieldName) => {
                     if (res.data.data[fieldName] != null) {
-                        if (typeof res.data.data[fieldName] == "string") {
+                        if (typeof res.data.data[fieldName] == "string" || typeof res.data.data[fieldName] == "boolean") {
                             if (res.data.data[fieldName]) {
                                 let updatedState = state;
                                 state[fieldName] = res.data.data[fieldName]
@@ -117,7 +185,14 @@ export default function QuizDetails() {
                             }
                         } else if (typeof res.data.data[fieldName] == "object") {
                             if (res.data.data[fieldName].length != 0) {
-                                console.log(fieldName, res.data.data[fieldName], typeof res.data.data[fieldName])
+                                res.data.data[fieldName].map((item,index)=>{
+                                   Object.keys(item).map(objectField =>{
+                                       console.log(res.data.data[fieldName][index][objectField])
+                                       if (res.data.data[fieldName][index][objectField] == null){
+                                           res.data.data[fieldName][index][objectField] = state[fieldName][0][objectField]
+                                       }
+                                   })
+                                })
                                 let updatedState = state;
                                 state[fieldName] = res.data.data[fieldName]
                                 setState(updatedState)
@@ -259,6 +334,7 @@ export default function QuizDetails() {
 
 
     const saveSuccessPersonAttachment = (file, name, id) => {
+        alert.show(name)
         setLoadings({...loadings, [name + "Loading"]: true})
         let formData = new FormData()
         formData.append("files", file)
@@ -276,7 +352,7 @@ export default function QuizDetails() {
 
             for (let i in successPeople) {
                 if (successPeople[i].id == id) {
-                    successPeople[i].attachment = res.data?.data[0];
+                    successPeople[i][name.substr(36)] = res.data?.data[0];
                     break;
                 }
                 setState({...state, successPeople})
@@ -285,7 +361,6 @@ export default function QuizDetails() {
 
         })
     }
-
 
 
     const saveSuccessSidesAttachment = (file, name, id) => {
@@ -719,7 +794,10 @@ export default function QuizDetails() {
                                             <ImgEditor>
 
                                                 <img
-                                                    style={{opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1'}}
+                                                    style={{
+                                                        opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1',
+                                                        width: "135px"
+                                                    }}
                                                     className="img-fluid"
                                                     src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? BASE_URL + "api/v1/file/get/" + item.attachment : edx}
                                                     alt=""/>
@@ -952,22 +1030,124 @@ export default function QuizDetails() {
                                             </p>
                                             <EditText name={"telegram"} defaultValue={item.telegram}
                                                       onSave={(e) => editListItem(e, item, "successPeople")}
-                                                      placeholder={"telegram"}/>
+                                                      placeholder={"1"}/>
                                             <EditText name={"linkedIn"} defaultValue={item.linkedIn}
                                                       onSave={(e) => editListItem(e, item, "successPeople")}
-                                                      placeholder={"linkedIn"}/>
+                                                      placeholder={"2"}/>
                                             <EditText name={"instagram"} defaultValue={item.instagram}
                                                       onSave={(e) => editListItem(e, item, "successPeople")}
-                                                      placeholder={"instagram"}/>
+                                                      placeholder={"3"}/>
                                             <div className="d-flex justify-content-center gap-3">
                                                 <div className="circleIcon">
-                                                    <FontAwesomeIcon icon={faTelegram}/>
+                                                    <input type="file"
+                                                           id={item.id + "telegram"}
+                                                           hidden
+                                                           onChange={(e) => previewImage(e, item.id + "telegram" + "Attachment")}/>
+                                                    <label htmlFor={item.id + "telegram"}>
+                                                        <ImgEditor className={"p-0"}
+                                                        >
+
+                                                            <img
+                                                                // size={"large"}
+                                                                style={{
+                                                                    opacity: loadings[item.id + "telegram" + "AttachmentLoading"] ? '.2' : '1',
+                                                                    width: "40px",
+                                                                    height: "40px",
+                                                                    stroke: "white",
+                                                                    borderRadius: "50%",
+                                                                    background: "white",
+                                                                }}
+                                                                className={"img-fluid link-img-wrapper"}
+                                                                src={attachments[item.id + "telegram" + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "telegram" + "AttachmentFromServer"] : attachments[item.id + "telegram" + "Attachment"] ? attachments[item.id + "telegram" + "Attachment"] : item.telegramAttachment ? BASE_URL + "api/v1/file/get/" + item.telegramAttachment : dasturchi1}
+                                                                alt={"hc nima"}
+                                                            />
+
+                                                            {loadings[item.id + "telegram" + "AttachmentLoading"] ?
+                                                                <div className={"iconLoadingWrapper"}>
+                                                                    <div className={"icon_loading"}>
+                                                                        <Spin indicator={antIcon}/>
+                                                                    </div>
+                                                                </div> : ""}
+                                                            {attachments[item.id + "telegram" + "AttachmentFromServer"] ? "" : attachments[item.id + "telegram" + "Attachment"] ?
+                                                                <Button
+                                                                    onClick={() => saveSuccessPersonAttachment(attachments[item.id + "telegram" + "AttachmentFile"], item.id + "telegram" + "Attachment", item.id)}
+                                                                    className={"ant-btn-block d-block mt-2"}>Upload</Button> : ""}
+                                                        </ImgEditor>
+                                                    </label>
                                                 </div>
                                                 <div className="circleIcon">
-                                                    <FontAwesomeIcon icon={faLinkedin}/>
+                                                    <input type="file"
+                                                           id={item.id + "linkedIn"}
+                                                           hidden
+                                                           onChange={(e) => previewImage(e, item.id + "linkedIn" + "Attachment")}/>
+                                                    <label htmlFor={item.id + "linkedIn"}>
+                                                        <ImgEditor className={"p-0"}
+                                                        >
+
+                                                            <img
+                                                                // size={"large"}
+                                                                style={{
+                                                                    opacity: loadings[item.id + "linkedIn" + "AttachmentLoading"] ? '.2' : '1',
+                                                                    width: "40px",
+                                                                    height: "40px",
+                                                                    stroke: "white",
+                                                                    borderRadius: "50%",
+                                                                    background: "white",
+                                                                }}
+                                                                className={"img-fluid link-img-wrapper"}
+                                                                src={attachments[item.id + "linkedIn" + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "linkedIn" + "AttachmentFromServer"] : attachments[item.id + "linkedIn" + "Attachment"] ? attachments[item.id + "linkedIn" + "Attachment"] : item.linkedInAttachment ? BASE_URL + "api/v1/file/get/" + item.linkedInAttachment : dasturchi1}
+                                                                alt={"hc nima"}
+                                                            />
+
+                                                            {loadings[item.id + "linkedIn" + "AttachmentLoading"] ?
+                                                                <div className={"iconLoadingWrapper"}>
+                                                                    <div className={"icon_loading"}>
+                                                                        <Spin indicator={antIcon}/>
+                                                                    </div>
+                                                                </div> : ""}
+                                                            {attachments[item.id + "linkedIn" + "AttachmentFromServer"] ? "" : attachments[item.id + "linkedIn" + "Attachment"] ?
+                                                                <Button
+                                                                    onClick={() => saveSuccessPersonAttachment(attachments[item.id + "linkedIn" + "AttachmentFile"], item.id + "linkedIn" + "Attachment", item.id)}
+                                                                    className={"ant-btn-block d-block mt-2"}>Upload</Button> : ""}
+                                                        </ImgEditor>
+                                                    </label>
                                                 </div>
                                                 <div className="circleIcon">
-                                                    <FontAwesomeIcon icon={faInstagram}/>
+                                                    <input type="file"
+                                                           id={item.id + "instagram"}
+                                                           hidden
+                                                           onChange={(e) => previewImage(e, item.id + "instagram" + "Attachment")}/>
+                                                    <label htmlFor={item.id + "instagram"}>
+                                                        <ImgEditor className={"p-0"}
+                                                        >
+
+                                                            <img
+                                                                // size={"large"}
+                                                                style={{
+                                                                    opacity: loadings[item.id + "instagram" + "AttachmentLoading"] ? '.2' : '1',
+                                                                    width: "40px",
+                                                                    height: "40px",
+                                                                    stroke: "white",
+                                                                    borderRadius: "50%",
+                                                                    background: "white",
+                                                                }}
+                                                                className={"img-fluid link-img-wrapper"}
+                                                                src={attachments[item.id + "instagram" + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "instagram" + "AttachmentFromServer"] : attachments[item.id + "instagram" + "Attachment"] ? attachments[item.id + "instagram" + "Attachment"] : item.instagramAttachment ? BASE_URL + "api/v1/file/get/" + item.instagramAttachment : dasturchi1}
+                                                                alt={"hc nima"}
+                                                            />
+
+                                                            {loadings[item.id + "instagram" + "AttachmentLoading"] ?
+                                                                <div className={"iconLoadingWrapper"}>
+                                                                    <div className={"icon_loading"}>
+                                                                        <Spin indicator={antIcon}/>
+                                                                    </div>
+                                                                </div> : ""}
+                                                            {attachments[item.id + "instagram" + "AttachmentFromServer"] ? "" : attachments[item.id + "instagram" + "Attachment"] ?
+                                                                <Button
+                                                                    onClick={() => saveSuccessPersonAttachment(attachments[item.id + "instagram" + "AttachmentFile"], item.id + "instagram" + "Attachment", item.id)}
+                                                                    className={"ant-btn-block d-block mt-2"}>Upload</Button> : ""}
+                                                        </ImgEditor>
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
@@ -1042,7 +1222,7 @@ export default function QuizDetails() {
                                     <img
                                         style={{opacity: loadings["faq" + "AttachmentLoading"] ? '.2' : '1'}}
                                         className={"img-fluid"}
-                                        src={attachments["faq" + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments["faq" + "AttachmentFromServer"] : attachments["faq" + "Attachment"] ? attachments["faq"+ "Attachment"] : state.faqAttachment ? BASE_URL + "api/v1/file/get/" + state.faqAttachment : juggling}
+                                        src={attachments["faq" + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments["faq" + "AttachmentFromServer"] : attachments["faq" + "Attachment"] ? attachments["faq" + "Attachment"] : state.faqAttachment ? BASE_URL + "api/v1/file/get/" + state.faqAttachment : juggling}
                                         alt=""/>
 
                                     {loadings["faq" + "AttachmentLoading"] ?
@@ -1075,6 +1255,14 @@ export default function QuizDetails() {
                            onChange={(e) => collectJobData({name: "yearlySalary", value: e.target.value})}
                            defaultValue={state.yearlySalary && state.yearlySalary}
                            placeholder="masalan -> 112.000$ - 130.000$" required/>
+
+
+                    <Checkbox
+                        className={"mt-3"}
+                        checked={state.online ? state.online : false}
+                        id={"inputofonline"}
+                        onChange={(e) => collectJobData({name: "online", value: e.target.checked})}
+                    >{state.name} kasbining online imkoniyatlari mavjudmi</Checkbox>
                 </Modal>
             </>
 

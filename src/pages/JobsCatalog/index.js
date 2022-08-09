@@ -3,21 +3,21 @@ import {
     faCheckCircle,
     faRightLong,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import React from "react";
-import { useState } from "react";
+import {useState} from "react";
 import mainPic from "../../assets/images/jobsCatalog.svg";
 import SearchForm from "../../components/SearchForm";
 import jobs from "../../data/jobs";
 import Footer from "../../components/Footer";
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { instance } from "../../redux/actions";
-import { BASE_URL } from "../../utils/constans";
-import { useSelector } from "react-redux";
-import { Spin } from "antd";
+import {Link, useNavigate} from "react-router-dom";
+import {useEffect} from "react";
+import {instance} from "../../redux/actions";
+import {BASE_URL} from "../../utils/constans";
+import {useSelector} from "react-redux";
+import {Spin} from "antd";
 
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function JobsCatalog() {
@@ -71,7 +71,7 @@ export default function JobsCatalog() {
             </div>
             <section>
                 <div className="container px-5 py-5">
-                    <SearchForm searchJob={(e) => setSearch(e)} searchData={searchJob} />
+                    <SearchForm searchJob={(e) => setSearch(e)} searchData={searchJob}/>
                     <Spin spinning={searchLoader}>
                         <div className="row px-3">
                             <div className="col-12 ">
@@ -81,33 +81,78 @@ export default function JobsCatalog() {
                                         key={e.id}
                                     >
                                         <Link to={"/job/" + e.id}
-                                            className="goJob"
+                                              className="goJob"
                                         >
-                                            <FontAwesomeIcon icon={faRightLong} />
+                                            <FontAwesomeIcon icon={faRightLong}/>
                                         </Link>
                                         <div className="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
-                                            <LazyLoadImage effect={"blur"} className={"img-fluid defaultImgWidthCatalog"} src={BASE_URL + "api/v1/file/get/" + e.attachment}
-                                                alt="" />
+                                            <LazyLoadImage effect={"blur"}
+                                                           className={"img-fluid defaultImgWidthCatalog"}
+                                                           src={BASE_URL + "api/v1/file/get/" + e.attachment}
+                                                           alt=""/>
                                         </div>
                                         <div className="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
                                             <h1 className="defaultH1">{e.name}</h1>
                                             <p className="mt-4 defaultP">Masofadan ishlash</p>
                                             <div className="d-flex gap-5  jobsButton">
-                                                <button
-                                                    style={{
-                                                        position:"relative"
-                                                    }}
-                                                    className="onlineButton">
-                                                    <span>Online</span>
-                                                 <FontAwesomeIcon
-                                                     style={{
-                                                         position: "absolute",
-                                                         right: "16px",
-                                                         top: "11px",
-                                                     }}
-                                                     icon={faCheckCircle} />
-                                                </button>
-                                                <button className="offlineButton">Offline</button>
+
+                                                {
+                                                    e.online ?
+                                                        <button
+                                                            style={{
+                                                                position: "relative"
+                                                            }}
+                                                            className="onlineButton">
+                                                            <span>Online</span>
+                                                            <FontAwesomeIcon
+                                                                style={{
+                                                                    position: "absolute",
+                                                                    right: "16px",
+                                                                    top: "11px",
+                                                                }}
+                                                                icon={faCheckCircle}/>
+                                                        </button> :
+
+                                                        <button className="offlineButton">Online</button>
+
+                                                }
+
+                                                {
+                                                    !e.online ?
+                                                        <button
+                                                            style={{
+                                                                position: "relative"
+                                                            }}
+                                                            className="onlineButton">
+                                                            <span>Offline</span>
+                                                            <FontAwesomeIcon
+                                                                style={{
+                                                                    position: "absolute",
+                                                                    right: "16px",
+                                                                    top: "11px",
+                                                                }}
+                                                                icon={faCheckCircle}/>
+                                                        </button> :
+
+                                                        <button className="offlineButton">Offline</button>
+
+                                                }
+
+                                                {/*<button*/}
+                                                {/*    style={{*/}
+                                                {/*        position:"relative"*/}
+                                                {/*    }}*/}
+                                                {/*    className="onlineButton">*/}
+                                                {/*    <span>Online</span>*/}
+                                                {/* <FontAwesomeIcon*/}
+                                                {/*     style={{*/}
+                                                {/*         position: "absolute",*/}
+                                                {/*         right: "16px",*/}
+                                                {/*         top: "11px",*/}
+                                                {/*     }}*/}
+                                                {/*     icon={faCheckCircle} />*/}
+                                                {/*</button>*/}
+                                                {/*<button className="offlineButton">Offline</button>*/}
                                             </div>
                                         </div>
                                         <div
@@ -123,7 +168,7 @@ export default function JobsCatalog() {
                 </div>
             </section>
 
-            <Footer />
+            <Footer/>
         </>
     );
 }

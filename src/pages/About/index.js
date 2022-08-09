@@ -19,11 +19,7 @@ export default function About() {
           <h1 className="aboutH1">Loyiha haqida </h1>
           <div className="maxWidthPAbuot">
             <p>
-              CareerCaps platformasi - har bir foydalanuvchi uchun mo'ljallangan
-              platforma. Bu platforma orqali foydalanuvchi turli kasblar haqida
-              ma'lumotlarga ega bo'lishi, ulardan foydalanishi, test sinovlari
-              orqali o'z tanlagan kasbi o'zi uchun qanchalik mos kelishi haqida
-              bilib olishi mumkin
+                Sayt -  foydalanuvchiga zamonaviy, talab yuqori bo'lgan kasblarning katalogini taqdim etadi. Har bir kasb haqida batafsil va faktlarga asoslangan ma'lumotlar berilgan. Foydalanuvchi saytdan o'zi istagan kasb haqida ma'lumot olishi, test sinovlarini ishlab ko'rishi va statistika bilan tanishishi mumkin
             </p>
           </div>
         </AboutPageWrapper>

@@ -15,7 +15,7 @@ import juggling from "../../assets/images/juggling.svg";
 
 export default function Dasturchi() {
 
-    const { job_id } = useParams();
+    const {job_id} = useParams();
     const [job, setJob] = useState({})
 
     useEffect(() => {
@@ -39,7 +39,8 @@ export default function Dasturchi() {
                             <OutlineBtn className="mt-4 outBtn" href="#linkTo">Batafsil</OutlineBtn>
                         </div>
                         <div className="col-lg-6 col-md-6 col-xl-g col-sm-12 d-flex ps-5 col-12">
-                            <img src={BASE_URL + "api/v1/file/get/" + job.attachment} className="img-fluid mt-5" alt="" />
+                            <img src={BASE_URL + "api/v1/file/get/" + job.attachment} className="img-fluid mt-5"
+                                 alt=""/>
                         </div>
                     </div>
                 </div>
@@ -50,7 +51,7 @@ export default function Dasturchi() {
                 </div>
             </section>
             <section>
-                <div className="w-100" >
+                <div className="w-100">
                     <div className="row">
                         {job.tasks?.map(item => {
                             return (
@@ -105,7 +106,7 @@ export default function Dasturchi() {
                                     key={item.id}
                                     className="d-flex col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 soya textCenter">
                                     <ManbalarWrapper>
-                                        <img src={BASE_URL + "api/v1/file/get/" + item.attachment} alt="" />
+                                        <img className={"img-fluid"} style={{width:"135px"}} src={BASE_URL + "api/v1/file/get/" + item.attachment} alt=""/>
                                         <h1 className="defaultH1 my-4">{item.title}</h1>
                                         <p className="defaultP">{item.description}</p>
                                         <BlackOutlineBtn className="blackBtnPosition">
@@ -151,7 +152,10 @@ export default function Dasturchi() {
             </section>
             <section className="py-5">
                 <div className="container px-5">
-                    <h1 className="bigH1">{job.successPersonsTitle}</h1>
+                    {
+                        job.successPeople && job.successPeople.length != 0 ?
+                            <h1 className="bigH1">{job.successPersonsTitle}</h1> : ''
+                    }
                     <div className="row mt-4 justify-content-center">
                         {job.successPeople?.map(item => {
                             return (
@@ -162,17 +166,27 @@ export default function Dasturchi() {
                                     telegram={item.telegram}
                                     linkedIn={item.linkedIn}
                                     instagram={item.instagram}
+                                    telegramAttachment={item.telegramAttachment}
+                                    linkedInAttachment={item.linkedInAttachment}
+                                    instagramAttachment={item.instagramAttachment}
                                 />
                             )
                         })}
                     </div>
+                    
+
+
                 </div>
             </section>
             <section className="py-5">
                 <div className="container px-5">
                     <div className="row">
                         <div className="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
-                            <h1 className="mb-4 bigH1">Tez-tez so'raladigan savollarga javoblar</h1>
+                            {
+                                job.faqs && job.faqs.length !== 0 ?
+                                    <h1 className="mb-4 bigH1">Tez-tez so'raladigan savollarga javoblar</h1> : ''
+                            }
+
                             <div className="accordion" id="accordionExample">
                                 {job.faqs?.map(item => {
                                     return (
@@ -206,12 +220,12 @@ export default function Dasturchi() {
                             className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12"
 
                         >
-                            <img className="img-fluid" src={BASE_URL + "api/v1/file/get/"+job.faqAttachment} alt="" />
+                            <img className="img-fluid" src={BASE_URL + "api/v1/file/get/" + job.faqAttachment} alt=""/>
                         </div>
                     </div>
                 </div>
             </section>
-            <Footer />
+            <Footer/>
         </>
     );
 }

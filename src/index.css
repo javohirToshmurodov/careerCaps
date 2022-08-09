@@ -39,7 +39,7 @@ code {
 .defaultImgWidthCatalog{
     min-height: 206px;
     max-height: 206px;
-    min-width: 274px;
+    min-width: 250px;
     object-fit: contain;
 }
 .imgLayerBackground{
@@ -109,7 +109,7 @@ ul {
     width: 43px;
     height: 24px;
     background: #000000;
-    border-radius: 100px;    
+    border-radius: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -285,6 +285,15 @@ right: 0;
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
+}
+
+.job_img__3{
+    width: 180px;
+    border-radius: 50%;
+    height: 180px;
+    object-fit: cover;
+    padding: 6px;
+    background: white;
 }
 
 /* home page */
