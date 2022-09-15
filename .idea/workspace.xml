@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9421eb4-6ba4-479f-8238-792eceae990d" name="Changes" comment="cleaning">
+    <list default="true" id="b9421eb4-6ba4-479f-8238-792eceae990d" name="Changes" comment="2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/QuizJobCard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QuizJobCard/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/About/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/About/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Admin/QuizDetails/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/QuizDetails/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Contact/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Contact/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/DynomicJob/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DynomicJob/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/JobsCatalog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/JobsCatalog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Quiz/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Quiz/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/constans.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constans.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +47,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/components/CardWrapper/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/node_modules/antd/lib/progress/index.d.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/pages/Admin/QuizDetails/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/pages/Admin/RoutesComponent/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
@@ -47,6 +55,8 @@
     <setting file="file://$PROJECT_DIR$/src/index.css" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/styles/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/utils/constans.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/node_modules/antd/lib/progress/progress.d.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/node_modules/antd/lib/progress/style/index.css" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -76,6 +86,9 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -130,8 +143,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.build" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.eject" />
         <item itemvalue="npm.test" />
         <item itemvalue="Node.js.jobs.js" />
@@ -167,6 +180,7 @@
       <workItem from="1658858583678" duration="25136000" />
       <workItem from="1658985415931" duration="1844000" />
       <workItem from="1659599528105" duration="9614000" />
+      <workItem from="1663135558965" duration="15394000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <created>1658389917492</created>
@@ -259,7 +273,21 @@
       <option name="project" value="LOCAL" />
       <updated>1659599560355</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="2">
+      <created>1659791700247</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1659791700247</updated>
+    </task>
+    <task id="LOCAL-00015" summary="2">
+      <created>1659856643381</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1659856643381</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,10 +306,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
-    <MESSAGE value="2" />
     <MESSAGE value="3" />
     <MESSAGE value="cleaning" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaning" />
+    <MESSAGE value="2" />
+    <option name="LAST_COMMIT_MESSAGE" value="2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

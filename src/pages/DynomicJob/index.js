@@ -15,7 +15,7 @@ import juggling from "../../assets/images/juggling.svg";
 
 export default function Dasturchi() {
 
-    const { job_id } = useParams();
+    const {job_id} = useParams();
     const [job, setJob] = useState({})
 
     useEffect(() => {
@@ -38,33 +38,41 @@ export default function Dasturchi() {
                             </p>
                             <OutlineBtn className="mt-4 outBtn" href="#linkTo">Batafsil</OutlineBtn>
                         </div>
-                        <div className="col-lg-6 col-md-6 col-xl-g col-sm-12 d-flex ps-5 col-12">
-                            <img src={BASE_URL + "api/v1/file/get/" + job.attachment} className="img-fluid mt-5" alt="" />
+                        <div className="col-lg-6 col-md-6 col-xl-g col-sm-12 d-flex ps-5 col-12"
+                             style={{height:"408px"}}
+                        >
+                            <img src={BASE_URL + "api/v1/file/get/" + job.attachment} className="img-fluid mt-5"
+                                 alt=""/>
                         </div>
                     </div>
                 </div>
             </div>
-            <section>
-                <div className="container py-5 px-5" id="linkTo">
-                    <h1 className="bigH1">{job.taskTitle}</h1>
-                </div>
-            </section>
-            <section>
-                <div className="w-100" >
-                    <div className="row">
-                        {job.tasks?.map(item => {
-                            return (
-                                <CardMaker
-                                    key={item.id}
-                                    img={BASE_URL + "api/v1/file/get/" + item.attachment}
-                                    title={item.title}
-                                    description={item.description}
-                                />
-                            )
-                        })}
+            {job.tasks && job.tasks.length == 0 ? "" :
+                <section>
+                    <div className="container py-5 px-5" id="linkTo">
+                        <h1 className="bigH1">{job.taskTitle}</h1>
                     </div>
-                </div>
-            </section>
+                </section>
+            }
+            {job.tasks && job.tasks.length == 0 ? "" :
+                <section>
+                    <div className="w-100">
+                        <div className="row">
+                            {job.tasks?.map(item => {
+                                return (
+                                    <CardMaker
+                                        key={item.id}
+                                        img={BASE_URL + "api/v1/file/get/" + item.attachment}
+                                        title={item.title}
+                                        description={item.description}
+                                    />
+                                )
+                            })}
+                        </div>
+                    </div>
+                </section>
+            }
+            {job.wantTobes && job.wantTobes.length == 0 ? "" :
             <section>
                 <div className="container py-5 px-4">
                     <h1 className="bigH1 my-5">
@@ -85,12 +93,15 @@ export default function Dasturchi() {
                     </div>
                 </div>
             </section>
-            <section className="py-5">
+            }
+
+            {job.whereCanStudyTitle && <section className="py-5">
                 <JobLayer
                     layer={BASE_URL + "api/v1/file/get/" + job.whereCanStudyAttachment}
                     title={job.whereCanStudyTitle}
                 />
-            </section>
+            </section> }
+            {job.sourcesToLearn && job.sourcesToLearn.length == 0 ? "" :
             <section className="py-5">
                 <div className="container-fluid ">
                     <div className="row">
@@ -105,7 +116,9 @@ export default function Dasturchi() {
                                     key={item.id}
                                     className="d-flex col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 soya textCenter">
                                     <ManbalarWrapper>
-                                        <img src={BASE_URL + "api/v1/file/get/" + item.attachment} alt="" />
+                                        <div style={{width:"120px"}}>
+                                            <img className={"img-fluid"} src={BASE_URL + "api/v1/file/get/" + item.attachment} alt=""/>
+                                        </div>
                                         <h1 className="defaultH1 my-4">{item.title}</h1>
                                         <p className="defaultP">{item.description}</p>
                                         <BlackOutlineBtn className="blackBtnPosition">
@@ -120,59 +133,80 @@ export default function Dasturchi() {
                     </div>
                 </div>
             </section>
-            <section className="py-5">
-                <div className="container px-5">
-                    <h1 className="bigH1">
-                        {job.successSidesTitle}
-                    </h1>
-                    <div className="row ">
-                        {job.successSides?.map(item => {
-                            return (
-                                <AdvantagesCard
-                                    key={item.id}
-                                    img={BASE_URL + "api/v1/file/get/" + item.attachment}
-                                    title={item.title}
-                                    description={item.description}
-                                />
-                            )
-                        })}
+            }
+            {job.successSides && job.successSides.length == 0 ? "" :
+                <section className="py-5">
+                    <div className="container px-5">
+                        <h1 className="bigH1">
+                            {job.successSidesTitle}
+                        </h1>
+                        <div className="row ">
+                            {job.successSides?.map(item => {
+                                return (
+                                    <AdvantagesCard
+                                        key={item.id}
+                                        img={BASE_URL + "api/v1/file/get/" + item.attachment}
+                                        title={item.title}
+                                        description={item.description}
+                                    />
+                                )
+                            })}
+                        </div>
                     </div>
-                </div>
-            </section>
-            <section className="py-5">
-                <ForYou
-                    title={"Tanlagan kasbingiz siz uchun qanchalik to'g'ri keladi?"}
-                    backgroundImage={BASE_URL + "api/v1/file/get/" + job.jobMatchingAttachment}
-                    subtitle={job.jobMatchingTitle}
-                    description={
-                        "Kasbga layoqatlilik testi - 7 ta test savolidan iborat bo'lib, siz tanlagan kasb o'zingiz uchun ruhiy, jisomoniy taraflama to'g'ri yoki noto'g'ri ekanligini aniqlashda yordam beradi."
-                    }
-                />
-            </section>
-            <section className="py-5">
-                <div className="container px-5">
-                    <h1 className="bigH1">{job.successPersonsTitle}</h1>
-                    <div className="row mt-4 justify-content-center">
-                        {job.successPeople?.map(item => {
-                            return (
-                                <JobsContact
-                                    img={BASE_URL + "api/v1/file/get/" + item.attachment}
-                                    name={item.name}
-                                    title={item.description}
-                                    telegram={item.telegram}
-                                    linkedIn={item.linkedIn}
-                                    instagram={item.instagram}
-                                />
-                            )
-                        })}
+                </section>
+            }
+            {job.jobMatchingTitle &&
+                <section className="py-5">
+                    <ForYou
+                        title={"Tanlagan kasbingiz siz uchun qanchalik to'g'ri keladi?"}
+                        backgroundImage={BASE_URL + "api/v1/file/get/" + job.jobMatchingAttachment}
+                        subtitle={job.jobMatchingTitle}
+                        description={
+                            "Kasbga layoqatlilik testi - 7 ta test savolidan iborat bo'lib, siz tanlagan kasb o'zingiz uchun ruhiy, jisomoniy taraflama to'g'ri yoki noto'g'ri ekanligini aniqlashda yordam beradi."
+                        }
+                    />
+                </section>
+            }
+            {job.successPeople && job.successPeople.length != 0 ?
+                <section className="py-5">
+                    <div className="container px-5">
+                        {
+                            job.successPeople && job.successPeople.length != 0 ?
+                                <h1 className="bigH1">{job.successPersonsTitle}</h1> : ''
+                        }
+                        <div className="row mt-4 justify-content-center">
+                            {job.successPeople?.map(item => {
+                                return (
+                                    <JobsContact
+                                        img={BASE_URL + "api/v1/file/get/" + item.attachment}
+                                        name={item.name}
+                                        title={item.description}
+                                        telegram={item.telegram}
+                                        linkedIn={item.linkedIn}
+                                        instagram={item.instagram}
+                                        telegramAttachment={item.telegramAttachment}
+                                        linkedInAttachment={item.linkedInAttachment}
+                                        instagramAttachment={item.instagramAttachment}
+                                    />
+                                )
+                            })}
+                        </div>
+
+
+
                     </div>
-                </div>
-            </section>
-            <section className="py-5">
+                </section> : ''
+            }
+            {job.faqs && job.faqs.length != 0 ?
+                <section className="py-5">
                 <div className="container px-5">
                     <div className="row">
                         <div className="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
-                            <h1 className="mb-4 bigH1">Tez-tez so'raladigan savollarga javoblar</h1>
+                            {
+                                job.faqs && job.faqs.length !== 0 ?
+                                    <h1 className="mb-4 bigH1">Tez-tez so'raladigan savollarga javoblar</h1> : ''
+                            }
+
                             <div className="accordion" id="accordionExample">
                                 {job.faqs?.map(item => {
                                     return (
@@ -206,12 +240,12 @@ export default function Dasturchi() {
                             className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12"
 
                         >
-                            <img className="img-fluid" src={BASE_URL + "api/v1/file/get/"+job.faqAttachment} alt="" />
+                            <img className="img-fluid" src={BASE_URL + "api/v1/file/get/" + job.faqAttachment} alt=""/>
                         </div>
                     </div>
                 </div>
-            </section>
-            <Footer />
+            </section> : ''}
+            <Footer/>
         </>
     );
 }

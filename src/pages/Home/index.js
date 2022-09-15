@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { OutlineBtn } from "../../styles";
+import React, {useEffect, useState} from "react";
+import {OutlineBtn} from "../../styles";
 import MainImg from "../../assets/images/m.svg";
 import CardMaker from "../../components/CardMaker";
 import first from "../../assets/images/1.svg";
@@ -7,27 +7,36 @@ import second from "../../assets/images/2.svg";
 import third from "../../assets/images/3.svg";
 import fourth from "../../assets/images/4.svg";
 import networks from "../../assets/images/networks.svg";
+import telegram from "../../assets/images/Telegram.svg";
+import gmail from "../../assets/images/gmail.svg";
 import position from "../../assets/images/positionPic.svg";
 import Footer from "../../components/Footer";
-import { instance } from "../../redux/actions";
-import { useNavigate } from "react-router-dom";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import {instance} from "../../redux/actions";
+import {useNavigate} from "react-router-dom";
+import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import {publicIpv4} from 'public-ip';
 
 export default function Home() {
     const navigate = useNavigate()
     const [data, setData] = useState({
         job: 10,
-        test: 70,
-        info: 90
+        distinctGuestUsers: 70,
+        info: 90,
+        tests: 12
     })
 
     useEffect(() => {
         instance.get("api/v1/statistics/home").then(function (res) {
-            setData({ job: res.data.data.job, test: res.data.data.test, info: res.data.data.job * 8 })
+            setData({tests: res.data.data.tests,job: res.data.data.job, distinctGuestUsers: res.data.data.distinctGuestUsers, info: res.data.data.job * 8})
         })
+        increaseViewCount()
     }, [])
 
+
+    async function increaseViewCount() {
+        await instance.post("/api/v1/statistics/increase?ip=" + await publicIpv4())
+    }
 
     return (
         <>
@@ -40,8 +49,10 @@ export default function Home() {
                             <OutlineBtn className="mt-4 outBtn" onClick={() => navigate("/quiz")}>Test</OutlineBtn>
                         </div>
                         <div
-                            className="col-lg-6 col-md-6 d-flex justify-content-center align-items-center flex-column col-xl-g col-sm-12   col-12">
-                            <LazyLoadImage className="img-fluid mt-4" src={MainImg} effect={"blur"}/>
+                            className="col-lg-6 col-md-6 d-flex justify-content-center align-items-center flex-column col-xl-g col-sm-12   col-12"
+                            style={{height:"408px"}}
+                        >
+                            <LazyLoadImage style={{maxHeight:"408px"}} className="img-fluid mt-4" src={MainImg} effect={"blur"}/>
                         </div>
                     </div>
                 </div>
@@ -53,28 +64,28 @@ export default function Home() {
                             img={first}
                             title={data?.job + "+ Kasblar"}
                             description={
-                                "Zamon talabiga javob beruvchi, yaqin yillar orasida ommalashgan va zamonaviy kasblar haqida ma'lumot."
+                                "Yaqin yillar ichida ommalashgan  va kelajakda talab yuqori bo'lishi kutilayotgan kasblar jamlanmasi"
                             }
                         />
                         <CardMaker
                             img={second}
                             title={data?.info + "+ ma'lumotlar"}
                             description={
-                                "Kasblar haqidagi foydali ma'lumot , maqola va faktlar jamlanmasi"
+                                "Har bir kasb haqida batafsil va faktlarga asoslangan ma'lumotlar"
                             }
                         />
                         <CardMaker
                             img={third}
-                            title={data?.test + "+ foydalanuvchilar "}
+                            title={data?.distinctGuestUsers + "+ foydalanuvchilar "}
                             description={
-                                "Hozirgi kunga qadar saytga tashrif buyurganlar soni"
+                                "CareerCaps saytiga tashrif buyurgan foydalanuvchilar soni"
                             }
                         />
                         <CardMaker
                             img={fourth}
-                            title={"Test sinovlari"}
+                            title={data?.tests + "+ test sinovlari"}
                             description={
-                                "Foydalanuvchining qaysi kasbga layoqatli ekanligini aniqlashtirish uchun maxsus test sinovlari"
+                                "Har bir kasb uchun 5-7 savoldan iborat test sinovlari"
                             }
                         />
                     </div>
@@ -84,21 +95,26 @@ export default function Home() {
                 <div className="container text-white text-center px-5">
                     <h1 className="defaultH1 text-white ">CareerCaps</h1>
                     <p className="mt-3">
-                        Saytda zamonaviy kasblarga alohida e'tibor berilgan bo'lib, siz bu
-                        saytda ko'rgan istalgan kasbingiz kelajak kasbi ekanligiga biz
-                        taqdim etgan ma'lumotlar orqali bilib olishingiz va o'z
-                        kelajagingizni shu kasb bilan davom ettirishingiz mumkin!
+                        Sayt -  foydalanuvchiga zamonaviy, talab yuqori bo'lgan kasblarning katalogini taqdim etadi. Har bir kasb haqida batafsil va faktlarga asoslangan ma'lumotlar berilgan. Foydalanuvchi saytdan o'zi istagan kasb haqida ma'lumot olishi, test sinovlarini ishlab ko'rishi va statistika bilan tanishishi mumkin
                     </p>
-                    <OutlineBtn className="mt-4 outBtn" onClick={() => navigate("jobsCatalog")}>Kasblar Katalogi</OutlineBtn>
+                    <OutlineBtn className="mt-4 outBtn" onClick={() => navigate("jobsCatalog")}>Kasblar
+                        Katalogi</OutlineBtn>
                 </div>
             </section>
             <section className="networksSection">
                 <div
                     className="container px-5 py-5 d-flex justify-content-center align-items-center flex-column text-center">
                     <div>
-                        <img src={networks} alt="networks" />
+                        <a href="https://t.me/Career_Caps" target={"_blank"}>
+                            <img className={"mx-2"} src={telegram} alt="networks"/>
+                        </a>
+                        <a
+                            target={"_blank"}
+                            href="https://mail.google.com/mail/?view=cm&fs=1&to=careercapscom@gmail.com&su=Assalomu alaykum">
+                            <img className={"mx-2"} src={gmail} alt="networks"/>
+                        </a>
                         <h1 className="defaultH1 mt-4 mb-3">Admin bilan aloqa</h1>
-                        <p className="fw-400">(+998 90) 977-19-60</p>
+                        {/*<p className="fw-400">(+998 90) 977-19-60</p>*/}
                     </div>
                     <img
                         src={position}
@@ -107,7 +123,7 @@ export default function Home() {
                     />
                 </div>
             </section>
-            <Footer />
+            <Footer/>
         </>
     );
 }

@@ -170,11 +170,9 @@ export const JobsContactWrapper = styled.div`
   text-align: center;
   .circleImage {
     border-radius: 50%;
-    border: 3px solid #3dd0f0;
-    /* width: 220px; */
-    padding: 10px;
-    /* height: 220px; */
-    /* border-image-source: linear-gradient(180deg, #3000d6 0%, #3dd0f0 100%); */
+    background: linear-gradient(90deg,rgba(48,0,214,1) 0%,rgba(61,208,240,1) 100%);
+    padding: 3px;
+  }
   }
 
   .circleIcon {
@@ -247,28 +245,15 @@ export const MainCardWrapper = styled.div`
   }
 `;
 export const ProgressCardWrapper = styled.div`
-overflow: hidden;
   background: #ffffff;
   box-shadow: 0px 2px 2px rgba(190, 190, 190, 0.25);
   border-radius: 10px;
   min-height: 208px;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
-  flex-direction: column;
   margin-top: 20px;
-  .positionTitle {
-    position: absolute;
-    text-align: center;
-    top: 60%;
-    left: 43%;
-    p {
-      margin: 0;
-    }
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 export const QuizformWrapper = styled.div`
   p {

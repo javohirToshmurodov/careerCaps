@@ -125,6 +125,7 @@ export default function Quiz() {
                               setIsChecked={setIsChecked}
                               checkRadio={checkRadio}
                               key={i}
+                              yearlySalary={item.yearlySalary}
                               id={item.id}
                               img={item.attachment}
                               jobName={item.name}

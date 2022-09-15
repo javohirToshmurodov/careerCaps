@@ -79,15 +79,33 @@ export default function Statistics() {
         <div className="container px-5">
           <h1 className="colorH1">Testlar statistikasi</h1>
           <div className="row mt-4">
-            <ProgressCard img={jamii} title={"Jami"} soni={statistics.allTests} />
             <ProgressCard
+                img={jamii}
+                title={"Jami"}
+                color={{
+                  // "direction": "89.92deg",
+                  "0.07%": "#3000D6",
+                  "99.93%": "#3DD0F0"
+                }}
+                soni={statistics.allTests}
+                percent={statistics.allTests / (statistics.allTests / 100)}
+            />
+            <ProgressCard
+                color={"#3DD0F0"}
               img={erkaklar}
               title={"Muvaffaqiyatli"}
+              percent={statistics.successTests / (statistics.allTests / 100)}
               soni={statistics.successTests}
             />
             <ProgressCard
+                color={{
+                  // "direction": "89.92deg",
+                  "0.07%": "#3000D6",
+                  "99.93%": "#3DD0F0"
+                }}
               img={ayollar}
               title={"Muvaffaqiyatsiz"}
+              percent={statistics.failedCount / (statistics.allTests / 100)}
               soni={statistics.failedCount}
             />
           </div>
