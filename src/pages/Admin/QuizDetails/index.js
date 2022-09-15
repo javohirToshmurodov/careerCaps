@@ -42,91 +42,32 @@ export default function QuizDetails() {
 
     //production version
 
-    // const [state, setState] = useState({
-    //     name: "Enter a job name",
-    //     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae deleniti facere facilis aaaa",
-    //     attachment: "1659478f-496e-45e7-962e-ca7a5c2592a9",
-    //     yearlySalary: "",
-    //     taskTitle: "Arxitektor nima vazifani bajaradi?",
-    //     tasks: [{
-    //         id: uuid(),
-    //         attachment: "bb2af52d-6bbb-442a-bb4c-a29eab54773e",
-    //         title: "Bino qurilishini nazorati",
-    //         description: "Binoni loihaga binoan qurilayotganini nazorat ostiga oladi"
-    //     }],
-    //     wantTobeTitle: "Arxitektor bo'lish uchun nimalarga e'tibor qaratish kerak?",
-    //     wantTobes: [{
-    //         id: uuid(),
-    //         attachment: "bb2af52d-6bbb-442a-bb4c-a29eab54773e",
-    //         title: "Chizmachilik Mahorati",
-    //         description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi."
-    //     }],
-    //     whereCanStudyTitle: "Arxitektorlikni qayerdan o'rgansa bo'ladi aaaa",
-    //     whereCanStudyAttachment: "2e98a27f-875d-474a-94d2-56ddc124b9bc",
-    //     sourcesToLearn: [{
-    //         id: uuid(),
-    //         attachment: "fe250b58-c79a-4546-80b4-c7611b82ccd5",
-    //         title: "edx",
-    //         description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi.",
-    //         link: ""
-    //     }],
-    //     successSidesTitle: "Arxitektor kasbining yaxshi tomonlari qanday?",
-    //     successSides: [{
-    //         id: uuid(),
-    //         attachment: "27c241b5-9df5-4f69-a3a6-1c972ca1d22e",
-    //         title: "INNOVATSIYA VA IJOD",
-    //         description: "Arxitektor turar-joyning uyini, ofis minorasi yoki jamoat kutubxonasini yaratadimi, u yangiliklarga sabab bo'ladi. Ushbu soha o'z-o'zini innovatsiyalarga yo'naltiradi, chunki hech bir loyiha bir xil emas."
-    //     }],
-    //     successPersonsTitle: "Top arxitektorlar",
-    //     jobMatchingAttachment: "09ac8594-e80f-4389-b18b-723f226671b9",
-    //     jobMatchingTitle: "Arxitektor sohasi siz uchunmi?",
-    //     successPeople: [{
-    //         id: uuid(),
-    //         attachment: "e071466a-a2dd-4b34-b647-ed704fb1c7a6",
-    //         name: "Axrorxo'ja Yodgorov",
-    //         description: "EPAM Systems kompaniyasi, Senior Software Engineer",
-    //         telegram: "",
-    //         linkedIn: "",
-    //         instagram: "",
-    //         telegramAttachment: "e071466a-a2dd-4b34-b647-ed704fb1c7a6",
-    //         linkedInAttachment: "e071466a-a2dd-4b34-b647-ed704fb1c7a6",
-    //         instagramAttachment: "e071466a-a2dd-4b34-b647-ed704fb1c7a6"
-    //     }],
-    //     faqs: [{
-    //         id: uuid(),
-    //         question: "5*5 ==?",
-    //         answer: "67"
-    //     }],
-    //     faqAttachment: "04d58435-8913-4b4d-ba0b-8113376ad6ba",
-    //     online : false
-    // });
-
-    //production end
-
     const [state, setState] = useState({
         name: "Enter a job name",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae deleniti facere facilis aaaa",
-        attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+        // attachment: "1659478f-496e-45e7-962e-ca7a5c2592a9",
+        attachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
         yearlySalary: "",
         taskTitle: "Arxitektor nima vazifani bajaradi?",
         tasks: [{
             id: uuid(),
-            attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+            // attachment: "bb2af52d-6bbb-442a-bb4c-a29eab54773e",
+            attachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
             title: "Bino qurilishini nazorati",
             description: "Binoni loihaga binoan qurilayotganini nazorat ostiga oladi"
         }],
         wantTobeTitle: "Arxitektor bo'lish uchun nimalarga e'tibor qaratish kerak?",
         wantTobes: [{
             id: uuid(),
-            attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+            attachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
             title: "Chizmachilik Mahorati",
             description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi."
         }],
         whereCanStudyTitle: "Arxitektorlikni qayerdan o'rgansa bo'ladi aaaa",
-        whereCanStudyAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+        whereCanStudyAttachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
         sourcesToLearn: [{
             id: uuid(),
-            attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+            attachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
             title: "edx",
             description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi.",
             link: ""
@@ -134,33 +75,94 @@ export default function QuizDetails() {
         successSidesTitle: "Arxitektor kasbining yaxshi tomonlari qanday?",
         successSides: [{
             id: uuid(),
-            attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+            attachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
             title: "INNOVATSIYA VA IJOD",
             description: "Arxitektor turar-joyning uyini, ofis minorasi yoki jamoat kutubxonasini yaratadimi, u yangiliklarga sabab bo'ladi. Ushbu soha o'z-o'zini innovatsiyalarga yo'naltiradi, chunki hech bir loyiha bir xil emas."
         }],
         successPersonsTitle: "Top arxitektorlar",
-        jobMatchingAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+        jobMatchingAttachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
         jobMatchingTitle: "Arxitektor sohasi siz uchunmi?",
         successPeople: [{
             id: uuid(),
-            attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+            attachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
             name: "Axrorxo'ja Yodgorov",
             description: "EPAM Systems kompaniyasi, Senior Software Engineer",
             telegram: "",
             linkedIn: "",
             instagram: "",
-            telegramAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
-            linkedInAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
-            instagramAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a"
+            telegramAttachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
+            linkedInAttachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
+            instagramAttachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92"
         }],
         faqs: [{
             id: uuid(),
             question: "5*5 ==?",
             answer: "67"
         }],
-        faqAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
-        online: false
+        faqAttachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
+        online : false
     });
+
+    //production end
+
+    // const [state, setState] = useState({
+    //     name: "Enter a job name",
+    //     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae deleniti facere facilis aaaa",
+    //     attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+    //     yearlySalary: "",
+    //     taskTitle: "Arxitektor nima vazifani bajaradi?",
+    //     tasks: [{
+    //         id: uuid(),
+    //         attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+    //         title: "Bino qurilishini nazorati",
+    //         description: "Binoni loihaga binoan qurilayotganini nazorat ostiga oladi"
+    //     }],
+    //     wantTobeTitle: "Arxitektor bo'lish uchun nimalarga e'tibor qaratish kerak?",
+    //     wantTobes: [{
+    //         id: uuid(),
+    //         attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+    //         title: "Chizmachilik Mahorati",
+    //         description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi."
+    //     }],
+    //     whereCanStudyTitle: "Arxitektorlikni qayerdan o'rgansa bo'ladi aaaa",
+    //     whereCanStudyAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+    //     sourcesToLearn: [{
+    //         id: uuid(),
+    //         attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+    //         title: "edx",
+    //         description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi.",
+    //         link: ""
+    //     }],
+    //     successSidesTitle: "Arxitektor kasbining yaxshi tomonlari qanday?",
+    //     successSides: [{
+    //         id: uuid(),
+    //         attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+    //         title: "INNOVATSIYA VA IJOD",
+    //         description: "Arxitektor turar-joyning uyini, ofis minorasi yoki jamoat kutubxonasini yaratadimi, u yangiliklarga sabab bo'ladi. Ushbu soha o'z-o'zini innovatsiyalarga yo'naltiradi, chunki hech bir loyiha bir xil emas."
+    //     }],
+    //     successPersonsTitle: "Top arxitektorlar",
+    //     jobMatchingAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+    //     jobMatchingTitle: "Arxitektor sohasi siz uchunmi?",
+    //     successPeople: [{
+    //         id: uuid(),
+    //         attachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+    //         name: "Axrorxo'ja Yodgorov",
+    //         description: "EPAM Systems kompaniyasi, Senior Software Engineer",
+    //         telegram: "",
+    //         linkedIn: "",
+    //         instagram: "",
+    //         telegramAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+    //         linkedInAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+    //         instagramAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a"
+    //     }],
+    //     faqs: [{
+    //         id: uuid(),
+    //         question: "5*5 ==?",
+    //         answer: "67"
+    //     }],
+    //     faqAttachment: "bdbe28f3-48b6-47cc-a793-d6ab1859cd3a",
+    //     online: false
+    // });
     const [job, setJob] = useState(false);
     const [attachments, setAttachments] = useState({});
     const [loadings, setLoadings] = useState({});
@@ -396,7 +398,7 @@ export default function QuizDetails() {
         let id = uuid();
         stateForUpdate.tasks.push({
             id,
-            attachment: "bb2af52d-6bbb-442a-bb4c-a29eab54773e",
+            attachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
             title: "Binolarni loyihalash",
             description: "Kompyuter dasturlari yordamida loyhaning dastlabki dizaynini va eskizini modellashtiradi"
         });
@@ -409,7 +411,7 @@ export default function QuizDetails() {
         let id = uuid();
         stateForUpdate.wantTobes.push({
             id,
-            attachment: "bb2af52d-6bbb-442a-bb4c-a29eab54773e",
+            attachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
             title: "Chizmachilik Mahorati",
             description: "Dizayn va chizish arxitektor qiladigan ishning asosiy qismidir. Dizayn qobiliyatlaridan foydalangan holda, arxitektor o'z mijozlari uchun amaliy, hayotiy va vizual binolarning loyihasini ishlab chiqadi."
         });
@@ -422,7 +424,7 @@ export default function QuizDetails() {
         let id = uuid();
         stateForUpdate.sourcesToLearn.push({
             id,
-            attachment: "fe250b58-c79a-4546-80b4-c7611b82ccd5",
+            attachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
             title: "edx",
             description: "Har bir inson o'z hayotida, jamiyatida yoki dunyosida o'zgarishlar yaratish imkoniyatiga ega. Ta'limning o'zgartiruvchi kuchi bu potentsialni ochadi. Shunga qaramay, yuqori sifatli ta'lim olish kam sonlilarning imtiyozi bo'lib kelgan. 2012 yilda biz o'rganishda seysmik siljish vaqti ekanligini angladik. Sinab ko'rilgan va to'g'ridan-to'g'ri etakchigacha. Ba'zilar uchun dan 'hamma uchun' ga.",
             link: ""
@@ -437,11 +439,14 @@ export default function QuizDetails() {
         stateForUpdate.successPeople.push({
             id,
             name: "Axrorxo'ja Yodgorov",
-            attachment: "e071466a-a2dd-4b34-b647-ed704fb1c7a6",
+            attachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
             description: "EPAM Systems kompaniyasi, Senior Software Engineer",
             telegram: "",
             linkedIn: "",
-            instagram: ""
+            instagram: "",
+            telegramAttachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
+            linkedInAttachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
+            instagramAttachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92"
 
         });
         setState(stateForUpdate)
@@ -466,7 +471,7 @@ export default function QuizDetails() {
         let id = uuid();
         stateForUpdate.successSides.push({
             id,
-            attachment: "27c241b5-9df5-4f69-a3a6-1c972ca1d22e",
+            attachment: "5725ca08-1ef6-4bb9-9354-fe09fbb63f92",
             title: "INNOVATSIYA VA IJOD",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dicta dolorem dolores eaque eius et, fugit ipsa iusto nulla perspiciatis porro quam quos, saepe veniam voluptas. Commodi expedita nobis odio!"
         });
@@ -474,8 +479,8 @@ export default function QuizDetails() {
         setJob(!job) //kerak emas, state ni refresh qilib olish uchun ishlatildi
     }
 
-    console.log(state, "state")
-    console.log(attachments, "attachments")
+    // console.log(state, "state")
+    // console.log(attachments, "attachments")
 
 
     function deleteElementFromList(id, fromWhere) {
@@ -725,7 +730,7 @@ export default function QuizDetails() {
                         <div className="row p-5">
                             <div className="col-lg-6 col-md-6  col-xl-g col-sm-12 col-12 d-flex align-items-center">
                                 <h1 className="title layerH1 px-4 text-white">
-                                    <EditTextarea rows={7} inputClassName={"text-dark"} onSave={collectJobData}
+                                    <EditTextarea placeholder={"where can study"} rows={7} inputClassName={"text-dark"} onSave={collectJobData}
                                                   defaultValue={state.whereCanStudyTitle ? state.whereCanStudyTitle : "Arxitektorlikni qayerdan o'rgansa bo'ladi"}
                                                   name={"whereCanStudyTitle"}/>
                                 </h1>
@@ -791,16 +796,19 @@ export default function QuizDetails() {
                                         <input hidden id={item.id} type="file"
                                                onChange={(e) => previewImage(e, item.id + "Attachment")}/>
                                         <label htmlFor={item.id}>
-                                            <ImgEditor>
+                                            <ImgEditor
+                                                style={{width:"120px"}}
+                                            >
 
                                                 <img
                                                     style={{
                                                         opacity: loadings[item.id + "AttachmentLoading"] ? '.2' : '1',
-                                                        width: "135px"
+                                                        width: ""
                                                     }}
                                                     className="img-fluid"
                                                     src={attachments[item.id + "AttachmentFromServer"] ? BASE_URL + "api/v1/file/get/" + attachments[item.id + "AttachmentFromServer"] : attachments[item.id + "Attachment"] ? attachments[item.id + "Attachment"] : item.attachment ? BASE_URL + "api/v1/file/get/" + item.attachment : edx}
                                                     alt=""/>
+
 
                                                 {loadings[item.id + "AttachmentLoading"] ?
                                                     <div className={"iconLoadingWrapper"}>

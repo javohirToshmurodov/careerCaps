@@ -8,7 +8,7 @@ export default function QuizJobCard(props) {
   return (
     <label
       htmlFor={props.id}
-      className='col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mt-3'
+      className={`col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mt-3 ${props.yearlySalary == null || props.yearlySalary == "" ? "d-none" : ""}`}
     >
       <QuizJobCardWrapper>
         <div className='positionInput'>

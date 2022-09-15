@@ -49,8 +49,10 @@ export default function Home() {
                             <OutlineBtn className="mt-4 outBtn" onClick={() => navigate("/quiz")}>Test</OutlineBtn>
                         </div>
                         <div
-                            className="col-lg-6 col-md-6 d-flex justify-content-center align-items-center flex-column col-xl-g col-sm-12   col-12">
-                            <LazyLoadImage className="img-fluid mt-4" src={MainImg} effect={"blur"}/>
+                            className="col-lg-6 col-md-6 d-flex justify-content-center align-items-center flex-column col-xl-g col-sm-12   col-12"
+                            style={{height:"408px"}}
+                        >
+                            <LazyLoadImage style={{maxHeight:"408px"}} className="img-fluid mt-4" src={MainImg} effect={"blur"}/>
                         </div>
                     </div>
                 </div>
@@ -112,7 +114,7 @@ export default function Home() {
                             <img className={"mx-2"} src={gmail} alt="networks"/>
                         </a>
                         <h1 className="defaultH1 mt-4 mb-3">Admin bilan aloqa</h1>
-                        <p className="fw-400">(+998 90) 977-19-60</p>
+                        {/*<p className="fw-400">(+998 90) 977-19-60</p>*/}
                     </div>
                     <img
                         src={position}

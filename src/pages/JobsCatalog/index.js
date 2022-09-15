@@ -77,7 +77,7 @@ export default function JobsCatalog() {
                             <div className="col-12 ">
                                 {kasblar.map((e) => (
                                     <div
-                                        className="row pt-3 pb-3 align-items-center jobsCard  pe-0 mt-4  position-relative"
+                                        className={`row pt-3 pb-3 align-items-center jobsCard  pe-0 mt-4  position-relative ${e.yearlySalary == null || e.yearlySalary == "" ? "d-none" : ""}`}
                                         key={e.id}
                                     >
                                         <Link to={"/job/" + e.id}

@@ -34,7 +34,7 @@ export default function Contact() {
               <img className={"mx-2"} src={gmail} alt="networks"/>
             </a>
             <h1 className="defaultH1 mt-4 mb-3">Admin bilan aloqa</h1>
-            <p className="fw-400">(+998 90) 977-19-60</p>
+            {/*<p className="fw-400">(+998 90) 977-19-60</p>*/}
           </div>
         </div>
       </section>
